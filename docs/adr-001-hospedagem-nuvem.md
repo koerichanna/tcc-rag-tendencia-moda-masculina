@@ -30,7 +30,9 @@ Caddy na frente faz HTTPS com Let's Encrypt para os dois domínios.
 
 ## Decisão
 
-- VM Ubuntu 24.04 `Standard_B2s` (2 vCPU, 4 GB) na Azure.
+- VM Ubuntu 24.04 ARM64 `Standard_B2pls_v2` (2 vCPU, 4 GB) em `canadacentral`. A política do Azure for
+  Students só libera algumas regiões (Brasil não está entre elas) e o B2s x86 estava sem capacidade;
+  a versão ARM custa o mesmo. Por isso as imagens são geradas num runner ARM do GitHub.
 - O GitHub Actions roda lint e testes, gera as imagens do backend e do frontend e publica no
   GitHub Container Registry com o SHA do commit como tag.
 - O deploy usa `az vm run-command invoke`, autenticado por OIDC (sem senha guardada no GitHub). O

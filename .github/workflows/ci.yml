@@ -94,7 +94,7 @@ jobs:
     name: Publicar imagens no GHCR
     needs: [backend, frontend]
     if: github.event_name == 'push'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm  # a VM da Azure é ARM64 (B2pls_v2)
     permissions:
       contents: read
       packages: write
