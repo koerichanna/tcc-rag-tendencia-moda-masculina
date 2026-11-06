@@ -1,0 +1,29 @@
+# Proxy reverso com HTTPS (Let's Encrypt) compartilhado pelos dois ambientes.
+# Sobe uma vez na VM: docker compose --env-file ../../.env.caddy up -d
+
+services:
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - DOMAIN=${DOMAIN}
+      - STAGING_DOMAIN=${STAGING_DOMAIN}
+      - ACME_EMAIL=${ACME_EMAIL}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - proxy
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  proxy:
+    name: moda_proxy
+    external: true

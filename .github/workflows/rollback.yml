@@ -1,0 +1,45 @@
+name: Rollback / deploy manual
+
+# Reimplanta uma versão já publicada no GHCR (as imagens são marcadas com o SHA do commit).
+on:
+  workflow_dispatch:
+    inputs:
+      ambiente:
+        description: Ambiente
+        type: choice
+        options: [staging, production]
+        required: true
+      sha:
+        description: SHA completo do commit a implantar
+        required: true
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.ambiente }}
+    concurrency: deploy-${{ inputs.ambiente }}
+    steps:
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Reimplantar versão
+        env:
+          AMBIENTE: ${{ inputs.ambiente }}
+          SHA: ${{ inputs.sha }}
+        run: |
+          [[ "$SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "SHA invalido"; exit 1; }
+          saida=$(az vm run-command invoke \
+            --resource-group "${{ vars.AZURE_RESOURCE_GROUP }}" \
+            --name "${{ vars.AZURE_VM_NAME }}" \
+            --command-id RunShellScript \
+            --scripts "cd /opt/projeto-moda/repo && git fetch -q origin && git show $SHA:deploy/deploy.sh | bash -s -- $AMBIENTE $SHA" \
+            --query "value[0].message" -o tsv)
+          echo "$saida"
+          echo "$saida" | grep -q "concluido"
