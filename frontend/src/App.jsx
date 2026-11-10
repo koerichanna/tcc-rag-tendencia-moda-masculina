@@ -7,9 +7,7 @@ import {
   ShoppingBag,
   Sparkles,
   Layers,
-  PlusCircle,
   BarChart3,
-  CheckCircle2,
   RefreshCw,
   HelpCircle,
   ArrowRight,
@@ -17,6 +15,7 @@ import {
   Zap
 } from 'lucide-react';
 import { api } from './api';
+import Produtos from './pages/Produtos';
 import './App.css';
 
 export default function App() {
@@ -40,20 +39,6 @@ export default function App() {
   const [modalGerarTendencia, setModalGerarTendencia] = useState(false);
   const [temaIA, setTemaIA] = useState('Tendências Emergentes de Moda Masculina 2026');
   const [gerandoTendenciasIA, setGerandoTendenciasIA] = useState(false);
-
-  const [avaliandoProdutoId, setAvaliandoProdutoId] = useState(null);
-  const [resultadoAvaliacaoIA, setResultadoAvaliacaoIA] = useState(null);
-
-  const [modalProduto, setModalProduto] = useState(false);
-  const [novoProd, setNovoProd] = useState({
-    nome: '',
-    categoria: 'Camisas',
-    preco_medio: '',
-    custo_aquisicao: '',
-    quantidade_estoque: '',
-    estoque_minimo: 5,
-    tendencia_score: 50
-  });
 
   const perguntasExemplo = [
     { texto: 'Devo comprar mais calças jeans skinny para esta coleção?', cat: 'Calças' },
@@ -129,46 +114,6 @@ export default function App() {
       alert('Erro ao gerar tendências:\n' + err.message);
     } finally {
       setGerandoTendenciasIA(false);
-    }
-  };
-
-  const avaliarProdutoComIA = async (prodId) => {
-    setAvaliandoProdutoId(prodId);
-    try {
-      setResultadoAvaliacaoIA(await api.analisarProduto(prodId));
-      carregarDados();
-    } catch (err) {
-      alert('Erro ao analisar produto:\n' + err.message);
-    } finally {
-      setAvaliandoProdutoId(null);
-    }
-  };
-
-  const salvarNovoProduto = async (e) => {
-    e.preventDefault();
-    try {
-      await api.criarProduto({
-        nome: novoProd.nome,
-        categoria: novoProd.categoria,
-        preco_medio: parseFloat(novoProd.preco_medio) || 0,
-        custo_aquisicao: parseFloat(novoProd.custo_aquisicao) || 0,
-        quantidade_estoque: parseInt(novoProd.quantidade_estoque) || 0,
-        estoque_minimo: parseInt(novoProd.estoque_minimo) || 5,
-        tendencia_score: parseFloat(novoProd.tendencia_score) || 50,
-      });
-      setModalProduto(false);
-      setNovoProd({
-        nome: '',
-        categoria: 'Camisas',
-        preco_medio: '',
-        custo_aquisicao: '',
-        quantidade_estoque: '',
-        estoque_minimo: 5,
-        tendencia_score: 50
-      });
-      carregarDados();
-    } catch (err) {
-      alert('Não foi possível cadastrar o produto:\n' + err.message);
     }
   };
 
@@ -747,259 +692,7 @@ export default function App() {
           </div>
         )}
 
-        {activeTab === 'produtos' && (
-          <div className="panel-card">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-              <div>
-                <h2 className="panel-title" style={{ marginBottom: '0.25rem' }}>
-                  <Package size={22} color="#059669" /> Catálogo da Loja & Análise Automatizada por IA
-                </h2>
-                <p style={{ fontSize: '0.85rem', color: '#64748b' }}>
-                  Avalie o potencial de mercado e os riscos de cada produto com um clique no botão <strong>Avaliar com IA</strong>.
-                </p>
-              </div>
-
-              <button
-                type="button"
-                className="badge"
-                style={{ background: '#2563eb', color: 'white', padding: '0.6rem 1rem', fontSize: '0.85rem', cursor: 'pointer' }}
-                onClick={() => setModalProduto(true)}
-              >
-                <PlusCircle size={16} /> Novo Produto
-              </button>
-            </div>
-
-            {produtos.length === 0 ? (
-              <p style={{ color: '#64748b' }}>Nenhum produto cadastrado na loja.</p>
-            ) : (
-              <div className="table-container">
-                <table className="custom-table">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Produto</th>
-                      <th>Categoria</th>
-                      <th>Preço Venda</th>
-                      <th>Estoque Atual</th>
-                      <th>Estoque Mínimo</th>
-                      <th>Score Tendência (IA)</th>
-                      <th>Status Estoque</th>
-                      <th>Ações com IA</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {produtos.map((p) => {
-                      const estoqueCritico = p.quantidade_estoque <= p.estoque_minimo;
-                      const avaliando = avaliandoProdutoId === p.id;
-
-                      return (
-                        <tr key={p.id}>
-                          <td>#{p.id}</td>
-                          <td style={{ fontWeight: 600 }}>{p.nome}</td>
-                          <td>{p.categoria}</td>
-                          <td>R$ {p.preco_medio.toFixed(2)}</td>
-                          <td style={{ fontWeight: 700, color: estoqueCritico ? '#dc2626' : '#1e293b' }}>
-                            {p.quantidade_estoque} un
-                          </td>
-                          <td>{p.estoque_minimo} un</td>
-                          <td>
-                            <span className="badge" style={{ background: '#ede9fe', color: '#6d28d9' }}>
-                              ⭐ {p.tendencia_score} / 100
-                            </span>
-                          </td>
-                          <td>
-                            {estoqueCritico ? (
-                              <span className="badge badge-risk-alto">
-                                <AlertTriangle size={12} /> Crítico
-                              </span>
-                            ) : (
-                              <span className="badge badge-risk-baixo">
-                                <CheckCircle2 size={12} /> Adequado
-                              </span>
-                            )}
-                          </td>
-                          <td>
-                            <div style={{ display: 'flex', gap: '0.4rem' }}>
-                              <button
-                                type="button"
-                                className="badge"
-                                disabled={avaliando}
-                                style={{ background: '#4338ca', color: 'white', cursor: 'pointer', padding: '0.4rem 0.65rem' }}
-                                onClick={() => avaliarProdutoComIA(p.id)}
-                              >
-                                {avaliando ? (
-                                  <>
-                                    <RefreshCw className="animate-spin" size={12} /> Avaliando...
-                                  </>
-                                ) : (
-                                  <>
-                                    <Sparkles size={12} /> Avaliar com IA
-                                  </>
-                                )}
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            )}
-
-            {resultadoAvaliacaoIA && (
-              <div style={{
-                position: 'fixed',
-                top: 0, left: 0, right: 0, bottom: 0,
-                backgroundColor: 'rgba(15, 23, 42, 0.6)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 60
-              }}>
-                <div style={{ background: 'white', borderRadius: '12px', padding: '2rem', maxWidth: '580px', width: '90%' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <Sparkles size={22} color="#4338ca" />
-                      <h3 style={{ fontSize: '1.2rem', fontWeight: 700 }}>
-                        Avaliação Gemini: {resultadoAvaliacaoIA.produto_nome}
-                      </h3>
-                    </div>
-                    <span className={`badge badge-risk-${resultadoAvaliacaoIA.nivel_risco?.toLowerCase()}`}>
-                      Risco: {resultadoAvaliacaoIA.nivel_risco}
-                    </span>
-                  </div>
-
-                  <div className="action-highlight-box">
-                    <div className="action-title">Ação Recomendada pela IA</div>
-                    <div className="action-value">{resultadoAvaliacaoIA.acao_recomendada}</div>
-                    <div style={{ marginTop: '0.3rem', fontSize: '0.85rem', color: '#4338ca', fontWeight: 600 }}>
-                      Score de Tendência Atualizado: {resultadoAvaliacaoIA.novo_score_tendencia} / 100
-                    </div>
-                  </div>
-
-                  <div style={{ marginBottom: '1rem' }}>
-                    <h5 style={{ fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.2rem' }}>Diagnóstico de Mercado:</h5>
-                    <p style={{ fontSize: '0.9rem', color: '#1e293b', lineHeight: 1.5 }}>
-                      {resultadoAvaliacaoIA.diagnostico}
-                    </p>
-                  </div>
-
-                  <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #e2e8f0', marginBottom: '1.5rem' }}>
-                    <h5 style={{ fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>Justificativa Explicável:</h5>
-                    <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.5 }}>
-                      {resultadoAvaliacaoIA.justificativa_explicavel}
-                    </p>
-                  </div>
-
-                  <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    <button
-                      type="button"
-                      onClick={() => setResultadoAvaliacaoIA(null)}
-                      style={{ padding: '0.6rem 1.5rem', borderRadius: '6px', background: '#2563eb', color: 'white', fontWeight: 600 }}
-                    >
-                      Entendido
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {modalProduto && (
-              <div style={{
-                position: 'fixed',
-                top: 0, left: 0, right: 0, bottom: 0,
-                backgroundColor: 'rgba(15, 23, 42, 0.5)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50
-              }}>
-                <div style={{ background: 'white', borderRadius: '12px', padding: '2rem', maxWidth: '500px', width: '90%' }}>
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '1.25rem' }}>
-                    Cadastrar Produto no Estoque
-                  </h3>
-                  <form onSubmit={salvarNovoProduto}>
-                    <div className="rag-form-group">
-                      <label>Nome do Produto:</label>
-                      <input
-                        className="rag-input"
-                        required
-                        placeholder="Ex: Camiseta Oversized Algodão Heavy"
-                        value={novoProd.nome}
-                        onChange={(e) => setNovoProd({ ...novoProd, nome: e.target.value })}
-                      />
-                    </div>
-
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                      <div className="rag-form-group">
-                        <label>Categoria:</label>
-                        <select
-                          className="rag-select"
-                          value={novoProd.categoria}
-                          onChange={(e) => setNovoProd({ ...novoProd, categoria: e.target.value })}
-                        >
-                          <option value="Camisas">Camisas</option>
-                          <option value="Calças">Calças</option>
-                          <option value="Camisetas">Camisetas</option>
-                          <option value="Calçados">Calçados</option>
-                          <option value="Bermudas">Bermudas</option>
-                          <option value="Jaquetas">Jaquetas</option>
-                        </select>
-                      </div>
-
-                      <div className="rag-form-group">
-                        <label>Preço de Venda (R$):</label>
-                        <input
-                          type="number"
-                          step="0.01"
-                          className="rag-input"
-                          required
-                          value={novoProd.preco_medio}
-                          onChange={(e) => setNovoProd({ ...novoProd, preco_medio: e.target.value })}
-                        />
-                      </div>
-                    </div>
-
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                      <div className="rag-form-group">
-                        <label>Estoque Atual:</label>
-                        <input
-                          type="number"
-                          className="rag-input"
-                          required
-                          value={novoProd.quantidade_estoque}
-                          onChange={(e) => setNovoProd({ ...novoProd, quantidade_estoque: e.target.value })}
-                        />
-                      </div>
-
-                      <div className="rag-form-group">
-                        <label>Estoque Mínimo:</label>
-                        <input
-                          type="number"
-                          className="rag-input"
-                          required
-                          value={novoProd.estoque_minimo}
-                          onChange={(e) => setNovoProd({ ...novoProd, estoque_minimo: e.target.value })}
-                        />
-                      </div>
-                    </div>
-
-                    <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1.5rem' }}>
-                      <button
-                        type="button"
-                        onClick={() => setModalProduto(false)}
-                        style={{ padding: '0.6rem 1.25rem', borderRadius: '6px', background: '#f1f5f9', color: '#475569', fontWeight: 600 }}
-                      >
-                        Cancelar
-                      </button>
-                      <button
-                        type="submit"
-                        style={{ padding: '0.6rem 1.25rem', borderRadius: '6px', background: '#2563eb', color: 'white', fontWeight: 600 }}
-                      >
-                        Salvar Produto
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
+        {activeTab === 'produtos' && <Produtos produtos={produtos} onAtualizar={carregarDados} />}
       </main>
     </div>
   );
