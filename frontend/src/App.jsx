@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { api } from './api';
 import Produtos from './pages/Produtos';
+import Tendencias from './pages/Tendencias';
 import './App.css';
 
 export default function App() {
@@ -35,10 +36,6 @@ export default function App() {
   const [ragProdutoId, setRagProdutoId] = useState('');
   const [ragLoading, setRagLoading] = useState(false);
   const [ragResultado, setRagResultado] = useState(null);
-
-  const [modalGerarTendencia, setModalGerarTendencia] = useState(false);
-  const [temaIA, setTemaIA] = useState('Tendências Emergentes de Moda Masculina 2026');
-  const [gerandoTendenciasIA, setGerandoTendenciasIA] = useState(false);
 
   const perguntasExemplo = [
     { texto: 'Devo comprar mais calças jeans skinny para esta coleção?', cat: 'Calças' },
@@ -100,20 +97,6 @@ export default function App() {
       alert('Erro ao consultar o RAG:\n' + err.message);
     } finally {
       setRagLoading(false);
-    }
-  };
-
-  const gerarTendenciasComIA = async () => {
-    setGerandoTendenciasIA(true);
-    try {
-      const data = await api.gerarTendencias(temaIA);
-      alert(data.mensagem || 'Novas tendências geradas com sucesso!');
-      setModalGerarTendencia(false);
-      carregarDados();
-    } catch (err) {
-      alert('Erro ao gerar tendências:\n' + err.message);
-    } finally {
-      setGerandoTendenciasIA(false);
     }
   };
 
@@ -566,131 +549,7 @@ export default function App() {
           </div>
         )}
 
-        {activeTab === 'tendencias' && (
-          <div className="panel-card">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-              <div>
-                <h2 className="panel-title" style={{ marginBottom: '0.25rem' }}>
-                  <TrendingUp size={22} color="#2563eb" /> Base de Tendências de Moda Masculina
-                </h2>
-                <p style={{ fontSize: '0.85rem', color: '#64748b' }}>
-                  Indexadas no ChromaDB a partir da base de mercado.
-                </p>
-              </div>
-
-              <button
-                type="button"
-                className="badge"
-                style={{ background: 'linear-gradient(135deg, #4f46e5, #7c3aed)', color: 'white', padding: '0.65rem 1.2rem', fontSize: '0.875rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
-                onClick={() => setModalGerarTendencia(true)}
-              >
-                <Sparkles size={16} /> Descobrir Novas Tendências com IA
-              </button>
-            </div>
-
-            <div className="table-container">
-              <table className="custom-table">
-                <thead>
-                  <tr>
-                    <th>Termo / Tendência</th>
-                    <th>Categoria</th>
-                    <th>Score Relevância</th>
-                    <th>Nível de Risco</th>
-                    <th>Sazonalidade</th>
-                    <th>Fonte</th>
-                    <th>Contexto de Mercado</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {tendencias.map((t) => (
-                    <tr key={t.id}>
-                      <td style={{ fontWeight: 600, color: '#0f172a' }}>{t.termo}</td>
-                      <td>
-                        <span className="badge" style={{ background: '#f1f5f9', color: '#334155' }}>
-                          {t.categoria}
-                        </span>
-                      </td>
-                      <td>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                          <span style={{ fontWeight: 700, color: '#2563eb' }}>{t.score_relevancia}</span>
-                          <div style={{ width: '60px', height: '6px', background: '#e2e8f0', borderRadius: '4px' }}>
-                            <div style={{ width: `${t.score_relevancia}%`, height: '100%', background: '#3b82f6', borderRadius: '4px' }} />
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <span className={`badge badge-risk-${t.nivel_risco.toLowerCase()}`}>
-                          {t.nivel_risco}
-                        </span>
-                      </td>
-                      <td>{t.sazonalidade || 'Atemporal'}</td>
-                      <td style={{ fontSize: '0.8rem', color: '#64748b' }}>{t.fonte}</td>
-                      <td style={{ fontSize: '0.825rem', color: '#475569', maxWidth: '350px' }}>
-                        {t.descricao}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            {modalGerarTendencia && (
-              <div style={{
-                position: 'fixed',
-                top: 0, left: 0, right: 0, bottom: 0,
-                backgroundColor: 'rgba(15, 23, 42, 0.6)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 60
-              }}>
-                <div style={{ background: 'white', borderRadius: '12px', padding: '2rem', maxWidth: '520px', width: '90%' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                    <Sparkles size={22} color="#4f46e5" />
-                    <h3 style={{ fontSize: '1.2rem', fontWeight: 700 }}>Gerar Tendências com Gemini AI</h3>
-                  </div>
-                  <p style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '1.25rem' }}>
-                    O LLM sugere novas tendências com pontuação de risco e relevância. Elas ficam marcadas como "não verificadas" e são salvas no PostgreSQL e indexadas no ChromaDB.
-                  </p>
-
-                  <div className="rag-form-group">
-                    <label>Tema ou Foco de Pesquisa:</label>
-                    <input
-                      className="rag-input"
-                      value={temaIA}
-                      onChange={(e) => setTemaIA(e.target.value)}
-                      placeholder="Ex: Alfaiataria Desestruturada, Verão 2026, Calçados Urbanos"
-                    />
-                  </div>
-
-                  <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1.5rem' }}>
-                    <button
-                      type="button"
-                      disabled={gerandoTendenciasIA}
-                      onClick={() => setModalGerarTendencia(false)}
-                      style={{ padding: '0.6rem 1.25rem', borderRadius: '6px', background: '#f1f5f9', color: '#475569', fontWeight: 600 }}
-                    >
-                      Cancelar
-                    </button>
-                    <button
-                      type="button"
-                      disabled={gerandoTendenciasIA || !temaIA.trim()}
-                      onClick={gerarTendenciasComIA}
-                      style={{ padding: '0.6rem 1.25rem', borderRadius: '6px', background: '#4f46e5', color: 'white', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.4rem' }}
-                    >
-                      {gerandoTendenciasIA ? (
-                        <>
-                          <RefreshCw className="animate-spin" size={16} /> Pesquisando com Gemini...
-                        </>
-                      ) : (
-                        <>
-                          <Sparkles size={16} /> Gerar e Indexar
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
+        {activeTab === 'tendencias' && <Tendencias tendencias={tendencias} onAtualizar={carregarDados} />}
 
         {activeTab === 'produtos' && <Produtos produtos={produtos} onAtualizar={carregarDados} />}
       </main>
