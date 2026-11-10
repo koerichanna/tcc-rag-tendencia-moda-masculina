@@ -1,4 +1,4 @@
-from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String, Text, func
+from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String, Text, UniqueConstraint, func
 from sqlalchemy.orm import relationship
 
 from database import Base
@@ -22,8 +22,11 @@ class ProdutoModel(Base):
 
 class TendenciaModel(Base):
     __tablename__ = "tendencias"
+    __table_args__ = (UniqueConstraint("codigo", name="uq_tendencias_codigo"),)
 
     id = Column(Integer, primary_key=True, index=True)
+    # id do registro em data/market_trends.json; vazio para tendências criadas pela API
+    codigo = Column(String(50), nullable=True)
     termo = Column(String(150), index=True, nullable=False)
     categoria = Column(String(100), index=True, nullable=False)
     score_relevancia = Column(Float, nullable=False, default=50.0)

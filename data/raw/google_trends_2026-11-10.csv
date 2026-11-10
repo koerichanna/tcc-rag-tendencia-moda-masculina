@@ -1,0 +1,2621 @@
+data,termo_busca,interesse,parcial
+2021-11-07,camisa de linho,25,False
+2021-11-14,camisa de linho,30,False
+2021-11-21,camisa de linho,33,False
+2021-11-28,camisa de linho,40,False
+2021-12-05,camisa de linho,43,False
+2021-12-12,camisa de linho,48,False
+2021-12-19,camisa de linho,46,False
+2021-12-26,camisa de linho,52,False
+2022-01-02,camisa de linho,27,False
+2022-01-09,camisa de linho,25,False
+2022-01-16,camisa de linho,15,False
+2022-01-23,camisa de linho,19,False
+2022-01-30,camisa de linho,20,False
+2022-02-06,camisa de linho,18,False
+2022-02-13,camisa de linho,20,False
+2022-02-20,camisa de linho,22,False
+2022-02-27,camisa de linho,22,False
+2022-03-06,camisa de linho,18,False
+2022-03-13,camisa de linho,24,False
+2022-03-20,camisa de linho,20,False
+2022-03-27,camisa de linho,20,False
+2022-04-03,camisa de linho,23,False
+2022-04-10,camisa de linho,21,False
+2022-04-17,camisa de linho,20,False
+2022-04-24,camisa de linho,20,False
+2022-05-01,camisa de linho,21,False
+2022-05-08,camisa de linho,20,False
+2022-05-15,camisa de linho,17,False
+2022-05-22,camisa de linho,20,False
+2022-05-29,camisa de linho,20,False
+2022-06-05,camisa de linho,21,False
+2022-06-12,camisa de linho,17,False
+2022-06-19,camisa de linho,19,False
+2022-06-26,camisa de linho,18,False
+2022-07-03,camisa de linho,18,False
+2022-07-10,camisa de linho,20,False
+2022-07-17,camisa de linho,21,False
+2022-07-24,camisa de linho,21,False
+2022-07-31,camisa de linho,24,False
+2022-08-07,camisa de linho,19,False
+2022-08-14,camisa de linho,20,False
+2022-08-21,camisa de linho,21,False
+2022-08-28,camisa de linho,20,False
+2022-09-04,camisa de linho,23,False
+2022-09-11,camisa de linho,20,False
+2022-09-18,camisa de linho,20,False
+2022-09-25,camisa de linho,21,False
+2022-10-02,camisa de linho,20,False
+2022-10-09,camisa de linho,27,False
+2022-10-16,camisa de linho,24,False
+2022-10-23,camisa de linho,28,False
+2022-10-30,camisa de linho,23,False
+2022-11-06,camisa de linho,32,False
+2022-11-13,camisa de linho,44,False
+2022-11-20,camisa de linho,37,False
+2022-11-27,camisa de linho,42,False
+2022-12-04,camisa de linho,53,False
+2022-12-11,camisa de linho,62,False
+2022-12-18,camisa de linho,55,False
+2022-12-25,camisa de linho,63,False
+2023-01-01,camisa de linho,33,False
+2023-01-08,camisa de linho,26,False
+2023-01-15,camisa de linho,29,False
+2023-01-22,camisa de linho,30,False
+2023-01-29,camisa de linho,25,False
+2023-02-05,camisa de linho,24,False
+2023-02-12,camisa de linho,27,False
+2023-02-19,camisa de linho,24,False
+2023-02-26,camisa de linho,22,False
+2023-03-05,camisa de linho,24,False
+2023-03-12,camisa de linho,21,False
+2023-03-19,camisa de linho,26,False
+2023-03-26,camisa de linho,24,False
+2023-04-02,camisa de linho,22,False
+2023-04-09,camisa de linho,22,False
+2023-04-16,camisa de linho,28,False
+2023-04-23,camisa de linho,21,False
+2023-04-30,camisa de linho,29,False
+2023-05-07,camisa de linho,25,False
+2023-05-14,camisa de linho,19,False
+2023-05-21,camisa de linho,20,False
+2023-05-28,camisa de linho,25,False
+2023-06-04,camisa de linho,26,False
+2023-06-11,camisa de linho,20,False
+2023-06-18,camisa de linho,18,False
+2023-06-25,camisa de linho,26,False
+2023-07-02,camisa de linho,22,False
+2023-07-09,camisa de linho,26,False
+2023-07-16,camisa de linho,24,False
+2023-07-23,camisa de linho,27,False
+2023-07-30,camisa de linho,29,False
+2023-08-06,camisa de linho,32,False
+2023-08-13,camisa de linho,29,False
+2023-08-20,camisa de linho,31,False
+2023-08-27,camisa de linho,27,False
+2023-09-03,camisa de linho,29,False
+2023-09-10,camisa de linho,33,False
+2023-09-17,camisa de linho,36,False
+2023-09-24,camisa de linho,34,False
+2023-10-01,camisa de linho,37,False
+2023-10-08,camisa de linho,38,False
+2023-10-15,camisa de linho,35,False
+2023-10-22,camisa de linho,77,False
+2023-10-29,camisa de linho,79,False
+2023-11-05,camisa de linho,40,False
+2023-11-12,camisa de linho,52,False
+2023-11-19,camisa de linho,50,False
+2023-11-26,camisa de linho,57,False
+2023-12-03,camisa de linho,76,False
+2023-12-10,camisa de linho,87,False
+2023-12-17,camisa de linho,79,False
+2023-12-24,camisa de linho,77,False
+2023-12-31,camisa de linho,65,False
+2024-01-07,camisa de linho,50,False
+2024-01-14,camisa de linho,39,False
+2024-01-21,camisa de linho,36,False
+2024-01-28,camisa de linho,29,False
+2024-02-04,camisa de linho,35,False
+2024-02-11,camisa de linho,34,False
+2024-02-18,camisa de linho,43,False
+2024-02-25,camisa de linho,30,False
+2024-03-03,camisa de linho,28,False
+2024-03-10,camisa de linho,33,False
+2024-03-17,camisa de linho,33,False
+2024-03-24,camisa de linho,30,False
+2024-03-31,camisa de linho,33,False
+2024-04-07,camisa de linho,34,False
+2024-04-14,camisa de linho,30,False
+2024-04-21,camisa de linho,32,False
+2024-04-28,camisa de linho,38,False
+2024-05-05,camisa de linho,33,False
+2024-05-12,camisa de linho,35,False
+2024-05-19,camisa de linho,35,False
+2024-05-26,camisa de linho,31,False
+2024-06-02,camisa de linho,30,False
+2024-06-09,camisa de linho,34,False
+2024-06-16,camisa de linho,34,False
+2024-06-23,camisa de linho,37,False
+2024-06-30,camisa de linho,30,False
+2024-07-07,camisa de linho,30,False
+2024-07-14,camisa de linho,32,False
+2024-07-21,camisa de linho,38,False
+2024-07-28,camisa de linho,31,False
+2024-08-04,camisa de linho,28,False
+2024-08-11,camisa de linho,29,False
+2024-08-18,camisa de linho,33,False
+2024-08-25,camisa de linho,32,False
+2024-09-01,camisa de linho,42,False
+2024-09-08,camisa de linho,44,False
+2024-09-15,camisa de linho,39,False
+2024-09-22,camisa de linho,44,False
+2024-09-29,camisa de linho,42,False
+2024-10-06,camisa de linho,39,False
+2024-10-13,camisa de linho,45,False
+2024-10-20,camisa de linho,46,False
+2024-10-27,camisa de linho,48,False
+2024-11-03,camisa de linho,56,False
+2024-11-10,camisa de linho,54,False
+2024-11-17,camisa de linho,65,False
+2024-11-24,camisa de linho,75,False
+2024-12-01,camisa de linho,99,False
+2024-12-08,camisa de linho,100,False
+2024-12-15,camisa de linho,99,False
+2024-12-22,camisa de linho,91,False
+2024-12-29,camisa de linho,74,False
+2025-01-05,camisa de linho,40,False
+2025-01-12,camisa de linho,41,False
+2025-01-19,camisa de linho,33,False
+2025-01-26,camisa de linho,36,False
+2025-02-02,camisa de linho,35,False
+2025-02-09,camisa de linho,38,False
+2025-02-16,camisa de linho,35,False
+2025-02-23,camisa de linho,31,False
+2025-03-02,camisa de linho,30,False
+2025-03-09,camisa de linho,35,False
+2025-03-16,camisa de linho,37,False
+2025-03-23,camisa de linho,36,False
+2025-03-30,camisa de linho,34,False
+2025-04-06,camisa de linho,41,False
+2025-04-13,camisa de linho,33,False
+2025-04-20,camisa de linho,32,False
+2025-04-27,camisa de linho,41,False
+2025-05-04,camisa de linho,39,False
+2025-05-11,camisa de linho,29,False
+2025-05-18,camisa de linho,37,False
+2025-05-25,camisa de linho,28,False
+2025-06-01,camisa de linho,37,False
+2025-06-08,camisa de linho,35,False
+2025-06-15,camisa de linho,28,False
+2025-06-22,camisa de linho,31,False
+2025-06-29,camisa de linho,30,False
+2025-07-06,camisa de linho,29,False
+2025-07-13,camisa de linho,35,False
+2025-07-20,camisa de linho,38,False
+2025-07-27,camisa de linho,40,False
+2025-08-03,camisa de linho,36,False
+2025-08-10,camisa de linho,32,False
+2025-08-17,camisa de linho,36,False
+2025-08-24,camisa de linho,38,False
+2025-08-31,camisa de linho,39,False
+2025-09-07,camisa de linho,38,False
+2025-09-14,camisa de linho,37,False
+2025-09-21,camisa de linho,40,False
+2025-09-28,camisa de linho,41,False
+2025-10-05,camisa de linho,43,False
+2025-10-12,camisa de linho,44,False
+2025-10-19,camisa de linho,50,False
+2025-10-26,camisa de linho,48,False
+2025-11-02,camisa de linho,50,False
+2025-11-09,camisa de linho,60,False
+2025-11-16,camisa de linho,57,False
+2025-11-23,camisa de linho,63,False
+2025-11-30,camisa de linho,87,False
+2025-12-07,camisa de linho,86,False
+2025-12-14,camisa de linho,88,False
+2025-12-21,camisa de linho,82,False
+2025-12-28,camisa de linho,97,False
+2026-01-04,camisa de linho,50,False
+2026-01-11,camisa de linho,40,False
+2026-01-18,camisa de linho,42,False
+2026-01-25,camisa de linho,34,False
+2026-02-01,camisa de linho,33,False
+2026-02-08,camisa de linho,37,False
+2026-02-15,camisa de linho,33,False
+2026-02-22,camisa de linho,34,False
+2026-03-01,camisa de linho,34,False
+2026-03-08,camisa de linho,43,False
+2026-03-15,camisa de linho,40,False
+2026-03-22,camisa de linho,38,False
+2026-03-29,camisa de linho,33,False
+2026-04-05,camisa de linho,39,False
+2026-04-12,camisa de linho,40,False
+2026-04-19,camisa de linho,43,False
+2026-04-26,camisa de linho,37,False
+2026-05-03,camisa de linho,40,False
+2026-05-10,camisa de linho,36,False
+2026-05-17,camisa de linho,34,False
+2026-05-24,camisa de linho,34,False
+2026-05-31,camisa de linho,36,False
+2026-06-07,camisa de linho,33,False
+2026-06-14,camisa de linho,24,False
+2026-06-21,camisa de linho,30,False
+2026-06-28,camisa de linho,30,False
+2026-07-05,camisa de linho,33,False
+2026-07-12,camisa de linho,36,False
+2026-07-19,camisa de linho,39,False
+2026-07-26,camisa de linho,44,False
+2026-08-02,camisa de linho,46,False
+2026-08-09,camisa de linho,43,False
+2026-08-16,camisa de linho,41,False
+2026-08-23,camisa de linho,40,False
+2026-08-30,camisa de linho,49,False
+2026-09-06,camisa de linho,41,False
+2026-09-13,camisa de linho,42,False
+2026-09-20,camisa de linho,48,False
+2026-09-27,camisa de linho,41,False
+2026-10-04,camisa de linho,37,False
+2026-10-11,camisa de linho,49,False
+2026-10-18,camisa de linho,37,False
+2026-10-25,camisa de linho,34,False
+2026-11-01,camisa de linho,49,False
+2026-11-08,camisa de linho,50,True
+2021-11-07,calça wide leg,64,False
+2021-11-14,calça wide leg,61,False
+2021-11-21,calça wide leg,64,False
+2021-11-28,calça wide leg,69,False
+2021-12-05,calça wide leg,81,False
+2021-12-12,calça wide leg,86,False
+2021-12-19,calça wide leg,77,False
+2021-12-26,calça wide leg,52,False
+2022-01-02,calça wide leg,53,False
+2022-01-09,calça wide leg,57,False
+2022-01-16,calça wide leg,47,False
+2022-01-23,calça wide leg,50,False
+2022-01-30,calça wide leg,59,False
+2022-02-06,calça wide leg,65,False
+2022-02-13,calça wide leg,66,False
+2022-02-20,calça wide leg,58,False
+2022-02-27,calça wide leg,53,False
+2022-03-06,calça wide leg,58,False
+2022-03-13,calça wide leg,65,False
+2022-03-20,calça wide leg,74,False
+2022-03-27,calça wide leg,73,False
+2022-04-03,calça wide leg,67,False
+2022-04-10,calça wide leg,70,False
+2022-04-17,calça wide leg,72,False
+2022-04-24,calça wide leg,72,False
+2022-05-01,calça wide leg,73,False
+2022-05-08,calça wide leg,86,False
+2022-05-15,calça wide leg,81,False
+2022-05-22,calça wide leg,77,False
+2022-05-29,calça wide leg,80,False
+2022-06-05,calça wide leg,87,False
+2022-06-12,calça wide leg,100,False
+2022-06-19,calça wide leg,93,False
+2022-06-26,calça wide leg,93,False
+2022-07-03,calça wide leg,97,False
+2022-07-10,calça wide leg,98,False
+2022-07-17,calça wide leg,97,False
+2022-07-24,calça wide leg,93,False
+2022-07-31,calça wide leg,95,False
+2022-08-07,calça wide leg,92,False
+2022-08-14,calça wide leg,97,False
+2022-08-21,calça wide leg,91,False
+2022-08-28,calça wide leg,88,False
+2022-09-04,calça wide leg,95,False
+2022-09-11,calça wide leg,77,False
+2022-09-18,calça wide leg,84,False
+2022-09-25,calça wide leg,74,False
+2022-10-02,calça wide leg,67,False
+2022-10-09,calça wide leg,73,False
+2022-10-16,calça wide leg,60,False
+2022-10-23,calça wide leg,54,False
+2022-10-30,calça wide leg,51,False
+2022-11-06,calça wide leg,68,False
+2022-11-13,calça wide leg,72,False
+2022-11-20,calça wide leg,63,False
+2022-11-27,calça wide leg,66,False
+2022-12-04,calça wide leg,72,False
+2022-12-11,calça wide leg,73,False
+2022-12-18,calça wide leg,81,False
+2022-12-25,calça wide leg,60,False
+2023-01-01,calça wide leg,42,False
+2023-01-08,calça wide leg,48,False
+2023-01-15,calça wide leg,46,False
+2023-01-22,calça wide leg,42,False
+2023-01-29,calça wide leg,48,False
+2023-02-05,calça wide leg,46,False
+2023-02-12,calça wide leg,42,False
+2023-02-19,calça wide leg,46,False
+2023-02-26,calça wide leg,46,False
+2023-03-05,calça wide leg,42,False
+2023-03-12,calça wide leg,44,False
+2023-03-19,calça wide leg,42,False
+2023-03-26,calça wide leg,43,False
+2023-04-02,calça wide leg,48,False
+2023-04-09,calça wide leg,50,False
+2023-04-16,calça wide leg,57,False
+2023-04-23,calça wide leg,61,False
+2023-04-30,calça wide leg,58,False
+2023-05-07,calça wide leg,56,False
+2023-05-14,calça wide leg,63,False
+2023-05-21,calça wide leg,61,False
+2023-05-28,calça wide leg,55,False
+2023-06-04,calça wide leg,63,False
+2023-06-11,calça wide leg,56,False
+2023-06-18,calça wide leg,56,False
+2023-06-25,calça wide leg,53,False
+2023-07-02,calça wide leg,66,False
+2023-07-09,calça wide leg,52,False
+2023-07-16,calça wide leg,50,False
+2023-07-23,calça wide leg,47,False
+2023-07-30,calça wide leg,43,False
+2023-08-06,calça wide leg,40,False
+2023-08-13,calça wide leg,40,False
+2023-08-20,calça wide leg,37,False
+2023-08-27,calça wide leg,38,False
+2023-09-03,calça wide leg,37,False
+2023-09-10,calça wide leg,37,False
+2023-09-17,calça wide leg,32,False
+2023-09-24,calça wide leg,33,False
+2023-10-01,calça wide leg,34,False
+2023-10-08,calça wide leg,39,False
+2023-10-15,calça wide leg,38,False
+2023-10-22,calça wide leg,35,False
+2023-10-29,calça wide leg,37,False
+2023-11-05,calça wide leg,36,False
+2023-11-12,calça wide leg,30,False
+2023-11-19,calça wide leg,38,False
+2023-11-26,calça wide leg,38,False
+2023-12-03,calça wide leg,40,False
+2023-12-10,calça wide leg,40,False
+2023-12-17,calça wide leg,35,False
+2023-12-24,calça wide leg,27,False
+2023-12-31,calça wide leg,25,False
+2024-01-07,calça wide leg,26,False
+2024-01-14,calça wide leg,28,False
+2024-01-21,calça wide leg,29,False
+2024-01-28,calça wide leg,27,False
+2024-02-04,calça wide leg,27,False
+2024-02-11,calça wide leg,27,False
+2024-02-18,calça wide leg,31,False
+2024-02-25,calça wide leg,31,False
+2024-03-03,calça wide leg,34,False
+2024-03-10,calça wide leg,30,False
+2024-03-17,calça wide leg,35,False
+2024-03-24,calça wide leg,37,False
+2024-03-31,calça wide leg,34,False
+2024-04-07,calça wide leg,32,False
+2024-04-14,calça wide leg,40,False
+2024-04-21,calça wide leg,39,False
+2024-04-28,calça wide leg,38,False
+2024-05-05,calça wide leg,30,False
+2024-05-12,calça wide leg,38,False
+2024-05-19,calça wide leg,40,False
+2024-05-26,calça wide leg,46,False
+2024-06-02,calça wide leg,45,False
+2024-06-09,calça wide leg,39,False
+2024-06-16,calça wide leg,38,False
+2024-06-23,calça wide leg,37,False
+2024-06-30,calça wide leg,45,False
+2024-07-07,calça wide leg,46,False
+2024-07-14,calça wide leg,52,False
+2024-07-21,calça wide leg,46,False
+2024-07-28,calça wide leg,45,False
+2024-08-04,calça wide leg,41,False
+2024-08-11,calça wide leg,48,False
+2024-08-18,calça wide leg,44,False
+2024-08-25,calça wide leg,45,False
+2024-09-01,calça wide leg,38,False
+2024-09-08,calça wide leg,42,False
+2024-09-15,calça wide leg,41,False
+2024-09-22,calça wide leg,36,False
+2024-09-29,calça wide leg,34,False
+2024-10-06,calça wide leg,34,False
+2024-10-13,calça wide leg,33,False
+2024-10-20,calça wide leg,38,False
+2024-10-27,calça wide leg,34,False
+2024-11-03,calça wide leg,38,False
+2024-11-10,calça wide leg,41,False
+2024-11-17,calça wide leg,37,False
+2024-11-24,calça wide leg,39,False
+2024-12-01,calça wide leg,41,False
+2024-12-08,calça wide leg,44,False
+2024-12-15,calça wide leg,34,False
+2024-12-22,calça wide leg,38,False
+2024-12-29,calça wide leg,25,False
+2025-01-05,calça wide leg,30,False
+2025-01-12,calça wide leg,30,False
+2025-01-19,calça wide leg,30,False
+2025-01-26,calça wide leg,32,False
+2025-02-02,calça wide leg,36,False
+2025-02-09,calça wide leg,30,False
+2025-02-16,calça wide leg,29,False
+2025-02-23,calça wide leg,27,False
+2025-03-02,calça wide leg,31,False
+2025-03-09,calça wide leg,33,False
+2025-03-16,calça wide leg,42,False
+2025-03-23,calça wide leg,41,False
+2025-03-30,calça wide leg,41,False
+2025-04-06,calça wide leg,50,False
+2025-04-13,calça wide leg,47,False
+2025-04-20,calça wide leg,50,False
+2025-04-27,calça wide leg,50,False
+2025-05-04,calça wide leg,54,False
+2025-05-11,calça wide leg,51,False
+2025-05-18,calça wide leg,52,False
+2025-05-25,calça wide leg,53,False
+2025-06-01,calça wide leg,57,False
+2025-06-08,calça wide leg,56,False
+2025-06-15,calça wide leg,55,False
+2025-06-22,calça wide leg,49,False
+2025-06-29,calça wide leg,53,False
+2025-07-06,calça wide leg,62,False
+2025-07-13,calça wide leg,56,False
+2025-07-20,calça wide leg,55,False
+2025-07-27,calça wide leg,49,False
+2025-08-03,calça wide leg,52,False
+2025-08-10,calça wide leg,51,False
+2025-08-17,calça wide leg,51,False
+2025-08-24,calça wide leg,48,False
+2025-08-31,calça wide leg,51,False
+2025-09-07,calça wide leg,53,False
+2025-09-14,calça wide leg,44,False
+2025-09-21,calça wide leg,40,False
+2025-09-28,calça wide leg,43,False
+2025-10-05,calça wide leg,43,False
+2025-10-12,calça wide leg,41,False
+2025-10-19,calça wide leg,43,False
+2025-10-26,calça wide leg,38,False
+2025-11-02,calça wide leg,43,False
+2025-11-09,calça wide leg,44,False
+2025-11-16,calça wide leg,48,False
+2025-11-23,calça wide leg,44,False
+2025-11-30,calça wide leg,42,False
+2025-12-07,calça wide leg,43,False
+2025-12-14,calça wide leg,45,False
+2025-12-21,calça wide leg,32,False
+2025-12-28,calça wide leg,24,False
+2026-01-04,calça wide leg,34,False
+2026-01-11,calça wide leg,32,False
+2026-01-18,calça wide leg,34,False
+2026-01-25,calça wide leg,35,False
+2026-02-01,calça wide leg,38,False
+2026-02-08,calça wide leg,39,False
+2026-02-15,calça wide leg,33,False
+2026-02-22,calça wide leg,40,False
+2026-03-01,calça wide leg,49,False
+2026-03-08,calça wide leg,52,False
+2026-03-15,calça wide leg,47,False
+2026-03-22,calça wide leg,45,False
+2026-03-29,calça wide leg,49,False
+2026-04-05,calça wide leg,48,False
+2026-04-12,calça wide leg,52,False
+2026-04-19,calça wide leg,49,False
+2026-04-26,calça wide leg,53,False
+2026-05-03,calça wide leg,65,False
+2026-05-10,calça wide leg,66,False
+2026-05-17,calça wide leg,65,False
+2026-05-24,calça wide leg,58,False
+2026-05-31,calça wide leg,68,False
+2026-06-07,calça wide leg,66,False
+2026-06-14,calça wide leg,59,False
+2026-06-21,calça wide leg,55,False
+2026-06-28,calça wide leg,60,False
+2026-07-05,calça wide leg,64,False
+2026-07-12,calça wide leg,63,False
+2026-07-19,calça wide leg,58,False
+2026-07-26,calça wide leg,56,False
+2026-08-02,calça wide leg,55,False
+2026-08-09,calça wide leg,56,False
+2026-08-16,calça wide leg,52,False
+2026-08-23,calça wide leg,47,False
+2026-08-30,calça wide leg,52,False
+2026-09-06,calça wide leg,55,False
+2026-09-13,calça wide leg,55,False
+2026-09-20,calça wide leg,49,False
+2026-09-27,calça wide leg,49,False
+2026-10-04,calça wide leg,45,False
+2026-10-11,calça wide leg,43,False
+2026-10-18,calça wide leg,41,False
+2026-10-25,calça wide leg,33,False
+2026-11-01,calça wide leg,42,False
+2026-11-08,calça wide leg,43,True
+2021-11-07,calça skinny,57,False
+2021-11-14,calça skinny,52,False
+2021-11-21,calça skinny,60,False
+2021-11-28,calça skinny,52,False
+2021-12-05,calça skinny,60,False
+2021-12-12,calça skinny,51,False
+2021-12-19,calça skinny,49,False
+2021-12-26,calça skinny,52,False
+2022-01-02,calça skinny,52,False
+2022-01-09,calça skinny,51,False
+2022-01-16,calça skinny,48,False
+2022-01-23,calça skinny,46,False
+2022-01-30,calça skinny,55,False
+2022-02-06,calça skinny,69,False
+2022-02-13,calça skinny,90,False
+2022-02-20,calça skinny,48,False
+2022-02-27,calça skinny,58,False
+2022-03-06,calça skinny,51,False
+2022-03-13,calça skinny,64,False
+2022-03-20,calça skinny,62,False
+2022-03-27,calça skinny,62,False
+2022-04-03,calça skinny,68,False
+2022-04-10,calça skinny,54,False
+2022-04-17,calça skinny,73,False
+2022-04-24,calça skinny,67,False
+2022-05-01,calça skinny,74,False
+2022-05-08,calça skinny,81,False
+2022-05-15,calça skinny,82,False
+2022-05-22,calça skinny,77,False
+2022-05-29,calça skinny,82,False
+2022-06-05,calça skinny,87,False
+2022-06-12,calça skinny,80,False
+2022-06-19,calça skinny,62,False
+2022-06-26,calça skinny,86,False
+2022-07-03,calça skinny,82,False
+2022-07-10,calça skinny,68,False
+2022-07-17,calça skinny,78,False
+2022-07-24,calça skinny,73,False
+2022-07-31,calça skinny,72,False
+2022-08-07,calça skinny,70,False
+2022-08-14,calça skinny,66,False
+2022-08-21,calça skinny,61,False
+2022-08-28,calça skinny,51,False
+2022-09-04,calça skinny,64,False
+2022-09-11,calça skinny,57,False
+2022-09-18,calça skinny,56,False
+2022-09-25,calça skinny,61,False
+2022-10-02,calça skinny,48,False
+2022-10-09,calça skinny,65,False
+2022-10-16,calça skinny,58,False
+2022-10-23,calça skinny,46,False
+2022-10-30,calça skinny,41,False
+2022-11-06,calça skinny,55,False
+2022-11-13,calça skinny,52,False
+2022-11-20,calça skinny,45,False
+2022-11-27,calça skinny,60,False
+2022-12-04,calça skinny,54,False
+2022-12-11,calça skinny,64,False
+2022-12-18,calça skinny,63,False
+2022-12-25,calça skinny,49,False
+2023-01-01,calça skinny,46,False
+2023-01-08,calça skinny,52,False
+2023-01-15,calça skinny,42,False
+2023-01-22,calça skinny,45,False
+2023-01-29,calça skinny,51,False
+2023-02-05,calça skinny,56,False
+2023-02-12,calça skinny,43,False
+2023-02-19,calça skinny,52,False
+2023-02-26,calça skinny,46,False
+2023-03-05,calça skinny,50,False
+2023-03-12,calça skinny,48,False
+2023-03-19,calça skinny,48,False
+2023-03-26,calça skinny,56,False
+2023-04-02,calça skinny,46,False
+2023-04-09,calça skinny,47,False
+2023-04-16,calça skinny,59,False
+2023-04-23,calça skinny,54,False
+2023-04-30,calça skinny,61,False
+2023-05-07,calça skinny,100,False
+2023-05-14,calça skinny,64,False
+2023-05-21,calça skinny,48,False
+2023-05-28,calça skinny,59,False
+2023-06-04,calça skinny,57,False
+2023-06-11,calça skinny,66,False
+2023-06-18,calça skinny,62,False
+2023-06-25,calça skinny,51,False
+2023-07-02,calça skinny,70,False
+2023-07-09,calça skinny,61,False
+2023-07-16,calça skinny,58,False
+2023-07-23,calça skinny,66,False
+2023-07-30,calça skinny,53,False
+2023-08-06,calça skinny,75,False
+2023-08-13,calça skinny,60,False
+2023-08-20,calça skinny,55,False
+2023-08-27,calça skinny,49,False
+2023-09-03,calça skinny,41,False
+2023-09-10,calça skinny,47,False
+2023-09-17,calça skinny,48,False
+2023-09-24,calça skinny,43,False
+2023-10-01,calça skinny,42,False
+2023-10-08,calça skinny,60,False
+2023-10-15,calça skinny,54,False
+2023-10-22,calça skinny,46,False
+2023-10-29,calça skinny,36,False
+2023-11-05,calça skinny,49,False
+2023-11-12,calça skinny,52,False
+2023-11-19,calça skinny,52,False
+2023-11-26,calça skinny,49,False
+2023-12-03,calça skinny,55,False
+2023-12-10,calça skinny,60,False
+2023-12-17,calça skinny,63,False
+2023-12-24,calça skinny,53,False
+2023-12-31,calça skinny,39,False
+2024-01-07,calça skinny,46,False
+2024-01-14,calça skinny,39,False
+2024-01-21,calça skinny,49,False
+2024-01-28,calça skinny,50,False
+2024-02-04,calça skinny,47,False
+2024-02-11,calça skinny,47,False
+2024-02-18,calça skinny,52,False
+2024-02-25,calça skinny,45,False
+2024-03-03,calça skinny,52,False
+2024-03-10,calça skinny,52,False
+2024-03-17,calça skinny,53,False
+2024-03-24,calça skinny,49,False
+2024-03-31,calça skinny,44,False
+2024-04-07,calça skinny,53,False
+2024-04-14,calça skinny,56,False
+2024-04-21,calça skinny,55,False
+2024-04-28,calça skinny,61,False
+2024-05-05,calça skinny,52,False
+2024-05-12,calça skinny,54,False
+2024-05-19,calça skinny,65,False
+2024-05-26,calça skinny,63,False
+2024-06-02,calça skinny,66,False
+2024-06-09,calça skinny,69,False
+2024-06-16,calça skinny,70,False
+2024-06-23,calça skinny,66,False
+2024-06-30,calça skinny,68,False
+2024-07-07,calça skinny,70,False
+2024-07-14,calça skinny,68,False
+2024-07-21,calça skinny,73,False
+2024-07-28,calça skinny,66,False
+2024-08-04,calça skinny,63,False
+2024-08-11,calça skinny,63,False
+2024-08-18,calça skinny,61,False
+2024-08-25,calça skinny,45,False
+2024-09-01,calça skinny,53,False
+2024-09-08,calça skinny,61,False
+2024-09-15,calça skinny,53,False
+2024-09-22,calça skinny,52,False
+2024-09-29,calça skinny,50,False
+2024-10-06,calça skinny,52,False
+2024-10-13,calça skinny,54,False
+2024-10-20,calça skinny,52,False
+2024-10-27,calça skinny,43,False
+2024-11-03,calça skinny,100,False
+2024-11-10,calça skinny,55,False
+2024-11-17,calça skinny,58,False
+2024-11-24,calça skinny,60,False
+2024-12-01,calça skinny,64,False
+2024-12-08,calça skinny,68,False
+2024-12-15,calça skinny,64,False
+2024-12-22,calça skinny,57,False
+2024-12-29,calça skinny,44,False
+2025-01-05,calça skinny,53,False
+2025-01-12,calça skinny,49,False
+2025-01-19,calça skinny,45,False
+2025-01-26,calça skinny,55,False
+2025-02-02,calça skinny,61,False
+2025-02-09,calça skinny,51,False
+2025-02-16,calça skinny,46,False
+2025-02-23,calça skinny,48,False
+2025-03-02,calça skinny,43,False
+2025-03-09,calça skinny,58,False
+2025-03-16,calça skinny,48,False
+2025-03-23,calça skinny,54,False
+2025-03-30,calça skinny,57,False
+2025-04-06,calça skinny,76,False
+2025-04-13,calça skinny,60,False
+2025-04-20,calça skinny,67,False
+2025-04-27,calça skinny,76,False
+2025-05-04,calça skinny,74,False
+2025-05-11,calça skinny,71,False
+2025-05-18,calça skinny,88,False
+2025-05-25,calça skinny,77,False
+2025-06-01,calça skinny,74,False
+2025-06-08,calça skinny,77,False
+2025-06-15,calça skinny,79,False
+2025-06-22,calça skinny,65,False
+2025-06-29,calça skinny,78,False
+2025-07-06,calça skinny,79,False
+2025-07-13,calça skinny,67,False
+2025-07-20,calça skinny,82,False
+2025-07-27,calça skinny,63,False
+2025-08-03,calça skinny,75,False
+2025-08-10,calça skinny,75,False
+2025-08-17,calça skinny,69,False
+2025-08-24,calça skinny,60,False
+2025-08-31,calça skinny,65,False
+2025-09-07,calça skinny,64,False
+2025-09-14,calça skinny,54,False
+2025-09-21,calça skinny,55,False
+2025-09-28,calça skinny,63,False
+2025-10-05,calça skinny,58,False
+2025-10-12,calça skinny,49,False
+2025-10-19,calça skinny,67,False
+2025-10-26,calça skinny,55,False
+2025-11-02,calça skinny,56,False
+2025-11-09,calça skinny,63,False
+2025-11-16,calça skinny,64,False
+2025-11-23,calça skinny,59,False
+2025-11-30,calça skinny,62,False
+2025-12-07,calça skinny,66,False
+2025-12-14,calça skinny,57,False
+2025-12-21,calça skinny,48,False
+2025-12-28,calça skinny,32,False
+2026-01-04,calça skinny,35,False
+2026-01-11,calça skinny,53,False
+2026-01-18,calça skinny,54,False
+2026-01-25,calça skinny,47,False
+2026-02-01,calça skinny,69,False
+2026-02-08,calça skinny,59,False
+2026-02-15,calça skinny,50,False
+2026-02-22,calça skinny,39,False
+2026-03-01,calça skinny,57,False
+2026-03-08,calça skinny,61,False
+2026-03-15,calça skinny,63,False
+2026-03-22,calça skinny,52,False
+2026-03-29,calça skinny,55,False
+2026-04-05,calça skinny,55,False
+2026-04-12,calça skinny,61,False
+2026-04-19,calça skinny,59,False
+2026-04-26,calça skinny,58,False
+2026-05-03,calça skinny,67,False
+2026-05-10,calça skinny,75,False
+2026-05-17,calça skinny,84,False
+2026-05-24,calça skinny,78,False
+2026-05-31,calça skinny,71,False
+2026-06-07,calça skinny,81,False
+2026-06-14,calça skinny,71,False
+2026-06-21,calça skinny,69,False
+2026-06-28,calça skinny,67,False
+2026-07-05,calça skinny,64,False
+2026-07-12,calça skinny,75,False
+2026-07-19,calça skinny,67,False
+2026-07-26,calça skinny,63,False
+2026-08-02,calça skinny,68,False
+2026-08-09,calça skinny,58,False
+2026-08-16,calça skinny,56,False
+2026-08-23,calça skinny,56,False
+2026-08-30,calça skinny,51,False
+2026-09-06,calça skinny,62,False
+2026-09-13,calça skinny,57,False
+2026-09-20,calça skinny,55,False
+2026-09-27,calça skinny,46,False
+2026-10-04,calça skinny,42,False
+2026-10-11,calça skinny,54,False
+2026-10-18,calça skinny,47,False
+2026-10-25,calça skinny,34,False
+2026-11-01,calça skinny,45,False
+2026-11-08,calça skinny,47,True
+2021-11-07,tons terrosos,41,False
+2021-11-14,tons terrosos,40,False
+2021-11-21,tons terrosos,54,False
+2021-11-28,tons terrosos,51,False
+2021-12-05,tons terrosos,51,False
+2021-12-12,tons terrosos,42,False
+2021-12-19,tons terrosos,41,False
+2021-12-26,tons terrosos,39,False
+2022-01-02,tons terrosos,44,False
+2022-01-09,tons terrosos,62,False
+2022-01-16,tons terrosos,50,False
+2022-01-23,tons terrosos,72,False
+2022-01-30,tons terrosos,65,False
+2022-02-06,tons terrosos,55,False
+2022-02-13,tons terrosos,65,False
+2022-02-20,tons terrosos,46,False
+2022-02-27,tons terrosos,50,False
+2022-03-06,tons terrosos,54,False
+2022-03-13,tons terrosos,68,False
+2022-03-20,tons terrosos,70,False
+2022-03-27,tons terrosos,78,False
+2022-04-03,tons terrosos,64,False
+2022-04-10,tons terrosos,68,False
+2022-04-17,tons terrosos,74,False
+2022-04-24,tons terrosos,76,False
+2022-05-01,tons terrosos,84,False
+2022-05-08,tons terrosos,75,False
+2022-05-15,tons terrosos,67,False
+2022-05-22,tons terrosos,73,False
+2022-05-29,tons terrosos,74,False
+2022-06-05,tons terrosos,72,False
+2022-06-12,tons terrosos,64,False
+2022-06-19,tons terrosos,84,False
+2022-06-26,tons terrosos,74,False
+2022-07-03,tons terrosos,81,False
+2022-07-10,tons terrosos,75,False
+2022-07-17,tons terrosos,76,False
+2022-07-24,tons terrosos,56,False
+2022-07-31,tons terrosos,68,False
+2022-08-07,tons terrosos,60,False
+2022-08-14,tons terrosos,65,False
+2022-08-21,tons terrosos,72,False
+2022-08-28,tons terrosos,79,False
+2022-09-04,tons terrosos,63,False
+2022-09-11,tons terrosos,59,False
+2022-09-18,tons terrosos,86,False
+2022-09-25,tons terrosos,46,False
+2022-10-02,tons terrosos,55,False
+2022-10-09,tons terrosos,59,False
+2022-10-16,tons terrosos,56,False
+2022-10-23,tons terrosos,61,False
+2022-10-30,tons terrosos,58,False
+2022-11-06,tons terrosos,55,False
+2022-11-13,tons terrosos,51,False
+2022-11-20,tons terrosos,50,False
+2022-11-27,tons terrosos,51,False
+2022-12-04,tons terrosos,49,False
+2022-12-11,tons terrosos,55,False
+2022-12-18,tons terrosos,46,False
+2022-12-25,tons terrosos,47,False
+2023-01-01,tons terrosos,61,False
+2023-01-08,tons terrosos,63,False
+2023-01-15,tons terrosos,64,False
+2023-01-22,tons terrosos,55,False
+2023-01-29,tons terrosos,69,False
+2023-02-05,tons terrosos,61,False
+2023-02-12,tons terrosos,49,False
+2023-02-19,tons terrosos,42,False
+2023-02-26,tons terrosos,73,False
+2023-03-05,tons terrosos,62,False
+2023-03-12,tons terrosos,69,False
+2023-03-19,tons terrosos,95,False
+2023-03-26,tons terrosos,75,False
+2023-04-02,tons terrosos,66,False
+2023-04-09,tons terrosos,88,False
+2023-04-16,tons terrosos,73,False
+2023-04-23,tons terrosos,86,False
+2023-04-30,tons terrosos,75,False
+2023-05-07,tons terrosos,89,False
+2023-05-14,tons terrosos,84,False
+2023-05-21,tons terrosos,83,False
+2023-05-28,tons terrosos,80,False
+2023-06-04,tons terrosos,74,False
+2023-06-11,tons terrosos,77,False
+2023-06-18,tons terrosos,100,False
+2023-06-25,tons terrosos,87,False
+2023-07-02,tons terrosos,93,False
+2023-07-09,tons terrosos,74,False
+2023-07-16,tons terrosos,71,False
+2023-07-23,tons terrosos,71,False
+2023-07-30,tons terrosos,80,False
+2023-08-06,tons terrosos,67,False
+2023-08-13,tons terrosos,74,False
+2023-08-20,tons terrosos,64,False
+2023-08-27,tons terrosos,67,False
+2023-09-03,tons terrosos,77,False
+2023-09-10,tons terrosos,70,False
+2023-09-17,tons terrosos,56,False
+2023-09-24,tons terrosos,60,False
+2023-10-01,tons terrosos,69,False
+2023-10-08,tons terrosos,56,False
+2023-10-15,tons terrosos,52,False
+2023-10-22,tons terrosos,67,False
+2023-10-29,tons terrosos,69,False
+2023-11-05,tons terrosos,68,False
+2023-11-12,tons terrosos,63,False
+2023-11-19,tons terrosos,62,False
+2023-11-26,tons terrosos,61,False
+2023-12-03,tons terrosos,78,False
+2023-12-10,tons terrosos,80,False
+2023-12-17,tons terrosos,44,False
+2023-12-24,tons terrosos,54,False
+2023-12-31,tons terrosos,50,False
+2024-01-07,tons terrosos,64,False
+2024-01-14,tons terrosos,45,False
+2024-01-21,tons terrosos,64,False
+2024-01-28,tons terrosos,54,False
+2024-02-04,tons terrosos,46,False
+2024-02-11,tons terrosos,41,False
+2024-02-18,tons terrosos,67,False
+2024-02-25,tons terrosos,67,False
+2024-03-03,tons terrosos,51,False
+2024-03-10,tons terrosos,70,False
+2024-03-17,tons terrosos,58,False
+2024-03-24,tons terrosos,68,False
+2024-03-31,tons terrosos,73,False
+2024-04-07,tons terrosos,67,False
+2024-04-14,tons terrosos,70,False
+2024-04-21,tons terrosos,72,False
+2024-04-28,tons terrosos,77,False
+2024-05-05,tons terrosos,79,False
+2024-05-12,tons terrosos,63,False
+2024-05-19,tons terrosos,65,False
+2024-05-26,tons terrosos,76,False
+2024-06-02,tons terrosos,73,False
+2024-06-09,tons terrosos,56,False
+2024-06-16,tons terrosos,74,False
+2024-06-23,tons terrosos,70,False
+2024-06-30,tons terrosos,69,False
+2024-07-07,tons terrosos,50,False
+2024-07-14,tons terrosos,66,False
+2024-07-21,tons terrosos,72,False
+2024-07-28,tons terrosos,54,False
+2024-08-04,tons terrosos,55,False
+2024-08-11,tons terrosos,61,False
+2024-08-18,tons terrosos,70,False
+2024-08-25,tons terrosos,70,False
+2024-09-01,tons terrosos,78,False
+2024-09-08,tons terrosos,56,False
+2024-09-15,tons terrosos,61,False
+2024-09-22,tons terrosos,63,False
+2024-09-29,tons terrosos,47,False
+2024-10-06,tons terrosos,54,False
+2024-10-13,tons terrosos,70,False
+2024-10-20,tons terrosos,49,False
+2024-10-27,tons terrosos,76,False
+2024-11-03,tons terrosos,68,False
+2024-11-10,tons terrosos,64,False
+2024-11-17,tons terrosos,65,False
+2024-11-24,tons terrosos,69,False
+2024-12-01,tons terrosos,68,False
+2024-12-08,tons terrosos,58,False
+2024-12-15,tons terrosos,63,False
+2024-12-22,tons terrosos,53,False
+2024-12-29,tons terrosos,55,False
+2025-01-05,tons terrosos,62,False
+2025-01-12,tons terrosos,65,False
+2025-01-19,tons terrosos,51,False
+2025-01-26,tons terrosos,65,False
+2025-02-02,tons terrosos,68,False
+2025-02-09,tons terrosos,59,False
+2025-02-16,tons terrosos,58,False
+2025-02-23,tons terrosos,53,False
+2025-03-02,tons terrosos,70,False
+2025-03-09,tons terrosos,74,False
+2025-03-16,tons terrosos,64,False
+2025-03-23,tons terrosos,81,False
+2025-03-30,tons terrosos,54,False
+2025-04-06,tons terrosos,90,False
+2025-04-13,tons terrosos,70,False
+2025-04-20,tons terrosos,82,False
+2025-04-27,tons terrosos,79,False
+2025-05-04,tons terrosos,68,False
+2025-05-11,tons terrosos,79,False
+2025-05-18,tons terrosos,78,False
+2025-05-25,tons terrosos,71,False
+2025-06-01,tons terrosos,77,False
+2025-06-08,tons terrosos,70,False
+2025-06-15,tons terrosos,71,False
+2025-06-22,tons terrosos,73,False
+2025-06-29,tons terrosos,54,False
+2025-07-06,tons terrosos,80,False
+2025-07-13,tons terrosos,75,False
+2025-07-20,tons terrosos,84,False
+2025-07-27,tons terrosos,71,False
+2025-08-03,tons terrosos,59,False
+2025-08-10,tons terrosos,80,False
+2025-08-17,tons terrosos,64,False
+2025-08-24,tons terrosos,55,False
+2025-08-31,tons terrosos,62,False
+2025-09-07,tons terrosos,64,False
+2025-09-14,tons terrosos,62,False
+2025-09-21,tons terrosos,66,False
+2025-09-28,tons terrosos,79,False
+2025-10-05,tons terrosos,77,False
+2025-10-12,tons terrosos,85,False
+2025-10-19,tons terrosos,64,False
+2025-10-26,tons terrosos,77,False
+2025-11-02,tons terrosos,55,False
+2025-11-09,tons terrosos,67,False
+2025-11-16,tons terrosos,67,False
+2025-11-23,tons terrosos,73,False
+2025-11-30,tons terrosos,62,False
+2025-12-07,tons terrosos,56,False
+2025-12-14,tons terrosos,56,False
+2025-12-21,tons terrosos,37,False
+2025-12-28,tons terrosos,38,False
+2026-01-04,tons terrosos,61,False
+2026-01-11,tons terrosos,47,False
+2026-01-18,tons terrosos,59,False
+2026-01-25,tons terrosos,44,False
+2026-02-01,tons terrosos,46,False
+2026-02-08,tons terrosos,43,False
+2026-02-15,tons terrosos,37,False
+2026-02-22,tons terrosos,56,False
+2026-03-01,tons terrosos,72,False
+2026-03-08,tons terrosos,64,False
+2026-03-15,tons terrosos,69,False
+2026-03-22,tons terrosos,62,False
+2026-03-29,tons terrosos,67,False
+2026-04-05,tons terrosos,67,False
+2026-04-12,tons terrosos,57,False
+2026-04-19,tons terrosos,69,False
+2026-04-26,tons terrosos,65,False
+2026-05-03,tons terrosos,47,False
+2026-05-10,tons terrosos,62,False
+2026-05-17,tons terrosos,80,False
+2026-05-24,tons terrosos,58,False
+2026-05-31,tons terrosos,62,False
+2026-06-07,tons terrosos,66,False
+2026-06-14,tons terrosos,56,False
+2026-06-21,tons terrosos,51,False
+2026-06-28,tons terrosos,47,False
+2026-07-05,tons terrosos,62,False
+2026-07-12,tons terrosos,50,False
+2026-07-19,tons terrosos,68,False
+2026-07-26,tons terrosos,57,False
+2026-08-02,tons terrosos,59,False
+2026-08-09,tons terrosos,72,False
+2026-08-16,tons terrosos,56,False
+2026-08-23,tons terrosos,55,False
+2026-08-30,tons terrosos,55,False
+2026-09-06,tons terrosos,44,False
+2026-09-13,tons terrosos,59,False
+2026-09-20,tons terrosos,70,False
+2026-09-27,tons terrosos,45,False
+2026-10-04,tons terrosos,50,False
+2026-10-11,tons terrosos,48,False
+2026-10-18,tons terrosos,54,False
+2026-10-25,tons terrosos,44,False
+2026-11-01,tons terrosos,52,False
+2026-11-08,tons terrosos,49,True
+2021-11-07,camiseta oversized,10,False
+2021-11-14,camiseta oversized,13,False
+2021-11-21,camiseta oversized,13,False
+2021-11-28,camiseta oversized,13,False
+2021-12-05,camiseta oversized,15,False
+2021-12-12,camiseta oversized,16,False
+2021-12-19,camiseta oversized,16,False
+2021-12-26,camiseta oversized,12,False
+2022-01-02,camiseta oversized,14,False
+2022-01-09,camiseta oversized,13,False
+2022-01-16,camiseta oversized,15,False
+2022-01-23,camiseta oversized,21,False
+2022-01-30,camiseta oversized,22,False
+2022-02-06,camiseta oversized,18,False
+2022-02-13,camiseta oversized,20,False
+2022-02-20,camiseta oversized,19,False
+2022-02-27,camiseta oversized,20,False
+2022-03-06,camiseta oversized,19,False
+2022-03-13,camiseta oversized,19,False
+2022-03-20,camiseta oversized,20,False
+2022-03-27,camiseta oversized,19,False
+2022-04-03,camiseta oversized,19,False
+2022-04-10,camiseta oversized,19,False
+2022-04-17,camiseta oversized,22,False
+2022-04-24,camiseta oversized,20,False
+2022-05-01,camiseta oversized,19,False
+2022-05-08,camiseta oversized,20,False
+2022-05-15,camiseta oversized,20,False
+2022-05-22,camiseta oversized,14,False
+2022-05-29,camiseta oversized,18,False
+2022-06-05,camiseta oversized,22,False
+2022-06-12,camiseta oversized,14,False
+2022-06-19,camiseta oversized,14,False
+2022-06-26,camiseta oversized,14,False
+2022-07-03,camiseta oversized,19,False
+2022-07-10,camiseta oversized,17,False
+2022-07-17,camiseta oversized,17,False
+2022-07-24,camiseta oversized,22,False
+2022-07-31,camiseta oversized,20,False
+2022-08-07,camiseta oversized,16,False
+2022-08-14,camiseta oversized,16,False
+2022-08-21,camiseta oversized,17,False
+2022-08-28,camiseta oversized,15,False
+2022-09-04,camiseta oversized,19,False
+2022-09-11,camiseta oversized,19,False
+2022-09-18,camiseta oversized,18,False
+2022-09-25,camiseta oversized,13,False
+2022-10-02,camiseta oversized,16,False
+2022-10-09,camiseta oversized,18,False
+2022-10-16,camiseta oversized,17,False
+2022-10-23,camiseta oversized,19,False
+2022-10-30,camiseta oversized,18,False
+2022-11-06,camiseta oversized,19,False
+2022-11-13,camiseta oversized,24,False
+2022-11-20,camiseta oversized,23,False
+2022-11-27,camiseta oversized,21,False
+2022-12-04,camiseta oversized,24,False
+2022-12-11,camiseta oversized,34,False
+2022-12-18,camiseta oversized,34,False
+2022-12-25,camiseta oversized,28,False
+2023-01-01,camiseta oversized,18,False
+2023-01-08,camiseta oversized,22,False
+2023-01-15,camiseta oversized,22,False
+2023-01-22,camiseta oversized,24,False
+2023-01-29,camiseta oversized,24,False
+2023-02-05,camiseta oversized,25,False
+2023-02-12,camiseta oversized,22,False
+2023-02-19,camiseta oversized,25,False
+2023-02-26,camiseta oversized,28,False
+2023-03-05,camiseta oversized,25,False
+2023-03-12,camiseta oversized,30,False
+2023-03-19,camiseta oversized,27,False
+2023-03-26,camiseta oversized,24,False
+2023-04-02,camiseta oversized,25,False
+2023-04-09,camiseta oversized,25,False
+2023-04-16,camiseta oversized,28,False
+2023-04-23,camiseta oversized,25,False
+2023-04-30,camiseta oversized,25,False
+2023-05-07,camiseta oversized,31,False
+2023-05-14,camiseta oversized,27,False
+2023-05-21,camiseta oversized,26,False
+2023-05-28,camiseta oversized,30,False
+2023-06-04,camiseta oversized,33,False
+2023-06-11,camiseta oversized,35,False
+2023-06-18,camiseta oversized,35,False
+2023-06-25,camiseta oversized,38,False
+2023-07-02,camiseta oversized,41,False
+2023-07-09,camiseta oversized,42,False
+2023-07-16,camiseta oversized,40,False
+2023-07-23,camiseta oversized,44,False
+2023-07-30,camiseta oversized,44,False
+2023-08-06,camiseta oversized,41,False
+2023-08-13,camiseta oversized,40,False
+2023-08-20,camiseta oversized,44,False
+2023-08-27,camiseta oversized,41,False
+2023-09-03,camiseta oversized,48,False
+2023-09-10,camiseta oversized,53,False
+2023-09-17,camiseta oversized,45,False
+2023-09-24,camiseta oversized,38,False
+2023-10-01,camiseta oversized,41,False
+2023-10-08,camiseta oversized,44,False
+2023-10-15,camiseta oversized,49,False
+2023-10-22,camiseta oversized,44,False
+2023-10-29,camiseta oversized,50,False
+2023-11-05,camiseta oversized,55,False
+2023-11-12,camiseta oversized,59,False
+2023-11-19,camiseta oversized,62,False
+2023-11-26,camiseta oversized,67,False
+2023-12-03,camiseta oversized,77,False
+2023-12-10,camiseta oversized,88,False
+2023-12-17,camiseta oversized,84,False
+2023-12-24,camiseta oversized,63,False
+2023-12-31,camiseta oversized,54,False
+2024-01-07,camiseta oversized,57,False
+2024-01-14,camiseta oversized,55,False
+2024-01-21,camiseta oversized,54,False
+2024-01-28,camiseta oversized,57,False
+2024-02-04,camiseta oversized,54,False
+2024-02-11,camiseta oversized,57,False
+2024-02-18,camiseta oversized,56,False
+2024-02-25,camiseta oversized,52,False
+2024-03-03,camiseta oversized,57,False
+2024-03-10,camiseta oversized,53,False
+2024-03-17,camiseta oversized,43,False
+2024-03-24,camiseta oversized,48,False
+2024-03-31,camiseta oversized,39,False
+2024-04-07,camiseta oversized,46,False
+2024-04-14,camiseta oversized,41,False
+2024-04-21,camiseta oversized,47,False
+2024-04-28,camiseta oversized,47,False
+2024-05-05,camiseta oversized,49,False
+2024-05-12,camiseta oversized,47,False
+2024-05-19,camiseta oversized,49,False
+2024-05-26,camiseta oversized,41,False
+2024-06-02,camiseta oversized,50,False
+2024-06-09,camiseta oversized,51,False
+2024-06-16,camiseta oversized,49,False
+2024-06-23,camiseta oversized,47,False
+2024-06-30,camiseta oversized,48,False
+2024-07-07,camiseta oversized,51,False
+2024-07-14,camiseta oversized,47,False
+2024-07-21,camiseta oversized,49,False
+2024-07-28,camiseta oversized,47,False
+2024-08-04,camiseta oversized,47,False
+2024-08-11,camiseta oversized,47,False
+2024-08-18,camiseta oversized,51,False
+2024-08-25,camiseta oversized,51,False
+2024-09-01,camiseta oversized,58,False
+2024-09-08,camiseta oversized,57,False
+2024-09-15,camiseta oversized,57,False
+2024-09-22,camiseta oversized,53,False
+2024-09-29,camiseta oversized,56,False
+2024-10-06,camiseta oversized,51,False
+2024-10-13,camiseta oversized,65,False
+2024-10-20,camiseta oversized,61,False
+2024-10-27,camiseta oversized,59,False
+2024-11-03,camiseta oversized,67,False
+2024-11-10,camiseta oversized,60,False
+2024-11-17,camiseta oversized,73,False
+2024-11-24,camiseta oversized,75,False
+2024-12-01,camiseta oversized,78,False
+2024-12-08,camiseta oversized,91,False
+2024-12-15,camiseta oversized,100,False
+2024-12-22,camiseta oversized,80,False
+2024-12-29,camiseta oversized,52,False
+2025-01-05,camiseta oversized,55,False
+2025-01-12,camiseta oversized,49,False
+2025-01-19,camiseta oversized,57,False
+2025-01-26,camiseta oversized,50,False
+2025-02-02,camiseta oversized,55,False
+2025-02-09,camiseta oversized,54,False
+2025-02-16,camiseta oversized,51,False
+2025-02-23,camiseta oversized,47,False
+2025-03-02,camiseta oversized,50,False
+2025-03-09,camiseta oversized,61,False
+2025-03-16,camiseta oversized,61,False
+2025-03-23,camiseta oversized,56,False
+2025-03-30,camiseta oversized,62,False
+2025-04-06,camiseta oversized,59,False
+2025-04-13,camiseta oversized,55,False
+2025-04-20,camiseta oversized,54,False
+2025-04-27,camiseta oversized,54,False
+2025-05-04,camiseta oversized,59,False
+2025-05-11,camiseta oversized,51,False
+2025-05-18,camiseta oversized,55,False
+2025-05-25,camiseta oversized,50,False
+2025-06-01,camiseta oversized,60,False
+2025-06-08,camiseta oversized,49,False
+2025-06-15,camiseta oversized,43,False
+2025-06-22,camiseta oversized,35,False
+2025-06-29,camiseta oversized,46,False
+2025-07-06,camiseta oversized,57,False
+2025-07-13,camiseta oversized,53,False
+2025-07-20,camiseta oversized,56,False
+2025-07-27,camiseta oversized,54,False
+2025-08-03,camiseta oversized,59,False
+2025-08-10,camiseta oversized,52,False
+2025-08-17,camiseta oversized,54,False
+2025-08-24,camiseta oversized,54,False
+2025-08-31,camiseta oversized,58,False
+2025-09-07,camiseta oversized,55,False
+2025-09-14,camiseta oversized,55,False
+2025-09-21,camiseta oversized,48,False
+2025-09-28,camiseta oversized,53,False
+2025-10-05,camiseta oversized,54,False
+2025-10-12,camiseta oversized,57,False
+2025-10-19,camiseta oversized,51,False
+2025-10-26,camiseta oversized,46,False
+2025-11-02,camiseta oversized,54,False
+2025-11-09,camiseta oversized,60,False
+2025-11-16,camiseta oversized,56,False
+2025-11-23,camiseta oversized,68,False
+2025-11-30,camiseta oversized,67,False
+2025-12-07,camiseta oversized,72,False
+2025-12-14,camiseta oversized,75,False
+2025-12-21,camiseta oversized,66,False
+2025-12-28,camiseta oversized,46,False
+2026-01-04,camiseta oversized,41,False
+2026-01-11,camiseta oversized,47,False
+2026-01-18,camiseta oversized,39,False
+2026-01-25,camiseta oversized,40,False
+2026-02-01,camiseta oversized,44,False
+2026-02-08,camiseta oversized,43,False
+2026-02-15,camiseta oversized,39,False
+2026-02-22,camiseta oversized,43,False
+2026-03-01,camiseta oversized,48,False
+2026-03-08,camiseta oversized,46,False
+2026-03-15,camiseta oversized,41,False
+2026-03-22,camiseta oversized,44,False
+2026-03-29,camiseta oversized,44,False
+2026-04-05,camiseta oversized,42,False
+2026-04-12,camiseta oversized,45,False
+2026-04-19,camiseta oversized,47,False
+2026-04-26,camiseta oversized,50,False
+2026-05-03,camiseta oversized,51,False
+2026-05-10,camiseta oversized,41,False
+2026-05-17,camiseta oversized,45,False
+2026-05-24,camiseta oversized,44,False
+2026-05-31,camiseta oversized,55,False
+2026-06-07,camiseta oversized,46,False
+2026-06-14,camiseta oversized,37,False
+2026-06-21,camiseta oversized,30,False
+2026-06-28,camiseta oversized,37,False
+2026-07-05,camiseta oversized,39,False
+2026-07-12,camiseta oversized,40,False
+2026-07-19,camiseta oversized,39,False
+2026-07-26,camiseta oversized,44,False
+2026-08-02,camiseta oversized,45,False
+2026-08-09,camiseta oversized,45,False
+2026-08-16,camiseta oversized,40,False
+2026-08-23,camiseta oversized,42,False
+2026-08-30,camiseta oversized,43,False
+2026-09-06,camiseta oversized,38,False
+2026-09-13,camiseta oversized,42,False
+2026-09-20,camiseta oversized,39,False
+2026-09-27,camiseta oversized,45,False
+2026-10-04,camiseta oversized,45,False
+2026-10-11,camiseta oversized,45,False
+2026-10-18,camiseta oversized,36,False
+2026-10-25,camiseta oversized,39,False
+2026-11-01,camiseta oversized,50,False
+2026-11-08,camiseta oversized,52,True
+2021-11-07,tênis branco,53,False
+2021-11-14,tênis branco,60,False
+2021-11-21,tênis branco,67,False
+2021-11-28,tênis branco,65,False
+2021-12-05,tênis branco,71,False
+2021-12-12,tênis branco,69,False
+2021-12-19,tênis branco,75,False
+2021-12-26,tênis branco,54,False
+2022-01-02,tênis branco,54,False
+2022-01-09,tênis branco,51,False
+2022-01-16,tênis branco,47,False
+2022-01-23,tênis branco,48,False
+2022-01-30,tênis branco,57,False
+2022-02-06,tênis branco,57,False
+2022-02-13,tênis branco,60,False
+2022-02-20,tênis branco,59,False
+2022-02-27,tênis branco,63,False
+2022-03-06,tênis branco,61,False
+2022-03-13,tênis branco,64,False
+2022-03-20,tênis branco,61,False
+2022-03-27,tênis branco,67,False
+2022-04-03,tênis branco,70,False
+2022-04-10,tênis branco,69,False
+2022-04-17,tênis branco,74,False
+2022-04-24,tênis branco,72,False
+2022-05-01,tênis branco,76,False
+2022-05-08,tênis branco,78,False
+2022-05-15,tênis branco,68,False
+2022-05-22,tênis branco,77,False
+2022-05-29,tênis branco,75,False
+2022-06-05,tênis branco,79,False
+2022-06-12,tênis branco,86,False
+2022-06-19,tênis branco,73,False
+2022-06-26,tênis branco,71,False
+2022-07-03,tênis branco,83,False
+2022-07-10,tênis branco,79,False
+2022-07-17,tênis branco,77,False
+2022-07-24,tênis branco,79,False
+2022-07-31,tênis branco,80,False
+2022-08-07,tênis branco,79,False
+2022-08-14,tênis branco,76,False
+2022-08-21,tênis branco,76,False
+2022-08-28,tênis branco,75,False
+2022-09-04,tênis branco,78,False
+2022-09-11,tênis branco,77,False
+2022-09-18,tênis branco,79,False
+2022-09-25,tênis branco,71,False
+2022-10-02,tênis branco,69,False
+2022-10-09,tênis branco,79,False
+2022-10-16,tênis branco,67,False
+2022-10-23,tênis branco,64,False
+2022-10-30,tênis branco,61,False
+2022-11-06,tênis branco,77,False
+2022-11-13,tênis branco,78,False
+2022-11-20,tênis branco,84,False
+2022-11-27,tênis branco,85,False
+2022-12-04,tênis branco,88,False
+2022-12-11,tênis branco,93,False
+2022-12-18,tênis branco,100,False
+2022-12-25,tênis branco,79,False
+2023-01-01,tênis branco,60,False
+2023-01-08,tênis branco,71,False
+2023-01-15,tênis branco,63,False
+2023-01-22,tênis branco,62,False
+2023-01-29,tênis branco,69,False
+2023-02-05,tênis branco,66,False
+2023-02-12,tênis branco,62,False
+2023-02-19,tênis branco,66,False
+2023-02-26,tênis branco,64,False
+2023-03-05,tênis branco,66,False
+2023-03-12,tênis branco,67,False
+2023-03-19,tênis branco,68,False
+2023-03-26,tênis branco,65,False
+2023-04-02,tênis branco,73,False
+2023-04-09,tênis branco,67,False
+2023-04-16,tênis branco,72,False
+2023-04-23,tênis branco,72,False
+2023-04-30,tênis branco,82,False
+2023-05-07,tênis branco,80,False
+2023-05-14,tênis branco,81,False
+2023-05-21,tênis branco,81,False
+2023-05-28,tênis branco,80,False
+2023-06-04,tênis branco,98,False
+2023-06-11,tênis branco,82,False
+2023-06-18,tênis branco,81,False
+2023-06-25,tênis branco,75,False
+2023-07-02,tênis branco,88,False
+2023-07-09,tênis branco,78,False
+2023-07-16,tênis branco,80,False
+2023-07-23,tênis branco,77,False
+2023-07-30,tênis branco,80,False
+2023-08-06,tênis branco,81,False
+2023-08-13,tênis branco,72,False
+2023-08-20,tênis branco,71,False
+2023-08-27,tênis branco,73,False
+2023-09-03,tênis branco,78,False
+2023-09-10,tênis branco,71,False
+2023-09-17,tênis branco,62,False
+2023-09-24,tênis branco,59,False
+2023-10-01,tênis branco,67,False
+2023-10-08,tênis branco,73,False
+2023-10-15,tênis branco,67,False
+2023-10-22,tênis branco,63,False
+2023-10-29,tênis branco,69,False
+2023-11-05,tênis branco,74,False
+2023-11-12,tênis branco,69,False
+2023-11-19,tênis branco,88,False
+2023-11-26,tênis branco,83,False
+2023-12-03,tênis branco,87,False
+2023-12-10,tênis branco,99,False
+2023-12-17,tênis branco,90,False
+2023-12-24,tênis branco,70,False
+2023-12-31,tênis branco,59,False
+2024-01-07,tênis branco,58,False
+2024-01-14,tênis branco,57,False
+2024-01-21,tênis branco,60,False
+2024-01-28,tênis branco,61,False
+2024-02-04,tênis branco,50,False
+2024-02-11,tênis branco,59,False
+2024-02-18,tênis branco,53,False
+2024-02-25,tênis branco,51,False
+2024-03-03,tênis branco,58,False
+2024-03-10,tênis branco,57,False
+2024-03-17,tênis branco,54,False
+2024-03-24,tênis branco,63,False
+2024-03-31,tênis branco,60,False
+2024-04-07,tênis branco,63,False
+2024-04-14,tênis branco,64,False
+2024-04-21,tênis branco,61,False
+2024-04-28,tênis branco,62,False
+2024-05-05,tênis branco,59,False
+2024-05-12,tênis branco,59,False
+2024-05-19,tênis branco,66,False
+2024-05-26,tênis branco,71,False
+2024-06-02,tênis branco,72,False
+2024-06-09,tênis branco,82,False
+2024-06-16,tênis branco,66,False
+2024-06-23,tênis branco,65,False
+2024-06-30,tênis branco,71,False
+2024-07-07,tênis branco,73,False
+2024-07-14,tênis branco,79,False
+2024-07-21,tênis branco,71,False
+2024-07-28,tênis branco,71,False
+2024-08-04,tênis branco,79,False
+2024-08-11,tênis branco,73,False
+2024-08-18,tênis branco,63,False
+2024-08-25,tênis branco,69,False
+2024-09-01,tênis branco,84,False
+2024-09-08,tênis branco,67,False
+2024-09-15,tênis branco,63,False
+2024-09-22,tênis branco,56,False
+2024-09-29,tênis branco,65,False
+2024-10-06,tênis branco,63,False
+2024-10-13,tênis branco,66,False
+2024-10-20,tênis branco,65,False
+2024-10-27,tênis branco,65,False
+2024-11-03,tênis branco,76,False
+2024-11-10,tênis branco,80,False
+2024-11-17,tênis branco,81,False
+2024-11-24,tênis branco,97,False
+2024-12-01,tênis branco,90,False
+2024-12-08,tênis branco,91,False
+2024-12-15,tênis branco,91,False
+2024-12-22,tênis branco,73,False
+2024-12-29,tênis branco,64,False
+2025-01-05,tênis branco,57,False
+2025-01-12,tênis branco,60,False
+2025-01-19,tênis branco,57,False
+2025-01-26,tênis branco,58,False
+2025-02-02,tênis branco,58,False
+2025-02-09,tênis branco,55,False
+2025-02-16,tênis branco,52,False
+2025-02-23,tênis branco,51,False
+2025-03-02,tênis branco,54,False
+2025-03-09,tênis branco,54,False
+2025-03-16,tênis branco,61,False
+2025-03-23,tênis branco,54,False
+2025-03-30,tênis branco,63,False
+2025-04-06,tênis branco,69,False
+2025-04-13,tênis branco,65,False
+2025-04-20,tênis branco,62,False
+2025-04-27,tênis branco,73,False
+2025-05-04,tênis branco,72,False
+2025-05-11,tênis branco,68,False
+2025-05-18,tênis branco,62,False
+2025-05-25,tênis branco,55,False
+2025-06-01,tênis branco,67,False
+2025-06-08,tênis branco,67,False
+2025-06-15,tênis branco,57,False
+2025-06-22,tênis branco,51,False
+2025-06-29,tênis branco,62,False
+2025-07-06,tênis branco,65,False
+2025-07-13,tênis branco,68,False
+2025-07-20,tênis branco,65,False
+2025-07-27,tênis branco,70,False
+2025-08-03,tênis branco,78,False
+2025-08-10,tênis branco,77,False
+2025-08-17,tênis branco,76,False
+2025-08-24,tênis branco,70,False
+2025-08-31,tênis branco,75,False
+2025-09-07,tênis branco,72,False
+2025-09-14,tênis branco,65,False
+2025-09-21,tênis branco,65,False
+2025-09-28,tênis branco,63,False
+2025-10-05,tênis branco,66,False
+2025-10-12,tênis branco,67,False
+2025-10-19,tênis branco,66,False
+2025-10-26,tênis branco,64,False
+2025-11-02,tênis branco,70,False
+2025-11-09,tênis branco,84,False
+2025-11-16,tênis branco,80,False
+2025-11-23,tênis branco,87,False
+2025-11-30,tênis branco,78,False
+2025-12-07,tênis branco,84,False
+2025-12-14,tênis branco,81,False
+2025-12-21,tênis branco,67,False
+2025-12-28,tênis branco,51,False
+2026-01-04,tênis branco,55,False
+2026-01-11,tênis branco,54,False
+2026-01-18,tênis branco,62,False
+2026-01-25,tênis branco,63,False
+2026-02-01,tênis branco,65,False
+2026-02-08,tênis branco,62,False
+2026-02-15,tênis branco,56,False
+2026-02-22,tênis branco,56,False
+2026-03-01,tênis branco,62,False
+2026-03-08,tênis branco,61,False
+2026-03-15,tênis branco,60,False
+2026-03-22,tênis branco,59,False
+2026-03-29,tênis branco,62,False
+2026-04-05,tênis branco,60,False
+2026-04-12,tênis branco,66,False
+2026-04-19,tênis branco,61,False
+2026-04-26,tênis branco,62,False
+2026-05-03,tênis branco,69,False
+2026-05-10,tênis branco,65,False
+2026-05-17,tênis branco,62,False
+2026-05-24,tênis branco,65,False
+2026-05-31,tênis branco,74,False
+2026-06-07,tênis branco,69,False
+2026-06-14,tênis branco,60,False
+2026-06-21,tênis branco,57,False
+2026-06-28,tênis branco,59,False
+2026-07-05,tênis branco,66,False
+2026-07-12,tênis branco,67,False
+2026-07-19,tênis branco,64,False
+2026-07-26,tênis branco,64,False
+2026-08-02,tênis branco,70,False
+2026-08-09,tênis branco,66,False
+2026-08-16,tênis branco,62,False
+2026-08-23,tênis branco,66,False
+2026-08-30,tênis branco,63,False
+2026-09-06,tênis branco,62,False
+2026-09-13,tênis branco,59,False
+2026-09-20,tênis branco,55,False
+2026-09-27,tênis branco,59,False
+2026-10-04,tênis branco,56,False
+2026-10-11,tênis branco,57,False
+2026-10-18,tênis branco,52,False
+2026-10-25,tênis branco,48,False
+2026-11-01,tênis branco,63,False
+2026-11-08,tênis branco,64,True
+2021-11-07,mocassim masculino,48,False
+2021-11-14,mocassim masculino,49,False
+2021-11-21,mocassim masculino,63,False
+2021-11-28,mocassim masculino,65,False
+2021-12-05,mocassim masculino,67,False
+2021-12-12,mocassim masculino,77,False
+2021-12-19,mocassim masculino,81,False
+2021-12-26,mocassim masculino,51,False
+2022-01-02,mocassim masculino,41,False
+2022-01-09,mocassim masculino,41,False
+2022-01-16,mocassim masculino,34,False
+2022-01-23,mocassim masculino,38,False
+2022-01-30,mocassim masculino,39,False
+2022-02-06,mocassim masculino,38,False
+2022-02-13,mocassim masculino,39,False
+2022-02-20,mocassim masculino,34,False
+2022-02-27,mocassim masculino,42,False
+2022-03-06,mocassim masculino,43,False
+2022-03-13,mocassim masculino,45,False
+2022-03-20,mocassim masculino,44,False
+2022-03-27,mocassim masculino,44,False
+2022-04-03,mocassim masculino,48,False
+2022-04-10,mocassim masculino,44,False
+2022-04-17,mocassim masculino,47,False
+2022-04-24,mocassim masculino,46,False
+2022-05-01,mocassim masculino,49,False
+2022-05-08,mocassim masculino,48,False
+2022-05-15,mocassim masculino,44,False
+2022-05-22,mocassim masculino,41,False
+2022-05-29,mocassim masculino,50,False
+2022-06-05,mocassim masculino,56,False
+2022-06-12,mocassim masculino,49,False
+2022-06-19,mocassim masculino,43,False
+2022-06-26,mocassim masculino,44,False
+2022-07-03,mocassim masculino,47,False
+2022-07-10,mocassim masculino,44,False
+2022-07-17,mocassim masculino,51,False
+2022-07-24,mocassim masculino,57,False
+2022-07-31,mocassim masculino,56,False
+2022-08-07,mocassim masculino,75,False
+2022-08-14,mocassim masculino,52,False
+2022-08-21,mocassim masculino,51,False
+2022-08-28,mocassim masculino,46,False
+2022-09-04,mocassim masculino,51,False
+2022-09-11,mocassim masculino,48,False
+2022-09-18,mocassim masculino,45,False
+2022-09-25,mocassim masculino,36,False
+2022-10-02,mocassim masculino,36,False
+2022-10-09,mocassim masculino,52,False
+2022-10-16,mocassim masculino,48,False
+2022-10-23,mocassim masculino,42,False
+2022-10-30,mocassim masculino,37,False
+2022-11-06,mocassim masculino,57,False
+2022-11-13,mocassim masculino,63,False
+2022-11-20,mocassim masculino,61,False
+2022-11-27,mocassim masculino,61,False
+2022-12-04,mocassim masculino,73,False
+2022-12-11,mocassim masculino,87,False
+2022-12-18,mocassim masculino,94,False
+2022-12-25,mocassim masculino,72,False
+2023-01-01,mocassim masculino,48,False
+2023-01-08,mocassim masculino,43,False
+2023-01-15,mocassim masculino,47,False
+2023-01-22,mocassim masculino,49,False
+2023-01-29,mocassim masculino,44,False
+2023-02-05,mocassim masculino,44,False
+2023-02-12,mocassim masculino,46,False
+2023-02-19,mocassim masculino,40,False
+2023-02-26,mocassim masculino,46,False
+2023-03-05,mocassim masculino,54,False
+2023-03-12,mocassim masculino,50,False
+2023-03-19,mocassim masculino,56,False
+2023-03-26,mocassim masculino,57,False
+2023-04-02,mocassim masculino,55,False
+2023-04-09,mocassim masculino,47,False
+2023-04-16,mocassim masculino,53,False
+2023-04-23,mocassim masculino,53,False
+2023-04-30,mocassim masculino,56,False
+2023-05-07,mocassim masculino,60,False
+2023-05-14,mocassim masculino,62,False
+2023-05-21,mocassim masculino,60,False
+2023-05-28,mocassim masculino,63,False
+2023-06-04,mocassim masculino,67,False
+2023-06-11,mocassim masculino,66,False
+2023-06-18,mocassim masculino,56,False
+2023-06-25,mocassim masculino,58,False
+2023-07-02,mocassim masculino,62,False
+2023-07-09,mocassim masculino,56,False
+2023-07-16,mocassim masculino,61,False
+2023-07-23,mocassim masculino,59,False
+2023-07-30,mocassim masculino,70,False
+2023-08-06,mocassim masculino,92,False
+2023-08-13,mocassim masculino,62,False
+2023-08-20,mocassim masculino,54,False
+2023-08-27,mocassim masculino,49,False
+2023-09-03,mocassim masculino,57,False
+2023-09-10,mocassim masculino,59,False
+2023-09-17,mocassim masculino,52,False
+2023-09-24,mocassim masculino,46,False
+2023-10-01,mocassim masculino,46,False
+2023-10-08,mocassim masculino,56,False
+2023-10-15,mocassim masculino,52,False
+2023-10-22,mocassim masculino,49,False
+2023-10-29,mocassim masculino,63,False
+2023-11-05,mocassim masculino,64,False
+2023-11-12,mocassim masculino,60,False
+2023-11-19,mocassim masculino,73,False
+2023-11-26,mocassim masculino,72,False
+2023-12-03,mocassim masculino,79,False
+2023-12-10,mocassim masculino,100,False
+2023-12-17,mocassim masculino,91,False
+2023-12-24,mocassim masculino,68,False
+2023-12-31,mocassim masculino,54,False
+2024-01-07,mocassim masculino,52,False
+2024-01-14,mocassim masculino,51,False
+2024-01-21,mocassim masculino,48,False
+2024-01-28,mocassim masculino,51,False
+2024-02-04,mocassim masculino,43,False
+2024-02-11,mocassim masculino,41,False
+2024-02-18,mocassim masculino,41,False
+2024-02-25,mocassim masculino,39,False
+2024-03-03,mocassim masculino,45,False
+2024-03-10,mocassim masculino,42,False
+2024-03-17,mocassim masculino,35,False
+2024-03-24,mocassim masculino,47,False
+2024-03-31,mocassim masculino,41,False
+2024-04-07,mocassim masculino,43,False
+2024-04-14,mocassim masculino,43,False
+2024-04-21,mocassim masculino,46,False
+2024-04-28,mocassim masculino,46,False
+2024-05-05,mocassim masculino,46,False
+2024-05-12,mocassim masculino,48,False
+2024-05-19,mocassim masculino,49,False
+2024-05-26,mocassim masculino,49,False
+2024-06-02,mocassim masculino,56,False
+2024-06-09,mocassim masculino,58,False
+2024-06-16,mocassim masculino,49,False
+2024-06-23,mocassim masculino,53,False
+2024-06-30,mocassim masculino,48,False
+2024-07-07,mocassim masculino,53,False
+2024-07-14,mocassim masculino,50,False
+2024-07-21,mocassim masculino,53,False
+2024-07-28,mocassim masculino,53,False
+2024-08-04,mocassim masculino,71,False
+2024-08-11,mocassim masculino,51,False
+2024-08-18,mocassim masculino,42,False
+2024-08-25,mocassim masculino,52,False
+2024-09-01,mocassim masculino,55,False
+2024-09-08,mocassim masculino,52,False
+2024-09-15,mocassim masculino,49,False
+2024-09-22,mocassim masculino,48,False
+2024-09-29,mocassim masculino,50,False
+2024-10-06,mocassim masculino,55,False
+2024-10-13,mocassim masculino,56,False
+2024-10-20,mocassim masculino,58,False
+2024-10-27,mocassim masculino,56,False
+2024-11-03,mocassim masculino,59,False
+2024-11-10,mocassim masculino,66,False
+2024-11-17,mocassim masculino,67,False
+2024-11-24,mocassim masculino,69,False
+2024-12-01,mocassim masculino,77,False
+2024-12-08,mocassim masculino,81,False
+2024-12-15,mocassim masculino,81,False
+2024-12-22,mocassim masculino,72,False
+2024-12-29,mocassim masculino,44,False
+2025-01-05,mocassim masculino,49,False
+2025-01-12,mocassim masculino,49,False
+2025-01-19,mocassim masculino,42,False
+2025-01-26,mocassim masculino,42,False
+2025-02-02,mocassim masculino,47,False
+2025-02-09,mocassim masculino,42,False
+2025-02-16,mocassim masculino,46,False
+2025-02-23,mocassim masculino,37,False
+2025-03-02,mocassim masculino,38,False
+2025-03-09,mocassim masculino,49,False
+2025-03-16,mocassim masculino,49,False
+2025-03-23,mocassim masculino,52,False
+2025-03-30,mocassim masculino,51,False
+2025-04-06,mocassim masculino,48,False
+2025-04-13,mocassim masculino,55,False
+2025-04-20,mocassim masculino,62,False
+2025-04-27,mocassim masculino,55,False
+2025-05-04,mocassim masculino,51,False
+2025-05-11,mocassim masculino,53,False
+2025-05-18,mocassim masculino,55,False
+2025-05-25,mocassim masculino,46,False
+2025-06-01,mocassim masculino,59,False
+2025-06-08,mocassim masculino,56,False
+2025-06-15,mocassim masculino,51,False
+2025-06-22,mocassim masculino,44,False
+2025-06-29,mocassim masculino,42,False
+2025-07-06,mocassim masculino,60,False
+2025-07-13,mocassim masculino,60,False
+2025-07-20,mocassim masculino,53,False
+2025-07-27,mocassim masculino,57,False
+2025-08-03,mocassim masculino,78,False
+2025-08-10,mocassim masculino,57,False
+2025-08-17,mocassim masculino,53,False
+2025-08-24,mocassim masculino,48,False
+2025-08-31,mocassim masculino,51,False
+2025-09-07,mocassim masculino,57,False
+2025-09-14,mocassim masculino,62,False
+2025-09-21,mocassim masculino,56,False
+2025-09-28,mocassim masculino,58,False
+2025-10-05,mocassim masculino,52,False
+2025-10-12,mocassim masculino,52,False
+2025-10-19,mocassim masculino,55,False
+2025-10-26,mocassim masculino,47,False
+2025-11-02,mocassim masculino,56,False
+2025-11-09,mocassim masculino,58,False
+2025-11-16,mocassim masculino,42,False
+2025-11-23,mocassim masculino,66,False
+2025-11-30,mocassim masculino,63,False
+2025-12-07,mocassim masculino,79,False
+2025-12-14,mocassim masculino,74,False
+2025-12-21,mocassim masculino,63,False
+2025-12-28,mocassim masculino,50,False
+2026-01-04,mocassim masculino,53,False
+2026-01-11,mocassim masculino,43,False
+2026-01-18,mocassim masculino,40,False
+2026-01-25,mocassim masculino,45,False
+2026-02-01,mocassim masculino,41,False
+2026-02-08,mocassim masculino,49,False
+2026-02-15,mocassim masculino,40,False
+2026-02-22,mocassim masculino,46,False
+2026-03-01,mocassim masculino,49,False
+2026-03-08,mocassim masculino,51,False
+2026-03-15,mocassim masculino,47,False
+2026-03-22,mocassim masculino,47,False
+2026-03-29,mocassim masculino,52,False
+2026-04-05,mocassim masculino,48,False
+2026-04-12,mocassim masculino,52,False
+2026-04-19,mocassim masculino,43,False
+2026-04-26,mocassim masculino,41,False
+2026-05-03,mocassim masculino,52,False
+2026-05-10,mocassim masculino,51,False
+2026-05-17,mocassim masculino,51,False
+2026-05-24,mocassim masculino,59,False
+2026-05-31,mocassim masculino,67,False
+2026-06-07,mocassim masculino,50,False
+2026-06-14,mocassim masculino,47,False
+2026-06-21,mocassim masculino,47,False
+2026-06-28,mocassim masculino,40,False
+2026-07-05,mocassim masculino,47,False
+2026-07-12,mocassim masculino,56,False
+2026-07-19,mocassim masculino,52,False
+2026-07-26,mocassim masculino,58,False
+2026-08-02,mocassim masculino,69,False
+2026-08-09,mocassim masculino,46,False
+2026-08-16,mocassim masculino,46,False
+2026-08-23,mocassim masculino,52,False
+2026-08-30,mocassim masculino,55,False
+2026-09-06,mocassim masculino,50,False
+2026-09-13,mocassim masculino,48,False
+2026-09-20,mocassim masculino,61,False
+2026-09-27,mocassim masculino,53,False
+2026-10-04,mocassim masculino,51,False
+2026-10-11,mocassim masculino,47,False
+2026-10-18,mocassim masculino,46,False
+2026-10-25,mocassim masculino,42,False
+2026-11-01,mocassim masculino,55,False
+2026-11-08,mocassim masculino,60,True
+2021-11-07,jaqueta bomber,12,False
+2021-11-14,jaqueta bomber,18,False
+2021-11-21,jaqueta bomber,13,False
+2021-11-28,jaqueta bomber,13,False
+2021-12-05,jaqueta bomber,10,False
+2021-12-12,jaqueta bomber,10,False
+2021-12-19,jaqueta bomber,10,False
+2021-12-26,jaqueta bomber,11,False
+2022-01-02,jaqueta bomber,11,False
+2022-01-09,jaqueta bomber,17,False
+2022-01-16,jaqueta bomber,12,False
+2022-01-23,jaqueta bomber,10,False
+2022-01-30,jaqueta bomber,13,False
+2022-02-06,jaqueta bomber,14,False
+2022-02-13,jaqueta bomber,14,False
+2022-02-20,jaqueta bomber,12,False
+2022-02-27,jaqueta bomber,13,False
+2022-03-06,jaqueta bomber,13,False
+2022-03-13,jaqueta bomber,18,False
+2022-03-20,jaqueta bomber,25,False
+2022-03-27,jaqueta bomber,32,False
+2022-04-03,jaqueta bomber,30,False
+2022-04-10,jaqueta bomber,34,False
+2022-04-17,jaqueta bomber,47,False
+2022-04-24,jaqueta bomber,33,False
+2022-05-01,jaqueta bomber,43,False
+2022-05-08,jaqueta bomber,59,False
+2022-05-15,jaqueta bomber,100,False
+2022-05-22,jaqueta bomber,66,False
+2022-05-29,jaqueta bomber,60,False
+2022-06-05,jaqueta bomber,59,False
+2022-06-12,jaqueta bomber,68,False
+2022-06-19,jaqueta bomber,48,False
+2022-06-26,jaqueta bomber,46,False
+2022-07-03,jaqueta bomber,33,False
+2022-07-10,jaqueta bomber,33,False
+2022-07-17,jaqueta bomber,26,False
+2022-07-24,jaqueta bomber,29,False
+2022-07-31,jaqueta bomber,22,False
+2022-08-07,jaqueta bomber,34,False
+2022-08-14,jaqueta bomber,30,False
+2022-08-21,jaqueta bomber,31,False
+2022-08-28,jaqueta bomber,24,False
+2022-09-04,jaqueta bomber,31,False
+2022-09-11,jaqueta bomber,22,False
+2022-09-18,jaqueta bomber,24,False
+2022-09-25,jaqueta bomber,27,False
+2022-10-02,jaqueta bomber,17,False
+2022-10-09,jaqueta bomber,15,False
+2022-10-16,jaqueta bomber,11,False
+2022-10-23,jaqueta bomber,12,False
+2022-10-30,jaqueta bomber,14,False
+2022-11-06,jaqueta bomber,15,False
+2022-11-13,jaqueta bomber,13,False
+2022-11-20,jaqueta bomber,12,False
+2022-11-27,jaqueta bomber,15,False
+2022-12-04,jaqueta bomber,10,False
+2022-12-11,jaqueta bomber,9,False
+2022-12-18,jaqueta bomber,15,False
+2022-12-25,jaqueta bomber,12,False
+2023-01-01,jaqueta bomber,14,False
+2023-01-08,jaqueta bomber,17,False
+2023-01-15,jaqueta bomber,14,False
+2023-01-22,jaqueta bomber,10,False
+2023-01-29,jaqueta bomber,13,False
+2023-02-05,jaqueta bomber,11,False
+2023-02-12,jaqueta bomber,10,False
+2023-02-19,jaqueta bomber,15,False
+2023-02-26,jaqueta bomber,12,False
+2023-03-05,jaqueta bomber,17,False
+2023-03-12,jaqueta bomber,17,False
+2023-03-19,jaqueta bomber,17,False
+2023-03-26,jaqueta bomber,18,False
+2023-04-02,jaqueta bomber,26,False
+2023-04-09,jaqueta bomber,30,False
+2023-04-16,jaqueta bomber,42,False
+2023-04-23,jaqueta bomber,42,False
+2023-04-30,jaqueta bomber,36,False
+2023-05-07,jaqueta bomber,38,False
+2023-05-14,jaqueta bomber,55,False
+2023-05-21,jaqueta bomber,47,False
+2023-05-28,jaqueta bomber,55,False
+2023-06-04,jaqueta bomber,53,False
+2023-06-11,jaqueta bomber,50,False
+2023-06-18,jaqueta bomber,55,False
+2023-06-25,jaqueta bomber,37,False
+2023-07-02,jaqueta bomber,38,False
+2023-07-09,jaqueta bomber,31,False
+2023-07-16,jaqueta bomber,38,False
+2023-07-23,jaqueta bomber,27,False
+2023-07-30,jaqueta bomber,27,False
+2023-08-06,jaqueta bomber,21,False
+2023-08-13,jaqueta bomber,18,False
+2023-08-20,jaqueta bomber,16,False
+2023-08-27,jaqueta bomber,21,False
+2023-09-03,jaqueta bomber,17,False
+2023-09-10,jaqueta bomber,12,False
+2023-09-17,jaqueta bomber,9,False
+2023-09-24,jaqueta bomber,7,False
+2023-10-01,jaqueta bomber,9,False
+2023-10-08,jaqueta bomber,10,False
+2023-10-15,jaqueta bomber,13,False
+2023-10-22,jaqueta bomber,11,False
+2023-10-29,jaqueta bomber,12,False
+2023-11-05,jaqueta bomber,11,False
+2023-11-12,jaqueta bomber,9,False
+2023-11-19,jaqueta bomber,11,False
+2023-11-26,jaqueta bomber,12,False
+2023-12-03,jaqueta bomber,9,False
+2023-12-10,jaqueta bomber,7,False
+2023-12-17,jaqueta bomber,8,False
+2023-12-24,jaqueta bomber,11,False
+2023-12-31,jaqueta bomber,9,False
+2024-01-07,jaqueta bomber,9,False
+2024-01-14,jaqueta bomber,8,False
+2024-01-21,jaqueta bomber,14,False
+2024-01-28,jaqueta bomber,11,False
+2024-02-04,jaqueta bomber,8,False
+2024-02-11,jaqueta bomber,10,False
+2024-02-18,jaqueta bomber,17,False
+2024-02-25,jaqueta bomber,13,False
+2024-03-03,jaqueta bomber,11,False
+2024-03-10,jaqueta bomber,12,False
+2024-03-17,jaqueta bomber,14,False
+2024-03-24,jaqueta bomber,26,False
+2024-03-31,jaqueta bomber,18,False
+2024-04-07,jaqueta bomber,18,False
+2024-04-14,jaqueta bomber,23,False
+2024-04-21,jaqueta bomber,21,False
+2024-04-28,jaqueta bomber,18,False
+2024-05-05,jaqueta bomber,14,False
+2024-05-12,jaqueta bomber,24,False
+2024-05-19,jaqueta bomber,32,False
+2024-05-26,jaqueta bomber,66,False
+2024-06-02,jaqueta bomber,50,False
+2024-06-09,jaqueta bomber,37,False
+2024-06-16,jaqueta bomber,26,False
+2024-06-23,jaqueta bomber,29,False
+2024-06-30,jaqueta bomber,52,False
+2024-07-07,jaqueta bomber,44,False
+2024-07-14,jaqueta bomber,41,False
+2024-07-21,jaqueta bomber,33,False
+2024-07-28,jaqueta bomber,27,False
+2024-08-04,jaqueta bomber,27,False
+2024-08-11,jaqueta bomber,34,False
+2024-08-18,jaqueta bomber,20,False
+2024-08-25,jaqueta bomber,31,False
+2024-09-01,jaqueta bomber,15,False
+2024-09-08,jaqueta bomber,12,False
+2024-09-15,jaqueta bomber,16,False
+2024-09-22,jaqueta bomber,8,False
+2024-09-29,jaqueta bomber,12,False
+2024-10-06,jaqueta bomber,11,False
+2024-10-13,jaqueta bomber,15,False
+2024-10-20,jaqueta bomber,13,False
+2024-10-27,jaqueta bomber,15,False
+2024-11-03,jaqueta bomber,17,False
+2024-11-10,jaqueta bomber,16,False
+2024-11-17,jaqueta bomber,13,False
+2024-11-24,jaqueta bomber,12,False
+2024-12-01,jaqueta bomber,15,False
+2024-12-08,jaqueta bomber,12,False
+2024-12-15,jaqueta bomber,12,False
+2024-12-22,jaqueta bomber,14,False
+2024-12-29,jaqueta bomber,12,False
+2025-01-05,jaqueta bomber,11,False
+2025-01-12,jaqueta bomber,15,False
+2025-01-19,jaqueta bomber,10,False
+2025-01-26,jaqueta bomber,12,False
+2025-02-02,jaqueta bomber,13,False
+2025-02-09,jaqueta bomber,11,False
+2025-02-16,jaqueta bomber,9,False
+2025-02-23,jaqueta bomber,9,False
+2025-03-02,jaqueta bomber,10,False
+2025-03-09,jaqueta bomber,12,False
+2025-03-16,jaqueta bomber,17,False
+2025-03-23,jaqueta bomber,16,False
+2025-03-30,jaqueta bomber,21,False
+2025-04-06,jaqueta bomber,41,False
+2025-04-13,jaqueta bomber,30,False
+2025-04-20,jaqueta bomber,41,False
+2025-04-27,jaqueta bomber,41,False
+2025-05-04,jaqueta bomber,35,False
+2025-05-11,jaqueta bomber,47,False
+2025-05-18,jaqueta bomber,37,False
+2025-05-25,jaqueta bomber,58,False
+2025-06-01,jaqueta bomber,59,False
+2025-06-08,jaqueta bomber,75,False
+2025-06-15,jaqueta bomber,66,False
+2025-06-22,jaqueta bomber,57,False
+2025-06-29,jaqueta bomber,64,False
+2025-07-06,jaqueta bomber,57,False
+2025-07-13,jaqueta bomber,48,False
+2025-07-20,jaqueta bomber,48,False
+2025-07-27,jaqueta bomber,41,False
+2025-08-03,jaqueta bomber,39,False
+2025-08-10,jaqueta bomber,46,False
+2025-08-17,jaqueta bomber,30,False
+2025-08-24,jaqueta bomber,25,False
+2025-08-31,jaqueta bomber,21,False
+2025-09-07,jaqueta bomber,26,False
+2025-09-14,jaqueta bomber,21,False
+2025-09-21,jaqueta bomber,22,False
+2025-09-28,jaqueta bomber,19,False
+2025-10-05,jaqueta bomber,19,False
+2025-10-12,jaqueta bomber,21,False
+2025-10-19,jaqueta bomber,23,False
+2025-10-26,jaqueta bomber,17,False
+2025-11-02,jaqueta bomber,15,False
+2025-11-09,jaqueta bomber,20,False
+2025-11-16,jaqueta bomber,21,False
+2025-11-23,jaqueta bomber,18,False
+2025-11-30,jaqueta bomber,15,False
+2025-12-07,jaqueta bomber,15,False
+2025-12-14,jaqueta bomber,13,False
+2025-12-21,jaqueta bomber,12,False
+2025-12-28,jaqueta bomber,13,False
+2026-01-04,jaqueta bomber,12,False
+2026-01-11,jaqueta bomber,12,False
+2026-01-18,jaqueta bomber,19,False
+2026-01-25,jaqueta bomber,14,False
+2026-02-01,jaqueta bomber,17,False
+2026-02-08,jaqueta bomber,19,False
+2026-02-15,jaqueta bomber,14,False
+2026-02-22,jaqueta bomber,20,False
+2026-03-01,jaqueta bomber,27,False
+2026-03-08,jaqueta bomber,33,False
+2026-03-15,jaqueta bomber,22,False
+2026-03-22,jaqueta bomber,23,False
+2026-03-29,jaqueta bomber,29,False
+2026-04-05,jaqueta bomber,29,False
+2026-04-12,jaqueta bomber,34,False
+2026-04-19,jaqueta bomber,29,False
+2026-04-26,jaqueta bomber,38,False
+2026-05-03,jaqueta bomber,45,False
+2026-05-10,jaqueta bomber,72,False
+2026-05-17,jaqueta bomber,74,False
+2026-05-24,jaqueta bomber,67,False
+2026-05-31,jaqueta bomber,86,False
+2026-06-07,jaqueta bomber,78,False
+2026-06-14,jaqueta bomber,69,False
+2026-06-21,jaqueta bomber,70,False
+2026-06-28,jaqueta bomber,46,False
+2026-07-05,jaqueta bomber,49,False
+2026-07-12,jaqueta bomber,48,False
+2026-07-19,jaqueta bomber,42,False
+2026-07-26,jaqueta bomber,32,False
+2026-08-02,jaqueta bomber,29,False
+2026-08-09,jaqueta bomber,30,False
+2026-08-16,jaqueta bomber,22,False
+2026-08-23,jaqueta bomber,25,False
+2026-08-30,jaqueta bomber,24,False
+2026-09-06,jaqueta bomber,39,False
+2026-09-13,jaqueta bomber,32,False
+2026-09-20,jaqueta bomber,31,False
+2026-09-27,jaqueta bomber,20,False
+2026-10-04,jaqueta bomber,16,False
+2026-10-11,jaqueta bomber,18,False
+2026-10-18,jaqueta bomber,23,False
+2026-10-25,jaqueta bomber,19,False
+2026-11-01,jaqueta bomber,18,False
+2026-11-08,jaqueta bomber,23,True
+2021-11-07,bermuda de alfaiataria,23,False
+2021-11-14,bermuda de alfaiataria,32,False
+2021-11-21,bermuda de alfaiataria,31,False
+2021-11-28,bermuda de alfaiataria,37,False
+2021-12-05,bermuda de alfaiataria,0,False
+2021-12-12,bermuda de alfaiataria,36,False
+2021-12-19,bermuda de alfaiataria,28,False
+2021-12-26,bermuda de alfaiataria,0,False
+2022-01-02,bermuda de alfaiataria,38,False
+2022-01-09,bermuda de alfaiataria,27,False
+2022-01-16,bermuda de alfaiataria,0,False
+2022-01-23,bermuda de alfaiataria,26,False
+2022-01-30,bermuda de alfaiataria,0,False
+2022-02-06,bermuda de alfaiataria,0,False
+2022-02-13,bermuda de alfaiataria,18,False
+2022-02-20,bermuda de alfaiataria,24,False
+2022-02-27,bermuda de alfaiataria,26,False
+2022-03-06,bermuda de alfaiataria,16,False
+2022-03-13,bermuda de alfaiataria,25,False
+2022-03-20,bermuda de alfaiataria,17,False
+2022-03-27,bermuda de alfaiataria,25,False
+2022-04-03,bermuda de alfaiataria,20,False
+2022-04-10,bermuda de alfaiataria,0,False
+2022-04-17,bermuda de alfaiataria,21,False
+2022-04-24,bermuda de alfaiataria,0,False
+2022-05-01,bermuda de alfaiataria,17,False
+2022-05-08,bermuda de alfaiataria,21,False
+2022-05-15,bermuda de alfaiataria,20,False
+2022-05-22,bermuda de alfaiataria,0,False
+2022-05-29,bermuda de alfaiataria,0,False
+2022-06-05,bermuda de alfaiataria,0,False
+2022-06-12,bermuda de alfaiataria,0,False
+2022-06-19,bermuda de alfaiataria,0,False
+2022-06-26,bermuda de alfaiataria,0,False
+2022-07-03,bermuda de alfaiataria,0,False
+2022-07-10,bermuda de alfaiataria,17,False
+2022-07-17,bermuda de alfaiataria,0,False
+2022-07-24,bermuda de alfaiataria,0,False
+2022-07-31,bermuda de alfaiataria,0,False
+2022-08-07,bermuda de alfaiataria,21,False
+2022-08-14,bermuda de alfaiataria,0,False
+2022-08-21,bermuda de alfaiataria,0,False
+2022-08-28,bermuda de alfaiataria,0,False
+2022-09-04,bermuda de alfaiataria,32,False
+2022-09-11,bermuda de alfaiataria,0,False
+2022-09-18,bermuda de alfaiataria,18,False
+2022-09-25,bermuda de alfaiataria,16,False
+2022-10-02,bermuda de alfaiataria,21,False
+2022-10-09,bermuda de alfaiataria,27,False
+2022-10-16,bermuda de alfaiataria,28,False
+2022-10-23,bermuda de alfaiataria,37,False
+2022-10-30,bermuda de alfaiataria,17,False
+2022-11-06,bermuda de alfaiataria,26,False
+2022-11-13,bermuda de alfaiataria,32,False
+2022-11-20,bermuda de alfaiataria,51,False
+2022-11-27,bermuda de alfaiataria,46,False
+2022-12-04,bermuda de alfaiataria,54,False
+2022-12-11,bermuda de alfaiataria,41,False
+2022-12-18,bermuda de alfaiataria,41,False
+2022-12-25,bermuda de alfaiataria,46,False
+2023-01-01,bermuda de alfaiataria,22,False
+2023-01-08,bermuda de alfaiataria,21,False
+2023-01-15,bermuda de alfaiataria,30,False
+2023-01-22,bermuda de alfaiataria,28,False
+2023-01-29,bermuda de alfaiataria,20,False
+2023-02-05,bermuda de alfaiataria,22,False
+2023-02-12,bermuda de alfaiataria,32,False
+2023-02-19,bermuda de alfaiataria,22,False
+2023-02-26,bermuda de alfaiataria,23,False
+2023-03-05,bermuda de alfaiataria,0,False
+2023-03-12,bermuda de alfaiataria,24,False
+2023-03-19,bermuda de alfaiataria,0,False
+2023-03-26,bermuda de alfaiataria,22,False
+2023-04-02,bermuda de alfaiataria,0,False
+2023-04-09,bermuda de alfaiataria,0,False
+2023-04-16,bermuda de alfaiataria,0,False
+2023-04-23,bermuda de alfaiataria,27,False
+2023-04-30,bermuda de alfaiataria,0,False
+2023-05-07,bermuda de alfaiataria,19,False
+2023-05-14,bermuda de alfaiataria,23,False
+2023-05-21,bermuda de alfaiataria,0,False
+2023-05-28,bermuda de alfaiataria,0,False
+2023-06-04,bermuda de alfaiataria,25,False
+2023-06-11,bermuda de alfaiataria,0,False
+2023-06-18,bermuda de alfaiataria,19,False
+2023-06-25,bermuda de alfaiataria,0,False
+2023-07-02,bermuda de alfaiataria,0,False
+2023-07-09,bermuda de alfaiataria,20,False
+2023-07-16,bermuda de alfaiataria,0,False
+2023-07-23,bermuda de alfaiataria,25,False
+2023-07-30,bermuda de alfaiataria,0,False
+2023-08-06,bermuda de alfaiataria,23,False
+2023-08-13,bermuda de alfaiataria,25,False
+2023-08-20,bermuda de alfaiataria,19,False
+2023-08-27,bermuda de alfaiataria,0,False
+2023-09-03,bermuda de alfaiataria,32,False
+2023-09-10,bermuda de alfaiataria,23,False
+2023-09-17,bermuda de alfaiataria,57,False
+2023-09-24,bermuda de alfaiataria,65,False
+2023-10-01,bermuda de alfaiataria,34,False
+2023-10-08,bermuda de alfaiataria,40,False
+2023-10-15,bermuda de alfaiataria,47,False
+2023-10-22,bermuda de alfaiataria,43,False
+2023-10-29,bermuda de alfaiataria,56,False
+2023-11-05,bermuda de alfaiataria,54,False
+2023-11-12,bermuda de alfaiataria,98,False
+2023-11-19,bermuda de alfaiataria,71,False
+2023-11-26,bermuda de alfaiataria,60,False
+2023-12-03,bermuda de alfaiataria,100,False
+2023-12-10,bermuda de alfaiataria,65,False
+2023-12-17,bermuda de alfaiataria,89,False
+2023-12-24,bermuda de alfaiataria,83,False
+2023-12-31,bermuda de alfaiataria,54,False
+2024-01-07,bermuda de alfaiataria,35,False
+2024-01-14,bermuda de alfaiataria,37,False
+2024-01-21,bermuda de alfaiataria,37,False
+2024-01-28,bermuda de alfaiataria,29,False
+2024-02-04,bermuda de alfaiataria,37,False
+2024-02-11,bermuda de alfaiataria,46,False
+2024-02-18,bermuda de alfaiataria,30,False
+2024-02-25,bermuda de alfaiataria,37,False
+2024-03-03,bermuda de alfaiataria,28,False
+2024-03-10,bermuda de alfaiataria,29,False
+2024-03-17,bermuda de alfaiataria,30,False
+2024-03-24,bermuda de alfaiataria,26,False
+2024-03-31,bermuda de alfaiataria,25,False
+2024-04-07,bermuda de alfaiataria,29,False
+2024-04-14,bermuda de alfaiataria,26,False
+2024-04-21,bermuda de alfaiataria,34,False
+2024-04-28,bermuda de alfaiataria,40,False
+2024-05-05,bermuda de alfaiataria,50,False
+2024-05-12,bermuda de alfaiataria,35,False
+2024-05-19,bermuda de alfaiataria,0,False
+2024-05-26,bermuda de alfaiataria,0,False
+2024-06-02,bermuda de alfaiataria,31,False
+2024-06-09,bermuda de alfaiataria,24,False
+2024-06-16,bermuda de alfaiataria,33,False
+2024-06-23,bermuda de alfaiataria,0,False
+2024-06-30,bermuda de alfaiataria,24,False
+2024-07-07,bermuda de alfaiataria,0,False
+2024-07-14,bermuda de alfaiataria,25,False
+2024-07-21,bermuda de alfaiataria,26,False
+2024-07-28,bermuda de alfaiataria,0,False
+2024-08-04,bermuda de alfaiataria,28,False
+2024-08-11,bermuda de alfaiataria,0,False
+2024-08-18,bermuda de alfaiataria,31,False
+2024-08-25,bermuda de alfaiataria,38,False
+2024-09-01,bermuda de alfaiataria,43,False
+2024-09-08,bermuda de alfaiataria,40,False
+2024-09-15,bermuda de alfaiataria,52,False
+2024-09-22,bermuda de alfaiataria,49,False
+2024-09-29,bermuda de alfaiataria,64,False
+2024-10-06,bermuda de alfaiataria,45,False
+2024-10-13,bermuda de alfaiataria,52,False
+2024-10-20,bermuda de alfaiataria,52,False
+2024-10-27,bermuda de alfaiataria,37,False
+2024-11-03,bermuda de alfaiataria,47,False
+2024-11-10,bermuda de alfaiataria,44,False
+2024-11-17,bermuda de alfaiataria,60,False
+2024-11-24,bermuda de alfaiataria,55,False
+2024-12-01,bermuda de alfaiataria,48,False
+2024-12-08,bermuda de alfaiataria,62,False
+2024-12-15,bermuda de alfaiataria,63,False
+2024-12-22,bermuda de alfaiataria,63,False
+2024-12-29,bermuda de alfaiataria,55,False
+2025-01-05,bermuda de alfaiataria,37,False
+2025-01-12,bermuda de alfaiataria,0,False
+2025-01-19,bermuda de alfaiataria,41,False
+2025-01-26,bermuda de alfaiataria,33,False
+2025-02-02,bermuda de alfaiataria,27,False
+2025-02-09,bermuda de alfaiataria,36,False
+2025-02-16,bermuda de alfaiataria,41,False
+2025-02-23,bermuda de alfaiataria,54,False
+2025-03-02,bermuda de alfaiataria,0,False
+2025-03-09,bermuda de alfaiataria,0,False
+2025-03-16,bermuda de alfaiataria,37,False
+2025-03-23,bermuda de alfaiataria,36,False
+2025-03-30,bermuda de alfaiataria,40,False
+2025-04-06,bermuda de alfaiataria,0,False
+2025-04-13,bermuda de alfaiataria,25,False
+2025-04-20,bermuda de alfaiataria,37,False
+2025-04-27,bermuda de alfaiataria,0,False
+2025-05-04,bermuda de alfaiataria,29,False
+2025-05-11,bermuda de alfaiataria,0,False
+2025-05-18,bermuda de alfaiataria,0,False
+2025-05-25,bermuda de alfaiataria,0,False
+2025-06-01,bermuda de alfaiataria,0,False
+2025-06-08,bermuda de alfaiataria,36,False
+2025-06-15,bermuda de alfaiataria,25,False
+2025-06-22,bermuda de alfaiataria,0,False
+2025-06-29,bermuda de alfaiataria,36,False
+2025-07-06,bermuda de alfaiataria,34,False
+2025-07-13,bermuda de alfaiataria,0,False
+2025-07-20,bermuda de alfaiataria,0,False
+2025-07-27,bermuda de alfaiataria,0,False
+2025-08-03,bermuda de alfaiataria,0,False
+2025-08-10,bermuda de alfaiataria,27,False
+2025-08-17,bermuda de alfaiataria,33,False
+2025-08-24,bermuda de alfaiataria,27,False
+2025-08-31,bermuda de alfaiataria,25,False
+2025-09-07,bermuda de alfaiataria,42,False
+2025-09-14,bermuda de alfaiataria,35,False
+2025-09-21,bermuda de alfaiataria,34,False
+2025-09-28,bermuda de alfaiataria,37,False
+2025-10-05,bermuda de alfaiataria,31,False
+2025-10-12,bermuda de alfaiataria,42,False
+2025-10-19,bermuda de alfaiataria,42,False
+2025-10-26,bermuda de alfaiataria,30,False
+2025-11-02,bermuda de alfaiataria,37,False
+2025-11-09,bermuda de alfaiataria,51,False
+2025-11-16,bermuda de alfaiataria,43,False
+2025-11-23,bermuda de alfaiataria,45,False
+2025-11-30,bermuda de alfaiataria,84,False
+2025-12-07,bermuda de alfaiataria,81,False
+2025-12-14,bermuda de alfaiataria,80,False
+2025-12-21,bermuda de alfaiataria,42,False
+2025-12-28,bermuda de alfaiataria,27,False
+2026-01-04,bermuda de alfaiataria,49,False
+2026-01-11,bermuda de alfaiataria,45,False
+2026-01-18,bermuda de alfaiataria,37,False
+2026-01-25,bermuda de alfaiataria,54,False
+2026-02-01,bermuda de alfaiataria,41,False
+2026-02-08,bermuda de alfaiataria,27,False
+2026-02-15,bermuda de alfaiataria,27,False
+2026-02-22,bermuda de alfaiataria,39,False
+2026-03-01,bermuda de alfaiataria,26,False
+2026-03-08,bermuda de alfaiataria,27,False
+2026-03-15,bermuda de alfaiataria,23,False
+2026-03-22,bermuda de alfaiataria,35,False
+2026-03-29,bermuda de alfaiataria,34,False
+2026-04-05,bermuda de alfaiataria,22,False
+2026-04-12,bermuda de alfaiataria,35,False
+2026-04-19,bermuda de alfaiataria,32,False
+2026-04-26,bermuda de alfaiataria,22,False
+2026-05-03,bermuda de alfaiataria,38,False
+2026-05-10,bermuda de alfaiataria,37,False
+2026-05-17,bermuda de alfaiataria,0,False
+2026-05-24,bermuda de alfaiataria,0,False
+2026-05-31,bermuda de alfaiataria,0,False
+2026-06-07,bermuda de alfaiataria,0,False
+2026-06-14,bermuda de alfaiataria,24,False
+2026-06-21,bermuda de alfaiataria,0,False
+2026-06-28,bermuda de alfaiataria,0,False
+2026-07-05,bermuda de alfaiataria,24,False
+2026-07-12,bermuda de alfaiataria,22,False
+2026-07-19,bermuda de alfaiataria,50,False
+2026-07-26,bermuda de alfaiataria,37,False
+2026-08-02,bermuda de alfaiataria,42,False
+2026-08-09,bermuda de alfaiataria,32,False
+2026-08-16,bermuda de alfaiataria,0,False
+2026-08-23,bermuda de alfaiataria,53,False
+2026-08-30,bermuda de alfaiataria,32,False
+2026-09-06,bermuda de alfaiataria,0,False
+2026-09-13,bermuda de alfaiataria,39,False
+2026-09-20,bermuda de alfaiataria,43,False
+2026-09-27,bermuda de alfaiataria,42,False
+2026-10-04,bermuda de alfaiataria,39,False
+2026-10-11,bermuda de alfaiataria,33,False
+2026-10-18,bermuda de alfaiataria,48,False
+2026-10-25,bermuda de alfaiataria,22,False
+2026-11-01,bermuda de alfaiataria,47,False
+2026-11-08,bermuda de alfaiataria,42,True
+2021-11-07,camisa que não amassa,0,False
+2021-11-14,camisa que não amassa,0,False
+2021-11-21,camisa que não amassa,0,False
+2021-11-28,camisa que não amassa,0,False
+2021-12-05,camisa que não amassa,0,False
+2021-12-12,camisa que não amassa,0,False
+2021-12-19,camisa que não amassa,0,False
+2021-12-26,camisa que não amassa,0,False
+2022-01-02,camisa que não amassa,0,False
+2022-01-09,camisa que não amassa,41,False
+2022-01-16,camisa que não amassa,0,False
+2022-01-23,camisa que não amassa,0,False
+2022-01-30,camisa que não amassa,0,False
+2022-02-06,camisa que não amassa,0,False
+2022-02-13,camisa que não amassa,33,False
+2022-02-20,camisa que não amassa,0,False
+2022-02-27,camisa que não amassa,0,False
+2022-03-06,camisa que não amassa,0,False
+2022-03-13,camisa que não amassa,28,False
+2022-03-20,camisa que não amassa,34,False
+2022-03-27,camisa que não amassa,32,False
+2022-04-03,camisa que não amassa,0,False
+2022-04-10,camisa que não amassa,32,False
+2022-04-17,camisa que não amassa,33,False
+2022-04-24,camisa que não amassa,31,False
+2022-05-01,camisa que não amassa,30,False
+2022-05-08,camisa que não amassa,30,False
+2022-05-15,camisa que não amassa,0,False
+2022-05-22,camisa que não amassa,0,False
+2022-05-29,camisa que não amassa,0,False
+2022-06-05,camisa que não amassa,0,False
+2022-06-12,camisa que não amassa,31,False
+2022-06-19,camisa que não amassa,29,False
+2022-06-26,camisa que não amassa,0,False
+2022-07-03,camisa que não amassa,30,False
+2022-07-10,camisa que não amassa,0,False
+2022-07-17,camisa que não amassa,37,False
+2022-07-24,camisa que não amassa,0,False
+2022-07-31,camisa que não amassa,0,False
+2022-08-07,camisa que não amassa,0,False
+2022-08-14,camisa que não amassa,33,False
+2022-08-21,camisa que não amassa,31,False
+2022-08-28,camisa que não amassa,35,False
+2022-09-04,camisa que não amassa,0,False
+2022-09-11,camisa que não amassa,0,False
+2022-09-18,camisa que não amassa,0,False
+2022-09-25,camisa que não amassa,0,False
+2022-10-02,camisa que não amassa,0,False
+2022-10-09,camisa que não amassa,42,False
+2022-10-16,camisa que não amassa,0,False
+2022-10-23,camisa que não amassa,36,False
+2022-10-30,camisa que não amassa,42,False
+2022-11-06,camisa que não amassa,0,False
+2022-11-13,camisa que não amassa,47,False
+2022-11-20,camisa que não amassa,36,False
+2022-11-27,camisa que não amassa,36,False
+2022-12-04,camisa que não amassa,34,False
+2022-12-11,camisa que não amassa,49,False
+2022-12-18,camisa que não amassa,39,False
+2022-12-25,camisa que não amassa,0,False
+2023-01-01,camisa que não amassa,0,False
+2023-01-08,camisa que não amassa,0,False
+2023-01-15,camisa que não amassa,37,False
+2023-01-22,camisa que não amassa,30,False
+2023-01-29,camisa que não amassa,62,False
+2023-02-05,camisa que não amassa,31,False
+2023-02-12,camisa que não amassa,32,False
+2023-02-19,camisa que não amassa,59,False
+2023-02-26,camisa que não amassa,30,False
+2023-03-05,camisa que não amassa,28,False
+2023-03-12,camisa que não amassa,33,False
+2023-03-19,camisa que não amassa,33,False
+2023-03-26,camisa que não amassa,34,False
+2023-04-02,camisa que não amassa,0,False
+2023-04-09,camisa que não amassa,0,False
+2023-04-16,camisa que não amassa,39,False
+2023-04-23,camisa que não amassa,53,False
+2023-04-30,camisa que não amassa,31,False
+2023-05-07,camisa que não amassa,42,False
+2023-05-14,camisa que não amassa,29,False
+2023-05-21,camisa que não amassa,35,False
+2023-05-28,camisa que não amassa,39,False
+2023-06-04,camisa que não amassa,30,False
+2023-06-11,camisa que não amassa,29,False
+2023-06-18,camisa que não amassa,0,False
+2023-06-25,camisa que não amassa,45,False
+2023-07-02,camisa que não amassa,34,False
+2023-07-09,camisa que não amassa,39,False
+2023-07-16,camisa que não amassa,35,False
+2023-07-23,camisa que não amassa,37,False
+2023-07-30,camisa que não amassa,41,False
+2023-08-06,camisa que não amassa,33,False
+2023-08-13,camisa que não amassa,47,False
+2023-08-20,camisa que não amassa,0,False
+2023-08-27,camisa que não amassa,57,False
+2023-09-03,camisa que não amassa,32,False
+2023-09-10,camisa que não amassa,49,False
+2023-09-17,camisa que não amassa,38,False
+2023-09-24,camisa que não amassa,45,False
+2023-10-01,camisa que não amassa,34,False
+2023-10-08,camisa que não amassa,71,False
+2023-10-15,camisa que não amassa,46,False
+2023-10-22,camisa que não amassa,40,False
+2023-10-29,camisa que não amassa,39,False
+2023-11-05,camisa que não amassa,0,False
+2023-11-12,camisa que não amassa,30,False
+2023-11-19,camisa que não amassa,38,False
+2023-11-26,camisa que não amassa,52,False
+2023-12-03,camisa que não amassa,0,False
+2023-12-10,camisa que não amassa,41,False
+2023-12-17,camisa que não amassa,0,False
+2023-12-24,camisa que não amassa,0,False
+2023-12-31,camisa que não amassa,0,False
+2024-01-07,camisa que não amassa,55,False
+2024-01-14,camisa que não amassa,48,False
+2024-01-21,camisa que não amassa,52,False
+2024-01-28,camisa que não amassa,54,False
+2024-02-04,camisa que não amassa,0,False
+2024-02-11,camisa que não amassa,0,False
+2024-02-18,camisa que não amassa,0,False
+2024-02-25,camisa que não amassa,58,False
+2024-03-03,camisa que não amassa,47,False
+2024-03-10,camisa que não amassa,49,False
+2024-03-17,camisa que não amassa,63,False
+2024-03-24,camisa que não amassa,41,False
+2024-03-31,camisa que não amassa,0,False
+2024-04-07,camisa que não amassa,0,False
+2024-04-14,camisa que não amassa,0,False
+2024-04-21,camisa que não amassa,0,False
+2024-04-28,camisa que não amassa,0,False
+2024-05-05,camisa que não amassa,0,False
+2024-05-12,camisa que não amassa,42,False
+2024-05-19,camisa que não amassa,0,False
+2024-05-26,camisa que não amassa,38,False
+2024-06-02,camisa que não amassa,42,False
+2024-06-09,camisa que não amassa,0,False
+2024-06-16,camisa que não amassa,55,False
+2024-06-23,camisa que não amassa,0,False
+2024-06-30,camisa que não amassa,0,False
+2024-07-07,camisa que não amassa,0,False
+2024-07-14,camisa que não amassa,0,False
+2024-07-21,camisa que não amassa,36,False
+2024-07-28,camisa que não amassa,36,False
+2024-08-04,camisa que não amassa,50,False
+2024-08-11,camisa que não amassa,59,False
+2024-08-18,camisa que não amassa,0,False
+2024-08-25,camisa que não amassa,0,False
+2024-09-01,camisa que não amassa,52,False
+2024-09-08,camisa que não amassa,0,False
+2024-09-15,camisa que não amassa,43,False
+2024-09-22,camisa que não amassa,39,False
+2024-09-29,camisa que não amassa,45,False
+2024-10-06,camisa que não amassa,51,False
+2024-10-13,camisa que não amassa,48,False
+2024-10-20,camisa que não amassa,65,False
+2024-10-27,camisa que não amassa,0,False
+2024-11-03,camisa que não amassa,56,False
+2024-11-10,camisa que não amassa,53,False
+2024-11-17,camisa que não amassa,40,False
+2024-11-24,camisa que não amassa,52,False
+2024-12-01,camisa que não amassa,43,False
+2024-12-08,camisa que não amassa,62,False
+2024-12-15,camisa que não amassa,66,False
+2024-12-22,camisa que não amassa,0,False
+2024-12-29,camisa que não amassa,87,False
+2025-01-05,camisa que não amassa,0,False
+2025-01-12,camisa que não amassa,0,False
+2025-01-19,camisa que não amassa,0,False
+2025-01-26,camisa que não amassa,0,False
+2025-02-02,camisa que não amassa,0,False
+2025-02-09,camisa que não amassa,0,False
+2025-02-16,camisa que não amassa,39,False
+2025-02-23,camisa que não amassa,48,False
+2025-03-02,camisa que não amassa,0,False
+2025-03-09,camisa que não amassa,53,False
+2025-03-16,camisa que não amassa,48,False
+2025-03-23,camisa que não amassa,42,False
+2025-03-30,camisa que não amassa,0,False
+2025-04-06,camisa que não amassa,72,False
+2025-04-13,camisa que não amassa,39,False
+2025-04-20,camisa que não amassa,59,False
+2025-04-27,camisa que não amassa,45,False
+2025-05-04,camisa que não amassa,0,False
+2025-05-11,camisa que não amassa,37,False
+2025-05-18,camisa que não amassa,45,False
+2025-05-25,camisa que não amassa,0,False
+2025-06-01,camisa que não amassa,37,False
+2025-06-08,camisa que não amassa,51,False
+2025-06-15,camisa que não amassa,0,False
+2025-06-22,camisa que não amassa,0,False
+2025-06-29,camisa que não amassa,0,False
+2025-07-06,camisa que não amassa,0,False
+2025-07-13,camisa que não amassa,0,False
+2025-07-20,camisa que não amassa,54,False
+2025-07-27,camisa que não amassa,0,False
+2025-08-03,camisa que não amassa,82,False
+2025-08-10,camisa que não amassa,0,False
+2025-08-17,camisa que não amassa,0,False
+2025-08-24,camisa que não amassa,43,False
+2025-08-31,camisa que não amassa,61,False
+2025-09-07,camisa que não amassa,61,False
+2025-09-14,camisa que não amassa,0,False
+2025-09-21,camisa que não amassa,50,False
+2025-09-28,camisa que não amassa,0,False
+2025-10-05,camisa que não amassa,0,False
+2025-10-12,camisa que não amassa,70,False
+2025-10-19,camisa que não amassa,91,False
+2025-10-26,camisa que não amassa,59,False
+2025-11-02,camisa que não amassa,0,False
+2025-11-09,camisa que não amassa,47,False
+2025-11-16,camisa que não amassa,73,False
+2025-11-23,camisa que não amassa,78,False
+2025-11-30,camisa que não amassa,49,False
+2025-12-07,camisa que não amassa,74,False
+2025-12-14,camisa que não amassa,44,False
+2025-12-21,camisa que não amassa,0,False
+2025-12-28,camisa que não amassa,0,False
+2026-01-04,camisa que não amassa,37,False
+2026-01-11,camisa que não amassa,0,False
+2026-01-18,camisa que não amassa,36,False
+2026-01-25,camisa que não amassa,42,False
+2026-02-01,camisa que não amassa,43,False
+2026-02-08,camisa que não amassa,57,False
+2026-02-15,camisa que não amassa,48,False
+2026-02-22,camisa que não amassa,48,False
+2026-03-01,camisa que não amassa,52,False
+2026-03-08,camisa que não amassa,74,False
+2026-03-15,camisa que não amassa,66,False
+2026-03-22,camisa que não amassa,59,False
+2026-03-29,camisa que não amassa,60,False
+2026-04-05,camisa que não amassa,0,False
+2026-04-12,camisa que não amassa,0,False
+2026-04-19,camisa que não amassa,59,False
+2026-04-26,camisa que não amassa,55,False
+2026-05-03,camisa que não amassa,78,False
+2026-05-10,camisa que não amassa,53,False
+2026-05-17,camisa que não amassa,0,False
+2026-05-24,camisa que não amassa,51,False
+2026-05-31,camisa que não amassa,83,False
+2026-06-07,camisa que não amassa,66,False
+2026-06-14,camisa que não amassa,53,False
+2026-06-21,camisa que não amassa,61,False
+2026-06-28,camisa que não amassa,48,False
+2026-07-05,camisa que não amassa,0,False
+2026-07-12,camisa que não amassa,48,False
+2026-07-19,camisa que não amassa,0,False
+2026-07-26,camisa que não amassa,93,False
+2026-08-02,camisa que não amassa,64,False
+2026-08-09,camisa que não amassa,76,False
+2026-08-16,camisa que não amassa,55,False
+2026-08-23,camisa que não amassa,53,False
+2026-08-30,camisa que não amassa,42,False
+2026-09-06,camisa que não amassa,61,False
+2026-09-13,camisa que não amassa,48,False
+2026-09-20,camisa que não amassa,67,False
+2026-09-27,camisa que não amassa,100,False
+2026-10-04,camisa que não amassa,51,False
+2026-10-11,camisa que não amassa,0,False
+2026-10-18,camisa que não amassa,54,False
+2026-10-25,camisa que não amassa,26,False
+2026-11-01,camisa que não amassa,49,False
+2026-11-08,camisa que não amassa,55,True

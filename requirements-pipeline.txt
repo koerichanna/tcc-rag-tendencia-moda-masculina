@@ -1,0 +1,4 @@
+# Dependências só da coleta de dados (não vão para a imagem da API)
+-r requirements.txt
+pytrends>=4.9.2
+truststore>=0.10.0

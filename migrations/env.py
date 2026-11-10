@@ -1,3 +1,4 @@
+import logging
 from logging.config import fileConfig
 
 from alembic import context
@@ -6,7 +7,9 @@ import models  # noqa: F401  (registra as tabelas no Base.metadata)
 from database import Base, engine
 
 config = context.config
-if config.config_file_name is not None:
+# Só configura o logging pelo alembic.ini quando roda pelo comando `alembic`; chamado pela
+# aplicação (migrar.py, ingestion.py), mantém a configuração dela.
+if config.config_file_name is not None and not logging.getLogger().handlers:
     fileConfig(config.config_file_name, disable_existing_loggers=False)
 
 target_metadata = Base.metadata
