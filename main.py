@@ -9,7 +9,7 @@ from sqlalchemy.orm import Session
 import models
 import rag_engine
 import schemas
-from database import SessionLocal
+from database import get_db
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("projeto_moda")
@@ -37,13 +37,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 @app.get("/", tags=["Status"])
 def ler_raiz():
