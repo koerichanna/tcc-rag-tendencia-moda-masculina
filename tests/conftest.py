@@ -22,10 +22,35 @@ os.environ["DATABASE_URL"] = url_teste.render_as_string(hide_password=False)
 os.environ.setdefault("CHROMA_PERSIST_DIRECTORY", "./data/test_chroma")
 
 import pytest  # noqa: E402
+from fastapi.testclient import TestClient  # noqa: E402
+from sqlalchemy.orm import sessionmaker  # noqa: E402
 
 import ingestion  # noqa: E402
+from database import Base, engine  # noqa: E402
+from main import app, get_db  # noqa: E402
+
+TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
 @pytest.fixture(scope="session", autouse=True)
 def base_vetorial_indexada():
     ingestion.indexar_no_chromadb(ingestion.carregar_dados_mercado())
+
+
+@pytest.fixture
+def db_session():
+    Base.metadata.create_all(bind=engine)
+    db = TestingSessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+        Base.metadata.drop_all(bind=engine)
+
+
+@pytest.fixture
+def client(db_session):
+    app.dependency_overrides[get_db] = lambda: db_session
+    with TestClient(app) as test_client:
+        yield test_client
+    app.dependency_overrides.clear()
