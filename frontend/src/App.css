@@ -443,3 +443,8 @@
 .custom-table tr:hover {
   background-color: #f8fafc;
 }
+
+button.badge:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

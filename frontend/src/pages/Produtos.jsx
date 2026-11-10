@@ -121,7 +121,7 @@ function ModalAvaliacao({ avaliacao, onFechar }) {
   );
 }
 
-function LinhaProduto({ produto, avaliando, onAvaliar }) {
+function LinhaProduto({ produto, avaliando, logado, onAvaliar }) {
   const estoqueCritico = produto.quantidade_estoque <= produto.estoque_minimo;
   return (
     <tr>
@@ -144,7 +144,8 @@ function LinhaProduto({ produto, avaliando, onAvaliar }) {
         )}
       </td>
       <td>
-        <button type="button" className="badge" disabled={avaliando} onClick={onAvaliar}
+        <button type="button" className="badge" disabled={avaliando || !logado} onClick={onAvaliar}
+          title={logado ? undefined : 'Faça login para usar esta ação'}
           style={{ background: '#4338ca', color: 'white', cursor: 'pointer', padding: '0.4rem 0.65rem' }}>
           {avaliando
             ? <><RefreshCw className="animate-spin" size={12} /> Avaliando...</>
@@ -155,7 +156,7 @@ function LinhaProduto({ produto, avaliando, onAvaliar }) {
   );
 }
 
-export default function Produtos({ produtos, onAtualizar }) {
+export default function Produtos({ produtos, logado, onAtualizar }) {
   const [modalAberto, setModalAberto] = useState(false);
   const [avaliandoId, setAvaliandoId] = useState(null);
   const [avaliacao, setAvaliacao] = useState(null);
@@ -183,7 +184,8 @@ export default function Produtos({ produtos, onAtualizar }) {
             Avalie o potencial de mercado e os riscos de cada produto com um clique no botão <strong>Avaliar com IA</strong>.
           </p>
         </div>
-        <button type="button" className="badge" onClick={() => setModalAberto(true)}
+        <button type="button" className="badge" onClick={() => setModalAberto(true)} disabled={!logado}
+          title={logado ? undefined : 'Faça login para usar esta ação'}
           style={{ background: '#2563eb', color: 'white', padding: '0.6rem 1rem', fontSize: '0.85rem', cursor: 'pointer' }}>
           <PlusCircle size={16} /> Novo Produto
         </button>
@@ -209,7 +211,8 @@ export default function Produtos({ produtos, onAtualizar }) {
             </thead>
             <tbody>
               {produtos.map((p) => (
-                <LinhaProduto key={p.id} produto={p} avaliando={avaliandoId === p.id} onAvaliar={() => avaliar(p.id)} />
+                <LinhaProduto key={p.id} produto={p} avaliando={avaliandoId === p.id} logado={logado}
+                  onAvaliar={() => avaliar(p.id)} />
               ))}
             </tbody>
           </table>

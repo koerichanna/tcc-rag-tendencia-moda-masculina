@@ -147,3 +147,14 @@ class ConsultaRAGResponse(BaseModel):
 class GerarTendenciasIARequest(BaseModel):
     tema: Optional[str] = Field("Tendências de Moda Masculina Atual", min_length=3, max_length=200,
                                 examples=["Alfaiataria moderna e casual chic"])
+
+
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+
+
+class UsuarioResponse(BaseModel):
+    nome_usuario: str
+
+    model_config = ConfigDict(from_attributes=True)

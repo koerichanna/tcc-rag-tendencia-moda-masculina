@@ -4,6 +4,11 @@ uvicorn[standard]>=0.30.0
 pydantic>=2.9.0
 python-dotenv>=1.0.1
 
+# Autenticação
+pyjwt>=2.9.0
+bcrypt>=4.2.0
+python-multipart>=0.0.9
+
 # Banco de Dados Relacional
 sqlalchemy>=2.1.0
 alembic>=1.14.0

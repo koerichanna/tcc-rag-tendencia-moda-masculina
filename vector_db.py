@@ -1,10 +1,13 @@
 import os
+from functools import lru_cache
 from typing import Any, Dict, List, Optional
 
 import chromadb
 
 CHROMA_PATH = os.getenv("CHROMA_PERSIST_DIRECTORY", "./data/chroma_db")
 
+# Um cliente por processo: abrir o banco a cada consulta deixava a busca lenta e instável.
+@lru_cache(maxsize=1)
 def get_chroma_client():
     return chromadb.PersistentClient(path=CHROMA_PATH)
 

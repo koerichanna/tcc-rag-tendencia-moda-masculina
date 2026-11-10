@@ -25,7 +25,9 @@ import pytest  # noqa: E402
 from fastapi.testclient import TestClient  # noqa: E402
 from sqlalchemy.orm import sessionmaker  # noqa: E402
 
+import auth  # noqa: E402
 import ingestion  # noqa: E402
+import models  # noqa: E402
 from database import Base, engine  # noqa: E402
 from main import app, get_db  # noqa: E402
 
@@ -49,8 +51,16 @@ def db_session():
 
 
 @pytest.fixture
-def client(db_session):
+def client_anonimo(db_session):
+    """Cliente sem login: as rotas protegidas respondem 401."""
     app.dependency_overrides[get_db] = lambda: db_session
     with TestClient(app) as test_client:
         yield test_client
     app.dependency_overrides.clear()
+
+
+@pytest.fixture
+def client(client_anonimo):
+    """Cliente já autenticado, para os testes que não tratam de login."""
+    app.dependency_overrides[auth.usuario_atual] = lambda: models.UsuarioModel(nome_usuario="teste")
+    return client_anonimo

@@ -1,4 +1,17 @@
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const CHAVE_TOKEN = 'moda_token';
+
+// O token fica na sessionStorage: vale enquanto a aba estiver aberta.
+const token = {
+  ler: () => sessionStorage.getItem(CHAVE_TOKEN),
+  salvar: (valor) => sessionStorage.setItem(CHAVE_TOKEN, valor),
+  apagar: () => sessionStorage.removeItem(CHAVE_TOKEN),
+};
+
+let aoPerderSessao = () => {};
+export function quandoSessaoExpirar(callback) {
+  aoPerderSessao = callback;
+}
 
 // Converte a resposta de erro do FastAPI em uma mensagem legível.
 // 422 traz uma lista de erros de validação; os demais trazem `detail` como texto.
@@ -11,20 +24,41 @@ function mensagemDeErro(status, corpo) {
   return `Erro ${status} ao falar com a API`;
 }
 
-async function requisicao(caminho, { method = 'GET', body } = {}) {
+async function requisicao(caminho, { method = 'GET', body, form } = {}) {
+  const headers = {};
+  if (body) headers['Content-Type'] = 'application/json';
+  const atual = token.ler();
+  if (atual) headers.Authorization = `Bearer ${atual}`;
+
   const resposta = await fetch(`${API_BASE}${caminho}`, {
     method,
-    headers: body ? { 'Content-Type': 'application/json' } : undefined,
-    body: body ? JSON.stringify(body) : undefined,
+    headers,
+    body: form ? new URLSearchParams(form) : body ? JSON.stringify(body) : undefined,
   });
   const corpo = await resposta.json().catch(() => null);
   if (!resposta.ok) {
+    if (resposta.status === 401 && atual) {
+      token.apagar();
+      aoPerderSessao();
+    }
     throw new Error(mensagemDeErro(resposta.status, corpo));
   }
   return corpo;
 }
 
 export const api = {
+  temToken: () => Boolean(token.ler()),
+  async entrar(nomeUsuario, senha) {
+    const { access_token } = await requisicao('/auth/login', {
+      method: 'POST',
+      form: { username: nomeUsuario, password: senha },
+    });
+    token.salvar(access_token);
+    return requisicao('/auth/me');
+  },
+  sair: () => token.apagar(),
+  eu: () => requisicao('/auth/me'),
+
   status: () => requisicao('/'),
   kpis: () => requisicao('/dashboard/kpis'),
   produtos: () => requisicao('/produtos/'),
