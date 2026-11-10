@@ -70,6 +70,18 @@ npm run dev                                 # http://localhost:5173
 Ou tudo com Docker: `docker compose up --build` (frontend em http://localhost:8080, API em
 http://localhost:8000/docs). Na primeira vez, rodar `docker compose exec backend python ingestion.py`.
 
+## Login
+
+Ver, consultar o painel e usar o consultor RAG é público. Cadastrar produtos, gerar tendências e
+avaliar produtos com IA exige login (token JWT, válido por 8 horas). Não há tela de cadastro: os
+usuários são criados por quem administra o servidor.
+
+```bash
+venv\Scripts\python criar_usuario.py anna        # pede a senha (mínimo 10 caracteres)
+```
+
+Em produção a API não sobe sem `JWT_SECRET` definido.
+
 ## Migrations (Alembic)
 
 O schema do banco é versionado em `migrations/versions/`. A API aplica as migrations pendentes ao
