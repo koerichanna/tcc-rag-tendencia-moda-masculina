@@ -40,6 +40,7 @@ deploy/                script executado na VM e modelos de .env
 docs/                  arquitetura, ADRs, LGPD
 frontend/              aplicação React (servida por Nginx em produção)
 infra/caddy/           proxy reverso com HTTPS
+infra/monitoramento/   Prometheus, Grafana e alertas (ver docs/observabilidade.md)
 tests/                 testes da API, do RAG e da busca vetorial
 main.py                rotas da API
 rag_engine.py          recuperação + síntese da recomendação

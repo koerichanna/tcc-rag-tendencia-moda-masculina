@@ -6,6 +6,7 @@ from typing import List
 from fastapi import Depends, FastAPI, HTTPException, Query, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordRequestForm
+from prometheus_fastapi_instrumentator import Instrumentator
 from slowapi.errors import RateLimitExceeded
 from sqlalchemy.orm import Session
 
@@ -34,6 +35,10 @@ async def monitorar_observabilidade(request: Request, call_next):
     if request.url.path.startswith(("/rag", "/ia", "/dashboard")):
         logger.info(f"Observabilidade: {request.method} {request.url.path} -> {response.status_code} ({duracao_ms:.2f}ms)")
     return response
+
+# Métricas Prometheus em /metrics (requisições, latência e erros por rota + métricas de metricas.py).
+# O Nginx bloqueia /api/metrics; só o Prometheus, pela rede interna do Docker, lê esse endpoint.
+Instrumentator(excluded_handlers=["/metrics", "/health"]).instrument(app).expose(app, include_in_schema=False)
 
 app.state.limiter = limites.limiter
 app.add_exception_handler(RateLimitExceeded, limites.limite_excedido)

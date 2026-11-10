@@ -164,7 +164,7 @@ Requisitos do [Portfólio Directions](https://github.com/CatolicaSC-Portfolio/Th
 | Wiki | Este conteúdo, publicado na Wiki do GitHub do repositório. |
 | CI/CD | `.github/workflows/ci.yml`: Ruff, Pytest (com PostgreSQL), lint/build do frontend, SonarCloud, imagens no GHCR e deploy na Azure. |
 | Análise estática e segurança | Ruff e Oxlint no pipeline; SonarCloud (`sonar-project.properties`). |
-| Observabilidade | Middleware que mede o tempo de cada requisição (`X-Response-Time-Ms`) e registra em log as rotas de IA; endpoint `/health` usado pelo healthcheck do Docker. |
+| Observabilidade | Prometheus coleta `/metrics` das duas APIs (requisições, latência, erros, chamadas e latência do LLM, origem das respostas do RAG); Grafana com painel e alertas. Ver [observabilidade](observabilidade.md). |
 | Ambientes | Desenvolvimento local (`docker-compose.yml`), homologação (`develop`) e produção (`main`) na VM, ver [ADR 001](adr-001-hospedagem-nuvem.md). |
 
 ---
