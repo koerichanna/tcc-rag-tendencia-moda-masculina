@@ -5,8 +5,9 @@ import sys
 
 import chromadb
 
+import migrar
 import models
-from database import SessionLocal, engine
+from database import SessionLocal
 
 CHROMA_PATH = os.getenv("CHROMA_PERSIST_DIRECTORY", "./data/chroma_db")
 DATA_FILE = "./data/market_trends.json"
@@ -98,7 +99,7 @@ def main():
     if "--se-vazio" in sys.argv and not colecao_vazia():
         logger.info("Colecao ja indexada, nada a fazer")
         return
-    models.Base.metadata.create_all(bind=engine)
+    migrar.aplicar()
     trends = carregar_dados_mercado()
     indexar_no_chromadb(trends)
     sincronizar_com_postgresql(trends)
