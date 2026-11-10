@@ -4,8 +4,10 @@ from typing import List
 
 from fastapi import Depends, FastAPI, HTTPException, Query, Request, status
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
+import auth
 import models
 import rag_engine
 import schemas
@@ -55,7 +57,23 @@ def verificar_saude():
         "timestamp": time.time()
     }
 
-@app.post("/produtos/", response_model=schemas.ProdutoResponse, status_code=status.HTTP_201_CREATED, tags=["Produtos"])
+@app.post("/auth/login", response_model=schemas.TokenResponse, tags=["Autenticação"])
+def login(form: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+    usuario = auth.autenticar(db, form.username, form.password)
+    if usuario is None:
+        # Mesma mensagem para usuário inexistente e senha errada: não revela quais usuários existem.
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Usuário ou senha inválidos",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    return {"access_token": auth.criar_token(usuario.nome_usuario)}
+
+@app.get("/auth/me", response_model=schemas.UsuarioResponse, tags=["Autenticação"])
+def usuario_logado(usuario: models.UsuarioModel = Depends(auth.usuario_atual)):
+    return usuario
+
+@app.post("/produtos/", response_model=schemas.ProdutoResponse, status_code=status.HTTP_201_CREATED, tags=["Produtos"], dependencies=[Depends(auth.usuario_atual)])
 def criar_produto(produto: schemas.ProdutoCreate, db: Session = Depends(get_db)):
     db_produto = models.ProdutoModel(**produto.model_dump())
     db.add(db_produto)
@@ -77,7 +95,7 @@ def obter_produto(produto_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Produto não encontrado")
     return produto
 
-@app.put("/produtos/{produto_id}", response_model=schemas.ProdutoResponse, tags=["Produtos"])
+@app.put("/produtos/{produto_id}", response_model=schemas.ProdutoResponse, tags=["Produtos"], dependencies=[Depends(auth.usuario_atual)])
 def atualizar_produto(produto_id: int, dados: schemas.ProdutoUpdate, db: Session = Depends(get_db)):
     produto = db.query(models.ProdutoModel).filter(models.ProdutoModel.id == produto_id).first()
     if not produto:
@@ -91,7 +109,7 @@ def atualizar_produto(produto_id: int, dados: schemas.ProdutoUpdate, db: Session
     db.refresh(produto)
     return produto
 
-@app.delete("/produtos/{produto_id}", tags=["Produtos"])
+@app.delete("/produtos/{produto_id}", tags=["Produtos"], dependencies=[Depends(auth.usuario_atual)])
 def deletar_produto(produto_id: int, db: Session = Depends(get_db)):
     produto = db.query(models.ProdutoModel).filter(models.ProdutoModel.id == produto_id).first()
     if not produto:
@@ -100,7 +118,7 @@ def deletar_produto(produto_id: int, db: Session = Depends(get_db)):
     db.commit()
     return {"mensagem": f"Produto {produto_id} removido com sucesso"}
 
-@app.post("/tendencias/", response_model=schemas.TendenciaResponse, status_code=status.HTTP_201_CREATED, tags=["Tendências"])
+@app.post("/tendencias/", response_model=schemas.TendenciaResponse, status_code=status.HTTP_201_CREATED, tags=["Tendências"], dependencies=[Depends(auth.usuario_atual)])
 def cadastrar_tendencia(tendencia: schemas.TendenciaCreate, db: Session = Depends(get_db)):
     db_tendencia = models.TendenciaModel(**tendencia.model_dump())
     db.add(db_tendencia)
@@ -115,7 +133,7 @@ def listar_tendencias(categoria: str = None, db: Session = Depends(get_db)):
         query = query.filter(models.TendenciaModel.categoria.ilike(f"%{categoria}%"))
     return query.order_by(models.TendenciaModel.score_relevancia.desc()).all()
 
-@app.post("/recomendacoes/", response_model=schemas.RecomendacaoResponse, status_code=status.HTTP_201_CREATED, tags=["Recomendações"])
+@app.post("/recomendacoes/", response_model=schemas.RecomendacaoResponse, status_code=status.HTTP_201_CREATED, tags=["Recomendações"], dependencies=[Depends(auth.usuario_atual)])
 def registrar_recomendacao(recomendacao: schemas.RecomendacaoCreate, db: Session = Depends(get_db)):
     db_rec = models.RecomendacaoModel(**recomendacao.model_dump())
     db.add(db_rec)
@@ -181,7 +199,7 @@ def obter_metricas_dashboard(db: Session = Depends(get_db)):
         ]
     }
 
-@app.post("/ia/gerar-tendencias", tags=["Inteligência Artificial"])
+@app.post("/ia/gerar-tendencias", tags=["Inteligência Artificial"], dependencies=[Depends(auth.usuario_atual)])
 def api_gerar_tendencias_ia(solicitacao: schemas.GerarTendenciasIARequest = None, db: Session = Depends(get_db)):
     tema = solicitacao.tema if (solicitacao and solicitacao.tema) else "Tendências de Moda Masculina Atual"
     novas = rag_engine.gerar_novas_tendencias_com_ia(tema=tema, db=db)
@@ -191,7 +209,7 @@ def api_gerar_tendencias_ia(solicitacao: schemas.GerarTendenciasIARequest = None
         "tendencias": novas
     }
 
-@app.post("/ia/analisar-produto/{produto_id}", tags=["Inteligência Artificial"])
+@app.post("/ia/analisar-produto/{produto_id}", tags=["Inteligência Artificial"], dependencies=[Depends(auth.usuario_atual)])
 def api_analisar_produto_ia(produto_id: int, db: Session = Depends(get_db)):
     resultado = rag_engine.analisar_produto_com_ia(produto_id=produto_id, db=db)
     if "erro" in resultado:
