@@ -86,6 +86,41 @@ def test_senha_curta_e_recusada(db_session):
         salvar_usuario("anna", "curta")
 
 
+def desativar(db_session, nome):
+    import models
+    db_session.query(models.UsuarioModel).filter_by(nome_usuario=nome).update({"ativo": False})
+    db_session.commit()
+
+
+def test_usuario_inativo_nao_consegue_entrar(client_anonimo, db_session, usuario):
+    desativar(db_session, usuario)
+    resposta = login(client_anonimo, usuario, SENHA)
+    assert resposta.status_code == 401
+    assert resposta.json()["detail"] == "Usuário ou senha inválidos"
+
+
+def test_desativar_usuario_derruba_token_ja_emitido(client_anonimo, db_session, usuario):
+    token = login(client_anonimo, usuario, SENHA).json()["access_token"]
+    desativar(db_session, usuario)
+    resposta = client_anonimo.get("/auth/me", headers={"Authorization": f"Bearer {token}"})
+    assert resposta.status_code == 401
+
+
+def test_usuario_novo_nasce_com_perfil_comum(db_session):
+    import models
+    salvar_usuario("joao", SENHA)
+    assert db_session.query(models.UsuarioModel).filter_by(nome_usuario="joao").one().perfil == "usuario"
+
+
+def test_opcao_admin_promove_e_reativa(db_session, usuario):
+    import models
+    desativar(db_session, usuario)
+    salvar_usuario(usuario, SENHA, admin=True)
+    db_session.expire_all()
+    registro = db_session.query(models.UsuarioModel).filter_by(nome_usuario=usuario).one()
+    assert (registro.perfil, registro.ativo) == ("admin", True)
+
+
 def test_salvar_usuario_existente_troca_a_senha(client_anonimo, usuario):
     assert salvar_usuario(usuario, "nova-senha-segura-1") is False
     assert login(client_anonimo, usuario, SENHA).status_code == 401

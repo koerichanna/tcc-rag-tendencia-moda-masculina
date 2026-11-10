@@ -21,6 +21,8 @@ logger = logging.getLogger("projeto_moda.auth")
 
 ALGORITMO = "HS256"
 VALIDADE = datetime.timedelta(hours=8)
+PERFIL_ADMIN = "admin"
+TAMANHO_MINIMO_SENHA = 10
 
 
 def _carregar_segredo():
@@ -55,7 +57,7 @@ def criar_token(nome_usuario: str) -> str:
 
 def autenticar(db: Session, nome_usuario: str, senha: str):
     usuario = db.query(models.UsuarioModel).filter_by(nome_usuario=nome_usuario).first()
-    if usuario is None or not senha_confere(senha, usuario.senha_hash):
+    if usuario is None or not usuario.ativo or not senha_confere(senha, usuario.senha_hash):
         return None
     return usuario
 
@@ -74,7 +76,17 @@ def usuario_atual(token: str = Depends(oauth2), db: Session = Depends(get_db)) -
     except jwt.InvalidTokenError:
         raise erro
 
+    # Consulta o banco a cada requisição: desativar um usuário derruba o token dele na hora.
     usuario = db.query(models.UsuarioModel).filter_by(nome_usuario=dados.get("sub")).first()
-    if usuario is None:
+    if usuario is None or not usuario.ativo:
         raise erro
+    return usuario
+
+
+def exigir_admin(usuario: models.UsuarioModel = Depends(usuario_atual)) -> models.UsuarioModel:
+    if usuario.perfil != PERFIL_ADMIN:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Apenas administradores podem executar esta ação",
+        )
     return usuario
