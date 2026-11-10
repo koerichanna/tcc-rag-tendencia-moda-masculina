@@ -10,6 +10,9 @@ bcrypt>=4.2.0
 python-multipart>=0.0.9
 slowapi>=0.1.9
 
+# Observabilidade
+prometheus-fastapi-instrumentator>=7.0.0
+
 # Banco de Dados Relacional
 sqlalchemy>=2.1.0
 alembic>=1.14.0

@@ -3,11 +3,13 @@ import json
 import logging
 import os
 import re
+import time
 from typing import Any, Dict, List, Optional
 
 from dotenv import load_dotenv
 from sqlalchemy.orm import Session
 
+import metricas
 import models
 import vector_db
 
@@ -83,6 +85,19 @@ def _obter_llm():
             logger.warning("Erro ao instanciar OpenAI: %s", e)
 
     return None
+
+def _invocar_llm(llm, prompt, operacao):
+    """Chama o LLM medindo tempo e resultado (métricas em /metrics) e devolve o texto da resposta."""
+    inicio = time.perf_counter()
+    try:
+        resposta = llm.invoke(prompt)
+    except Exception:
+        metricas.LLM_CHAMADAS.labels(operacao, "falha").inc()
+        raise
+    finally:
+        metricas.LLM_LATENCIA.labels(operacao).observe(time.perf_counter() - inicio)
+    metricas.LLM_CHAMADAS.labels(operacao, "sucesso").inc()
+    return _extrair_texto_ia(resposta.content)
 
 def sintetizar_resposta_contextual(
     pergunta: str,
@@ -204,8 +219,7 @@ Pergunta do Lojista:
 {pergunta}
 """
     try:
-        resp = llm.invoke(prompt_texto)
-        texto_resp = _extrair_texto_ia(resp.content)
+        texto_resp = _invocar_llm(llm, prompt_texto, "consulta_rag")
         dados = _extrair_json_resposta(texto_resp)
         if isinstance(dados, dict) and "acao_recomendada" in dados:
             dados["pergunta"] = pergunta
@@ -239,7 +253,10 @@ def consultar_rag(
             }
 
     resultado = executar_rag_llm(pergunta, docs, produto_info)
-    if not resultado:
+    if resultado:
+        metricas.RAG_RESPOSTAS.labels("llm").inc()
+    else:
+        metricas.RAG_RESPOSTAS.labels("regras").inc()
         resultado = sintetizar_resposta_contextual(pergunta, docs, produto_info)
 
     if salvar_historico and db:
@@ -282,8 +299,7 @@ Responda EXCLUSIVAMENTE em formato JSON (um array de objetos):
 ]
 """
     try:
-        resp = llm.invoke(prompt)
-        texto = _extrair_texto_ia(resp.content)
+        texto = _invocar_llm(llm, prompt, "gerar_tendencias")
         lista_tendencias = _extrair_json_resposta(texto)
         if not isinstance(lista_tendencias, list):
             return []
@@ -378,8 +394,7 @@ Responda ESTRITAMENTE em formato JSON:
 }}
 """
     try:
-        resp = llm.invoke(prompt)
-        texto = _extrair_texto_ia(resp.content)
+        texto = _invocar_llm(llm, prompt, "analisar_produto")
         analise = _extrair_json_resposta(texto)
 
         if isinstance(analise, dict):
@@ -449,8 +464,7 @@ Responda ESTRITAMENTE em formato JSON:
 }}
 """
     try:
-        resp = llm.invoke(prompt)
-        texto = _extrair_texto_ia(resp.content)
+        texto = _invocar_llm(llm, prompt, "briefing")
         dados = _extrair_json_resposta(texto)
         if isinstance(dados, dict):
             return dados
