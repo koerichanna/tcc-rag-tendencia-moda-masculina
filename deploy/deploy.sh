@@ -23,7 +23,7 @@ compose() {
 
 compose pull --quiet
 compose up -d --wait --quiet-pull 2>&1 | tail -n 5
-compose exec -T backend python ingestion.py --se-vazio
+compose exec -T backend python ingestion.py --se-vazio </dev/null
 docker image prune -f >/dev/null
 
 echo "Deploy de $TAG em $AMBIENTE concluido"
