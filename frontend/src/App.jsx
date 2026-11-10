@@ -16,9 +16,8 @@ import {
   Bot,
   Zap
 } from 'lucide-react';
+import { api } from './api';
 import './App.css';
-
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -65,46 +64,27 @@ export default function App() {
 
   const carregarDados = async () => {
     try {
-      const statusRes = await fetch(`${API_BASE}/`);
-      if (statusRes.ok) setApiOnline(true);
-
-      const kpisRes = await fetch(`${API_BASE}/dashboard/kpis`);
-      if (kpisRes.ok) {
-        const kpiData = await kpisRes.json();
-        setKpis(kpiData);
-      }
-
-      const prodRes = await fetch(`${API_BASE}/produtos/`);
-      if (prodRes.ok) {
-        const prodData = await prodRes.json();
-        setProdutos(prodData);
-      }
-
-      const tendRes = await fetch(`${API_BASE}/tendencias/`);
-      if (tendRes.ok) {
-        const tendData = await tendRes.json();
-        setTendencias(tendData);
-      }
-
-      const recRes = await fetch(`${API_BASE}/recomendacoes/`);
-      if (recRes.ok) {
-        const recData = await recRes.json();
-        setRecomendacoes(recData);
-      }
+      await api.status();
+      setApiOnline(true);
     } catch (err) {
-      console.warn('API offline ou erro:', err);
+      console.warn('API offline:', err);
       setApiOnline(false);
+      return;
     }
+    // Cada bloco carrega independente: uma falha não esconde o resto do painel.
+    const [kpiData, prodData, tendData, recData] = await Promise.allSettled([
+      api.kpis(), api.produtos(), api.tendencias(), api.recomendacoes(),
+    ]);
+    if (kpiData.status === 'fulfilled') setKpis(kpiData.value);
+    if (prodData.status === 'fulfilled') setProdutos(prodData.value);
+    if (tendData.status === 'fulfilled') setTendencias(tendData.value);
+    if (recData.status === 'fulfilled') setRecomendacoes(recData.value);
   };
 
   const carregarBriefingIA = async () => {
     setLoadingBriefing(true);
     try {
-      const res = await fetch(`${API_BASE}/ia/briefing-executivo`);
-      if (res.ok) {
-        const data = await res.json();
-        setBriefing(data);
-      }
+      setBriefing(await api.briefing());
     } catch (e) {
       console.warn('Erro ao obter briefing:', e);
     } finally {
@@ -123,25 +103,16 @@ export default function App() {
 
     setRagLoading(true);
     try {
-      const payload = {
+      const idProduto = prodId !== undefined ? prodId : ragProdutoId;
+      const data = await api.consultarRag({
         pergunta: p,
         categoria: catFiltro !== undefined ? catFiltro : (ragCategoria || null),
-        produto_id: prodId !== undefined ? (prodId ? parseInt(prodId) : null) : (ragProdutoId ? parseInt(ragProdutoId) : null)
-      };
-
-      const res = await fetch(`${API_BASE}/rag/consultar`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        produto_id: idProduto ? parseInt(idProduto) : null,
       });
-
-      if (res.ok) {
-        const data = await res.json();
-        setRagResultado(data);
-        carregarDados();
-      }
+      setRagResultado(data);
+      carregarDados();
     } catch (err) {
-      alert('Erro ao consultar motor RAG: ' + err.message);
+      alert('Erro ao consultar o RAG:\n' + err.message);
     } finally {
       setRagLoading(false);
     }
@@ -150,19 +121,12 @@ export default function App() {
   const gerarTendenciasComIA = async () => {
     setGerandoTendenciasIA(true);
     try {
-      const res = await fetch(`${API_BASE}/ia/gerar-tendencias`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tema: temaIA })
-      });
-      if (res.ok) {
-        const data = await res.json();
-        alert(data.mensagem || 'Novas tendências geradas com sucesso!');
-        setModalGerarTendencia(false);
-        carregarDados();
-      }
+      const data = await api.gerarTendencias(temaIA);
+      alert(data.mensagem || 'Novas tendências geradas com sucesso!');
+      setModalGerarTendencia(false);
+      carregarDados();
     } catch (err) {
-      alert('Erro ao gerar tendências com IA: ' + err.message);
+      alert('Erro ao gerar tendências:\n' + err.message);
     } finally {
       setGerandoTendenciasIA(false);
     }
@@ -171,16 +135,10 @@ export default function App() {
   const avaliarProdutoComIA = async (prodId) => {
     setAvaliandoProdutoId(prodId);
     try {
-      const res = await fetch(`${API_BASE}/ia/analisar-produto/${prodId}`, {
-        method: 'POST'
-      });
-      if (res.ok) {
-        const data = await res.json();
-        setResultadoAvaliacaoIA(data);
-        carregarDados();
-      }
+      setResultadoAvaliacaoIA(await api.analisarProduto(prodId));
+      carregarDados();
     } catch (err) {
-      alert('Erro ao analisar produto com IA: ' + err.message);
+      alert('Erro ao analisar produto:\n' + err.message);
     } finally {
       setAvaliandoProdutoId(null);
     }
@@ -189,37 +147,28 @@ export default function App() {
   const salvarNovoProduto = async (e) => {
     e.preventDefault();
     try {
-      const payload = {
+      await api.criarProduto({
         nome: novoProd.nome,
         categoria: novoProd.categoria,
         preco_medio: parseFloat(novoProd.preco_medio) || 0,
         custo_aquisicao: parseFloat(novoProd.custo_aquisicao) || 0,
         quantidade_estoque: parseInt(novoProd.quantidade_estoque) || 0,
         estoque_minimo: parseInt(novoProd.estoque_minimo) || 5,
-        tendencia_score: parseFloat(novoProd.tendencia_score) || 50
-      };
-
-      const res = await fetch(`${API_BASE}/produtos/`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        tendencia_score: parseFloat(novoProd.tendencia_score) || 50,
       });
-
-      if (res.ok) {
-        setModalProduto(false);
-        setNovoProd({
-          nome: '',
-          categoria: 'Camisas',
-          preco_medio: '',
-          custo_aquisicao: '',
-          quantidade_estoque: '',
-          estoque_minimo: 5,
-          tendencia_score: 50
-        });
-        carregarDados();
-      }
+      setModalProduto(false);
+      setNovoProd({
+        nome: '',
+        categoria: 'Camisas',
+        preco_medio: '',
+        custo_aquisicao: '',
+        quantidade_estoque: '',
+        estoque_minimo: 5,
+        tendencia_score: 50
+      });
+      carregarDados();
     } catch (err) {
-      alert('Erro ao cadastrar produto: ' + err.message);
+      alert('Não foi possível cadastrar o produto:\n' + err.message);
     }
   };
 
