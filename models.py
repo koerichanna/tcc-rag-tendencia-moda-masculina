@@ -50,3 +50,12 @@ class RecomendacaoModel(Base):
     data_criacao = Column(DateTime(timezone=True), server_default=func.now())
 
     produto = relationship("ProdutoModel", back_populates="recomendacoes")
+
+
+class UsuarioModel(Base):
+    __tablename__ = "usuarios"
+
+    id = Column(Integer, primary_key=True)
+    nome_usuario = Column(String(50), unique=True, nullable=False)
+    senha_hash = Column(String(100), nullable=False)
+    criado_em = Column(DateTime(timezone=True), server_default=func.now())
