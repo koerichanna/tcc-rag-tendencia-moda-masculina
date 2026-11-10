@@ -69,3 +69,12 @@ def test_dashboard_kpis(client):
     assert kpis["total_produtos"] == 1
     assert kpis["produtos_estoque_critico"] == 1
     assert "distribuicao_risco" in kpis
+
+
+def test_listar_recomendacoes_mais_recentes_primeiro(client):
+    for titulo in ["Primeira", "Segunda"]:
+        client.post("/recomendacoes/", json={"titulo": titulo, "categoria": "Camisas",
+                                             "acao_sugerida": "Manter", "justificativa": "Teste"})
+    res = client.get("/recomendacoes/")
+    assert res.status_code == 200
+    assert [r["titulo"] for r in res.json()] == ["Segunda", "Primeira"]
