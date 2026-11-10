@@ -207,7 +207,7 @@ Instruções:
    "acao_recomendada": ação direta e prática (ex: 'Aumentar Pedido com Urgência', 'Evitar Compra / Realizar Liquidação', 'Testar Lote Pequeno', etc.).
    "nivel_risco": exatamente 'Baixo', 'Moderado' ou 'Alto'.
    "justificativa_explicavel": explicação detalhada e fundamentada do porquê dessa recomendação, citando as tendências, dados da loja e riscos de estoque.
-   "fontes_consultadas": lista com as fontes mencionadas no contexto (ex: ["WGSN", "TikTok Trends"]).
+   "fontes_consultadas": lista com as fontes que aparecem no contexto recuperado (ex: ["Google Trends Brasil"]). Não cite fontes que não estejam no contexto.
 
 Contexto de Mercado Recuperado:
 {contexto_textos}
