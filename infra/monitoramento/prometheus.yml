@@ -1,0 +1,16 @@
+global:
+  scrape_interval: 30s
+  evaluation_interval: 30s
+
+rule_files:
+  - /etc/prometheus/alertas.yml
+
+scrape_configs:
+  # O nome do job identifica o ambiente nos painéis e alertas.
+  - job_name: production
+    static_configs:
+      - targets: ["backend-production:8000"]
+
+  - job_name: staging
+    static_configs:
+      - targets: ["backend-staging:8000"]
