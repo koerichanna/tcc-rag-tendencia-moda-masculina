@@ -34,7 +34,8 @@ Documentação completa (C4, DER, decisões) em [docs/WIKI_ARQUITETURA.md](docs/
 
 ```
 .github/workflows/     ci.yml (lint, testes, Sonar, imagens, deploy) e rollback.yml
-data/market_trends.json  base de tendências indexada no ChromaDB
+data/                  base de tendências e coletas do Google Trends (ver data/README.md)
+pipeline/              coleta e pré-processamento dos dados do Google Trends
 deploy/                script executado na VM e modelos de .env
 docs/                  arquitetura, ADRs, LGPD
 frontend/              aplicação React (servida por Nginx em produção)
