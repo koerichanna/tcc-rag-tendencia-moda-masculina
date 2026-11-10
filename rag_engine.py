@@ -64,7 +64,7 @@ def _obter_llm():
                 model="gemini-3.1-flash-lite",
                 api_key=GOOGLE_API_KEY,
                 max_retries=1,
-                timeout=10
+                timeout=30
             )
         except Exception as e:
             logger.warning("Erro ao instanciar Gemini: %s", e)
@@ -77,7 +77,7 @@ def _obter_llm():
                 temperature=0.2,
                 api_key=OPENAI_API_KEY,
                 max_retries=1,
-                timeout=10
+                timeout=30
             )
         except Exception as e:
             logger.warning("Erro ao instanciar OpenAI: %s", e)

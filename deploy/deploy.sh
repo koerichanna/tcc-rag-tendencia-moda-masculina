@@ -2,6 +2,8 @@
 # Executado na VM pelo pipeline (az vm run-command), sem SSH.
 # Uso: deploy.sh <production|staging> <sha-do-commit>
 set -euo pipefail
+# o run-command devolve só o fim da saída: junta stderr no stdout e deixa o docker quieto
+exec 2>&1
 
 AMBIENTE="$1"
 TAG="$2"
@@ -19,8 +21,8 @@ compose() {
   docker compose -p "moda-$AMBIENTE" --env-file "$ENV_FILE" -f "$COMPOSE_FILE" "$@"
 }
 
-compose pull
-compose up -d --wait
+compose pull --quiet
+compose up -d --wait --quiet-pull 2>&1 | tail -n 5
 compose exec -T backend python ingestion.py --se-vazio
 docker image prune -f >/dev/null
 
