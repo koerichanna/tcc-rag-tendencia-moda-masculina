@@ -1,66 +1,121 @@
 from datetime import datetime
-from typing import List, Optional
+from enum import Enum
+from typing import Annotated, List, Optional
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StringConstraints
 
 
-class ProdutoBase(BaseModel):
-    nome: str = Field(..., example="Camisa de Linho Manga Curta")
-    categoria: str = Field(..., example="Camisas")
-    preco_medio: float = Field(..., ge=0.0, example=189.90)
-    custo_aquisicao: Optional[float] = Field(0.0, ge=0.0, example=85.00)
-    quantidade_estoque: int = Field(0, ge=0, example=15)
-    estoque_minimo: int = Field(5, ge=0, example=5)
-    tendencia_score: float = Field(0.0, ge=0.0, le=100.0, example=85.5)
+class CategoriaProduto(str, Enum):
+    CAMISAS = "Camisas"
+    CALCAS = "Calças"
+    CAMISETAS = "Camisetas"
+    CALCADOS = "Calçados"
+    BERMUDAS = "Bermudas"
+    JAQUETAS = "Jaquetas"
 
-class ProdutoCreate(ProdutoBase):
-    pass
+
+class CategoriaTendencia(str, Enum):
+    CAMISAS = "Camisas"
+    CALCAS = "Calças"
+    CAMISETAS = "Camisetas"
+    CALCADOS = "Calçados"
+    BERMUDAS = "Bermudas"
+    JAQUETAS = "Jaquetas"
+    GERAL = "Geral"
+
+
+class NivelRisco(str, Enum):
+    BAIXO = "Baixo"
+    MODERADO = "Moderado"
+    ALTO = "Alto"
+
+
+# Texto sem espaços nas pontas e com tamanho controlado.
+Nome = Annotated[str, StringConstraints(strip_whitespace=True, min_length=2, max_length=200)]
+Preco = Annotated[float, Field(ge=0.0, le=100_000.0)]
+Quantidade = Annotated[int, Field(ge=0, le=1_000_000)]
+Score = Annotated[float, Field(ge=0.0, le=100.0)]
+
+
+# Entrada: só aceita as categorias do enum. A resposta usa str porque o banco pode ter
+# registros antigos ou criados pelo LLM com outras categorias.
+class ProdutoCreate(BaseModel):
+    model_config = ConfigDict(use_enum_values=True)
+
+    nome: Nome = Field(..., examples=["Camisa de Linho Manga Curta"])
+    categoria: CategoriaProduto = Field(..., examples=["Camisas"])
+    preco_medio: Preco = Field(..., examples=[189.90])
+    custo_aquisicao: Optional[Preco] = Field(0.0, examples=[85.00])
+    quantidade_estoque: Quantidade = Field(0, examples=[15])
+    estoque_minimo: Quantidade = Field(5, examples=[5])
+    tendencia_score: Score = Field(0.0, examples=[85.5])
+
 
 class ProdutoUpdate(BaseModel):
-    nome: Optional[str] = None
-    categoria: Optional[str] = None
-    preco_medio: Optional[float] = None
-    custo_aquisicao: Optional[float] = None
-    quantidade_estoque: Optional[int] = None
-    estoque_minimo: Optional[int] = None
-    tendencia_score: Optional[float] = None
+    model_config = ConfigDict(use_enum_values=True)
 
-class ProdutoResponse(ProdutoBase):
+    nome: Optional[Nome] = None
+    categoria: Optional[CategoriaProduto] = None
+    preco_medio: Optional[Preco] = None
+    custo_aquisicao: Optional[Preco] = None
+    quantidade_estoque: Optional[Quantidade] = None
+    estoque_minimo: Optional[Quantidade] = None
+    tendencia_score: Optional[Score] = None
+
+
+class ProdutoResponse(BaseModel):
     id: int
+    nome: str
+    categoria: str
+    preco_medio: float
+    custo_aquisicao: Optional[float] = None
+    quantidade_estoque: int
+    estoque_minimo: int
+    tendencia_score: float
     data_atualizacao: Optional[datetime] = None
 
     model_config = ConfigDict(from_attributes=True)
 
 
-class TendenciaBase(BaseModel):
-    termo: str = Field(..., example="Calça Wide Leg")
-    categoria: str = Field(..., example="Calças")
-    score_relevancia: float = Field(50.0, ge=0.0, le=100.0, example=92.0)
-    sazonalidade: Optional[str] = Field("Atemporal", example="Primavera/Verão")
-    nivel_risco: str = Field("Moderado", example="Baixo")
-    descricao: Optional[str] = Field(None, example="Alta busca por modelagens amplas em redes sociais.")
-    fonte: Optional[str] = Field("Análise de Mercado / Redes", example="Instagram / Google Trends")
+class TendenciaCreate(BaseModel):
+    model_config = ConfigDict(use_enum_values=True)
 
-class TendenciaCreate(TendenciaBase):
-    pass
+    termo: Nome = Field(..., examples=["Calça Wide Leg"])
+    categoria: CategoriaTendencia = Field(..., examples=["Calças"])
+    score_relevancia: Score = Field(50.0, examples=[60.0])
+    sazonalidade: Optional[str] = Field("Atemporal", max_length=50, examples=["Primavera/Verão"])
+    nivel_risco: NivelRisco = Field(NivelRisco.MODERADO, examples=["Baixo"])
+    descricao: Optional[str] = Field(None, max_length=2000, examples=["Calças de modelagem ampla em sarja."])
+    fonte: Optional[str] = Field("Cadastro manual", max_length=100, examples=["Cadastro manual"])
 
-class TendenciaResponse(TendenciaBase):
+
+class TendenciaResponse(BaseModel):
     id: int
+    termo: str
+    categoria: str
+    score_relevancia: float
+    sazonalidade: Optional[str] = None
+    nivel_risco: str
+    descricao: Optional[str] = None
+    fonte: Optional[str] = None
     data_registro: Optional[datetime] = None
 
     model_config = ConfigDict(from_attributes=True)
 
 
 class RecomendacaoBase(BaseModel):
-    produto_id: Optional[int] = None
-    titulo: str = Field(..., example="Oportunidade: Reforço em Peças de Linho")
-    categoria: str = Field(..., example="Camisas")
-    acao_sugerida: str = Field(..., example="Aumentar Pedido")
-    justificativa: str = Field(..., example="A busca por peças de linho cresceu 40% nas plataformas digitais e o estoque atual está próximo do mínimo.")
-    nivel_prioridade: str = Field("Média", example="Alta")
+    produto_id: Optional[int] = Field(None, gt=0)
+    titulo: str = Field(..., min_length=2, max_length=200, examples=["Reforçar estoque de camisas de linho"])
+    categoria: str = Field(..., max_length=100, examples=["Camisas"])
+    acao_sugerida: str = Field(..., max_length=100, examples=["Aumentar Pedido"])
+    justificativa: str = Field(..., min_length=2, max_length=5000,
+                               examples=["Interesse de busca estável e estoque abaixo do mínimo."])
+    nivel_prioridade: str = Field("Média", max_length=50, examples=["Alta"])
+
 
 class RecomendacaoCreate(RecomendacaoBase):
     pass
+
 
 class RecomendacaoResponse(RecomendacaoBase):
     id: int
@@ -70,9 +125,14 @@ class RecomendacaoResponse(RecomendacaoBase):
 
 
 class ConsultaRAGRequest(BaseModel):
-    pergunta: str = Field(..., example="Devo aumentar o estoque de jaquetas de couro para o inverno?")
-    categoria: Optional[str] = Field(None, example="Jaquetas")
-    produto_id: Optional[int] = Field(None, example=1)
+    model_config = ConfigDict(use_enum_values=True)
+
+    # O texto vai para o prompt do LLM: limitar o tamanho controla custo e abuso.
+    pergunta: str = Field(..., min_length=5, max_length=500,
+                          examples=["Devo aumentar o estoque de jaquetas para o inverno?"])
+    categoria: Optional[CategoriaTendencia] = Field(None, examples=["Jaquetas"])
+    produto_id: Optional[int] = Field(None, gt=0, examples=[1])
+
 
 class ConsultaRAGResponse(BaseModel):
     pergunta: str
@@ -83,6 +143,7 @@ class ConsultaRAGResponse(BaseModel):
     fontes_consultadas: List[str] = []
     recomendacao_id: Optional[int] = None
 
-class GerarTendenciasIARequest(BaseModel):
-    tema: Optional[str] = Field("Tendências de Moda Masculina Atual", example="Alfaiataria Moderna e Casual Chic")
 
+class GerarTendenciasIARequest(BaseModel):
+    tema: Optional[str] = Field("Tendências de Moda Masculina Atual", min_length=3, max_length=200,
+                                examples=["Alfaiataria moderna e casual chic"])
