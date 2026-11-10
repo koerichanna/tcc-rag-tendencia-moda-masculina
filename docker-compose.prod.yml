@@ -36,6 +36,13 @@ services:
       - ENVIRONMENT=${APP_ENV}
     volumes:
       - chroma_data:/app/data/chroma_db
+    networks:
+      default:
+      # Rede só de monitoramento (infra/monitoramento). Não usar a rede proxy: lá o frontend
+      # dos dois ambientes enxergaria dois serviços chamados "backend".
+      monitor:
+        aliases:
+          - backend-${APP_ENV}
 
   frontend:
     image: ghcr.io/${GHCR_OWNER}/projeto-moda-frontend:${IMAGE_TAG}
@@ -55,4 +62,7 @@ volumes:
 networks:
   proxy:
     name: moda_proxy
+    external: true
+  monitor:
+    name: moda_monitor
     external: true
