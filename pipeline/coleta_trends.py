@@ -1,7 +1,8 @@
 """Coleta o interesse de busca semanal (Brasil, últimos 5 anos) no Google Trends.
 
 Uso: python -m pipeline.coleta_trends
-Saída: data/raw/google_trends_<AAAA-MM-DD>.csv com colunas data, termo_busca, interesse.
+Saída: data/raw/google_trends_<AAAA-MM-DD>.csv com colunas data, termo_busca, interesse, parcial
+(parcial = semana ainda em andamento no momento da coleta).
 
 Cada termo é consultado sozinho: o Google normaliza o interesse de 0 a 100 dentro de cada
 consulta, então cada série fica relativa ao próprio pico no período.
@@ -53,8 +54,13 @@ def coletar(termos, geo="BR", periodo="today 5-y"):
         if df.empty:
             logger.warning("Sem dados para '%s'", termo)
             continue
-        for data, valor in df[termo].items():
-            linhas.append({"data": data.date().isoformat(), "termo_busca": termo, "interesse": int(valor)})
+        for data, linha in df.iterrows():
+            linhas.append({
+                "data": data.date().isoformat(),
+                "termo_busca": termo,
+                "interesse": int(linha[termo]),
+                "parcial": bool(linha["isPartial"]),
+            })
         logger.info("'%s': %d semanas", termo, len(df))
         time.sleep(random.uniform(5, 10))
     return linhas
@@ -64,7 +70,7 @@ def salvar(linhas, pasta=PASTA_RAW):
     pasta.mkdir(parents=True, exist_ok=True)
     destino = pasta / f"google_trends_{datetime.date.today().isoformat()}.csv"
     with open(destino, "w", newline="", encoding="utf-8") as f:
-        escritor = csv.DictWriter(f, fieldnames=["data", "termo_busca", "interesse"])
+        escritor = csv.DictWriter(f, fieldnames=["data", "termo_busca", "interesse", "parcial"])
         escritor.writeheader()
         escritor.writerows(linhas)
     return destino
