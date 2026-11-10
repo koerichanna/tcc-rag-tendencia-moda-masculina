@@ -9,12 +9,10 @@ from sqlalchemy.orm import Session
 import models
 import rag_engine
 import schemas
-from database import SessionLocal, engine
+from database import SessionLocal
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("projeto_moda")
-
-models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="API de Tendências de Moda Masculina",
@@ -202,4 +200,4 @@ def api_analisar_produto_ia(produto_id: int, db: Session = Depends(get_db)):
 def api_obter_briefing_executivo_ia(db: Session = Depends(get_db)):
     return rag_engine.gerar_briefing_executivo_ia(db=db)
 
-
+
