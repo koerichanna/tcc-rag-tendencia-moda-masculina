@@ -24,5 +24,7 @@ EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
   CMD curl -f http://localhost:8000/health || exit 1
 
-# aplica as migrations pendentes antes de subir a API
-CMD ["sh", "-c", "python migrar.py && exec uvicorn main:app --host 0.0.0.0 --port 8000"]
+# aplica as migrations pendentes antes de subir a API.
+# --proxy-headers: usa o IP do visitante (X-Forwarded-For) em vez do IP do Nginx; a API só é
+# acessível pela rede interna do Docker, então confiar no cabeçalho é seguro.
+CMD ["sh", "-c", "python migrar.py && exec uvicorn main:app --host 0.0.0.0 --port 8000 --proxy-headers --forwarded-allow-ips=*"]

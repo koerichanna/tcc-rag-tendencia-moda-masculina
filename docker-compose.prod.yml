@@ -30,6 +30,8 @@ services:
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - JWT_SECRET=${JWT_SECRET}
+      # frontend e API no mesmo domínio: nenhuma origem externa precisa de CORS
+      - CORS_ORIGINS=
       - CHROMA_PERSIST_DIRECTORY=/app/data/chroma_db
       - ENVIRONMENT=${APP_ENV}
     volumes:
