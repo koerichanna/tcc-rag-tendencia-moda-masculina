@@ -58,7 +58,7 @@ cp .env.example .env            # ajustar DATABASE_URL e a chave do Gemini
 
 python -m venv venv
 venv\Scripts\pip install -r requirements.txt
-venv\Scripts\python ingestion.py           # cria tabelas e indexa a base de tendências
+venv\Scripts\python ingestion.py           # aplica as migrations e indexa a base de tendências
 venv\Scripts\uvicorn main:app --reload --port 8000
 
 cd frontend
@@ -68,6 +68,24 @@ npm run dev                                 # http://localhost:5173
 
 Ou tudo com Docker: `docker compose up --build` (frontend em http://localhost:8080, API em
 http://localhost:8000/docs). Na primeira vez, rodar `docker compose exec backend python ingestion.py`.
+
+## Migrations (Alembic)
+
+O schema do banco é versionado em `migrations/versions/`. A API aplica as migrations pendentes ao
+subir (`migrar.py`, chamado pelo Dockerfile); localmente, rode `venv\Scripts\python migrar.py`.
+
+Para mudar um model:
+
+```bash
+# 1. alterar models.py
+# 2. gerar a migration comparando models e banco
+venv\Scripts\alembic revision --autogenerate -m "descricao da mudanca"
+# 3. revisar o arquivo gerado em migrations/versions/ e aplicar
+venv\Scripts\alembic upgrade head
+```
+
+Desfazer a última: `venv\Scripts\alembic downgrade -1`. O teste `tests/test_migrations.py` falha se
+um model for alterado sem a migration correspondente.
 
 ## Testes
 
