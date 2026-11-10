@@ -2,7 +2,7 @@ import logging
 import time
 from typing import List
 
-from fastapi import Depends, FastAPI, HTTPException, Request, status
+from fastapi import Depends, FastAPI, HTTPException, Query, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
@@ -129,6 +129,15 @@ def registrar_recomendacao(recomendacao: schemas.RecomendacaoCreate, db: Session
     db.commit()
     db.refresh(db_rec)
     return db_rec
+
+@app.get("/recomendacoes/", response_model=List[schemas.RecomendacaoResponse], tags=["Recomendações"])
+def listar_recomendacoes(limite: int = Query(50, ge=1, le=200), db: Session = Depends(get_db)):
+    return (
+        db.query(models.RecomendacaoModel)
+        .order_by(models.RecomendacaoModel.data_criacao.desc(), models.RecomendacaoModel.id.desc())
+        .limit(limite)
+        .all()
+    )
 
 @app.post("/rag/consultar", response_model=schemas.ConsultaRAGResponse, tags=["Motor RAG"])
 def consultar_assistente_rag(solicitacao: schemas.ConsultaRAGRequest, db: Session = Depends(get_db)):
