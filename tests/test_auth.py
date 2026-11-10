@@ -53,8 +53,22 @@ def test_rotas_que_alteram_dados_exigem_login(client_anonimo, metodo, rota):
     assert resposta.status_code == 401
 
 
-def test_consultas_continuam_publicas(client_anonimo):
-    for rota in ["/", "/health", "/produtos/", "/tendencias/", "/recomendacoes/", "/dashboard/kpis"]:
+@pytest.mark.parametrize("metodo,rota", [
+    ("get", "/produtos/"),
+    ("get", "/produtos/1"),
+    ("get", "/tendencias/"),
+    ("get", "/recomendacoes/"),
+    ("get", "/dashboard/kpis"),
+    ("get", "/ia/briefing-executivo"),
+    ("post", "/rag/consultar"),
+])
+def test_consultas_tambem_exigem_login(client_anonimo, metodo, rota):
+    assert getattr(client_anonimo, metodo)(rota).status_code == 401
+
+
+def test_status_continua_publico(client_anonimo):
+    # Usados pelo healthcheck do Docker e pelo indicador "Serviço Operacional" da tela de login.
+    for rota in ["/", "/health"]:
         assert client_anonimo.get(rota).status_code == 200
 
 
