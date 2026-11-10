@@ -8,8 +8,9 @@
     "sazonalidade": "Primavera/Verão",
     "nivel_risco": "Baixo",
     "score_relevancia": 94.0,
-    "fonte": "Relatório WGSN / Redes Sociais",
-    "conteudo": "Camisas de linho puro e misturas de algodão com linho são forte aposta para o público masculino. Crescimento de 45% nas buscas por peças frescas, com preferência por mangas curtas com colarinho cubano (camp collar) e tons claros como areia, off-white e verde sálvia. Baixo risco de estoque para climas quentes."
+    "fonte": "Google Trends Brasil",
+    "conteudo": "Camisas de linho puro ou de algodão com linho, geralmente de manga curta e colarinho cubano (camp collar), em tons claros como areia, off-white e verde sálvia. Peça fresca, pensada para climas quentes.",
+    "origem_descricao": "Texto sintético redigido pela autora"
   },
   {
     "id": "trend_wide_leg_02",
@@ -20,8 +21,9 @@
     "sazonalidade": "Atemporal",
     "nivel_risco": "Moderado",
     "score_relevancia": 91.0,
-    "fonte": "TikTok Fashion / Google Trends",
-    "conteudo": "A transição da modelagem ajustada para silhuetas mais soltas consolidou-se. Calças com corte reto e wide leg em jeans 100% algodão e sarja estão entre as mais procuradas por jovens adultos (18 a 35 anos). Recomendado testar em lotes médios para cidades do interior onde a adoção é mais gradual."
+    "fonte": "Google Trends Brasil",
+    "conteudo": "Calças de corte reto e wide leg, em jeans ou sarja, com modelagem mais solta que o slim. Representam a troca das silhuetas ajustadas por silhuetas amplas.",
+    "origem_descricao": "Texto sintético redigido pela autora"
   },
   {
     "id": "trend_skinny_queda_03",
@@ -32,8 +34,9 @@
     "sazonalidade": "Atemporal",
     "nivel_risco": "Alto",
     "score_relevancia": 32.0,
-    "fonte": "Análise de E-commerce / Varejo",
-    "conteudo": "ALERTA DE ESTOQUE: Calças jeans super skinny apresentam queda de 28% no volume de vendas nos últimos trimestres e aumento de produtos parados em liquidação. Lojistas devem evitar compras em grande escala deste modelo e focar na transição para cortes slim clássicos ou retos."
+    "fonte": "Google Trends Brasil",
+    "conteudo": "Calças jeans skinny, de modelagem muito ajustada da cintura ao tornozelo. Concorrem com os cortes slim clássico e reto, que vêm ocupando o espaço da skinny nas vitrines.",
+    "origem_descricao": "Texto sintético redigido pela autora"
   },
   {
     "id": "trend_tons_terrosos_04",
@@ -44,8 +47,9 @@
     "sazonalidade": "Outono/Inverno",
     "nivel_risco": "Baixo",
     "score_relevancia": 89.0,
-    "fonte": "Pinterest Predicts / Desfiles Milão",
-    "conteudo": "Tons de marrom chocolate, camelo, bege, terracota e verde oliva dominam as coleções de outono-inverno. Alta taxa de conversão em jaquetas, suéteres e calças chino. Cores fáceis de combinar aumentam a percepção de valor e facilitam a venda casada (cross-selling)."
+    "fonte": "Google Trends Brasil",
+    "conteudo": "Paleta de tons terrosos: marrom chocolate, camelo, bege, terracota e verde oliva. Aparece em jaquetas, suéteres e calças chino e combina com facilidade, o que ajuda na venda casada.",
+    "origem_descricao": "Texto sintético redigido pela autora"
   },
   {
     "id": "trend_oversized_tee_05",
@@ -56,8 +60,9 @@
     "sazonalidade": "Atemporal",
     "nivel_risco": "Baixo",
     "score_relevancia": 88.0,
-    "fonte": "Instagram Reels / Streetstyle",
-    "conteudo": "Camisetas com gramatura pesada (heavyweight cotton 220g+) e gola canelada fechada de 3cm substituíram camisetas básicas finas no gosto do público urbano. O caimento solto e estruturado é visto como premium, permitindo margens de lucro mais atrativas."
+    "fonte": "Google Trends Brasil",
+    "conteudo": "Camisetas oversized de algodão de gramatura pesada, com gola canelada e caimento solto e estruturado. Costumam ser posicionadas como básico premium.",
+    "origem_descricao": "Texto sintético redigido pela autora"
   },
   {
     "id": "trend_tenis_minimalista_06",
@@ -68,8 +73,9 @@
     "sazonalidade": "Atemporal",
     "nivel_risco": "Baixo",
     "score_relevancia": 96.0,
-    "fonte": "Mapeamento de Calçados / E-commerce",
-    "conteudo": "O tênis de couro branco liso (low top, sem logos chamativos e solado reto) permanece como calçado essencial da moda masculina moderna. Combina perfeitamente tanto com bermudas de sarja quanto com calças de alfaiataria. Produto de giro rápido e baixo risco de desvalorização."
+    "fonte": "Google Trends Brasil",
+    "conteudo": "Tênis branco de couro liso, cano baixo, sem logos chamativos e com solado reto. Combina com bermudas de sarja e com calças de alfaiataria.",
+    "origem_descricao": "Texto sintético redigido pela autora"
   },
   {
     "id": "trend_loafers_mocassim_07",
@@ -80,8 +86,9 @@
     "sazonalidade": "Atemporal",
     "nivel_risco": "Moderado",
     "score_relevancia": 82.0,
-    "fonte": "Revistas GQ / Mens Fashion Week",
-    "conteudo": "Crescimento expressivo do uso de loafers sem meia ou com meia branca aparente em composições casuais. O modelo com solado tratorado leve atrai o público que quer renovar o visual formal sem perder o conforto."
+    "fonte": "Google Trends Brasil",
+    "conteudo": "Mocassins masculinos estilo penny loafer, inclusive com solado tratorado, usados em composições casuais com ou sem meia aparente.",
+    "origem_descricao": "Texto sintético redigido pela autora"
   },
   {
     "id": "trend_jaquetas_bomber_08",
@@ -92,8 +99,9 @@
     "sazonalidade": "Outono/Inverno",
     "nivel_risco": "Moderado",
     "score_relevancia": 85.0,
-    "fonte": "Relatórios de Comércio Varejista",
-    "conteudo": "Jaquetas estilo bomber em camurça, sarja ou nylon fosco são peças-chave para meia-estação. O lojista deve planejar os pedidos no início do outono para não sofrer com o encalhe no final do inverno."
+    "fonte": "Google Trends Brasil",
+    "conteudo": "Jaquetas bomber em camurça, sarja ou nylon fosco, peça de meia-estação. A compra depende do calendário: pedidos tardios aumentam o risco de sobra no fim do inverno.",
+    "origem_descricao": "Texto sintético redigido pela autora"
   },
   {
     "id": "trend_bermuda_alfaiataria_09",
@@ -104,8 +112,9 @@
     "sazonalidade": "Primavera/Verão",
     "nivel_risco": "Baixo",
     "score_relevancia": 87.0,
-    "fonte": "Vogue Homem / Lookbooks",
-    "conteudo": "Bermudas com comprimento entre 5 a 7 polegadas (acima do joelho) em linho e sarja com cós elástico ou ajuste tradicional. Substituem as antigas bermudas jeans compridas e bermudas cargo volumosas."
+    "fonte": "Google Trends Brasil",
+    "conteudo": "Bermudas de alfaiataria e chino, com comprimento acima do joelho, em linho ou sarja, com cós tradicional ou elástico. Alternativa mais arrumada às bermudas jeans e cargo.",
+    "origem_descricao": "Texto sintético redigido pela autora"
   },
   {
     "id": "trend_easy_care_10",
@@ -116,7 +125,8 @@
     "sazonalidade": "Atemporal",
     "nivel_risco": "Baixo",
     "score_relevancia": 90.0,
-    "fonte": "Mercado Têxtil / Feedbacks de Clientes",
-    "conteudo": "Tecidos que não amassam (easy care / non-iron) com poliamida e elastano têm alta procura para profissionais híbridos. Clientes valorizam praticidade e durabilidade. Excelente opção para fidelização."
+    "fonte": "Google Trends Brasil",
+    "conteudo": "Camisas de tecido que não amassa (easy care / non-iron), geralmente com poliamida e elastano. Voltadas a quem busca praticidade no dia a dia de trabalho.",
+    "origem_descricao": "Texto sintético redigido pela autora"
   }
 ]
