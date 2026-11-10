@@ -15,6 +15,7 @@ import limites
 import models
 import rag_engine
 import schemas
+import usuarios
 from database import get_db
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -54,6 +55,8 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["Authorization", "Content-Type"],
 )
+
+app.include_router(usuarios.router)
 
 @app.get("/", tags=["Status"])
 def ler_raiz():

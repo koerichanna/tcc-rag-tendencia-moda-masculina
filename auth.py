@@ -56,7 +56,8 @@ def criar_token(nome_usuario: str) -> str:
 
 
 def autenticar(db: Session, nome_usuario: str, senha: str):
-    usuario = db.query(models.UsuarioModel).filter_by(nome_usuario=nome_usuario).first()
+    # Nomes são gravados em minúsculas (ver schemas.NomeUsuario).
+    usuario = db.query(models.UsuarioModel).filter_by(nome_usuario=nome_usuario.strip().lower()).first()
     if usuario is None or not usuario.ativo or not senha_confere(senha, usuario.senha_hash):
         return None
     return usuario

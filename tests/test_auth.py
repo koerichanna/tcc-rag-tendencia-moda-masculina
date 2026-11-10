@@ -62,7 +62,7 @@ def test_token_permite_acessar_rota_protegida(client_anonimo, usuario):
     token = login(client_anonimo, usuario, SENHA).json()["access_token"]
     cabecalho = {"Authorization": f"Bearer {token}"}
 
-    assert client_anonimo.get("/auth/me", headers=cabecalho).json() == {"nome_usuario": "anna"}
+    assert client_anonimo.get("/auth/me", headers=cabecalho).json() == {"nome_usuario": "anna", "perfil": "usuario"}
     produto = {"nome": "Camisa", "categoria": "Camisas", "preco_medio": 100}
     assert client_anonimo.post("/produtos/", json=produto, headers=cabecalho).status_code == 201
 
