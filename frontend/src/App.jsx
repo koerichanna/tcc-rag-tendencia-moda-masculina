@@ -9,12 +9,11 @@ import {
   Layers,
   BarChart3,
   RefreshCw,
-  HelpCircle,
-  ArrowRight,
   Bot,
   Zap
 } from 'lucide-react';
 import { api } from './api';
+import ConsultorRag from './pages/ConsultorRag';
 import Produtos from './pages/Produtos';
 import Tendencias from './pages/Tendencias';
 import './App.css';
@@ -30,19 +29,6 @@ export default function App() {
 
   const [briefing, setBriefing] = useState(null);
   const [loadingBriefing, setLoadingBriefing] = useState(false);
-
-  const [ragPergunta, setRagPergunta] = useState('');
-  const [ragCategoria, setRagCategoria] = useState('');
-  const [ragProdutoId, setRagProdutoId] = useState('');
-  const [ragLoading, setRagLoading] = useState(false);
-  const [ragResultado, setRagResultado] = useState(null);
-
-  const perguntasExemplo = [
-    { texto: 'Devo comprar mais calças jeans skinny para esta coleção?', cat: 'Calças' },
-    { texto: 'Vale a pena investir em camisas de linho para o verão?', cat: 'Camisas' },
-    { texto: 'O tênis de couro branco minimalista ainda tem giro seguro?', cat: 'Calçados' },
-    { texto: 'Qual o risco de colocar bermudas de alfaiataria na vitrine?', cat: 'Bermudas' }
-  ];
 
   const carregarDados = async () => {
     try {
@@ -78,27 +64,6 @@ export default function App() {
     carregarDados();
     carregarBriefingIA();
   }, []);
-
-  const executarConsultaRAG = async (perguntaTexto, catFiltro, prodId) => {
-    const p = perguntaTexto || ragPergunta;
-    if (!p.trim()) return;
-
-    setRagLoading(true);
-    try {
-      const idProduto = prodId !== undefined ? prodId : ragProdutoId;
-      const data = await api.consultarRag({
-        pergunta: p,
-        categoria: catFiltro !== undefined ? catFiltro : (ragCategoria || null),
-        produto_id: idProduto ? parseInt(idProduto) : null,
-      });
-      setRagResultado(data);
-      carregarDados();
-    } catch (err) {
-      alert('Erro ao consultar o RAG:\n' + err.message);
-    } finally {
-      setRagLoading(false);
-    }
-  };
 
   return (
     <div className="app-container">
@@ -368,186 +333,7 @@ export default function App() {
           </div>
         )}
 
-        {activeTab === 'rag' && (
-          <div className="rag-layout">
-            <div className="panel-card">
-              <h2 className="panel-title">
-                <Brain size={22} color="#2563eb" /> Consultor Virtual de Compras & Tendências
-              </h2>
-              <p style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '1.25rem' }}>
-                O RAG recupera as tendências mais próximas da pergunta no ChromaDB e cruza com o estoque da loja para responder perguntas estratégicas de compra.
-              </p>
-
-              <div style={{ marginBottom: '1.25rem' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase' }}>
-                  Perguntas Sugeridas:
-                </span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginTop: '0.5rem' }}>
-                  {perguntasExemplo.map((ex, idx) => (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={() => {
-                        setRagPergunta(ex.texto);
-                        setRagCategoria(ex.cat);
-                        executarConsultaRAG(ex.texto, ex.cat);
-                      }}
-                      style={{
-                        textAlign: 'left',
-                        padding: '0.5rem 0.75rem',
-                        background: '#f8fafc',
-                        border: '1px solid #e2e8f0',
-                        borderRadius: '6px',
-                        fontSize: '0.825rem',
-                        color: '#334155',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between'
-                      }}
-                    >
-                      <span>{ex.texto}</span>
-                      <ArrowRight size={14} color="#2563eb" />
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rag-form-group">
-                <label>Sua Dúvida de Compra ou Tendência:</label>
-                <textarea
-                  className="rag-textarea"
-                  rows={4}
-                  placeholder="Ex: Vale a pena comprar 30 unidades de camisa de linho para o final de ano?"
-                  value={ragPergunta}
-                  onChange={(e) => setRagPergunta(e.target.value)}
-                />
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                <div className="rag-form-group">
-                  <label>Filtrar Categoria:</label>
-                  <select
-                    className="rag-select"
-                    value={ragCategoria}
-                    onChange={(e) => setRagCategoria(e.target.value)}
-                  >
-                    <option value="">Todas as Categorias</option>
-                    <option value="Camisas">Camisas</option>
-                    <option value="Calças">Calças</option>
-                    <option value="Camisetas">Camisetas</option>
-                    <option value="Calçados">Calçados</option>
-                    <option value="Bermudas">Bermudas</option>
-                    <option value="Jaquetas">Jaquetas</option>
-                  </select>
-                </div>
-
-                <div className="rag-form-group">
-                  <label>Vincular a Produto da Loja:</label>
-                  <select
-                    className="rag-select"
-                    value={ragProdutoId}
-                    onChange={(e) => setRagProdutoId(e.target.value)}
-                  >
-                    <option value="">Nenhum (Análise Geral de Mercado)</option>
-                    {produtos.map((p) => (
-                      <option key={p.id} value={p.id}>
-                        {p.nome} (Estoque: {p.quantidade_estoque})
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                className="btn-primary"
-                disabled={ragLoading || !ragPergunta.trim()}
-                onClick={() => executarConsultaRAG()}
-              >
-                {ragLoading ? (
-                  <>
-                    <RefreshCw className="animate-spin" size={18} />
-                    Consultando Gemini & ChromaDB...
-                  </>
-                ) : (
-                  <>
-                    <Sparkles size={18} />
-                    Analisar Decisão com IA
-                  </>
-                )}
-              </button>
-            </div>
-
-            <div>
-              {ragResultado ? (
-                <div className="rag-result-box">
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
-                    <div>
-                      <span className="badge" style={{ background: '#ede9fe', color: '#6d28d9', marginBottom: '0.4rem' }}>
-                        Recomendação Explicável por IA
-                      </span>
-                      <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a' }}>
-                        {ragResultado.pergunta}
-                      </h3>
-                    </div>
-                    <span className={`badge badge-risk-${ragResultado.nivel_risco.toLowerCase()}`} style={{ fontSize: '0.85rem', padding: '0.35rem 0.75rem' }}>
-                      Risco: {ragResultado.nivel_risco}
-                    </span>
-                  </div>
-
-                  <div className={`action-highlight-box ${
-                    ragResultado.nivel_risco === 'Alto' ? 'action-danger' : 
-                    ragResultado.nivel_risco === 'Baixo' ? 'action-success' : ''
-                  }`}>
-                    <div className="action-title">Ação Recomendada pela IA ao Lojista</div>
-                    <div className="action-value">{ragResultado.acao_recomendada}</div>
-                  </div>
-
-                  <div style={{ marginBottom: '1.25rem' }}>
-                    <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
-                      Diagnóstico de Mercado:
-                    </h4>
-                    <p style={{ fontSize: '0.925rem', color: '#1e293b', lineHeight: 1.6 }}>
-                      {ragResultado.diagnostico}
-                    </p>
-                  </div>
-
-                  <div className="explanation-section">
-                    <div className="explanation-title">
-                      <HelpCircle size={18} color="#2563eb" /> Justificativa Explicável (Por que tomar esta decisão?)
-                    </div>
-                    <p style={{ fontSize: '0.875rem', color: '#334155', lineHeight: 1.6 }}>
-                      {ragResultado.justificativa_explicavel}
-                    </p>
-
-                    {ragResultado.fontes_consultadas && ragResultado.fontes_consultadas.length > 0 && (
-                      <div style={{ marginTop: '0.75rem' }}>
-                        <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748b' }}>
-                          Fontes e Evidências Mapeadas:
-                        </span>
-                        <div className="sources-tags">
-                          {ragResultado.fontes_consultadas.map((f, i) => (
-                            <span key={i} className="source-tag">{f}</span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ) : (
-                <div className="panel-card" style={{ textAlign: 'center', padding: '3.5rem 1.5rem', color: '#64748b' }}>
-                  <Brain size={48} color="#cbd5e1" style={{ margin: '0 auto 1rem auto' }} />
-                  <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#475569', marginBottom: '0.5rem' }}>
-                    Nenhuma Análise Ativa
-                  </h3>
-                  <p style={{ fontSize: '0.85rem', maxWidth: '380px', margin: '0 auto' }}>
-                    Escolha uma pergunta sugerida ao lado ou digite sua dúvida sobre compras para receber a recomendação contextualizada com explicabilidade.
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
+        {activeTab === 'rag' && <ConsultorRag produtos={produtos} onAtualizar={carregarDados} />}
 
         {activeTab === 'tendencias' && <Tendencias tendencias={tendencias} onAtualizar={carregarDados} />}
 
