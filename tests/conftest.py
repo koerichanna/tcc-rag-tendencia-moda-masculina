@@ -20,6 +20,8 @@ admin.dispose()
 
 os.environ["DATABASE_URL"] = url_teste.render_as_string(hide_password=False)
 os.environ.setdefault("CHROMA_PERSIST_DIRECTORY", "./data/test_chroma")
+# Desligado por padrão para os testes não esbarrarem no limite; test_limites.py liga quando precisa.
+os.environ["RATE_LIMIT_ENABLED"] = "false"
 
 import pytest  # noqa: E402
 from fastapi.testclient import TestClient  # noqa: E402

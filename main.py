@@ -1,13 +1,16 @@
 import logging
+import os
 import time
 from typing import List
 
 from fastapi import Depends, FastAPI, HTTPException, Query, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordRequestForm
+from slowapi.errors import RateLimitExceeded
 from sqlalchemy.orm import Session
 
 import auth
+import limites
 import models
 import rag_engine
 import schemas
@@ -32,12 +35,19 @@ async def monitorar_observabilidade(request: Request, call_next):
         logger.info(f"Observabilidade: {request.method} {request.url.path} -> {response.status_code} ({duracao_ms:.2f}ms)")
     return response
 
+app.state.limiter = limites.limiter
+app.add_exception_handler(RateLimitExceeded, limites.limite_excedido)
+
+# Em produção o frontend chama a API pelo mesmo domínio (/api), então CORS só é necessário
+# no desenvolvimento, quando o Vite roda em outra porta. Autenticação vai no cabeçalho
+# Authorization, sem cookies, por isso allow_credentials=False.
+ORIGENS_CORS = [o.strip() for o in os.getenv("CORS_ORIGINS", "http://localhost:5173,http://localhost:8080").split(",") if o.strip()]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=ORIGENS_CORS,
+    allow_credentials=False,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["Authorization", "Content-Type"],
 )
 
 @app.get("/", tags=["Status"])
@@ -58,7 +68,8 @@ def verificar_saude():
     }
 
 @app.post("/auth/login", response_model=schemas.TokenResponse, tags=["Autenticação"])
-def login(form: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+@limites.limiter.limit(limites.LOGIN)
+def login(request: Request, form: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     usuario = auth.autenticar(db, form.username, form.password)
     if usuario is None:
         # Mesma mensagem para usuário inexistente e senha errada: não revela quais usuários existem.
@@ -151,7 +162,8 @@ def listar_recomendacoes(limite: int = Query(50, ge=1, le=200), db: Session = De
     )
 
 @app.post("/rag/consultar", response_model=schemas.ConsultaRAGResponse, tags=["Motor RAG"])
-def consultar_assistente_rag(solicitacao: schemas.ConsultaRAGRequest, db: Session = Depends(get_db)):
+@limites.limiter.limit(limites.LLM)
+def consultar_assistente_rag(request: Request, solicitacao: schemas.ConsultaRAGRequest, db: Session = Depends(get_db)):
     return rag_engine.consultar_rag(
         pergunta=solicitacao.pergunta,
         categoria=solicitacao.categoria,
@@ -200,7 +212,8 @@ def obter_metricas_dashboard(db: Session = Depends(get_db)):
     }
 
 @app.post("/ia/gerar-tendencias", tags=["Inteligência Artificial"], dependencies=[Depends(auth.usuario_atual)])
-def api_gerar_tendencias_ia(solicitacao: schemas.GerarTendenciasIARequest = None, db: Session = Depends(get_db)):
+@limites.limiter.limit(limites.GERAR_TENDENCIAS)
+def api_gerar_tendencias_ia(request: Request, solicitacao: schemas.GerarTendenciasIARequest = None, db: Session = Depends(get_db)):
     tema = solicitacao.tema if (solicitacao and solicitacao.tema) else "Tendências de Moda Masculina Atual"
     novas = rag_engine.gerar_novas_tendencias_com_ia(tema=tema, db=db)
     return {
@@ -210,14 +223,16 @@ def api_gerar_tendencias_ia(solicitacao: schemas.GerarTendenciasIARequest = None
     }
 
 @app.post("/ia/analisar-produto/{produto_id}", tags=["Inteligência Artificial"], dependencies=[Depends(auth.usuario_atual)])
-def api_analisar_produto_ia(produto_id: int, db: Session = Depends(get_db)):
+@limites.limiter.limit(limites.LLM)
+def api_analisar_produto_ia(request: Request, produto_id: int, db: Session = Depends(get_db)):
     resultado = rag_engine.analisar_produto_com_ia(produto_id=produto_id, db=db)
     if "erro" in resultado:
         raise HTTPException(status_code=400, detail=resultado["erro"])
     return resultado
 
 @app.get("/ia/briefing-executivo", tags=["Inteligência Artificial"])
-def api_obter_briefing_executivo_ia(db: Session = Depends(get_db)):
+@limites.limiter.limit(limites.LLM)
+def api_obter_briefing_executivo_ia(request: Request, db: Session = Depends(get_db)):
     return rag_engine.gerar_briefing_executivo_ia(db=db)
 
 

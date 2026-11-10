@@ -8,6 +8,7 @@ python-dotenv>=1.0.1
 pyjwt>=2.9.0
 bcrypt>=4.2.0
 python-multipart>=0.0.9
+slowapi>=0.1.9
 
 # Banco de Dados Relacional
 sqlalchemy>=2.1.0
