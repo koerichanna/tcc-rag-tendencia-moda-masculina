@@ -42,4 +42,4 @@ jobs:
             --scripts "cd /opt/projeto-moda/repo && git fetch -q origin && git show $SHA:deploy/deploy.sh | bash -s -- $AMBIENTE $SHA" \
             --query "value[0].message" -o tsv)
           echo "$saida"
-          echo "$saida" | grep -q "concluido"
+          grep -q "concluido" <<< "$saida"
