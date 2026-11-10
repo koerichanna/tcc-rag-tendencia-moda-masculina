@@ -2,6 +2,7 @@
   {
     "id": "trend_linho_01",
     "termo": "Camisas de Linho e Tecidos Naturais",
+    "termo_busca": "camisa de linho",
     "categoria": "Camisas",
     "estilo": "Casual Chic",
     "sazonalidade": "Primavera/Verão",
@@ -13,6 +14,7 @@
   {
     "id": "trend_wide_leg_02",
     "termo": "Calças de Corte Reto e Wide Leg",
+    "termo_busca": "calça wide leg",
     "categoria": "Calças",
     "estilo": "Streetwear / Urbano",
     "sazonalidade": "Atemporal",
@@ -24,6 +26,7 @@
   {
     "id": "trend_skinny_queda_03",
     "termo": "Desaceleração de Calças Jeans Skinny",
+    "termo_busca": "calça skinny",
     "categoria": "Calças",
     "estilo": "Casual Tradicional",
     "sazonalidade": "Atemporal",
@@ -35,6 +38,7 @@
   {
     "id": "trend_tons_terrosos_04",
     "termo": "Paleta de Cores Terrosas e Tons Naturais",
+    "termo_busca": "tons terrosos",
     "categoria": "Geral",
     "estilo": "Elegante / Casual",
     "sazonalidade": "Outono/Inverno",
@@ -46,6 +50,7 @@
   {
     "id": "trend_oversized_tee_05",
     "termo": "Camisetas Oversized em Algodão Pesado",
+    "termo_busca": "camiseta oversized",
     "categoria": "Camisetas",
     "estilo": "Streetwear / Minimalista",
     "sazonalidade": "Atemporal",
@@ -57,6 +62,7 @@
   {
     "id": "trend_tenis_minimalista_06",
     "termo": "Tênis de Couro Minimalista Branco",
+    "termo_busca": "tênis branco",
     "categoria": "Calçados",
     "estilo": "Casual Chic / Alfaiataria Moderna",
     "sazonalidade": "Atemporal",
@@ -68,6 +74,7 @@
   {
     "id": "trend_loafers_mocassim_07",
     "termo": "Mocassins Penny Loafer e Solado Tratorado",
+    "termo_busca": "mocassim masculino",
     "categoria": "Calçados",
     "estilo": "Smart Casual",
     "sazonalidade": "Atemporal",
@@ -79,6 +86,7 @@
   {
     "id": "trend_jaquetas_bomber_08",
     "termo": "Jaquetas Bomber e Sobretudos Leves",
+    "termo_busca": "jaqueta bomber",
     "categoria": "Jaquetas",
     "estilo": "Urbano / Casual",
     "sazonalidade": "Outono/Inverno",
@@ -90,6 +98,7 @@
   {
     "id": "trend_bermuda_alfaiataria_09",
     "termo": "Bermudas Chino e Alfaiatadas Acima do Joelho",
+    "termo_busca": "bermuda de alfaiataria",
     "categoria": "Bermudas",
     "estilo": "Resort / Verão Elegante",
     "sazonalidade": "Primavera/Verão",
@@ -101,6 +110,7 @@
   {
     "id": "trend_easy_care_10",
     "termo": "Camisas e Tecidos Tecnológicos Antiamassado",
+    "termo_busca": "camisa que não amassa",
     "categoria": "Camisas",
     "estilo": "Business Casual",
     "sazonalidade": "Atemporal",
