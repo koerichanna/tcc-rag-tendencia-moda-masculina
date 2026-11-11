@@ -9,6 +9,7 @@ Uso:
 """
 import getpass
 import os
+import re
 import sys
 
 import auth
@@ -26,6 +27,10 @@ def salvar_usuario(nome_usuario: str, senha: str, admin: bool = False) -> bool:
     """
     if len(senha) < TAMANHO_MINIMO:
         raise ValueError(f"A senha precisa ter pelo menos {TAMANHO_MINIMO} caracteres")
+    # Mesma regra da API (schemas.NomeUsuario): o login procura o nome em minúsculas.
+    nome_usuario = nome_usuario.strip().lower()
+    if not re.fullmatch(r"[a-z0-9._-]{3,50}", nome_usuario):
+        raise ValueError("Use de 3 a 50 caracteres: letras, números, ponto, hífen ou sublinhado")
     with SessionLocal() as db:
         usuario = db.query(models.UsuarioModel).filter_by(nome_usuario=nome_usuario).first()
         criado = usuario is None

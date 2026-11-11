@@ -135,6 +135,17 @@ def test_opcao_admin_promove_e_reativa(db_session, usuario):
     assert (registro.perfil, registro.ativo) == ("admin", True)
 
 
+def test_terminal_grava_nome_em_minusculas(client_anonimo, db_session):
+    salvar_usuario("Anna.Cristina", SENHA, admin=True)
+    assert login(client_anonimo, "Anna.Cristina", SENHA).status_code == 200
+    assert login(client_anonimo, "anna.cristina", SENHA).status_code == 200
+
+
+def test_terminal_recusa_nome_com_espaco(db_session):
+    with pytest.raises(ValueError):
+        salvar_usuario("Anna Cristina", SENHA)
+
+
 def test_salvar_usuario_existente_troca_a_senha(client_anonimo, usuario):
     assert salvar_usuario(usuario, "nova-senha-segura-1") is False
     assert login(client_anonimo, usuario, SENHA).status_code == 401
