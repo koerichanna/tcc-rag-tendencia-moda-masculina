@@ -3,6 +3,7 @@ import { AlertTriangle, CheckCircle2, Package, PlusCircle, RefreshCw, Sparkles }
 import { api } from '../api';
 import { PRODUTO_VAZIO } from '../constants';
 import Modal from '../components/Modal';
+import AvisoAjuste from '../components/AvisoAjuste';
 import RiscoBadge from '../components/RiscoBadge';
 import SelectCategoria from '../components/SelectCategoria';
 
@@ -20,7 +21,6 @@ function ModalNovoProduto({ onFechar, onSalvo }) {
         custo_aquisicao: parseFloat(produto.custo_aquisicao) || 0,
         quantidade_estoque: parseInt(produto.quantidade_estoque) || 0,
         estoque_minimo: parseInt(produto.estoque_minimo) || 0,
-        tendencia_score: parseFloat(produto.tendencia_score) || 50,
       });
       onSalvo();
     } catch (err) {
@@ -67,6 +67,11 @@ function ModalNovoProduto({ onFechar, onSalvo }) {
           </div>
         </div>
 
+        <p style={{ fontSize: '0.8rem', color: '#64748b' }}>
+          O score de tendência é calculado automaticamente: o sistema vincula o produto à tendência mais
+          parecida da mesma categoria e usa o score dela, que vem do Google Trends.
+        </p>
+
         <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1.5rem' }}>
           <button type="button" onClick={onFechar}
             style={{ padding: '0.6rem 1.25rem', borderRadius: '6px', background: '#f1f5f9', color: '#475569', fontWeight: 600 }}>
@@ -96,10 +101,14 @@ function ModalAvaliacao({ avaliacao, onFechar }) {
       <div className="action-highlight-box">
         <div className="action-title">Ação Recomendada pela IA</div>
         <div className="action-value">{avaliacao.acao_recomendada}</div>
-        <div style={{ marginTop: '0.3rem', fontSize: '0.85rem', color: '#4338ca', fontWeight: 600 }}>
-          Score de Tendência Atualizado: {avaliacao.novo_score_tendencia} / 100
-        </div>
+        {avaliacao.tendencia_vinculada && (
+          <div style={{ marginTop: '0.3rem', fontSize: '0.85rem', color: '#4338ca', fontWeight: 600 }}>
+            Tendência vinculada: {avaliacao.tendencia_vinculada} ({avaliacao.tendencia_score} / 100, Google Trends)
+          </div>
+        )}
       </div>
+
+      <AvisoAjuste ajustes={avaliacao.ajustes_coerencia} />
 
       <div style={{ marginBottom: '1rem' }}>
         <h5 style={{ fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.2rem' }}>Diagnóstico de Mercado:</h5>
@@ -135,6 +144,9 @@ function LinhaProduto({ produto, avaliando, onAvaliar }) {
         <span className="badge" style={{ background: '#ede9fe', color: '#6d28d9' }}>
           {produto.tendencia_score} / 100
         </span>
+        {produto.tendencia_termo && (
+          <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.25rem' }}>{produto.tendencia_termo}</div>
+        )}
       </td>
       <td>
         {estoqueCritico ? (
@@ -202,7 +214,7 @@ export default function Produtos({ produtos, onAtualizar }) {
                 <th>Preço Venda</th>
                 <th>Estoque Atual</th>
                 <th>Estoque Mínimo</th>
-                <th>Score Tendência (IA)</th>
+                <th>Tendência Vinculada</th>
                 <th>Status Estoque</th>
                 <th>Ações com IA</th>
               </tr>

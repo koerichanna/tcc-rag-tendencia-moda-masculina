@@ -15,5 +15,4 @@ export const PRODUTO_VAZIO = {
   custo_aquisicao: '',
   quantidade_estoque: '',
   estoque_minimo: 5,
-  tendencia_score: 50,
 };
