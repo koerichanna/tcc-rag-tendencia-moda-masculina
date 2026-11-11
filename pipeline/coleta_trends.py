@@ -1,6 +1,7 @@
 """Coleta o interesse de busca semanal (Brasil, últimos 5 anos) no Google Trends.
 
-Uso: python -m pipeline.coleta_trends
+Uso: python -m pipeline.coleta_trends              # todos os termos da base
+     python -m pipeline.coleta_trends "termo" ...   # só esses termos, juntando ao arquivo do dia
 Saída: data/raw/google_trends_<AAAA-MM-DD>.csv com colunas data, termo_busca, interesse, parcial
 (parcial = semana ainda em andamento no momento da coleta).
 
@@ -13,6 +14,7 @@ import json
 import logging
 import pathlib
 import random
+import sys
 import time
 
 BASE = pathlib.Path(__file__).resolve().parent.parent
@@ -66,9 +68,18 @@ def coletar(termos, geo="BR", periodo="today 5-y"):
     return linhas
 
 
-def salvar(linhas, pasta=PASTA_RAW):
+def salvar(linhas, pasta=PASTA_RAW, juntar=False):
+    """Grava a coleta do dia. Com juntar=True, mantém as séries já gravadas hoje para os outros
+    termos (substitui só as dos termos coletados agora) e descarta termos que saíram da base."""
     pasta.mkdir(parents=True, exist_ok=True)
     destino = pasta / f"google_trends_{datetime.date.today().isoformat()}.csv"
+    if juntar and destino.exists():
+        novos = {linha["termo_busca"] for linha in linhas}
+        da_base = set(termos_da_base())
+        with open(destino, encoding="utf-8") as f:
+            anteriores = [linha for linha in csv.DictReader(f)
+                          if linha["termo_busca"] not in novos and linha["termo_busca"] in da_base]
+        linhas = anteriores + linhas
     with open(destino, "w", newline="", encoding="utf-8") as f:
         escritor = csv.DictWriter(f, fieldnames=["data", "termo_busca", "interesse", "parcial"])
         escritor.writeheader()
@@ -78,5 +89,6 @@ def salvar(linhas, pasta=PASTA_RAW):
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
-    arquivo = salvar(coletar(termos_da_base()))
+    escolhidos = sys.argv[1:]
+    arquivo = salvar(coletar(escolhidos or termos_da_base()), juntar=bool(escolhidos))
     logger.info("Coleta salva em %s", arquivo)
