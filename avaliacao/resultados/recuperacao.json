@@ -8,13 +8,13 @@
         "hit@1": 65.7,
         "hit@3": 71.4,
         "mrr@3": 0.681,
-        "latencia_ms": 0.0
+        "latencia_ms": 0.1
       },
       "direta": {
         "hit@1": 96.2,
         "hit@3": 100.0,
         "mrr@3": 0.978,
-        "latencia_ms": 0.0
+        "latencia_ms": 0.1
       },
       "parafrase": {
         "hit@1": 69.2,
@@ -26,7 +26,7 @@
         "hit@1": 0.0,
         "hit@3": 0.0,
         "mrr@3": 0.0,
-        "latencia_ms": 0.0
+        "latencia_ms": 0.1
       },
       "erros": [
         {
@@ -335,25 +335,25 @@
         "hit@1": 56.2,
         "hit@3": 66.7,
         "mrr@3": 0.611,
-        "latencia_ms": 36.4
+        "latencia_ms": 400.2
       },
       "direta": {
         "hit@1": 86.8,
         "hit@3": 92.5,
         "mrr@3": 0.893,
-        "latencia_ms": 36.5
+        "latencia_ms": 399.5
       },
       "parafrase": {
         "hit@1": 46.2,
         "hit@3": 69.2,
         "mrr@3": 0.571,
-        "latencia_ms": 36.7
+        "latencia_ms": 408.8
       },
       "sem_sobreposicao": {
         "hit@1": 3.8,
         "hit@3": 11.5,
         "mrr@3": 0.077,
-        "latencia_ms": 36.0
+        "latencia_ms": 399.4
       },
       "erros": [
         {
@@ -753,27 +753,27 @@
     "hibrida-minilm-en/completo": {
       "geral": {
         "hit@1": 61.9,
-        "hit@3": 71.4,
-        "mrr@3": 0.66,
-        "latencia_ms": 36.4
+        "hit@3": 72.4,
+        "mrr@3": 0.663,
+        "latencia_ms": 406.1
       },
       "direta": {
         "hit@1": 92.5,
         "hit@3": 100.0,
         "mrr@3": 0.959,
-        "latencia_ms": 36.3
+        "latencia_ms": 417.4
       },
       "parafrase": {
         "hit@1": 61.5,
-        "hit@3": 80.8,
-        "mrr@3": 0.699,
-        "latencia_ms": 36.5
+        "hit@3": 84.6,
+        "mrr@3": 0.712,
+        "latencia_ms": 413.3
       },
       "sem_sobreposicao": {
         "hit@1": 0.0,
         "hit@3": 3.8,
         "mrr@3": 0.013,
-        "latencia_ms": 36.1
+        "latencia_ms": 371.9
       },
       "erros": [
         {
@@ -819,18 +819,6 @@
             "trend_sapatenis_36",
             "trend_alfaiataria_pregas_20",
             "trend_coturno_32"
-          ]
-        },
-        {
-          "pergunta": "Camisa havaiana colorida para viagem de praia tem saída?",
-          "esperado": [
-            "trend_estampada_16",
-            "trend_cubana_13"
-          ],
-          "recuperados": [
-            "trend_regata_28",
-            "trend_xadrez_12",
-            "trend_camisa_jeans_15"
           ]
         },
         {
@@ -1116,27 +1104,27 @@
     "multilingue/completo": {
       "geral": {
         "hit@1": 24.8,
-        "hit@3": 41.9,
-        "mrr@3": 0.325,
-        "latencia_ms": 8.0
+        "hit@3": 42.9,
+        "mrr@3": 0.329,
+        "latencia_ms": 73.5
       },
       "direta": {
         "hit@1": 26.4,
-        "hit@3": 43.4,
-        "mrr@3": 0.34,
-        "latencia_ms": 8.0
+        "hit@3": 45.3,
+        "mrr@3": 0.343,
+        "latencia_ms": 68.2
       },
       "parafrase": {
         "hit@1": 34.6,
         "hit@3": 61.5,
-        "mrr@3": 0.468,
-        "latencia_ms": 9.7
+        "mrr@3": 0.474,
+        "latencia_ms": 84.3
       },
       "sem_sobreposicao": {
         "hit@1": 11.5,
         "hit@3": 19.2,
         "mrr@3": 0.154,
-        "latencia_ms": 7.7
+        "latencia_ms": 70.6
       },
       "erros": [
         {
@@ -1146,8 +1134,8 @@
           ],
           "recuperados": [
             "trend_xadrez_12",
-            "trend_polo_11",
-            "trend_old_money_51"
+            "trend_old_money_51",
+            "trend_polo_11"
           ]
         },
         {
@@ -1205,7 +1193,7 @@
           "recuperados": [
             "trend_tons_terrosos_04",
             "trend_short_linho_41",
-            "trend_cubana_13"
+            "trend_brecho_53"
           ]
         },
         {
@@ -1226,7 +1214,7 @@
           ],
           "recuperados": [
             "trend_tactel_42",
-            "trend_cubana_13",
+            "trend_brecho_53",
             "trend_tons_terrosos_04"
           ]
         },
@@ -1237,8 +1225,8 @@
           ],
           "recuperados": [
             "trend_brecho_53",
-            "trend_cubana_13",
-            "trend_tons_terrosos_04"
+            "trend_tons_terrosos_04",
+            "trend_old_money_51"
           ]
         },
         {
@@ -1283,7 +1271,7 @@
           "recuperados": [
             "trend_short_linho_41",
             "trend_old_money_51",
-            "trend_overshirt_17"
+            "trend_oxford_14"
           ]
         },
         {
@@ -1306,6 +1294,17 @@
             "trend_old_money_51",
             "trend_oxford_14",
             "trend_xadrez_12"
+          ]
+        },
+        {
+          "pergunta": "Camisa cubana de colarinho aberto está em alta?",
+          "esperado": [
+            "trend_cubana_13"
+          ],
+          "recuperados": [
+            "trend_linho_01",
+            "trend_xadrez_12",
+            "trend_overshirt_17"
           ]
         },
         {
@@ -1354,17 +1353,6 @@
           ]
         },
         {
-          "pergunta": "Calça baggy masculina está vendendo?",
-          "esperado": [
-            "trend_baggy_21"
-          ],
-          "recuperados": [
-            "trend_tons_terrosos_04",
-            "trend_overshirt_17",
-            "trend_cubana_13"
-          ]
-        },
-        {
           "pergunta": "Calça de sarja colorida compensa?",
           "esperado": [
             "trend_sarja_colorida_22"
@@ -1383,7 +1371,7 @@
           "recuperados": [
             "trend_oxford_14",
             "trend_old_money_51",
-            "trend_sarja_colorida_22"
+            "trend_skinny_queda_03"
           ]
         },
         {
@@ -1403,9 +1391,9 @@
             "trend_basica_25"
           ],
           "recuperados": [
-            "trend_dry_fit_26",
             "trend_skinny_queda_03",
-            "trend_camiseta_estampada_30"
+            "trend_camiseta_estampada_30",
+            "trend_dry_fit_26"
           ]
         },
         {
@@ -1416,7 +1404,7 @@
           "recuperados": [
             "trend_short_linho_41",
             "trend_oversized_tee_05",
-            "trend_cubana_13"
+            "trend_old_money_51"
           ]
         },
         {
@@ -1448,8 +1436,8 @@
           ],
           "recuperados": [
             "trend_jaquetas_bomber_08",
-            "trend_colete_puffer_49",
-            "trend_cubana_13"
+            "trend_linho_01",
+            "trend_camisa_jeans_15"
           ]
         },
         {
@@ -1459,8 +1447,8 @@
           ],
           "recuperados": [
             "trend_tons_terrosos_04",
-            "trend_cubana_13",
-            "trend_short_linho_41"
+            "trend_short_linho_41",
+            "trend_cubana_13"
           ]
         },
         {
@@ -1470,8 +1458,8 @@
           ],
           "recuperados": [
             "trend_baggy_21",
-            "trend_cubana_13",
-            "trend_camiseta_estampada_30"
+            "trend_camiseta_estampada_30",
+            "trend_oxford_14"
           ]
         },
         {
@@ -1503,7 +1491,7 @@
           ],
           "recuperados": [
             "trend_skinny_queda_03",
-            "trend_sarja_colorida_22",
+            "trend_oxford_14",
             "trend_old_money_51"
           ]
         },
@@ -1525,8 +1513,8 @@
           ],
           "recuperados": [
             "trend_short_linho_41",
-            "trend_linho_01",
-            "trend_brecho_53"
+            "trend_brecho_53",
+            "trend_linho_01"
           ]
         },
         {
@@ -1536,8 +1524,8 @@
           ],
           "recuperados": [
             "trend_tons_terrosos_04",
-            "trend_cubana_13",
-            "trend_overshirt_17"
+            "trend_short_linho_41",
+            "trend_old_money_51"
           ]
         },
         {
@@ -1574,17 +1562,6 @@
           ]
         },
         {
-          "pergunta": "Roupas de brechó estão tirando vendas das lojas?",
-          "esperado": [
-            "trend_brecho_53"
-          ],
-          "recuperados": [
-            "trend_tons_terrosos_04",
-            "trend_camiseta_estampada_30",
-            "trend_cubana_13"
-          ]
-        },
-        {
           "pergunta": "Blusa de lã de abotoar, coisa de vovô, voltou?",
           "esperado": [
             "trend_cardigan_50"
@@ -1592,7 +1569,7 @@
           "recuperados": [
             "trend_short_linho_41",
             "trend_old_money_51",
-            "trend_tons_terrosos_04"
+            "trend_linho_01"
           ]
         },
         {
@@ -1603,7 +1580,7 @@
           "recuperados": [
             "trend_tons_terrosos_04",
             "trend_tactel_42",
-            "trend_basica_25"
+            "trend_cubana_13"
           ]
         },
         {
@@ -1624,8 +1601,8 @@
           ],
           "recuperados": [
             "trend_puffer_46",
-            "trend_cubana_13",
-            "trend_jaquetas_bomber_08"
+            "trend_jaquetas_bomber_08",
+            "trend_cubana_13"
           ]
         },
         {
@@ -1691,8 +1668,8 @@
             "trend_skinny_queda_03"
           ],
           "recuperados": [
-            "trend_cubana_13",
             "trend_short_linho_41",
+            "trend_cubana_13",
             "trend_tons_terrosos_04"
           ]
         },
@@ -1770,8 +1747,8 @@
             "trend_oxford_14"
           ],
           "recuperados": [
-            "trend_cubana_13",
             "trend_cargo_18",
+            "trend_cubana_13",
             "trend_short_linho_41"
           ]
         },
@@ -1794,7 +1771,7 @@
           "recuperados": [
             "trend_oxford_14",
             "trend_oversized_tee_05",
-            "trend_easy_care_10"
+            "trend_short_linho_41"
           ]
         },
         {
@@ -1803,9 +1780,9 @@
             "trend_manga_longa_29"
           ],
           "recuperados": [
-            "trend_overshirt_17",
             "trend_xadrez_12",
-            "trend_polo_11"
+            "trend_overshirt_17",
+            "trend_linho_01"
           ]
         },
         {
@@ -1815,36 +1792,36 @@
           ],
           "recuperados": [
             "trend_tons_terrosos_04",
-            "trend_cubana_13",
-            "trend_short_linho_41"
+            "trend_short_linho_41",
+            "trend_tactel_42"
           ]
         }
       ]
     },
     "hibrida-multilingue/completo": {
       "geral": {
-        "hit@1": 43.8,
-        "hit@3": 66.7,
-        "mrr@3": 0.543,
-        "latencia_ms": 8.2
+        "hit@1": 47.6,
+        "hit@3": 67.6,
+        "mrr@3": 0.563,
+        "latencia_ms": 67.1
       },
       "direta": {
-        "hit@1": 54.7,
+        "hit@1": 56.6,
         "hit@3": 84.9,
-        "mrr@3": 0.682,
-        "latencia_ms": 8.0
+        "mrr@3": 0.689,
+        "latencia_ms": 60.6
       },
       "parafrase": {
-        "hit@1": 61.5,
-        "hit@3": 76.9,
-        "mrr@3": 0.692,
-        "latencia_ms": 9.0
+        "hit@1": 73.1,
+        "hit@3": 80.8,
+        "mrr@3": 0.763,
+        "latencia_ms": 78.9
       },
       "sem_sobreposicao": {
         "hit@1": 3.8,
         "hit@3": 19.2,
         "mrr@3": 0.109,
-        "latencia_ms": 8.1
+        "latencia_ms": 65.7
       },
       "erros": [
         {
@@ -1856,6 +1833,17 @@
             "trend_skinny_queda_03",
             "trend_sarja_colorida_22",
             "trend_baggy_21"
+          ]
+        },
+        {
+          "pergunta": "Devo aumentar o estoque de camiseta oversized?",
+          "esperado": [
+            "trend_oversized_tee_05"
+          ],
+          "recuperados": [
+            "trend_alfaiataria_pregas_20",
+            "trend_xadrez_12",
+            "trend_time_retro_27"
           ]
         },
         {
@@ -1910,8 +1898,8 @@
           ],
           "recuperados": [
             "trend_short_linho_41",
-            "trend_cubana_13",
-            "trend_overshirt_17"
+            "trend_oxford_14",
+            "trend_cubana_13"
           ]
         },
         {
@@ -1948,17 +1936,6 @@
           ]
         },
         {
-          "pergunta": "Camiseta branca e preta sem estampa é produto de giro?",
-          "esperado": [
-            "trend_basica_25"
-          ],
-          "recuperados": [
-            "trend_oversized_tee_05",
-            "trend_camiseta_estampada_30",
-            "trend_tenis_minimalista_06"
-          ]
-        },
-        {
           "pergunta": "Regata masculina vale a pena para o verão?",
           "esperado": [
             "trend_regata_28"
@@ -1967,17 +1944,6 @@
             "trend_loafers_mocassim_07",
             "trend_camisa_jeans_15",
             "trend_calca_linho_24"
-          ]
-        },
-        {
-          "pergunta": "Coturno masculino é boa compra para o inverno?",
-          "esperado": [
-            "trend_coturno_32"
-          ],
-          "recuperados": [
-            "trend_jaquetas_bomber_08",
-            "trend_brecho_53",
-            "trend_puffer_46"
           ]
         },
         {
@@ -2098,9 +2064,9 @@
             "trend_baggy_21"
           ],
           "recuperados": [
+            "trend_overshirt_17",
             "trend_alfaiataria_pregas_20",
-            "trend_skinny_queda_03",
-            "trend_jeans_reto_23"
+            "trend_skinny_queda_03"
           ]
         },
         {
@@ -2109,8 +2075,8 @@
             "trend_skinny_queda_03"
           ],
           "recuperados": [
-            "trend_cubana_13",
             "trend_short_linho_41",
+            "trend_cubana_13",
             "trend_tons_terrosos_04"
           ]
         },
@@ -2199,9 +2165,9 @@
             "trend_jogger_19"
           ],
           "recuperados": [
-            "trend_overshirt_17",
             "trend_brecho_53",
-            "trend_tactel_42"
+            "trend_tactel_42",
+            "trend_overshirt_17"
           ]
         },
         {
@@ -2212,7 +2178,7 @@
           "recuperados": [
             "trend_oxford_14",
             "trend_oversized_tee_05",
-            "trend_easy_care_10"
+            "trend_short_linho_41"
           ]
         },
         {
@@ -2223,7 +2189,7 @@
           "recuperados": [
             "trend_colete_puffer_49",
             "trend_moletom_48",
-            "trend_overshirt_17"
+            "trend_xadrez_12"
           ]
         },
         {
@@ -2241,28 +2207,28 @@
     },
     "multilingue-fp32/completo": {
       "geral": {
-        "hit@1": 33.3,
+        "hit@1": 34.3,
         "hit@3": 49.5,
-        "mrr@3": 0.402,
-        "latencia_ms": 9.7
+        "mrr@3": 0.405,
+        "latencia_ms": 98.7
       },
       "direta": {
-        "hit@1": 35.8,
+        "hit@1": 34.0,
         "hit@3": 56.6,
-        "mrr@3": 0.443,
-        "latencia_ms": 9.1
+        "mrr@3": 0.431,
+        "latencia_ms": 85.7
       },
       "parafrase": {
-        "hit@1": 46.2,
+        "hit@1": 50.0,
         "hit@3": 65.4,
-        "mrr@3": 0.545,
-        "latencia_ms": 11.4
+        "mrr@3": 0.564,
+        "latencia_ms": 107.2
       },
       "sem_sobreposicao": {
-        "hit@1": 15.4,
+        "hit@1": 19.2,
         "hit@3": 19.2,
-        "mrr@3": 0.173,
-        "latencia_ms": 9.7
+        "mrr@3": 0.192,
+        "latencia_ms": 102.4
       },
       "erros": [
         {
@@ -2307,7 +2273,7 @@
           "recuperados": [
             "trend_tons_terrosos_04",
             "trend_short_linho_41",
-            "trend_cubana_13"
+            "trend_camiseta_estampada_30"
           ]
         },
         {
@@ -2329,7 +2295,7 @@
           "recuperados": [
             "trend_brecho_53",
             "trend_old_money_51",
-            "trend_cubana_13"
+            "trend_short_linho_41"
           ]
         },
         {
@@ -2351,8 +2317,8 @@
           ],
           "recuperados": [
             "trend_xadrez_12",
-            "trend_camisa_jeans_15",
-            "trend_polo_11"
+            "trend_cubana_13",
+            "trend_camisa_jeans_15"
           ]
         },
         {
@@ -2363,7 +2329,7 @@
           "recuperados": [
             "trend_xadrez_12",
             "trend_short_linho_41",
-            "trend_old_money_51"
+            "trend_cubana_13"
           ]
         },
         {
@@ -2406,8 +2372,8 @@
           ],
           "recuperados": [
             "trend_short_linho_41",
-            "trend_tons_terrosos_04",
-            "trend_cubana_13"
+            "trend_cubana_13",
+            "trend_tons_terrosos_04"
           ]
         },
         {
@@ -2439,8 +2405,8 @@
           ],
           "recuperados": [
             "trend_linho_01",
-            "trend_short_linho_41",
-            "trend_xadrez_12"
+            "trend_cubana_13",
+            "trend_short_linho_41"
           ]
         },
         {
@@ -2461,8 +2427,8 @@
           ],
           "recuperados": [
             "trend_short_linho_41",
-            "trend_cubana_13",
-            "trend_old_money_51"
+            "trend_old_money_51",
+            "trend_camiseta_estampada_30"
           ]
         },
         {
@@ -2494,8 +2460,8 @@
           ],
           "recuperados": [
             "trend_jaquetas_bomber_08",
-            "trend_cubana_13",
-            "trend_camisa_jeans_15"
+            "trend_camisa_jeans_15",
+            "trend_linho_01"
           ]
         },
         {
@@ -2538,8 +2504,8 @@
           ],
           "recuperados": [
             "trend_alfaiataria_pregas_20",
-            "trend_cubana_13",
-            "trend_overshirt_17"
+            "trend_overshirt_17",
+            "trend_baggy_21"
           ]
         },
         {
@@ -2581,9 +2547,9 @@
             "trend_couro_47"
           ],
           "recuperados": [
-            "trend_cubana_13",
             "trend_old_money_51",
-            "trend_short_linho_41"
+            "trend_short_linho_41",
+            "trend_tons_terrosos_04"
           ]
         },
         {
@@ -2604,8 +2570,8 @@
           ],
           "recuperados": [
             "trend_alfaiataria_pregas_20",
-            "trend_cubana_13",
-            "trend_overshirt_17"
+            "trend_overshirt_17",
+            "trend_cubana_13"
           ]
         },
         {
@@ -2638,7 +2604,7 @@
           "recuperados": [
             "trend_tons_terrosos_04",
             "trend_tactel_42",
-            "trend_linho_01"
+            "trend_cubana_13"
           ]
         },
         {
@@ -2660,7 +2626,7 @@
           "recuperados": [
             "trend_puffer_46",
             "trend_slide_35",
-            "trend_cubana_13"
+            "trend_jaquetas_bomber_08"
           ]
         },
         {
@@ -2682,7 +2648,7 @@
           "recuperados": [
             "trend_tenis_minimalista_06",
             "trend_tons_terrosos_04",
-            "trend_sarja_colorida_22"
+            "trend_cubana_13"
           ]
         },
         {
@@ -2726,9 +2692,9 @@
             "trend_skinny_queda_03"
           ],
           "recuperados": [
-            "trend_cubana_13",
             "trend_short_linho_41",
-            "trend_camiseta_estampada_30"
+            "trend_camiseta_estampada_30",
+            "trend_cubana_13"
           ]
         },
         {
@@ -2751,7 +2717,7 @@
           "recuperados": [
             "trend_tons_terrosos_04",
             "trend_linho_01",
-            "trend_jaquetas_bomber_08"
+            "trend_cubana_13"
           ]
         },
         {
@@ -2806,8 +2772,8 @@
           ],
           "recuperados": [
             "trend_cargo_18",
-            "trend_cubana_13",
-            "trend_easy_care_10"
+            "trend_easy_care_10",
+            "trend_oversized_tee_05"
           ]
         },
         {
@@ -2849,8 +2815,8 @@
             "trend_easy_care_10"
           ],
           "recuperados": [
-            "trend_cubana_13",
             "trend_short_linho_41",
+            "trend_cubana_13",
             "trend_tactel_42"
           ]
         }
@@ -2860,13 +2826,13 @@
       "geral": {
         "hit@1": 65.7,
         "hit@3": 71.4,
-        "mrr@3": 0.679,
+        "mrr@3": 0.681,
         "latencia_ms": 0.1
       },
       "direta": {
         "hit@1": 94.3,
         "hit@3": 100.0,
-        "mrr@3": 0.965,
+        "mrr@3": 0.969,
         "latencia_ms": 0.1
       },
       "parafrase": {
@@ -3186,25 +3152,25 @@
         "hit@1": 57.1,
         "hit@3": 67.6,
         "mrr@3": 0.622,
-        "latencia_ms": 37.3
+        "latencia_ms": 383.9
       },
       "direta": {
         "hit@1": 92.5,
         "hit@3": 96.2,
         "mrr@3": 0.94,
-        "latencia_ms": 37.0
+        "latencia_ms": 398.2
       },
       "parafrase": {
         "hit@1": 38.5,
         "hit@3": 65.4,
         "mrr@3": 0.519,
-        "latencia_ms": 36.0
+        "latencia_ms": 380.8
       },
       "sem_sobreposicao": {
         "hit@1": 3.8,
         "hit@3": 11.5,
         "mrr@3": 0.077,
-        "latencia_ms": 38.1
+        "latencia_ms": 365.7
       },
       "erros": [
         {
@@ -3495,8 +3461,8 @@
           ],
           "recuperados": [
             "trend_old_money_51",
-            "trend_linho_01",
-            "trend_cubana_13"
+            "trend_cubana_13",
+            "trend_linho_01"
           ]
         },
         {
@@ -3595,25 +3561,25 @@
         "hit@1": 63.8,
         "hit@3": 71.4,
         "mrr@3": 0.67,
-        "latencia_ms": 37.9
+        "latencia_ms": 356.2
       },
       "direta": {
         "hit@1": 94.3,
         "hit@3": 100.0,
         "mrr@3": 0.969,
-        "latencia_ms": 37.8
+        "latencia_ms": 357.8
       },
       "parafrase": {
         "hit@1": 65.4,
         "hit@3": 80.8,
         "mrr@3": 0.712,
-        "latencia_ms": 38.0
+        "latencia_ms": 357.0
       },
       "sem_sobreposicao": {
         "hit@1": 0.0,
         "hit@3": 3.8,
         "mrr@3": 0.019,
-        "latencia_ms": 37.9
+        "latencia_ms": 350.8
       },
       "erros": [
         {
@@ -3847,8 +3813,8 @@
           ],
           "recuperados": [
             "trend_old_money_51",
-            "trend_linho_01",
-            "trend_cubana_13"
+            "trend_cubana_13",
+            "trend_linho_01"
           ]
         },
         {
@@ -3955,43 +3921,30 @@
     },
     "multilingue/descritivo": {
       "geral": {
-        "hit@1": 50.5,
-        "hit@3": 70.5,
-        "mrr@3": 0.587,
-        "latencia_ms": 7.6
+        "hit@1": 49.5,
+        "hit@3": 68.6,
+        "mrr@3": 0.573,
+        "latencia_ms": 6.5
       },
       "direta": {
-        "hit@1": 60.4,
-        "hit@3": 86.8,
-        "mrr@3": 0.714,
-        "latencia_ms": 6.9
+        "hit@1": 58.5,
+        "hit@3": 84.9,
+        "mrr@3": 0.692,
+        "latencia_ms": 5.8
       },
       "parafrase": {
         "hit@1": 69.2,
         "hit@3": 80.8,
         "mrr@3": 0.744,
-        "latencia_ms": 8.4
+        "latencia_ms": 6.8
       },
       "sem_sobreposicao": {
         "hit@1": 11.5,
-        "hit@3": 26.9,
-        "mrr@3": 0.173,
-        "latencia_ms": 9.2
+        "hit@3": 23.1,
+        "mrr@3": 0.16,
+        "latencia_ms": 7.0
       },
       "erros": [
-        {
-          "pergunta": "Peças de tecido natural e fresco para o calor estão vendendo?",
-          "esperado": [
-            "trend_linho_01",
-            "trend_calca_linho_24",
-            "trend_short_linho_41"
-          ],
-          "recuperados": [
-            "trend_tons_terrosos_04",
-            "trend_tactel_42",
-            "trend_puffer_46"
-          ]
-        },
         {
           "pergunta": "Camiseta grandona de malha grossa, caimento largo, ainda vende?",
           "esperado": [
@@ -4010,8 +3963,8 @@
           ],
           "recuperados": [
             "trend_tons_terrosos_04",
-            "trend_basica_25",
-            "trend_brecho_53"
+            "trend_brecho_53",
+            "trend_basica_25"
           ]
         },
         {
@@ -4020,8 +3973,8 @@
             "trend_loafers_mocassim_07"
           ],
           "recuperados": [
-            "trend_colete_puffer_49",
             "trend_easy_care_10",
+            "trend_colete_puffer_49",
             "trend_jeans_reto_23"
           ]
         },
@@ -4045,7 +3998,7 @@
           "recuperados": [
             "trend_easy_care_10",
             "trend_oxford_14",
-            "trend_manga_longa_29"
+            "trend_basica_25"
           ]
         },
         {
@@ -4054,8 +4007,8 @@
             "trend_cargo_18"
           ],
           "recuperados": [
-            "trend_jaquetas_bomber_08",
             "trend_regata_28",
+            "trend_jaquetas_bomber_08",
             "trend_baggy_21"
           ]
         },
@@ -4071,6 +4024,17 @@
           ]
         },
         {
+          "pergunta": "Camiseta branca e preta sem estampa é produto de giro?",
+          "esperado": [
+            "trend_basica_25"
+          ],
+          "recuperados": [
+            "trend_oversized_tee_05",
+            "trend_colete_puffer_49",
+            "trend_cardigan_50"
+          ]
+        },
+        {
           "pergunta": "Papete masculina está em alta?",
           "esperado": [
             "trend_papete_37"
@@ -4078,7 +4042,7 @@
           "recuperados": [
             "trend_loafers_mocassim_07",
             "trend_regata_28",
-            "trend_overshirt_17"
+            "trend_cubana_13"
           ]
         },
         {
@@ -4090,6 +4054,17 @@
             "trend_bermuda_cargo_39",
             "trend_bermuda_alfaiataria_09",
             "trend_bermuda_jeans_40"
+          ]
+        },
+        {
+          "pergunta": "Jaqueta jeans masculina vale a pena?",
+          "esperado": [
+            "trend_jaqueta_jeans_44"
+          ],
+          "recuperados": [
+            "trend_baggy_21",
+            "trend_camisa_jeans_15",
+            "trend_jeans_reto_23"
           ]
         },
         {
@@ -4154,8 +4129,8 @@
           ],
           "recuperados": [
             "trend_sarja_colorida_22",
-            "trend_tons_terrosos_04",
-            "trend_overshirt_17"
+            "trend_overshirt_17",
+            "trend_colete_puffer_49"
           ]
         },
         {
@@ -4177,8 +4152,8 @@
           ],
           "recuperados": [
             "trend_sapatenis_36",
-            "trend_wide_leg_02",
-            "trend_jogger_19"
+            "trend_jogger_19",
+            "trend_wide_leg_02"
           ]
         },
         {
@@ -4200,8 +4175,8 @@
           ],
           "recuperados": [
             "trend_jogger_19",
-            "trend_skinny_queda_03",
-            "trend_chelsea_33"
+            "trend_chelsea_33",
+            "trend_skinny_queda_03"
           ]
         },
         {
@@ -4211,8 +4186,8 @@
           ],
           "recuperados": [
             "trend_coturno_32",
-            "trend_chelsea_33",
-            "trend_cardigan_50"
+            "trend_jaquetas_bomber_08",
+            "trend_chelsea_33"
           ]
         },
         {
@@ -4233,8 +4208,8 @@
             "trend_corta_vento_45"
           ],
           "recuperados": [
-            "trend_tons_terrosos_04",
             "trend_puffer_46",
+            "trend_tons_terrosos_04",
             "trend_coturno_32"
           ]
         },
@@ -4261,6 +4236,17 @@
           ]
         },
         {
+          "pergunta": "Sapato esportivo grandalhão e pesado no visual?",
+          "esperado": [
+            "trend_chunky_31"
+          ],
+          "recuperados": [
+            "trend_sapatenis_36",
+            "trend_time_retro_27",
+            "trend_jogger_19"
+          ]
+        },
+        {
           "pergunta": "Modelo florido de botão para o réveillon?",
           "esperado": [
             "trend_estampada_16",
@@ -4278,8 +4264,8 @@
             "trend_oxford_14"
           ],
           "recuperados": [
-            "trend_loafers_mocassim_07",
             "trend_coturno_32",
+            "trend_loafers_mocassim_07",
             "trend_cargo_18"
           ]
         },
@@ -4311,8 +4297,8 @@
             "trend_manga_longa_29"
           ],
           "recuperados": [
-            "trend_overshirt_17",
             "trend_regata_28",
+            "trend_overshirt_17",
             "trend_basica_25"
           ]
         },
@@ -4331,28 +4317,28 @@
     },
     "hibrida-multilingue/descritivo": {
       "geral": {
-        "hit@1": 63.8,
-        "hit@3": 76.2,
-        "mrr@3": 0.69,
-        "latencia_ms": 7.9
+        "hit@1": 61.9,
+        "hit@3": 75.2,
+        "mrr@3": 0.678,
+        "latencia_ms": 5.7
       },
       "direta": {
-        "hit@1": 86.8,
+        "hit@1": 84.9,
         "hit@3": 94.3,
-        "mrr@3": 0.903,
-        "latencia_ms": 7.2
+        "mrr@3": 0.89,
+        "latencia_ms": 5.3
       },
       "parafrase": {
-        "hit@1": 76.9,
+        "hit@1": 73.1,
         "hit@3": 96.2,
-        "mrr@3": 0.846,
-        "latencia_ms": 8.7
+        "mrr@3": 0.827,
+        "latencia_ms": 6.3
       },
       "sem_sobreposicao": {
         "hit@1": 3.8,
-        "hit@3": 19.2,
-        "mrr@3": 0.103,
-        "latencia_ms": 8.6
+        "hit@3": 15.4,
+        "mrr@3": 0.096,
+        "latencia_ms": 5.5
       },
       "erros": [
         {
@@ -4362,7 +4348,7 @@
           ],
           "recuperados": [
             "trend_sapatenis_36",
-            "trend_colete_puffer_49",
+            "trend_easy_care_10",
             "trend_alfaiataria_pregas_20"
           ]
         },
@@ -4385,7 +4371,7 @@
           "recuperados": [
             "trend_regata_28",
             "trend_loafers_mocassim_07",
-            "trend_jogger_19"
+            "trend_bermuda_cargo_39"
           ]
         },
         {
@@ -4462,7 +4448,18 @@
           "recuperados": [
             "trend_xadrez_12",
             "trend_manga_longa_29",
-            "trend_time_retro_27"
+            "trend_basica_25"
+          ]
+        },
+        {
+          "pergunta": "Casaco de motoqueiro faz sucesso?",
+          "esperado": [
+            "trend_couro_47"
+          ],
+          "recuperados": [
+            "trend_cardigan_50",
+            "trend_corrida_34",
+            "trend_jogger_19"
           ]
         },
         {
@@ -4474,7 +4471,7 @@
           "recuperados": [
             "trend_sapatenis_36",
             "trend_alfaiataria_pregas_20",
-            "trend_wide_leg_02"
+            "trend_jogger_19"
           ]
         },
         {
@@ -4507,8 +4504,8 @@
           ],
           "recuperados": [
             "trend_coturno_32",
-            "trend_chelsea_33",
-            "trend_cardigan_50"
+            "trend_jaquetas_bomber_08",
+            "trend_chelsea_33"
           ]
         },
         {
@@ -4530,8 +4527,8 @@
           ],
           "recuperados": [
             "trend_moletom_48",
-            "trend_tons_terrosos_04",
-            "trend_puffer_46"
+            "trend_puffer_46",
+            "trend_tons_terrosos_04"
           ]
         },
         {
@@ -4574,8 +4571,8 @@
             "trend_cubana_13"
           ],
           "recuperados": [
-            "trend_coturno_32",
             "trend_chelsea_33",
+            "trend_coturno_32",
             "trend_cardigan_50"
           ]
         },
@@ -4587,7 +4584,7 @@
           "recuperados": [
             "trend_oversized_tee_05",
             "trend_moletom_48",
-            "trend_loafers_mocassim_07"
+            "trend_coturno_32"
           ]
         },
         {
@@ -4619,8 +4616,8 @@
           ],
           "recuperados": [
             "trend_moletom_48",
-            "trend_overshirt_17",
-            "trend_regata_28"
+            "trend_regata_28",
+            "trend_overshirt_17"
           ]
         },
         {
@@ -4641,25 +4638,25 @@
         "hit@1": 50.5,
         "hit@3": 67.6,
         "mrr@3": 0.578,
-        "latencia_ms": 9.7
+        "latencia_ms": 6.6
       },
       "direta": {
         "hit@1": 67.9,
         "hit@3": 83.0,
         "mrr@3": 0.736,
-        "latencia_ms": 9.6
+        "latencia_ms": 6.1
       },
       "parafrase": {
         "hit@1": 53.8,
         "hit@3": 80.8,
         "mrr@3": 0.667,
-        "latencia_ms": 10.3
+        "latencia_ms": 7.6
       },
       "sem_sobreposicao": {
         "hit@1": 11.5,
         "hit@3": 23.1,
         "mrr@3": 0.167,
-        "latencia_ms": 8.7
+        "latencia_ms": 6.8
       },
       "erros": [
         {
@@ -4793,8 +4790,8 @@
           ],
           "recuperados": [
             "trend_loafers_mocassim_07",
-            "trend_alfaiataria_pregas_20",
-            "trend_regata_28"
+            "trend_cubana_13",
+            "trend_alfaiataria_pregas_20"
           ]
         },
         {
@@ -5027,8 +5024,8 @@
           ],
           "recuperados": [
             "trend_regata_28",
-            "trend_cubana_13",
-            "trend_colete_puffer_49"
+            "trend_colete_puffer_49",
+            "trend_cubana_13"
           ]
         },
         {

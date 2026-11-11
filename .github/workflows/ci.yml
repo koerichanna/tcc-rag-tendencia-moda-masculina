@@ -77,6 +77,82 @@ jobs:
       - run: npm run lint
       - run: npm run build
 
+  e2e:
+    name: Interface - testes E2E (Playwright)
+    needs: [backend, frontend]
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: moda_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/moda_db"
+      CHROMA_PERSIST_DIRECTORY: "./data/e2e_chroma"
+      JWT_SECRET: "segredo-usado-somente-no-ci-e2e"
+      CORS_ORIGINS: "http://localhost:4173"
+      # cada teste faz login; com o limite de 5 por minuto ligado, os últimos testes receberiam 429
+      RATE_LIMIT_ENABLED: "false"
+      E2E_URL: "http://localhost:4173"
+      E2E_ADMIN: "admin.e2e"
+      E2E_SENHA: "senha-do-admin-e2e"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-paraphrase-multilingual-minilm-l12-v2
+
+      - name: Instalar dependências
+        run: |
+          pip install -r requirements.txt -r e2e/requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Preparar banco, base vetorial e administrador
+        run: |
+          python ingestion.py
+          SENHA_USUARIO="$E2E_SENHA" python criar_usuario.py "$E2E_ADMIN" --admin
+
+      - name: Subir API e frontend
+        run: |
+          nohup uvicorn main:app --port 8000 > api.log 2>&1 &
+          cd frontend && npm ci && VITE_API_URL=http://localhost:8000 npm run build
+          nohup npx vite preview --port 4173 --strictPort > ../vite.log 2>&1 &
+          for i in $(seq 60); do
+            curl -sf http://localhost:8000/health > /dev/null && curl -sf http://localhost:4173 > /dev/null && exit 0
+            sleep 2
+          done
+          cat ../api.log ../vite.log
+          exit 1
+
+      - name: Playwright
+        run: pytest e2e -v
+
+      - name: Logs da API
+        if: failure()
+        run: cat api.log
+
   sonarcloud:
     name: Análise estática (SonarCloud)
     needs: backend
@@ -98,7 +174,7 @@ jobs:
 
   imagens:
     name: Publicar imagens no GHCR
-    needs: [backend, frontend]
+    needs: [backend, frontend, e2e]
     if: github.event_name == 'push'
     runs-on: ubuntu-24.04-arm  # a VM da Azure é ARM64 (B2pls_v2)
     permissions:

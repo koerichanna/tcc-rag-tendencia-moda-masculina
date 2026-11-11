@@ -85,7 +85,7 @@ function RedefinirSenhaModal({ usuario, onFechar }) {
 
   return (
     <Modal titulo="Redefinir senha" maxWidth="420px">
-      <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '1rem' }}>
+      <h3 className="modal-titulo">
         Nova senha para <strong>{usuario.nome_usuario}</strong>
       </h3>
       <form onSubmit={enviar}>
@@ -96,10 +96,9 @@ function RedefinirSenhaModal({ usuario, onFechar }) {
             value={senha} onChange={(e) => setSenha(e.target.value)} />
         </div>
         {erro && <p role="alert" className="login-erro">{erro}</p>}
-        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem' }}>
-          <button type="button" className="btn-acao" onClick={onFechar}>Cancelar</button>
-          <button type="submit" className="btn-acao" disabled={enviando}
-            style={{ background: '#2563eb', color: 'white' }}>
+        <div className="modal-acoes">
+          <button type="button" className="btn btn-secundario" onClick={onFechar}>Cancelar</button>
+          <button type="submit" className="btn btn-confirmar" disabled={enviando}>
             {enviando ? 'Salvando...' : 'Salvar senha'}
           </button>
         </div>
@@ -114,8 +113,8 @@ function LinhaUsuario({ usuario, ehVoce, onAlterar, onRedefinirSenha, onExcluir 
 
   return (
     <tr className={usuario.ativo ? undefined : 'usuario-inativo'}>
-      <td style={{ fontWeight: 600 }}>
-        {usuario.nome_usuario} {ehVoce && <span style={{ color: '#64748b', fontWeight: 400 }}>(você)</span>}
+      <td className="celula-destaque">
+        {usuario.nome_usuario} {ehVoce && <span className="texto-pequeno">(você)</span>}
       </td>
       <td>
         <span className="badge" style={usuario.perfil === 'admin'
@@ -180,10 +179,10 @@ export default function Usuarios({ usuarioLogado }) {
 
   return (
     <div className="panel-card">
-      <h2 className="panel-title" style={{ marginBottom: '0.25rem' }}>
+      <h2 className="panel-title">
         <Users size={22} color="#4338ca" /> Gestão de Usuários
       </h2>
-      <p style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '1.5rem' }}>
+      <p className="texto-ajuda com-margem">
         Cadastre quem pode acessar a plataforma. Desativar corta o acesso na hora e mantém o registro;
         administradores também podem gerenciar usuários.
       </p>
