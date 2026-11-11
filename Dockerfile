@@ -15,6 +15,14 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
+# Modelo de embedding multilíngue (ONNX quantizado, ~135 MB) já dentro da imagem: a API sobe sem
+# depender do Hugging Face e o download fica em cache entre builds enquanto requirements não muda.
+ENV EMBEDDING_DIR=/app/modelos/multilingue
+RUN for arquivo in tokenizer.json onnx/model_quantized.onnx; do \
+      python -c "import sys; from huggingface_hub import hf_hub_download; \
+hf_hub_download('Xenova/paraphrase-multilingual-MiniLM-L12-v2', sys.argv[1], local_dir='/app/modelos/multilingue')" "$arquivo"; \
+    done
+
 COPY . .
 
 RUN mkdir -p /app/data/chroma_db
