@@ -3,11 +3,14 @@ import json
 import logging
 import os
 import re
+import time
 from typing import Any, Dict, List, Optional
 
 from dotenv import load_dotenv
 from sqlalchemy.orm import Session
 
+import coerencia
+import metricas
 import models
 import vector_db
 
@@ -84,6 +87,19 @@ def _obter_llm():
 
     return None
 
+def _invocar_llm(llm, prompt, operacao):
+    """Chama o LLM medindo tempo e resultado (métricas em /metrics) e devolve o texto da resposta."""
+    inicio = time.perf_counter()
+    try:
+        resposta = llm.invoke(prompt)
+    except Exception:
+        metricas.LLM_CHAMADAS.labels(operacao, "falha").inc()
+        raise
+    finally:
+        metricas.LLM_LATENCIA.labels(operacao).observe(time.perf_counter() - inicio)
+    metricas.LLM_CHAMADAS.labels(operacao, "sucesso").inc()
+    return _extrair_texto_ia(resposta.content)
+
 def sintetizar_resposta_contextual(
     pergunta: str,
     documentos_recuperados: List[Dict[str, Any]],
@@ -123,7 +139,9 @@ def sintetizar_resposta_contextual(
             else:
                 acao = "Reforçar Estoque"
                 estoque_alerta = f" O estoque atual de '{nome_prod}' é de {qtd} unidades. Há espaço para ampliação segura do lote."
-        elif nivel_risco.lower() == "alto" or score < 45:
+        # Score baixo só leva a reduzir se a tendência não estiver crescendo: risco Baixo significa
+        # buscas em alta, e recomendar liquidação nesse caso contradiria o próprio risco.
+        elif nivel_risco.lower() == "alto" or (score < 45 and nivel_risco.lower() != "baixo"):
             if qtd > min_est:
                 acao = "Reduzir Estoque / Realizar Ação Promocional"
                 estoque_alerta = f" ATENÇÃO: Há {qtd} unidades em estoque de '{nome_prod}', com risco de capital imobilizado devido à desaceleração da procura."
@@ -166,11 +184,27 @@ def sintetizar_resposta_contextual(
 def executar_rag_llm(
     pergunta: str,
     documentos_recuperados: List[Dict[str, Any]],
-    produto_info: Optional[Dict[str, Any]] = None
+    produto_info: Optional[Dict[str, Any]] = None,
+    informar_risco: bool = True,
 ) -> Optional[Dict[str, Any]]:
+    """informar_risco=False reproduz o prompt anterior (sem o risco calculado), usado só na avaliação."""
     llm = _obter_llm()
     if not llm:
         return None
+
+    referencia = documentos_recuperados[0]["metadados"] if documentos_recuperados else {}
+    risco_calculado = referencia.get("nivel_risco", "Moderado")
+    instrucao_risco = (
+        f"use exatamente o risco calculado informado abaixo ('{risco_calculado}')."
+        if informar_risco else "exatamente 'Baixo', 'Moderado' ou 'Alto'."
+    )
+    bloco_risco = (
+        f"Risco calculado a partir dos dados do Google Trends para a tendência principal "
+        f"(\"{referencia.get('termo', 'não identificada')}\"): {risco_calculado}.\n"
+        f"A ação recomendada precisa ser compatível com esse risco:\n{coerencia.regras_para_prompt()}\n"
+        "Use apenas os números que aparecem no contexto; não invente percentuais nem scores.\n\n"
+        if informar_risco else ""
+    )
 
     contexto_textos = "\n---\n".join([d["documento"] for d in documentos_recuperados])
 
@@ -190,11 +224,11 @@ Instruções:
 2. Responda ESTRITAMENTE em formato JSON (sem blocos markdown adicionais) com estas 5 chaves exatas:
    "diagnostico": resumo do comportamento de mercado e da tendência.
    "acao_recomendada": ação direta e prática (ex: 'Aumentar Pedido com Urgência', 'Evitar Compra / Realizar Liquidação', 'Testar Lote Pequeno', etc.).
-   "nivel_risco": exatamente 'Baixo', 'Moderado' ou 'Alto'.
+   "nivel_risco": {instrucao_risco}
    "justificativa_explicavel": explicação detalhada e fundamentada do porquê dessa recomendação, citando as tendências, dados da loja e riscos de estoque.
-   "fontes_consultadas": lista com as fontes mencionadas no contexto (ex: ["WGSN", "TikTok Trends"]).
+   "fontes_consultadas": lista com as fontes que aparecem no contexto recuperado (ex: ["Google Trends Brasil"]). Não cite fontes que não estejam no contexto.
 
-Contexto de Mercado Recuperado:
+{bloco_risco}Contexto de Mercado Recuperado (o primeiro item é a tendência principal):
 {contexto_textos}
 
 Dados da Loja / Estoque:
@@ -204,8 +238,7 @@ Pergunta do Lojista:
 {pergunta}
 """
     try:
-        resp = llm.invoke(prompt_texto)
-        texto_resp = _extrair_texto_ia(resp.content)
+        texto_resp = _invocar_llm(llm, prompt_texto, "consulta_rag")
         dados = _extrair_json_resposta(texto_resp)
         if isinstance(dados, dict) and "acao_recomendada" in dados:
             dados["pergunta"] = pergunta
@@ -214,6 +247,15 @@ Pergunta do Lojista:
         logger.warning("Falha ao invocar LLM, usando regras locais: %s", err)
 
     return None
+
+def _priorizar_tendencia_do_produto(docs, codigo):
+    """Coloca a tendência vinculada ao produto em primeiro lugar (sem repetir na lista)."""
+    if not codigo:
+        return docs
+    vinculada = vector_db.obter_tendencia(codigo)
+    if vinculada is None:
+        return docs
+    return [vinculada] + [d for d in docs if d["id"] != codigo][:2]
 
 def consultar_rag(
     pergunta: str,
@@ -237,10 +279,22 @@ def consultar_rag(
                 "preco_medio": prod.preco_medio,
                 "tendencia_score": prod.tendencia_score
             }
+            docs = _priorizar_tendencia_do_produto(docs, prod.tendencia_codigo)
 
+    # A primeira tendência da lista é a referência: dela vêm o risco e a ação das regras.
+    resposta_regras = sintetizar_resposta_contextual(pergunta, docs, produto_info)
     resultado = executar_rag_llm(pergunta, docs, produto_info)
-    if not resultado:
-        resultado = sintetizar_resposta_contextual(pergunta, docs, produto_info)
+    if resultado:
+        metricas.RAG_RESPOSTAS.labels("llm").inc()
+        ajustes = coerencia.alinhar(resultado, resposta_regras["nivel_risco"], resposta_regras["acao_recomendada"])
+        for ajuste in ajustes:
+            metricas.RAG_AJUSTES.labels(ajuste).inc()
+        if ajustes:
+            logger.info("Resposta do LLM ajustada ao risco calculado: %s", ", ".join(ajustes))
+        resultado["ajustes_coerencia"] = ajustes
+    else:
+        metricas.RAG_RESPOSTAS.labels("regras").inc()
+        resultado = resposta_regras
 
     if salvar_historico and db:
         try:
@@ -282,8 +336,7 @@ Responda EXCLUSIVAMENTE em formato JSON (um array de objetos):
 ]
 """
     try:
-        resp = llm.invoke(prompt)
-        texto = _extrair_texto_ia(resp.content)
+        texto = _invocar_llm(llm, prompt, "gerar_tendencias")
         lista_tendencias = _extrair_json_resposta(texto)
         if not isinstance(lista_tendencias, list):
             return []
@@ -325,9 +378,11 @@ Responda EXCLUSIVAMENTE em formato JSON (um array de objetos):
                 f"Nível de Risco: {risco}. Relevância: {score}/100. Fonte: {fonte}. "
                 f"Análise de Mercado IA: {descricao}"
             )
-            chroma_client.add(
-                documents=[doc_texto],
+            # Mesmo formato da base (ver vector_db.py): o vetor vem só da descrição da peça.
+            chroma_client.upsert(
+                documents=[f"{termo}. Categoria: {categoria}. {descricao}"],
                 metadatas=[{
+                    "texto_completo": doc_texto,
                     "termo": termo,
                     "categoria": categoria,
                     "sazonalidade": sazonalidade,
@@ -349,8 +404,15 @@ def analisar_produto_com_ia(produto_id: int, db: Session) -> Dict[str, Any]:
     if not prod:
         return {"erro": "Produto não encontrado"}
 
-    docs = vector_db.buscar_tendencias_similares(query=f"{prod.nome} {prod.categoria}", n_results=3)
+    docs = vector_db.buscar_tendencias_similares(query=prod.nome, n_results=3, categoria=prod.categoria)
+    docs = _priorizar_tendencia_do_produto(docs, prod.tendencia_codigo)
     contexto = "\n".join([d["documento"] for d in docs])
+    produto_info = {
+        "nome": prod.nome,
+        "quantidade_estoque": prod.quantidade_estoque,
+        "estoque_minimo": prod.estoque_minimo,
+    }
+    regras = sintetizar_resposta_contextual(f"Avaliação de {prod.nome}", docs, produto_info)
 
     llm = _obter_llm()
     if not llm:
@@ -365,26 +427,34 @@ Preço Médio de Venda: R$ {prod.preco_medio}
 Estoque Atual: {prod.quantidade_estoque} un
 Estoque Mínimo: {prod.estoque_minimo} un
 
-Contexto de Mercado Recuperado:
+Risco calculado a partir do Google Trends para a tendência vinculada ao produto: {regras['nivel_risco']}.
+A ação precisa ser compatível com esse risco:
+{coerencia.regras_para_prompt()}
+Use apenas os números que aparecem no contexto.
+
+Contexto de Mercado Recuperado (o primeiro item é a tendência vinculada ao produto):
 {contexto}
 
 Responda ESTRITAMENTE em formato JSON:
 {{
-  "novo_score_tendencia": 85.0,
   "acao_recomendada": "Aumentar Pedido / Manter / Reduzir Pedido / Liquidar",
-  "nivel_risco": "Baixo / Moderado / Alto",
+  "nivel_risco": "{regras['nivel_risco']}",
   "diagnostico": "Resumo do comportamento deste produto no mercado atual.",
   "justificativa_explicavel": "Explicação detalhada relacionando o estoque ({prod.quantidade_estoque} un) com a demanda do mercado."
 }}
 """
     try:
-        resp = llm.invoke(prompt)
-        texto = _extrair_texto_ia(resp.content)
+        texto = _invocar_llm(llm, prompt, "analisar_produto")
         analise = _extrair_json_resposta(texto)
 
         if isinstance(analise, dict):
-            novo_score = float(analise.get("novo_score_tendencia", prod.tendencia_score))
-            prod.tendencia_score = novo_score
+            # O score do produto continua vindo da tendência vinculada (dados reais), não do LLM.
+            ajustes = coerencia.alinhar(analise, regras["nivel_risco"], regras["acao_recomendada"])
+            for ajuste in ajustes:
+                metricas.RAG_AJUSTES.labels(ajuste).inc()
+            analise["ajustes_coerencia"] = ajustes
+            analise["tendencia_score"] = prod.tendencia_score
+            analise["tendencia_vinculada"] = prod.tendencia_termo
 
             nova_rec = models.RecomendacaoModel(
                 produto_id=prod.id,
@@ -449,8 +519,7 @@ Responda ESTRITAMENTE em formato JSON:
 }}
 """
     try:
-        resp = llm.invoke(prompt)
-        texto = _extrair_texto_ia(resp.content)
+        texto = _invocar_llm(llm, prompt, "briefing")
         dados = _extrair_json_resposta(texto)
         if isinstance(dados, dict):
             return dados

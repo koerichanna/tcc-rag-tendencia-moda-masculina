@@ -9,3 +9,7 @@
 {$STAGING_DOMAIN} {
 	reverse_proxy frontend-staging:80
 }
+
+{$MONITOR_DOMAIN} {
+	reverse_proxy grafana:3000
+}

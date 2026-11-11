@@ -29,10 +29,20 @@ services:
       - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+      # frontend e API no mesmo domínio: nenhuma origem externa precisa de CORS
+      - CORS_ORIGINS=
       - CHROMA_PERSIST_DIRECTORY=/app/data/chroma_db
       - ENVIRONMENT=${APP_ENV}
     volumes:
       - chroma_data:/app/data/chroma_db
+    networks:
+      default:
+      # Rede só de monitoramento (infra/monitoramento). Não usar a rede proxy: lá o frontend
+      # dos dois ambientes enxergaria dois serviços chamados "backend".
+      monitor:
+        aliases:
+          - backend-${APP_ENV}
 
   frontend:
     image: ghcr.io/${GHCR_OWNER}/projeto-moda-frontend:${IMAGE_TAG}
@@ -52,4 +62,7 @@ volumes:
 networks:
   proxy:
     name: moda_proxy
+    external: true
+  monitor:
+    name: moda_monitor
     external: true

@@ -1,4 +1,5 @@
-from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String, Text, func
+from sqlalchemy import Boolean, Column, DateTime, Float, ForeignKey, Integer, String, Text, UniqueConstraint, func
+from sqlalchemy import true as sa_true
 from sqlalchemy.orm import relationship
 
 from database import Base
@@ -15,15 +16,33 @@ class ProdutoModel(Base):
     quantidade_estoque = Column(Integer, nullable=False, default=0)
     estoque_minimo = Column(Integer, nullable=False, default=5)
     tendencia_score = Column(Float, nullable=False, default=0.0)
+    # Tendência da base mais parecida com o produto (vinculo.py); o score acima vem dela.
+    tendencia_codigo = Column(String(50), nullable=True, index=True)
     data_atualizacao = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
 
     recomendacoes = relationship("RecomendacaoModel", back_populates="produto", cascade="all, delete-orphan")
 
+    # Sem chave estrangeira no banco: o vínculo vem do ChromaDB e não deve impedir salvar o produto
+    # se a tabela de tendências ainda não foi sincronizada.
+    tendencia = relationship(
+        "TendenciaModel",
+        primaryjoin="foreign(ProdutoModel.tendencia_codigo) == TendenciaModel.codigo",
+        viewonly=True,
+        lazy="joined",
+    )
+
+    @property
+    def tendencia_termo(self):
+        return self.tendencia.termo if self.tendencia else None
+
 
 class TendenciaModel(Base):
     __tablename__ = "tendencias"
+    __table_args__ = (UniqueConstraint("codigo", name="uq_tendencias_codigo"),)
 
     id = Column(Integer, primary_key=True, index=True)
+    # id do registro em data/market_trends.json; vazio para tendências criadas pela API
+    codigo = Column(String(50), nullable=True)
     termo = Column(String(150), index=True, nullable=False)
     categoria = Column(String(100), index=True, nullable=False)
     score_relevancia = Column(Float, nullable=False, default=50.0)
@@ -47,3 +66,16 @@ class RecomendacaoModel(Base):
     data_criacao = Column(DateTime(timezone=True), server_default=func.now())
 
     produto = relationship("ProdutoModel", back_populates="recomendacoes")
+
+
+class UsuarioModel(Base):
+    __tablename__ = "usuarios"
+
+    id = Column(Integer, primary_key=True)
+    nome_usuario = Column(String(50), unique=True, nullable=False)
+    senha_hash = Column(String(100), nullable=False)
+    # admin: gerencia usuários; usuario: usa a plataforma
+    perfil = Column(String(20), nullable=False, default="usuario", server_default="usuario")
+    # Desativar em vez de apagar mantém o histórico e corta o acesso na hora.
+    ativo = Column(Boolean, nullable=False, default=True, server_default=sa_true())
+    criado_em = Column(DateTime(timezone=True), server_default=func.now())

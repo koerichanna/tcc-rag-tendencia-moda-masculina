@@ -33,6 +33,7 @@ services:
       - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-admin}@db:5432/${POSTGRES_DB:-moda_db}
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - JWT_SECRET=${JWT_SECRET:-}
       - CHROMA_PERSIST_DIRECTORY=/app/data/chroma_db
       - ENVIRONMENT=development
     ports:

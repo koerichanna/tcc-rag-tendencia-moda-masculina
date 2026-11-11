@@ -11,6 +11,7 @@ services:
     environment:
       - DOMAIN=${DOMAIN}
       - STAGING_DOMAIN=${STAGING_DOMAIN}
+      - MONITOR_DOMAIN=${MONITOR_DOMAIN}
       - ACME_EMAIL=${ACME_EMAIL}
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro

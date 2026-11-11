@@ -1,81 +1,47 @@
-"""
-Avaliação Quantitativa do Pipeline de RAG (Retrieval-Augmented Generation)
-Projeto Moda - Católica SC (Engenharia de Software)
+"""Regressão da recuperação: roda o conjunto de avaliação inteiro na busca usada pela API.
 
-Métricas avaliadas:
-1. Hit Rate @ K (K=3): proporção de perguntas de teste onde o documento correto foi recuperado.
-2. Latência média de recuperação vetorial no ChromaDB.
-3. Conformidade do schema de explicabilidade.
+Os limites ficam um pouco abaixo do resultado medido (hit@1 61,9% e hit@3 75,2% nas 105 perguntas, ver
+docs/avaliacao_rag.md) para o teste falhar se uma mudança piorar a busca, mas não por uma
+pergunta a mais ou a menos. A latência não é verificada aqui: ela oscila com a carga da máquina
+do CI e fica medida em avaliacao/avaliar_recuperacao.py.
 """
-import time
+import json
+import pathlib
 
 import vector_db
 from rag_engine import consultar_rag
 
-CASOS_DE_TESTE_RAG = [
-    {
-        "pergunta": "Vale a pena comprar camisas de linho para o verão?",
-        "termo_esperado": "linho",
-        "categoria_esperada": "Camisas"
-    },
-    {
-        "pergunta": "Qual a tendência para calças largas e corte reto?",
-        "termo_esperado": "wide leg",
-        "categoria_esperada": "Calças"
-    },
-    {
-        "pergunta": "Ainda compensa comprar calça jeans skinny?",
-        "termo_esperado": "skinny",
-        "categoria_esperada": "Calças"
-    },
-    {
-        "pergunta": "Tênis branco minimalista em couro ainda vende bem?",
-        "termo_esperado": "tênis",
-        "categoria_esperada": "Calçados"
-    }
-]
+PERGUNTAS = json.loads((pathlib.Path(__file__).parent.parent / "avaliacao" / "perguntas.json").read_text(encoding="utf-8"))
+HIT1_MINIMO = 57.0
+HIT3_MINIMO = 70.0
 
-def test_avaliacao_hit_rate_e_latencia_rag():
-    acertos = 0
-    total = len(CASOS_DE_TESTE_RAG)
-    tempos_recuperacao = []
 
-    vector_db.buscar_tendencias_similares("aquecimento", n_results=1)
+def test_recuperacao_no_conjunto_de_avaliacao():
+    acertos_1 = acertos_3 = 0
+    for caso in PERGUNTAS:
+        ids = [d["id"] for d in vector_db.buscar_tendencias_similares(caso["pergunta"], n_results=3)]
+        relevantes = set(caso["relevantes"])
+        acertos_1 += ids[:1] and ids[0] in relevantes
+        acertos_3 += bool(relevantes & set(ids))
 
-    for caso in CASOS_DE_TESTE_RAG:
-        t0 = time.time()
-        docs = vector_db.buscar_tendencias_similares(
-            query=caso["pergunta"],
-            n_results=3
-        )
-        latencia_ms = (time.time() - t0) * 1000
-        tempos_recuperacao.append(latencia_ms)
+    hit1 = 100 * acertos_1 / len(PERGUNTAS)
+    hit3 = 100 * acertos_3 / len(PERGUNTAS)
+    assert hit1 >= HIT1_MINIMO, f"hit@1 caiu para {hit1:.1f}%"
+    assert hit3 >= HIT3_MINIMO, f"hit@3 caiu para {hit3:.1f}%"
 
-        termos_recuperados = " ".join([d["documento"].lower() for d in docs])
-        if caso["termo_esperado"].lower() in termos_recuperados:
-            acertos += 1
 
-    hit_rate = (acertos / total) * 100
-    latencia_media = sum(tempos_recuperacao) / len(tempos_recuperacao)
-
-    assert hit_rate >= 75.0, f"Hit rate insuficiente ({hit_rate}% < 75%)"
-    assert latencia_media < 600.0, f"Latência excessiva ({latencia_media}ms > 600ms)"
+def test_documento_entregue_ao_llm_traz_os_numeros_do_google_trends():
+    doc = vector_db.buscar_tendencias_similares("calça wide leg", n_results=1)[0]
+    assert doc["id"] == "trend_wide_leg_02"
+    assert "Google Trends Brasil" in doc["documento"]
+    assert "Nível de Risco" in doc["documento"]
 
 
 def test_schema_explicabilidade_rag():
-    pergunta = "Como está a demanda por bermudas de alfaiataria?"
-    resultado = consultar_rag(pergunta=pergunta, salvar_historico=False)
+    resultado = consultar_rag(pergunta="Como está a demanda por bermudas de alfaiataria?", salvar_historico=False)
 
-    chaves_obrigatorias = [
-        "pergunta",
-        "diagnostico",
-        "acao_recomendada",
-        "nivel_risco",
-        "justificativa_explicavel",
-        "fontes_consultadas"
-    ]
-    for chave in chaves_obrigatorias:
+    for chave in ["pergunta", "diagnostico", "acao_recomendada", "nivel_risco",
+                  "justificativa_explicavel", "fontes_consultadas"]:
         assert chave in resultado, f"Chave de explicabilidade ausente: {chave}"
-
     assert resultado["nivel_risco"] in ["Baixo", "Moderado", "Alto"]
     assert len(resultado["justificativa_explicavel"]) > 20

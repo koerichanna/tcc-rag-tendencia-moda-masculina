@@ -1,36 +1,3 @@
-import pytest
-from fastapi.testclient import TestClient
-from sqlalchemy.orm import sessionmaker
-
-from database import Base, engine
-from main import app, get_db
-
-TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-@pytest.fixture(scope="function")
-def db_session():
-    Base.metadata.create_all(bind=engine)
-    db = TestingSessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-        Base.metadata.drop_all(bind=engine)
-
-@pytest.fixture(scope="function")
-def client(db_session):
-    def override_get_db():
-        try:
-            yield db_session
-        finally:
-            pass
-
-    app.dependency_overrides[get_db] = override_get_db
-    with TestClient(app) as test_client:
-        yield test_client
-    app.dependency_overrides.clear()
-
-
 def test_endpoint_raiz(client):
     response = client.get("/")
     assert response.status_code == 200
@@ -102,3 +69,12 @@ def test_dashboard_kpis(client):
     assert kpis["total_produtos"] == 1
     assert kpis["produtos_estoque_critico"] == 1
     assert "distribuicao_risco" in kpis
+
+
+def test_listar_recomendacoes_mais_recentes_primeiro(client):
+    for titulo in ["Primeira", "Segunda"]:
+        client.post("/recomendacoes/", json={"titulo": titulo, "categoria": "Camisas",
+                                             "acao_sugerida": "Manter", "justificativa": "Teste"})
+    res = client.get("/recomendacoes/")
+    assert res.status_code == 200
+    assert [r["titulo"] for r in res.json()] == ["Segunda", "Primeira"]

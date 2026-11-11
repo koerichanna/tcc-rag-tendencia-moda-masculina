@@ -4,12 +4,27 @@ uvicorn[standard]>=0.30.0
 pydantic>=2.9.0
 python-dotenv>=1.0.1
 
+# Autenticação
+pyjwt>=2.9.0
+bcrypt>=4.2.0
+python-multipart>=0.0.9
+slowapi>=0.1.9
+
+# Observabilidade
+prometheus-fastapi-instrumentator>=7.0.0
+
 # Banco de Dados Relacional
 sqlalchemy>=2.1.0
+alembic>=1.14.0
 psycopg[binary]>=3.2.0
 
 # Banco Vetorial & Busca Semântica
 chromadb>=0.5.0
+# Modelo multilíngue em ONNX (ver embeddings.py), sem PyTorch
+onnxruntime>=1.19.0
+tokenizers>=0.20.0
+huggingface_hub>=0.25.0
+numpy>=1.26.0
 
 # IA Generativa & Orquestração RAG
 langchain>=0.3.0

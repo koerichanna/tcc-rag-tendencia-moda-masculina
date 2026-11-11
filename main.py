@@ -1,20 +1,26 @@
 import logging
+import os
 import time
 from typing import List
 
-from fastapi import Depends, FastAPI, HTTPException, Request, status
+from fastapi import Depends, FastAPI, HTTPException, Query, Request, status
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import OAuth2PasswordRequestForm
+from prometheus_fastapi_instrumentator import Instrumentator
+from slowapi.errors import RateLimitExceeded
 from sqlalchemy.orm import Session
 
+import auth
+import limites
 import models
 import rag_engine
 import schemas
-from database import SessionLocal, engine
+import usuarios
+import vinculo
+from database import get_db
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger("projeto_moda")
-
-models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="API de Tendências de Moda Masculina",
@@ -32,20 +38,26 @@ async def monitorar_observabilidade(request: Request, call_next):
         logger.info(f"Observabilidade: {request.method} {request.url.path} -> {response.status_code} ({duracao_ms:.2f}ms)")
     return response
 
+# Métricas Prometheus em /metrics (requisições, latência e erros por rota + métricas de metricas.py).
+# O Nginx bloqueia /api/metrics; só o Prometheus, pela rede interna do Docker, lê esse endpoint.
+Instrumentator(excluded_handlers=["/metrics", "/health"]).instrument(app).expose(app, include_in_schema=False)
+
+app.state.limiter = limites.limiter
+app.add_exception_handler(RateLimitExceeded, limites.limite_excedido)
+
+# Em produção o frontend chama a API pelo mesmo domínio (/api), então CORS só é necessário
+# no desenvolvimento, quando o Vite roda em outra porta. Autenticação vai no cabeçalho
+# Authorization, sem cookies, por isso allow_credentials=False.
+ORIGENS_CORS = [o.strip() for o in os.getenv("CORS_ORIGINS", "http://localhost:5173,http://localhost:8080").split(",") if o.strip()]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=ORIGENS_CORS,
+    allow_credentials=False,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["Authorization", "Content-Type"],
 )
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+app.include_router(usuarios.router)
 
 @app.get("/", tags=["Status"])
 def ler_raiz():
@@ -64,29 +76,47 @@ def verificar_saude():
         "timestamp": time.time()
     }
 
-@app.post("/produtos/", response_model=schemas.ProdutoResponse, status_code=status.HTTP_201_CREATED, tags=["Produtos"])
+@app.post("/auth/login", response_model=schemas.TokenResponse, tags=["Autenticação"])
+@limites.limiter.limit(limites.LOGIN)
+def login(request: Request, form: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+    usuario = auth.autenticar(db, form.username, form.password)
+    if usuario is None:
+        # Mesma mensagem para usuário inexistente e senha errada: não revela quais usuários existem.
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Usuário ou senha inválidos",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    return {"access_token": auth.criar_token(usuario.nome_usuario)}
+
+@app.get("/auth/me", response_model=schemas.UsuarioResponse, tags=["Autenticação"])
+def usuario_logado(usuario: models.UsuarioModel = Depends(auth.usuario_atual)):
+    return usuario
+
+@app.post("/produtos/", response_model=schemas.ProdutoResponse, status_code=status.HTTP_201_CREATED, tags=["Produtos"], dependencies=[Depends(auth.usuario_atual)])
 def criar_produto(produto: schemas.ProdutoCreate, db: Session = Depends(get_db)):
     db_produto = models.ProdutoModel(**produto.model_dump())
+    vinculo.vincular(db_produto)  # o score passa a vir da tendência mais parecida
     db.add(db_produto)
     db.commit()
     db.refresh(db_produto)
     return db_produto
 
-@app.get("/produtos/", response_model=List[schemas.ProdutoResponse], tags=["Produtos"])
+@app.get("/produtos/", response_model=List[schemas.ProdutoResponse], tags=["Produtos"], dependencies=[Depends(auth.usuario_atual)])
 def listar_produtos(categoria: str = None, db: Session = Depends(get_db)):
     query = db.query(models.ProdutoModel)
     if categoria:
         query = query.filter(models.ProdutoModel.categoria.ilike(f"%{categoria}%"))
     return query.all()
 
-@app.get("/produtos/{produto_id}", response_model=schemas.ProdutoResponse, tags=["Produtos"])
+@app.get("/produtos/{produto_id}", response_model=schemas.ProdutoResponse, tags=["Produtos"], dependencies=[Depends(auth.usuario_atual)])
 def obter_produto(produto_id: int, db: Session = Depends(get_db)):
     produto = db.query(models.ProdutoModel).filter(models.ProdutoModel.id == produto_id).first()
     if not produto:
         raise HTTPException(status_code=404, detail="Produto não encontrado")
     return produto
 
-@app.put("/produtos/{produto_id}", response_model=schemas.ProdutoResponse, tags=["Produtos"])
+@app.put("/produtos/{produto_id}", response_model=schemas.ProdutoResponse, tags=["Produtos"], dependencies=[Depends(auth.usuario_atual)])
 def atualizar_produto(produto_id: int, dados: schemas.ProdutoUpdate, db: Session = Depends(get_db)):
     produto = db.query(models.ProdutoModel).filter(models.ProdutoModel.id == produto_id).first()
     if not produto:
@@ -95,12 +125,14 @@ def atualizar_produto(produto_id: int, dados: schemas.ProdutoUpdate, db: Session
     update_data = dados.model_dump(exclude_unset=True)
     for key, value in update_data.items():
         setattr(produto, key, value)
+    if {"nome", "categoria"} & update_data.keys() or not produto.tendencia_codigo:
+        vinculo.vincular(produto)
 
     db.commit()
     db.refresh(produto)
     return produto
 
-@app.delete("/produtos/{produto_id}", tags=["Produtos"])
+@app.delete("/produtos/{produto_id}", tags=["Produtos"], dependencies=[Depends(auth.usuario_atual)])
 def deletar_produto(produto_id: int, db: Session = Depends(get_db)):
     produto = db.query(models.ProdutoModel).filter(models.ProdutoModel.id == produto_id).first()
     if not produto:
@@ -109,7 +141,7 @@ def deletar_produto(produto_id: int, db: Session = Depends(get_db)):
     db.commit()
     return {"mensagem": f"Produto {produto_id} removido com sucesso"}
 
-@app.post("/tendencias/", response_model=schemas.TendenciaResponse, status_code=status.HTTP_201_CREATED, tags=["Tendências"])
+@app.post("/tendencias/", response_model=schemas.TendenciaResponse, status_code=status.HTTP_201_CREATED, tags=["Tendências"], dependencies=[Depends(auth.usuario_atual)])
 def cadastrar_tendencia(tendencia: schemas.TendenciaCreate, db: Session = Depends(get_db)):
     db_tendencia = models.TendenciaModel(**tendencia.model_dump())
     db.add(db_tendencia)
@@ -117,14 +149,14 @@ def cadastrar_tendencia(tendencia: schemas.TendenciaCreate, db: Session = Depend
     db.refresh(db_tendencia)
     return db_tendencia
 
-@app.get("/tendencias/", response_model=List[schemas.TendenciaResponse], tags=["Tendências"])
+@app.get("/tendencias/", response_model=List[schemas.TendenciaResponse], tags=["Tendências"], dependencies=[Depends(auth.usuario_atual)])
 def listar_tendencias(categoria: str = None, db: Session = Depends(get_db)):
     query = db.query(models.TendenciaModel)
     if categoria:
         query = query.filter(models.TendenciaModel.categoria.ilike(f"%{categoria}%"))
     return query.order_by(models.TendenciaModel.score_relevancia.desc()).all()
 
-@app.post("/recomendacoes/", response_model=schemas.RecomendacaoResponse, status_code=status.HTTP_201_CREATED, tags=["Recomendações"])
+@app.post("/recomendacoes/", response_model=schemas.RecomendacaoResponse, status_code=status.HTTP_201_CREATED, tags=["Recomendações"], dependencies=[Depends(auth.usuario_atual)])
 def registrar_recomendacao(recomendacao: schemas.RecomendacaoCreate, db: Session = Depends(get_db)):
     db_rec = models.RecomendacaoModel(**recomendacao.model_dump())
     db.add(db_rec)
@@ -132,8 +164,18 @@ def registrar_recomendacao(recomendacao: schemas.RecomendacaoCreate, db: Session
     db.refresh(db_rec)
     return db_rec
 
-@app.post("/rag/consultar", response_model=schemas.ConsultaRAGResponse, tags=["Motor RAG"])
-def consultar_assistente_rag(solicitacao: schemas.ConsultaRAGRequest, db: Session = Depends(get_db)):
+@app.get("/recomendacoes/", response_model=List[schemas.RecomendacaoResponse], tags=["Recomendações"], dependencies=[Depends(auth.usuario_atual)])
+def listar_recomendacoes(limite: int = Query(50, ge=1, le=200), db: Session = Depends(get_db)):
+    return (
+        db.query(models.RecomendacaoModel)
+        .order_by(models.RecomendacaoModel.data_criacao.desc(), models.RecomendacaoModel.id.desc())
+        .limit(limite)
+        .all()
+    )
+
+@app.post("/rag/consultar", response_model=schemas.ConsultaRAGResponse, tags=["Motor RAG"], dependencies=[Depends(auth.usuario_atual)])
+@limites.limiter.limit(limites.LLM)
+def consultar_assistente_rag(request: Request, solicitacao: schemas.ConsultaRAGRequest, db: Session = Depends(get_db)):
     return rag_engine.consultar_rag(
         pergunta=solicitacao.pergunta,
         categoria=solicitacao.categoria,
@@ -142,7 +184,7 @@ def consultar_assistente_rag(solicitacao: schemas.ConsultaRAGRequest, db: Sessio
         salvar_historico=True
     )
 
-@app.get("/dashboard/kpis", tags=["Dashboard"])
+@app.get("/dashboard/kpis", tags=["Dashboard"], dependencies=[Depends(auth.usuario_atual)])
 def obter_metricas_dashboard(db: Session = Depends(get_db)):
     total_produtos = db.query(models.ProdutoModel).count()
     total_tendencias = db.query(models.TendenciaModel).count()
@@ -181,8 +223,9 @@ def obter_metricas_dashboard(db: Session = Depends(get_db)):
         ]
     }
 
-@app.post("/ia/gerar-tendencias", tags=["Inteligência Artificial"])
-def api_gerar_tendencias_ia(solicitacao: schemas.GerarTendenciasIARequest = None, db: Session = Depends(get_db)):
+@app.post("/ia/gerar-tendencias", tags=["Inteligência Artificial"], dependencies=[Depends(auth.usuario_atual)])
+@limites.limiter.limit(limites.GERAR_TENDENCIAS)
+def api_gerar_tendencias_ia(request: Request, solicitacao: schemas.GerarTendenciasIARequest = None, db: Session = Depends(get_db)):
     tema = solicitacao.tema if (solicitacao and solicitacao.tema) else "Tendências de Moda Masculina Atual"
     novas = rag_engine.gerar_novas_tendencias_com_ia(tema=tema, db=db)
     return {
@@ -191,15 +234,17 @@ def api_gerar_tendencias_ia(solicitacao: schemas.GerarTendenciasIARequest = None
         "tendencias": novas
     }
 
-@app.post("/ia/analisar-produto/{produto_id}", tags=["Inteligência Artificial"])
-def api_analisar_produto_ia(produto_id: int, db: Session = Depends(get_db)):
+@app.post("/ia/analisar-produto/{produto_id}", tags=["Inteligência Artificial"], dependencies=[Depends(auth.usuario_atual)])
+@limites.limiter.limit(limites.LLM)
+def api_analisar_produto_ia(request: Request, produto_id: int, db: Session = Depends(get_db)):
     resultado = rag_engine.analisar_produto_com_ia(produto_id=produto_id, db=db)
     if "erro" in resultado:
         raise HTTPException(status_code=400, detail=resultado["erro"])
     return resultado
 
-@app.get("/ia/briefing-executivo", tags=["Inteligência Artificial"])
-def api_obter_briefing_executivo_ia(db: Session = Depends(get_db)):
+@app.get("/ia/briefing-executivo", tags=["Inteligência Artificial"], dependencies=[Depends(auth.usuario_atual)])
+@limites.limiter.limit(limites.LLM)
+def api_obter_briefing_executivo_ia(request: Request, db: Session = Depends(get_db)):
     return rag_engine.gerar_briefing_executivo_ia(db=db)
 
-
+
