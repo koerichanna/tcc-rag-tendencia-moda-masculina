@@ -341,9 +341,11 @@ Responda EXCLUSIVAMENTE em formato JSON (um array de objetos):
                 f"Nível de Risco: {risco}. Relevância: {score}/100. Fonte: {fonte}. "
                 f"Análise de Mercado IA: {descricao}"
             )
-            chroma_client.add(
-                documents=[doc_texto],
+            # Mesmo formato da base (ver vector_db.py): o vetor vem só da descrição da peça.
+            chroma_client.upsert(
+                documents=[f"{termo}. Categoria: {categoria}. {descricao}"],
                 metadatas=[{
+                    "texto_completo": doc_texto,
                     "termo": termo,
                     "categoria": categoria,
                     "sazonalidade": sazonalidade,

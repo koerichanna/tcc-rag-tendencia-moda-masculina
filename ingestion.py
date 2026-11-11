@@ -1,14 +1,11 @@
 import json
 import logging
-import os
-
-import chromadb
 
 import migrar
 import models
+import vector_db
 from database import SessionLocal
 
-CHROMA_PATH = os.getenv("CHROMA_PERSIST_DIRECTORY", "./data/chroma_db")
 DATA_FILE = "./data/market_trends.json"
 
 MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto",
@@ -43,18 +40,21 @@ def montar_documento(t):
         f"Descrição: {t['conteudo']}"
     )
 
+def montar_texto_busca(t):
+    """Texto que vira vetor: só o que descreve a peça, sem os números e rótulos repetidos em
+    todos os documentos (eles faziam os documentos parecerem iguais para o modelo multilíngue;
+    ver docs/avaliacao_rag.md)."""
+    return f"{t['termo']}. Categoria: {t['categoria']}. Estilo: {t['estilo']}. {t['conteudo']}"
+
 def indexar_no_chromadb(trends):
     # upsert pelo id da base: atualiza os documentos da base e preserva os que
     # foram adicionados depois pela API (/ia/gerar-tendencias).
-    client = chromadb.PersistentClient(path=CHROMA_PATH)
-    collection = client.get_or_create_collection(
-        name="tendencias_moda",
-        metadata={"description": "Tendências de moda masculina"}
-    )
+    collection = vector_db.get_trends_collection()
     collection.upsert(
         ids=[t["id"] for t in trends],
-        documents=[montar_documento(t) for t in trends],
+        documents=[montar_texto_busca(t) for t in trends],
         metadatas=[{
+            "texto_completo": montar_documento(t),
             "termo": t["termo"],
             "categoria": t["categoria"],
             "estilo": t["estilo"],
