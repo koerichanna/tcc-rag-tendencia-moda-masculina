@@ -72,6 +72,8 @@ class ProdutoResponse(BaseModel):
     quantidade_estoque: int
     estoque_minimo: int
     tendencia_score: float
+    tendencia_codigo: Optional[str] = None
+    tendencia_termo: Optional[str] = None
     data_atualizacao: Optional[datetime] = None
 
     model_config = ConfigDict(from_attributes=True)
