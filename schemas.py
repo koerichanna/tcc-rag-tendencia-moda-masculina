@@ -144,6 +144,8 @@ class ConsultaRAGResponse(BaseModel):
     justificativa_explicavel: str
     fontes_consultadas: List[str] = []
     recomendacao_id: Optional[int] = None
+    # 'risco' e/ou 'acao' quando a resposta do LLM foi corrigida para respeitar o risco calculado
+    ajustes_coerencia: List[str] = []
 
 
 class GerarTendenciasIARequest(BaseModel):
