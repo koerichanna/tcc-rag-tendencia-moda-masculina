@@ -33,14 +33,14 @@ export default function TrocarSenhaModal({ onFechar }) {
 
   return (
     <Modal titulo="Trocar senha" maxWidth="420px">
-      <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+      <h3 className="modal-titulo">
         <KeyRound size={20} color="#2563eb" /> Trocar minha senha
       </h3>
       {sucesso ? (
         <>
-          <p style={{ marginBottom: '1.25rem' }}>Senha alterada. Use a nova senha no próximo login.</p>
-          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <button type="button" className="btn-acao" onClick={onFechar}>Fechar</button>
+          <p className="paragrafo">Senha alterada. Use a nova senha no próximo login.</p>
+          <div className="modal-acoes">
+            <button type="button" className="btn btn-secundario" onClick={onFechar}>Fechar</button>
           </div>
         </>
       ) : (
@@ -62,10 +62,9 @@ export default function TrocarSenhaModal({ onFechar }) {
               autoComplete="new-password" value={confirmacao} onChange={(e) => setConfirmacao(e.target.value)} />
           </div>
           {erro && <p role="alert" className="login-erro">{erro}</p>}
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem' }}>
-            <button type="button" className="btn-acao" onClick={onFechar}>Cancelar</button>
-            <button type="submit" className="btn-acao" disabled={enviando}
-              style={{ background: '#2563eb', color: 'white' }}>
+          <div className="modal-acoes">
+            <button type="button" className="btn btn-secundario" onClick={onFechar}>Cancelar</button>
+            <button type="submit" className="btn btn-confirmar" disabled={enviando}>
               {enviando ? 'Salvando...' : 'Salvar'}
             </button>
           </div>

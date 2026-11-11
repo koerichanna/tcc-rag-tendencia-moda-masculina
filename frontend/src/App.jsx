@@ -13,8 +13,6 @@ import Tendencias from './pages/Tendencias';
 import Usuarios from './pages/Usuarios';
 import './App.css';
 
-const ESTILO_BOTAO = { background: '#f1f5f9', color: '#475569', cursor: 'pointer', padding: '0.4rem 0.6rem' };
-
 // Só é montada depois do login, então os dados da loja são buscados já com o token.
 function AreaLogada({ usuario, onSair }) {
   const [abaAtiva, setAbaAtiva] = useState('dashboard');
@@ -25,10 +23,10 @@ function AreaLogada({ usuario, onSair }) {
   return (
     <div className="app-container">
       <Header apiOnline={apiOnline} onAtualizar={recarregar}>
-        <button type="button" className="badge" style={ESTILO_BOTAO} onClick={() => setTrocandoSenha(true)}>
+        <button type="button" className="badge btn-cabecalho" onClick={() => setTrocandoSenha(true)}>
           <KeyRound size={14} /> Trocar senha
         </button>
-        <button type="button" className="badge" style={ESTILO_BOTAO} onClick={onSair}>
+        <button type="button" className="badge btn-cabecalho" onClick={onSair}>
           <LogOut size={14} /> Sair ({usuario.nome_usuario})
         </button>
       </Header>

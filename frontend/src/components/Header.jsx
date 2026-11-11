@@ -11,14 +11,12 @@ export default function Header({ apiOnline, onAtualizar, children }) {
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        <div className="api-status" role="status"
-          style={{ backgroundColor: apiOnline ? '#ecfdf5' : '#fef2f2', color: apiOnline ? '#059669' : '#dc2626' }}>
-          <div className="status-dot" style={{ backgroundColor: apiOnline ? '#10b981' : '#ef4444' }} />
+      <div className="header-acoes">
+        <div className={`api-status ${apiOnline ? 'online' : 'offline'}`} role="status">
+          <div className="status-dot" />
           {apiOnline ? 'Serviço Operacional' : 'Aguardando API'}
         </div>
-        <button type="button" onClick={onAtualizar} className="badge"
-          style={{ background: '#f1f5f9', color: '#475569', cursor: 'pointer', padding: '0.4rem 0.6rem' }}>
+        <button type="button" onClick={onAtualizar} className="badge btn-cabecalho">
           <RefreshCw size={14} /> Atualizar
         </button>
         {children}

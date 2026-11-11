@@ -30,9 +30,7 @@ function ModalNovoProduto({ onFechar, onSalvo }) {
 
   return (
     <Modal titulo="Cadastrar produto" maxWidth="500px" zIndex={50}>
-      <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '1.25rem' }}>
-        Cadastrar Produto no Estoque
-      </h3>
+      <h3 className="modal-titulo">Cadastrar Produto no Estoque</h3>
       <form onSubmit={salvar}>
         <div className="rag-form-group">
           <label htmlFor="prod-nome">Nome do Produto:</label>
@@ -41,7 +39,7 @@ function ModalNovoProduto({ onFechar, onSalvo }) {
             value={produto.nome} onChange={alterar('nome')} />
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+        <div className="grade-2">
           <div className="rag-form-group">
             <label htmlFor="prod-categoria">Categoria:</label>
             <SelectCategoria id="prod-categoria" value={produto.categoria}
@@ -54,7 +52,7 @@ function ModalNovoProduto({ onFechar, onSalvo }) {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+        <div className="grade-2">
           <div className="rag-form-group">
             <label htmlFor="prod-estoque">Estoque Atual:</label>
             <input id="prod-estoque" type="number" min="0" className="rag-input" required
@@ -67,20 +65,14 @@ function ModalNovoProduto({ onFechar, onSalvo }) {
           </div>
         </div>
 
-        <p style={{ fontSize: '0.8rem', color: '#64748b' }}>
+        <p className="texto-pequeno">
           O score de tendência é calculado automaticamente: o sistema vincula o produto à tendência mais
           parecida da mesma categoria e usa o score dela, que vem do Google Trends.
         </p>
 
-        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1.5rem' }}>
-          <button type="button" onClick={onFechar}
-            style={{ padding: '0.6rem 1.25rem', borderRadius: '6px', background: '#f1f5f9', color: '#475569', fontWeight: 600 }}>
-            Cancelar
-          </button>
-          <button type="submit"
-            style={{ padding: '0.6rem 1.25rem', borderRadius: '6px', background: '#2563eb', color: 'white', fontWeight: 600 }}>
-            Salvar Produto
-          </button>
+        <div className="modal-acoes">
+          <button type="button" className="btn btn-secundario" onClick={onFechar}>Cancelar</button>
+          <button type="submit" className="btn btn-confirmar">Salvar Produto</button>
         </div>
       </form>
     </Modal>
@@ -90,11 +82,10 @@ function ModalNovoProduto({ onFechar, onSalvo }) {
 function ModalAvaliacao({ avaliacao, onFechar }) {
   return (
     <Modal titulo={`Avaliação de ${avaliacao.produto_nome}`} maxWidth="580px">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <Sparkles size={22} color="#4338ca" />
-          <h3 style={{ fontSize: '1.2rem', fontWeight: 700 }}>Avaliação Gemini: {avaliacao.produto_nome}</h3>
-        </div>
+      <div className="cabecalho-painel" style={{ marginBottom: '1rem' }}>
+        <h3 className="modal-titulo" style={{ marginBottom: 0 }}>
+          <Sparkles size={22} color="#4338ca" /> Avaliação Gemini: {avaliacao.produto_nome}
+        </h3>
         <RiscoBadge risco={avaliacao.nivel_risco} prefixo="Risco: " />
       </div>
 
@@ -102,7 +93,7 @@ function ModalAvaliacao({ avaliacao, onFechar }) {
         <div className="action-title">Ação Recomendada pela IA</div>
         <div className="action-value">{avaliacao.acao_recomendada}</div>
         {avaliacao.tendencia_vinculada && (
-          <div style={{ marginTop: '0.3rem', fontSize: '0.85rem', color: '#4338ca', fontWeight: 600 }}>
+          <div className="subtitulo" style={{ marginTop: '0.3rem', color: '#4338ca' }}>
             Tendência vinculada: {avaliacao.tendencia_vinculada} ({avaliacao.tendencia_score} / 100, Google Trends)
           </div>
         )}
@@ -111,20 +102,17 @@ function ModalAvaliacao({ avaliacao, onFechar }) {
       <AvisoAjuste ajustes={avaliacao.ajustes_coerencia} />
 
       <div style={{ marginBottom: '1rem' }}>
-        <h5 style={{ fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.2rem' }}>Diagnóstico de Mercado:</h5>
-        <p style={{ fontSize: '0.9rem', color: '#1e293b', lineHeight: 1.5 }}>{avaliacao.diagnostico}</p>
+        <h5 className="subtitulo">Diagnóstico de Mercado:</h5>
+        <p className="paragrafo">{avaliacao.diagnostico}</p>
       </div>
 
-      <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #e2e8f0', marginBottom: '1.5rem' }}>
-        <h5 style={{ fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>Justificativa Explicável:</h5>
-        <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.5 }}>{avaliacao.justificativa_explicavel}</p>
+      <div className="caixa-cinza">
+        <h5 className="subtitulo">Justificativa Explicável:</h5>
+        <p className="paragrafo" style={{ fontSize: '0.85rem', color: '#475569' }}>{avaliacao.justificativa_explicavel}</p>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <button type="button" onClick={onFechar}
-          style={{ padding: '0.6rem 1.5rem', borderRadius: '6px', background: '#2563eb', color: 'white', fontWeight: 600 }}>
-          Entendido
-        </button>
+      <div className="modal-acoes">
+        <button type="button" className="btn btn-confirmar" onClick={onFechar}>Entendido</button>
       </div>
     </Modal>
   );
@@ -135,18 +123,14 @@ function LinhaProduto({ produto, avaliando, onAvaliar }) {
   return (
     <tr>
       <td>#{produto.id}</td>
-      <td style={{ fontWeight: 600 }}>{produto.nome}</td>
+      <td className="celula-destaque">{produto.nome}</td>
       <td>{produto.categoria}</td>
       <td>R$ {produto.preco_medio.toFixed(2)}</td>
       <td style={{ fontWeight: 700, color: estoqueCritico ? '#dc2626' : '#1e293b' }}>{produto.quantidade_estoque} un</td>
       <td>{produto.estoque_minimo} un</td>
       <td>
-        <span className="badge" style={{ background: '#ede9fe', color: '#6d28d9' }}>
-          {produto.tendencia_score} / 100
-        </span>
-        {produto.tendencia_termo && (
-          <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.25rem' }}>{produto.tendencia_termo}</div>
-        )}
+        <span className="badge badge-roxo">{produto.tendencia_score} / 100</span>
+        {produto.tendencia_termo && <div className="texto-pequeno">{produto.tendencia_termo}</div>}
       </td>
       <td>
         {estoqueCritico ? (
@@ -156,8 +140,8 @@ function LinhaProduto({ produto, avaliando, onAvaliar }) {
         )}
       </td>
       <td>
-        <button type="button" className="badge" disabled={avaliando} onClick={onAvaliar}
-          style={{ background: '#4338ca', color: 'white', cursor: 'pointer', padding: '0.4rem 0.65rem' }}>
+        <button type="button" className="badge btn-ia" disabled={avaliando} onClick={onAvaliar}
+          style={{ cursor: 'pointer', padding: '0.4rem 0.65rem' }}>
           {avaliando
             ? <><RefreshCw className="animate-spin" size={12} /> Avaliando...</>
             : <><Sparkles size={12} /> Avaliar com IA</>}
@@ -186,23 +170,20 @@ export default function Produtos({ produtos, onAtualizar }) {
 
   return (
     <div className="panel-card">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
+      <div className="cabecalho-painel">
         <div>
-          <h2 className="panel-title" style={{ marginBottom: '0.25rem' }}>
-            <Package size={22} color="#059669" /> Catálogo da Loja & Análise Automatizada por IA
-          </h2>
-          <p style={{ fontSize: '0.85rem', color: '#64748b' }}>
+          <h2 className="panel-title"><Package size={22} color="#059669" /> Catálogo da Loja & Análise Automatizada por IA</h2>
+          <p className="texto-ajuda">
             Avalie o potencial de mercado e os riscos de cada produto com um clique no botão <strong>Avaliar com IA</strong>.
           </p>
         </div>
-        <button type="button" className="badge" onClick={() => setModalAberto(true)}
-          style={{ background: '#2563eb', color: 'white', padding: '0.6rem 1rem', fontSize: '0.85rem', cursor: 'pointer' }}>
+        <button type="button" className="btn btn-confirmar" onClick={() => setModalAberto(true)}>
           <PlusCircle size={16} /> Novo Produto
         </button>
       </div>
 
       {produtos.length === 0 ? (
-        <p style={{ color: '#64748b' }}>Nenhum produto cadastrado na loja.</p>
+        <p className="texto-ajuda">Nenhum produto cadastrado na loja.</p>
       ) : (
         <div className="table-container">
           <table className="custom-table">
