@@ -38,7 +38,7 @@ Conforme a LGPD e as [normas do Portfólio](https://github.com/CatolicaSC-Portfo
 ### 2.3 Segurança da Informação e Armazenamento
 - Credenciais e segredos de conexão com banco de dados e APIs de IA são gerenciados por variáveis de ambiente (`.env`), sem exposição no código-fonte público;
 - Em ambiente produtivo, o tráfego HTTP é protegido por criptografia TLS/HTTPS;
-- A base vetorial contém descrições de produtos escritas pela autora e índices agregados de interesse de busca do Google Trends, sem nenhum dado pessoal (ver [data/README.md](../data/README.md)).
+- A base vetorial contém descrições sintéticas de produtos (10 escritas pela autora e 43 redigidas com assistência de IA, marcadas em `origem_descricao`) e índices agregados de interesse de busca do Google Trends, sem nenhum dado pessoal (ver [data/README.md](../data/README.md)).
 
 ---
 
