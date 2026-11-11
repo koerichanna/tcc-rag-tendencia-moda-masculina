@@ -227,7 +227,11 @@ def obter_metricas_dashboard(db: Session = Depends(get_db)):
 @limites.limiter.limit(limites.GERAR_TENDENCIAS)
 def api_gerar_tendencias_ia(request: Request, solicitacao: schemas.GerarTendenciasIARequest = None, db: Session = Depends(get_db)):
     tema = solicitacao.tema if (solicitacao and solicitacao.tema) else "Tendências de Moda Masculina Atual"
-    novas = rag_engine.gerar_novas_tendencias_com_ia(tema=tema, db=db)
+    try:
+        novas = rag_engine.gerar_novas_tendencias_com_ia(tema=tema, db=db)
+    except rag_engine.LLMIndisponivel as erro:
+        # 503 em vez de "0 tendências processadas": a tela precisa saber que a geração falhou.
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail=str(erro))
     return {
         "mensagem": f"{len(novas)} tendências processadas",
         "tema": tema,

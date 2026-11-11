@@ -4,22 +4,60 @@ import { api } from '../api';
 import Modal from '../components/Modal';
 import RiscoBadge from '../components/RiscoBadge';
 
+const PROXIMO_ANO = new Date().getFullYear() + 1;
+
+function ListaGeradas({ tendencias }) {
+  return (
+    <ul className="lista-geradas">
+      {tendencias.map((t) => (
+        <li key={t.termo}>
+          <div className="cabecalho-painel" style={{ marginBottom: '0.25rem' }}>
+            <strong>{t.termo}</strong>
+            <RiscoBadge risco={t.nivel_risco} prefixo="Risco: " />
+          </div>
+          <span className="texto-pequeno">{t.categoria} · {t.sazonalidade}</span>
+          <p className="paragrafo" style={{ fontSize: '0.85rem' }}>{t.descricao}</p>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function ModalGerarTendencias({ onFechar, onGeradas }) {
-  const [tema, setTema] = useState('Tendências Emergentes de Moda Masculina 2026');
+  const [tema, setTema] = useState(`Tendências Emergentes de Moda Masculina ${PROXIMO_ANO}`);
   const [gerando, setGerando] = useState(false);
+  const [erro, setErro] = useState('');
+  const [geradas, setGeradas] = useState(null);
 
   const gerar = async () => {
     setGerando(true);
+    setErro('');
     try {
       const data = await api.gerarTendencias(tema);
-      alert(data.mensagem || 'Novas tendências geradas com sucesso!');
+      setGeradas(data.tendencias);
       onGeradas();
     } catch (err) {
-      alert('Erro ao gerar tendências:\n' + err.message);
+      setErro(err.message);
     } finally {
       setGerando(false);
     }
   };
+
+  if (geradas) {
+    return (
+      <Modal titulo="Tendências geradas pela IA" maxWidth="640px">
+        <h3 className="modal-titulo"><Sparkles size={22} color="#4f46e5" /> {geradas.length} tendências sugeridas</h3>
+        <p className="aviso-ajuste" role="note">
+          Sugestões do LLM, não verificadas: o score e o risco foram estimados pela IA, não calculados a
+          partir do Google Trends. Use como ponto de partida para pesquisar, não como dado de mercado.
+        </p>
+        <ListaGeradas tendencias={geradas} />
+        <div className="modal-acoes">
+          <button type="button" className="btn btn-confirmar" onClick={onFechar}>Fechar</button>
+        </div>
+      </Modal>
+    );
+  }
 
   return (
     <Modal titulo="Gerar tendências com IA">
@@ -34,6 +72,9 @@ function ModalGerarTendencias({ onFechar, onGeradas }) {
           onChange={(e) => setTema(e.target.value)}
           placeholder="Ex: Alfaiataria Desestruturada, Verão 2026, Calçados Urbanos" />
       </div>
+
+      {erro && <p role="alert" className="login-erro">{erro}</p>}
+      {gerando && <p className="texto-pequeno">A IA costuma levar de 30 segundos a 1 minuto para responder.</p>}
 
       <div className="modal-acoes">
         <button type="button" className="btn btn-secundario" disabled={gerando} onClick={onFechar}>Cancelar</button>
@@ -107,7 +148,7 @@ export default function Tendencias({ tendencias, onAtualizar }) {
       {modalAberto && (
         <ModalGerarTendencias
           onFechar={() => setModalAberto(false)}
-          onGeradas={() => { setModalAberto(false); onAtualizar(); }}
+          onGeradas={onAtualizar}
         />
       )}
     </div>
