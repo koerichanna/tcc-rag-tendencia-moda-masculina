@@ -19,3 +19,9 @@ RAG_RESPOSTAS = Counter(
     "Respostas do consultor RAG por origem",
     ["origem"],  # origem: llm | regras (fallback quando o LLM falha ou não está configurado)
 )
+
+RAG_AJUSTES = Counter(
+    "moda_rag_ajustes_total",
+    "Respostas do LLM corrigidas para respeitar o risco calculado (ver coerencia.py)",
+    ["tipo"],  # tipo: risco | acao
+)

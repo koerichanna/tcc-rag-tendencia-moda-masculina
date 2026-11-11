@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowRight, Brain, HelpCircle, RefreshCw, Sparkles } from 'lucide-react';
 import { api } from '../api';
 import { PERGUNTAS_EXEMPLO } from '../constants';
+import AvisoAjuste from '../components/AvisoAjuste';
 import RiscoBadge from '../components/RiscoBadge';
 import SelectCategoria from '../components/SelectCategoria';
 
@@ -24,6 +25,8 @@ function ResultadoRag({ resultado }) {
         <div className="action-title">Ação Recomendada pela IA ao Lojista</div>
         <div className="action-value">{resultado.acao_recomendada}</div>
       </div>
+
+      <AvisoAjuste ajustes={resultado.ajustes_coerencia} />
 
       <div style={{ marginBottom: '1.25rem' }}>
         <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>Diagnóstico de Mercado:</h4>
