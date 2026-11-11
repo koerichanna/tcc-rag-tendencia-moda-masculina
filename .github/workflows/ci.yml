@@ -41,6 +41,12 @@ jobs:
       - name: Instalar dependências
         run: pip install -r requirements.txt
 
+      # Modelo de embedding (~135 MB) baixado do Hugging Face na primeira execução
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-paraphrase-multilingual-minilm-l12-v2
+
       - name: Ruff
         run: ruff check .
 
