@@ -71,14 +71,32 @@ npm run dev                                 # http://localhost:5173
 Ou tudo com Docker: `docker compose up --build` (frontend em http://localhost:8080, API em
 http://localhost:8000/docs). Na primeira vez, rodar `docker compose exec backend python ingestion.py`.
 
-## Login
+## Login e usuários
 
-Ver, consultar o painel e usar o consultor RAG é público. Cadastrar produtos, gerar tendências e
-avaliar produtos com IA exige login (token JWT, válido por 8 horas). Não há tela de cadastro: os
-usuários são criados por quem administra o servidor.
+Toda a aplicação exige login: sem ele só aparece a tela de entrada. A API responde 401 em todas as
+rotas de dados; ficam abertas apenas `/`, `/health` (healthcheck) e `/auth/login`. O token JWT vale
+por 8 horas e fica na `sessionStorage` (some ao fechar a aba).
+
+Há dois perfis:
+
+| Perfil | Pode |
+|---|---|
+| `usuario` | usar o painel, o consultor RAG, cadastrar produtos e as ações de IA; trocar a própria senha |
+| `admin` | tudo acima e gerenciar usuários na aba **Usuários** |
+
+Na aba **Usuários** o administrador cadastra logins, troca o perfil, desativa ou reativa contas,
+redefine senhas e exclui usuários. Desativar corta o acesso na hora, até de quem já está logado,
+porque a API confere o usuário no banco a cada requisição. O administrador não pode rebaixar,
+desativar nem excluir a própria conta, então sempre sobra pelo menos um admin ativo. Nomes de
+usuário são gravados em minúsculas; senhas têm de 10 a 72 caracteres e são salvas com bcrypt.
+
+O primeiro administrador é criado pelo terminal (o mesmo comando recupera o acesso se a senha for
+esquecida: redefine a senha, promove a admin e reativa a conta):
 
 ```bash
-venv\Scripts\python criar_usuario.py anna        # pede a senha (mínimo 10 caracteres)
+venv\Scripts\python criar_usuario.py anna --admin              # pede a senha
+# na VM (sem -e SENHA_USUARIO o comando pede a senha; use -it nesse caso):
+docker exec -e SENHA_USUARIO='...' moda-production-backend-1 python criar_usuario.py anna --admin
 ```
 
 Em produção a API não sobe sem `JWT_SECRET` definido.
