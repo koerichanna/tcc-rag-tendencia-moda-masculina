@@ -59,7 +59,12 @@ def _extrair_json_resposta(texto: str) -> Optional[Any]:
                 pass
     return None
 
-def _obter_llm():
+# Segundos de espera por resposta. Gerar tendências produz um texto bem maior que uma consulta
+# e passava dos 30 s com frequência (a API respondia "0 tendências" sem explicar o motivo).
+TEMPO_LIMITE_LLM = 30
+TEMPO_LIMITE_GERACAO = 90
+
+def _obter_llm(timeout: int = TEMPO_LIMITE_LLM):
     if GOOGLE_API_KEY:
         try:
             from langchain_google_genai import ChatGoogleGenerativeAI
@@ -67,7 +72,7 @@ def _obter_llm():
                 model="gemini-3.1-flash-lite",
                 api_key=GOOGLE_API_KEY,
                 max_retries=1,
-                timeout=30
+                timeout=timeout
             )
         except Exception as e:
             logger.warning("Erro ao instanciar Gemini: %s", e)
@@ -80,7 +85,7 @@ def _obter_llm():
                 temperature=0.2,
                 api_key=OPENAI_API_KEY,
                 max_retries=1,
-                timeout=30
+                timeout=timeout
             )
         except Exception as e:
             logger.warning("Erro ao instanciar OpenAI: %s", e)
@@ -315,10 +320,13 @@ def consultar_rag(
 
     return resultado
 
+class LLMIndisponivel(Exception):
+    """O LLM não está configurado ou não respondeu a tempo."""
+
 def gerar_novas_tendencias_com_ia(tema: str = "Moda Masculina Atual", db: Optional[Session] = None) -> List[Dict[str, Any]]:
-    llm = _obter_llm()
+    llm = _obter_llm(timeout=TEMPO_LIMITE_GERACAO)
     if not llm:
-        return []
+        raise LLMIndisponivel("Nenhuma chave de IA configurada no servidor.")
 
     prompt = f"""Você é um analista de mercado de moda masculina.
 Sugira de 3 a 5 tendências emergentes para o segmento de moda masculina com foco no tema: '{tema}'.
@@ -337,10 +345,14 @@ Responda EXCLUSIVAMENTE em formato JSON (um array de objetos):
 """
     try:
         texto = _invocar_llm(llm, prompt, "gerar_tendencias")
-        lista_tendencias = _extrair_json_resposta(texto)
-        if not isinstance(lista_tendencias, list):
-            return []
+    except Exception as erro:
+        logger.error("Falha ao gerar tendencias com LLM: %s", erro)
+        raise LLMIndisponivel("A IA não respondeu a tempo. Tente de novo em alguns instantes.") from erro
+    lista_tendencias = _extrair_json_resposta(texto)
+    if not isinstance(lista_tendencias, list) or not lista_tendencias:
+        raise LLMIndisponivel("A IA respondeu em um formato inesperado. Tente de novo.")
 
+    try:
         tendencias_criadas = []
         chroma_client = vector_db.get_trends_collection()
 
