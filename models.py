@@ -1,4 +1,5 @@
-from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String, Text, UniqueConstraint, func
+from sqlalchemy import Boolean, Column, DateTime, Float, ForeignKey, Integer, String, Text, UniqueConstraint, func
+from sqlalchemy import true as sa_true
 from sqlalchemy.orm import relationship
 
 from database import Base
@@ -58,4 +59,8 @@ class UsuarioModel(Base):
     id = Column(Integer, primary_key=True)
     nome_usuario = Column(String(50), unique=True, nullable=False)
     senha_hash = Column(String(100), nullable=False)
+    # admin: gerencia usuários; usuario: usa a plataforma
+    perfil = Column(String(20), nullable=False, default="usuario", server_default="usuario")
+    # Desativar em vez de apagar mantém o histórico e corta o acesso na hora.
+    ativo = Column(Boolean, nullable=False, default=True, server_default=sa_true())
     criado_em = Column(DateTime(timezone=True), server_default=func.now())

@@ -15,6 +15,7 @@ import limites
 import models
 import rag_engine
 import schemas
+import usuarios
 from database import get_db
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -54,6 +55,8 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["Authorization", "Content-Type"],
 )
+
+app.include_router(usuarios.router)
 
 @app.get("/", tags=["Status"])
 def ler_raiz():
@@ -97,14 +100,14 @@ def criar_produto(produto: schemas.ProdutoCreate, db: Session = Depends(get_db))
     db.refresh(db_produto)
     return db_produto
 
-@app.get("/produtos/", response_model=List[schemas.ProdutoResponse], tags=["Produtos"])
+@app.get("/produtos/", response_model=List[schemas.ProdutoResponse], tags=["Produtos"], dependencies=[Depends(auth.usuario_atual)])
 def listar_produtos(categoria: str = None, db: Session = Depends(get_db)):
     query = db.query(models.ProdutoModel)
     if categoria:
         query = query.filter(models.ProdutoModel.categoria.ilike(f"%{categoria}%"))
     return query.all()
 
-@app.get("/produtos/{produto_id}", response_model=schemas.ProdutoResponse, tags=["Produtos"])
+@app.get("/produtos/{produto_id}", response_model=schemas.ProdutoResponse, tags=["Produtos"], dependencies=[Depends(auth.usuario_atual)])
 def obter_produto(produto_id: int, db: Session = Depends(get_db)):
     produto = db.query(models.ProdutoModel).filter(models.ProdutoModel.id == produto_id).first()
     if not produto:
@@ -142,7 +145,7 @@ def cadastrar_tendencia(tendencia: schemas.TendenciaCreate, db: Session = Depend
     db.refresh(db_tendencia)
     return db_tendencia
 
-@app.get("/tendencias/", response_model=List[schemas.TendenciaResponse], tags=["Tendências"])
+@app.get("/tendencias/", response_model=List[schemas.TendenciaResponse], tags=["Tendências"], dependencies=[Depends(auth.usuario_atual)])
 def listar_tendencias(categoria: str = None, db: Session = Depends(get_db)):
     query = db.query(models.TendenciaModel)
     if categoria:
@@ -157,7 +160,7 @@ def registrar_recomendacao(recomendacao: schemas.RecomendacaoCreate, db: Session
     db.refresh(db_rec)
     return db_rec
 
-@app.get("/recomendacoes/", response_model=List[schemas.RecomendacaoResponse], tags=["Recomendações"])
+@app.get("/recomendacoes/", response_model=List[schemas.RecomendacaoResponse], tags=["Recomendações"], dependencies=[Depends(auth.usuario_atual)])
 def listar_recomendacoes(limite: int = Query(50, ge=1, le=200), db: Session = Depends(get_db)):
     return (
         db.query(models.RecomendacaoModel)
@@ -166,7 +169,7 @@ def listar_recomendacoes(limite: int = Query(50, ge=1, le=200), db: Session = De
         .all()
     )
 
-@app.post("/rag/consultar", response_model=schemas.ConsultaRAGResponse, tags=["Motor RAG"])
+@app.post("/rag/consultar", response_model=schemas.ConsultaRAGResponse, tags=["Motor RAG"], dependencies=[Depends(auth.usuario_atual)])
 @limites.limiter.limit(limites.LLM)
 def consultar_assistente_rag(request: Request, solicitacao: schemas.ConsultaRAGRequest, db: Session = Depends(get_db)):
     return rag_engine.consultar_rag(
@@ -177,7 +180,7 @@ def consultar_assistente_rag(request: Request, solicitacao: schemas.ConsultaRAGR
         salvar_historico=True
     )
 
-@app.get("/dashboard/kpis", tags=["Dashboard"])
+@app.get("/dashboard/kpis", tags=["Dashboard"], dependencies=[Depends(auth.usuario_atual)])
 def obter_metricas_dashboard(db: Session = Depends(get_db)):
     total_produtos = db.query(models.ProdutoModel).count()
     total_tendencias = db.query(models.TendenciaModel).count()
@@ -235,7 +238,7 @@ def api_analisar_produto_ia(request: Request, produto_id: int, db: Session = Dep
         raise HTTPException(status_code=400, detail=resultado["erro"])
     return resultado
 
-@app.get("/ia/briefing-executivo", tags=["Inteligência Artificial"])
+@app.get("/ia/briefing-executivo", tags=["Inteligência Artificial"], dependencies=[Depends(auth.usuario_atual)])
 @limites.limiter.limit(limites.LLM)
 def api_obter_briefing_executivo_ia(request: Request, db: Session = Depends(get_db)):
     return rag_engine.gerar_briefing_executivo_ia(db=db)

@@ -448,3 +448,128 @@ button.badge:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* Tela de login */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: linear-gradient(160deg, #eff6ff 0%, #f8fafc 55%, #eef2ff 100%);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.login-campo {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.login-campo svg {
+  position: absolute;
+  left: 0.8rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.login-campo .rag-input {
+  padding-left: 2.4rem;
+}
+
+.login-erro {
+  color: #dc2626;
+  background: var(--danger-bg);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.login-ajuda {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.tela-carregando {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+/* Gestao de usuarios */
+.usuarios-form {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr auto;
+  gap: 0.75rem;
+  align-items: end;
+  margin-bottom: 1.75rem;
+}
+
+.usuarios-form .rag-form-group {
+  margin-bottom: 0;
+}
+
+.usuarios-form .btn-primary {
+  padding: 0.65rem 1.1rem;
+  width: auto;
+}
+
+.usuario-inativo td {
+  color: var(--text-muted);
+}
+
+.acoes-usuario {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.btn-acao {
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: #475569;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.btn-acao:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-acao.perigo {
+  background: var(--danger-bg);
+  color: #dc2626;
+}
+
+@media (max-width: 760px) {
+  .usuarios-form {
+    grid-template-columns: 1fr;
+  }
+}

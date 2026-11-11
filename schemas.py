@@ -2,7 +2,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Annotated, List, Optional
 
-from pydantic import BaseModel, ConfigDict, Field, StringConstraints
+from pydantic import BaseModel, ConfigDict, Field, StringConstraints, field_validator
 
 
 class CategoriaProduto(str, Enum):
@@ -154,7 +154,60 @@ class TokenResponse(BaseModel):
     token_type: str = "bearer"
 
 
+class PerfilUsuario(str, Enum):
+    ADMIN = "admin"
+    USUARIO = "usuario"
+
+
+# Letras minúsculas, números, ponto, hífen e sublinhado: evita nomes parecidos ("Anna" e "anna").
+NomeUsuario = Annotated[str, StringConstraints(strip_whitespace=True, to_lower=True, min_length=3, max_length=50,
+                                               pattern=r"^[A-Za-z0-9._-]+$")]
+# O bcrypt só considera os primeiros 72 bytes; acima disso a senha seria cortada sem aviso.
+Senha = Annotated[str, Field(min_length=10, max_length=72)]
+
+
+def _senha_cabe_no_bcrypt(senha):
+    if senha is not None and len(senha.encode("utf-8")) > 72:
+        raise ValueError("A senha passa do limite de 72 bytes")
+    return senha
+
+
 class UsuarioResponse(BaseModel):
     nome_usuario: str
+    perfil: PerfilUsuario
 
-    model_config = ConfigDict(from_attributes=True)
+    model_config = ConfigDict(from_attributes=True, use_enum_values=True)
+
+
+class UsuarioDetalheResponse(UsuarioResponse):
+    id: int
+    ativo: bool
+    criado_em: Optional[datetime] = None
+
+
+class UsuarioCreate(BaseModel):
+    nome_usuario: NomeUsuario
+    senha: Senha
+    perfil: PerfilUsuario = PerfilUsuario.USUARIO
+
+    model_config = ConfigDict(use_enum_values=True)
+
+    _validar_senha = field_validator("senha")(_senha_cabe_no_bcrypt)
+
+
+class UsuarioUpdate(BaseModel):
+    """Campos omitidos ficam como estão; `senha` redefine a senha do usuário."""
+    perfil: Optional[PerfilUsuario] = None
+    ativo: Optional[bool] = None
+    senha: Optional[Senha] = None
+
+    model_config = ConfigDict(use_enum_values=True)
+
+    _validar_senha = field_validator("senha")(_senha_cabe_no_bcrypt)
+
+
+class TrocaSenhaRequest(BaseModel):
+    senha_atual: str = Field(min_length=1, max_length=72)
+    nova_senha: Senha
+
+    _validar_senha = field_validator("nova_senha")(_senha_cabe_no_bcrypt)

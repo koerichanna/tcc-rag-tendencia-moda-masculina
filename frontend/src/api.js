@@ -58,6 +58,13 @@ export const api = {
   },
   sair: () => token.apagar(),
   eu: () => requisicao('/auth/me'),
+  trocarSenha: (senhaAtual, novaSenha) =>
+    requisicao('/auth/me/senha', { method: 'PUT', body: { senha_atual: senhaAtual, nova_senha: novaSenha } }),
+
+  usuarios: () => requisicao('/usuarios/'),
+  criarUsuario: (dados) => requisicao('/usuarios/', { method: 'POST', body: dados }),
+  atualizarUsuario: (id, dados) => requisicao(`/usuarios/${id}`, { method: 'PUT', body: dados }),
+  excluirUsuario: (id) => requisicao(`/usuarios/${id}`, { method: 'DELETE' }),
 
   status: () => requisicao('/'),
   kpis: () => requisicao('/dashboard/kpis'),

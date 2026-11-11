@@ -64,5 +64,6 @@ def client_anonimo(db_session):
 @pytest.fixture
 def client(client_anonimo):
     """Cliente já autenticado, para os testes que não tratam de login."""
-    app.dependency_overrides[auth.usuario_atual] = lambda: models.UsuarioModel(nome_usuario="teste")
+    app.dependency_overrides[auth.usuario_atual] = lambda: models.UsuarioModel(
+        nome_usuario="teste", perfil="admin", ativo=True)
     return client_anonimo

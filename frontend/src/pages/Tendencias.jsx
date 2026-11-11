@@ -65,7 +65,7 @@ function BarraScore({ valor }) {
   );
 }
 
-export default function Tendencias({ tendencias, logado, onAtualizar }) {
+export default function Tendencias({ tendencias, onAtualizar }) {
   const [modalAberto, setModalAberto] = useState(false);
 
   return (
@@ -79,8 +79,7 @@ export default function Tendencias({ tendencias, logado, onAtualizar }) {
             Score, risco e sazonalidade calculados a partir do interesse de busca no Google Trends.
           </p>
         </div>
-        <button type="button" className="badge" onClick={() => setModalAberto(true)} disabled={!logado}
-          title={logado ? undefined : 'Faça login para usar esta ação'}
+        <button type="button" className="badge" onClick={() => setModalAberto(true)}
           style={{ background: 'linear-gradient(135deg, #4f46e5, #7c3aed)', color: 'white', padding: '0.65rem 1.2rem', fontSize: '0.875rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
           <Sparkles size={16} /> Descobrir Novas Tendências com IA
         </button>
