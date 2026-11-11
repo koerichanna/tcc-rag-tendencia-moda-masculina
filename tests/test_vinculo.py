@@ -17,6 +17,8 @@ def criar(client, nome, categoria, **extra):
     ("Calça Jeans Skinny Preta", "Calças", {"trend_skinny_queda_03"}),
     ("Calça Wide Leg Alfaiataria", "Calças", {"trend_wide_leg_02"}),
     ("Camisa de Linho Manga Curta", "Camisas", {"trend_linho_01"}),
+    # já foi vinculada à camisa cubana, cuja descrição citava linho
+    ("Camisa Linho Manga Curta Bege", "Camisas", {"trend_linho_01"}),
     # jaqueta e colete puffer são peças acolchoadas parecidas; as duas tendências servem
     ("Jaqueta Puffer Acolchoada Preta", "Jaquetas", {"trend_puffer_46", "trend_colete_puffer_49"}),
     ("Tênis de Corrida com Amortecimento", "Calçados", {"trend_corrida_34"}),
