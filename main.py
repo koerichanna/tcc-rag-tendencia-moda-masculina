@@ -16,6 +16,7 @@ import models
 import rag_engine
 import schemas
 import usuarios
+import vinculo
 from database import get_db
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -95,6 +96,7 @@ def usuario_logado(usuario: models.UsuarioModel = Depends(auth.usuario_atual)):
 @app.post("/produtos/", response_model=schemas.ProdutoResponse, status_code=status.HTTP_201_CREATED, tags=["Produtos"], dependencies=[Depends(auth.usuario_atual)])
 def criar_produto(produto: schemas.ProdutoCreate, db: Session = Depends(get_db)):
     db_produto = models.ProdutoModel(**produto.model_dump())
+    vinculo.vincular(db_produto)  # o score passa a vir da tendência mais parecida
     db.add(db_produto)
     db.commit()
     db.refresh(db_produto)
@@ -123,6 +125,8 @@ def atualizar_produto(produto_id: int, dados: schemas.ProdutoUpdate, db: Session
     update_data = dados.model_dump(exclude_unset=True)
     for key, value in update_data.items():
         setattr(produto, key, value)
+    if {"nome", "categoria"} & update_data.keys() or not produto.tendencia_codigo:
+        vinculo.vincular(produto)
 
     db.commit()
     db.refresh(produto)

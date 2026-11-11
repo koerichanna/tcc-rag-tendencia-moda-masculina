@@ -16,9 +16,24 @@ class ProdutoModel(Base):
     quantidade_estoque = Column(Integer, nullable=False, default=0)
     estoque_minimo = Column(Integer, nullable=False, default=5)
     tendencia_score = Column(Float, nullable=False, default=0.0)
+    # Tendência da base mais parecida com o produto (vinculo.py); o score acima vem dela.
+    tendencia_codigo = Column(String(50), nullable=True, index=True)
     data_atualizacao = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
 
     recomendacoes = relationship("RecomendacaoModel", back_populates="produto", cascade="all, delete-orphan")
+
+    # Sem chave estrangeira no banco: o vínculo vem do ChromaDB e não deve impedir salvar o produto
+    # se a tabela de tendências ainda não foi sincronizada.
+    tendencia = relationship(
+        "TendenciaModel",
+        primaryjoin="foreign(ProdutoModel.tendencia_codigo) == TendenciaModel.codigo",
+        viewonly=True,
+        lazy="joined",
+    )
+
+    @property
+    def tendencia_termo(self):
+        return self.tendencia.termo if self.tendencia else None
 
 
 class TendenciaModel(Base):

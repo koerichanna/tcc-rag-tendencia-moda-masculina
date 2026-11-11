@@ -4,6 +4,7 @@ import logging
 import migrar
 import models
 import vector_db
+import vinculo
 from database import SessionLocal
 
 DATA_FILE = "./data/market_trends.json"
@@ -97,6 +98,9 @@ def main():
     trends = carregar_dados_mercado()
     indexar_no_chromadb(trends)
     sincronizar_com_postgresql(trends)
+    # Scores novos mudam o score dos produtos: refaz o vínculo de todos.
+    with SessionLocal() as db:
+        vinculo.revincular_todos(db, models.ProdutoModel)
 
 if __name__ == "__main__":
     main()
