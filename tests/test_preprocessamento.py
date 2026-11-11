@@ -8,7 +8,9 @@ from pipeline.preprocessamento import (
     carregar_series,
     classificar_risco,
     classificar_sazonalidade,
+    fracao_semanas_zeradas,
     interesse_recente,
+    metricas_do_termo,
     perfil_sazonal,
     variacao_anual,
     volatilidade,
@@ -90,3 +92,24 @@ def test_atualizar_base_preenche_metricas_e_mantem_sem_serie():
     assert base[0]["metricas"]["variacao_12m_pct"] == 50.0
     assert base[0]["metricas"]["data_coleta"] == "2026-11-10"
     assert "metricas" not in base[1]
+
+
+def test_fracao_semanas_zeradas_olha_os_ultimos_dois_anos():
+    assert fracao_semanas_zeradas([5] * 100 + [0] * 52 + [3] * 52) == 0.5
+
+
+def test_serie_esparsa_nao_gera_variacao_artificial():
+    # 2 anos quase sem buscas e alguns picos isolados no último ano: antes isso virava "+100%"
+    valores = [0] * 52 + [0] * 45 + [40, 0, 60, 0, 30, 0, 50] + [0] * 52
+    m = metricas_do_termo(semanas(valores[-156:]))
+    assert m["dados_esparsos"] is True
+    assert m["variacao_12m_pct"] == 0.0
+    assert m["nivel_risco"] == "Alto"
+    assert m["sazonalidade"] == "Atemporal"
+
+
+def test_serie_com_volume_continua_classificada_normalmente():
+    m = metricas_do_termo(semanas([40] * 104 + [50] * 52))
+    assert m["dados_esparsos"] is False
+    assert m["variacao_12m_pct"] == 25.0
+    assert m["nivel_risco"] == "Baixo"

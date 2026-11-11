@@ -24,6 +24,11 @@ def descrever_metricas(t):
     m = t.get("metricas")
     if not m:
         return ""
+    if m.get("dados_esparsos"):
+        return (
+            f"Google Trends Brasil (coleta de {m['data_coleta']}): volume de busca insuficiente, "
+            f"{m['semanas_zeradas_pct']:.0f}% das semanas dos últimos 2 anos sem buscas; não há evidência de demanda. "
+        )
     return (
         f"Google Trends Brasil (coleta de {m['data_coleta']}): interesse recente {m['interesse_recente']}/100, "
         f"variação de {m['variacao_12m_pct']:+.1f}% nas buscas em 12 meses, pico de buscas em {MESES[m['mes_pico'] - 1]}. "

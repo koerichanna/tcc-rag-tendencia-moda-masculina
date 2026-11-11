@@ -22,6 +22,7 @@ SEMANAS_RECENTES = 12
 SEMANAS_ANO = 52
 AMPLITUDE_SAZONAL_MINIMA = 1.25  # pico mensal 25% acima da média geral
 MESES_PRIMAVERA_VERAO = {9, 10, 11, 12, 1, 2}  # hemisfério sul
+LIMITE_SEMANAS_ZERADAS = 0.5  # metade das semanas dos últimos 2 anos sem buscas = dados esparsos
 
 logger = logging.getLogger("projeto_moda.preprocessamento")
 
@@ -94,21 +95,40 @@ def classificar_risco(variacao, vol):
     return "Moderado"
 
 
+def fracao_semanas_zeradas(valores):
+    """Fração das últimas 104 semanas sem nenhuma busca registrada pelo Google."""
+    ultimos = valores[-2 * SEMANAS_ANO:]
+    return sum(v == 0 for v in ultimos) / len(ultimos)
+
+
 def metricas_do_termo(pontos):
     valores = [v for _, v in pontos]
     recente = interesse_recente(valores)
-    variacao = variacao_anual(valores)
     vol = volatilidade(valores)
     mes_pico, amplitude = perfil_sazonal(pontos)
+    zeradas = fracao_semanas_zeradas(valores)
+    esparso = zeradas >= LIMITE_SEMANAS_ZERADAS
+
+    if esparso:
+        # Com a maioria das semanas em zero, a variação anual vira ruído (ex.: média anterior 0 dá
+        # "+100%"). Sem volume de busca não há evidência de demanda, então o risco para estoque é Alto.
+        variacao = 0.0
+        risco = "Alto"
+    else:
+        variacao = variacao_anual(valores)
+        risco = classificar_risco(variacao, vol)
+
     return {
         "interesse_recente": round(recente, 1),
         "variacao_12m_pct": round(variacao, 1),
         "volatilidade": round(vol, 2),
         "mes_pico": mes_pico,
         "amplitude_sazonal": round(amplitude, 2),
+        "semanas_zeradas_pct": round(100 * zeradas, 1),
+        "dados_esparsos": esparso,
         "score_relevancia": calcular_score(recente, variacao),
-        "nivel_risco": classificar_risco(variacao, vol),
-        "sazonalidade": classificar_sazonalidade(mes_pico, amplitude),
+        "nivel_risco": risco,
+        "sazonalidade": "Atemporal" if esparso else classificar_sazonalidade(mes_pico, amplitude),
     }
 
 
