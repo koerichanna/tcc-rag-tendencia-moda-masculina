@@ -12,7 +12,7 @@ permissions:
 jobs:
   backend:
     name: Backend - lint e testes
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     services:
       postgres:
         image: postgres:16-alpine
@@ -60,7 +60,7 @@ jobs:
 
   frontend:
     name: Frontend - lint e build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: frontend
@@ -80,7 +80,10 @@ jobs:
   e2e:
     name: Interface - testes E2E (Playwright)
     needs: [backend, frontend]
-    runs-on: ubuntu-latest
+    # Versão fixa: o playwright install --with-deps instala pacotes do sistema pelo apt e só conhece
+    # versões de Ubuntu já lançadas; o ubuntu-latest passou a apontar para o Ubuntu 26.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
     services:
       postgres:
         image: postgres:16-alpine
@@ -151,12 +154,12 @@ jobs:
 
       - name: Logs da API
         if: failure()
-        run: cat api.log
+        run: cat api.log || echo "API não chegou a subir (sem api.log)"
 
   sonarcloud:
     name: Análise estática (SonarCloud)
     needs: backend
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     steps:
@@ -207,12 +210,16 @@ jobs:
   deploy:
     name: Deploy (${{ github.ref_name == 'main' && 'produção' || 'homologação' }})
     needs: imagens
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: ${{ github.ref_name == 'main' && 'production' || 'staging' }}
     permissions:
       contents: read
       id-token: write
-    concurrency: deploy-${{ github.ref_name }}
+    # Um grupo só para os dois ambientes: a VM aceita um run-command por vez, e um deploy de
+    # homologação simultâneo ao de produção fazia o segundo falhar. Agora o segundo espera.
+    concurrency:
+      group: deploy-vm
+      cancel-in-progress: false
     steps:
       - uses: azure/login@v2
         with:
