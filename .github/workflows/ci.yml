@@ -5,6 +5,7 @@ on:
     branches: [main, develop]
   pull_request:
     branches: [main, develop]
+  workflow_dispatch:  # usado pela rotina semanal de dados (atualizar-trends.yml)
 
 permissions:
   contents: read
@@ -178,7 +179,7 @@ jobs:
   imagens:
     name: Publicar imagens no GHCR
     needs: [backend, frontend, e2e]
-    if: github.event_name == 'push'
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-24.04-arm  # a VM da Azure é ARM64 (B2pls_v2)
     permissions:
       contents: read

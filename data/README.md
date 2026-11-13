@@ -19,6 +19,13 @@
   anterior, `raw/google_trends_2026-11-10.csv` (10 termos), fica guardada porque os números do pôster
   vêm dela. Para coletar só alguns termos e juntá-los ao arquivo do dia:
   `python -m pipeline.coleta_trends "termo 1" "termo 2"`.
+- **Atualização semanal:** o workflow `.github/workflows/atualizar-trends.yml` roda toda segunda-feira
+  (06h de Brasília): coleta todos os termos, recalcula as métricas e grava a coleta nova e o
+  `market_trends.json` na `develop`. Em seguida dispara o CI, que testa e publica em homologação; a
+  produção recebe os dados no próximo PR `develop` → `main`. Também pode ser disparado à mão na aba
+  **Actions → Atualizar Google Trends → Run workflow**. Se o Google bloquear a coleta (erro 429), o
+  workflow falha sem gravar nada e a base continua com a coleta anterior. Os números do pôster e de
+  `docs/avaliacao_rag.md` continuam ligados às coletas de 10 e 11/11/2026, que ficam guardadas.
 - **Pré-processamento:** `python -m pipeline.preprocessamento`. Descarta a semana parcial (ainda em
   andamento) e calcula, para cada termo:
 
