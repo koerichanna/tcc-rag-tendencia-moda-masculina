@@ -10,6 +10,19 @@ Ajudar pequenos lojistas de moda masculina a decidir o que comprar. O lojista fa
 vetorial, cruza com o estoque da loja e devolve uma recomendação com a justificativa e as fontes
 usadas.
 
+## Acesso para avaliação
+
+| Ambiente | Endereço |
+|---|---|
+| Produção | https://tcc-moda-koerich.canadacentral.cloudapp.azure.com |
+| Homologação | https://staging.52-139-37-198.sslip.io |
+
+- **Usuário:** `avaliador.catolica`
+- **Senha:** `adminadmin`
+
+É uma conta de perfil `usuario`: acessa o painel, o consultor RAG, os produtos e as ações de IA,
+mas não a gestão de usuários. Ela existe só para a avaliação e será desativada depois dela.
+
 ## Arquitetura
 
 ```mermaid
@@ -32,11 +45,13 @@ flowchart TD
 
 Documentação completa (C4, DER, decisões) em [docs/WIKI_ARQUITETURA.md](docs/WIKI_ARQUITETURA.md).
 Avaliação da recuperação e das respostas em [docs/avaliacao_rag.md](docs/avaliacao_rag.md).
+Limitações conhecidas e como foram tratadas em [docs/limitacoes.md](docs/limitacoes.md).
 
 ## Estrutura
 
 ```
-.github/workflows/     ci.yml (lint, testes, Sonar, imagens, deploy) e rollback.yml
+.github/workflows/     ci.yml (lint, testes, Sonar, imagens, deploy), rollback.yml e
+                       atualizar-trends.yml (coleta semanal do Google Trends)
 data/                  base de tendências e coletas do Google Trends (ver data/README.md)
 pipeline/              coleta e pré-processamento dos dados do Google Trends
 deploy/                script executado na VM e modelos de .env

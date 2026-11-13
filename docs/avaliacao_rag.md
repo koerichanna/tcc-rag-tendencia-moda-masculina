@@ -93,8 +93,8 @@ perguntas:
    A escolha pela híbrida com o multilíngue se apoia em três pontos: melhor hit@3, nenhuma
    configuração foi melhor de forma significativa e ela é a única que acerta paráfrases e
    perguntas sem palavras em comum ao mesmo tempo.
-4. **Perguntas sem nenhuma palavra em comum continuam difíceis:** a melhor configuração acerta
-   cerca de 1 em cada 5 (o BM25 zera, por construção). É a principal limitação da recuperação.
+4. **Perguntas sem nenhuma palavra em comum continuam difíceis:** a configuração escolhida acerta
+   4 de 26 (15,4%) e o multilíngue sozinho, 6 de 26 (23,1%); o BM25 zera, por construção. É a principal limitação da recuperação.
 5. **Quantizar o modelo não custou qualidade** (fp32 e quantizado empatam) e reduz o arquivo de
    470 MB para 118 MB, o que importa na VM ARM.
 6. **Latência:** todas as configurações respondem em dezenas de milissegundos numa máquina comum.
