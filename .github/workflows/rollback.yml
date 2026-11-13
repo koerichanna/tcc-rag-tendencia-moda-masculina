@@ -19,9 +19,13 @@ permissions:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: ${{ inputs.ambiente }}
-    concurrency: deploy-${{ inputs.ambiente }}
+    # Um grupo só para os dois ambientes: a VM aceita um run-command por vez, e um deploy de
+    # homologação simultâneo ao de produção fazia o segundo falhar. Agora o segundo espera.
+    concurrency:
+      group: deploy-vm
+      cancel-in-progress: false
     steps:
       - uses: azure/login@v2
         with:
