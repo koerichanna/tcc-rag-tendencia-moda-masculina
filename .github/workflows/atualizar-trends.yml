@@ -1,0 +1,65 @@
+name: Atualizar Google Trends
+
+# Toda segunda-feira coleta de novo o interesse de busca dos termos da base, recalcula as métricas
+# e grava o resultado na develop. O CI dessa versão roda os testes e publica em homologação; a
+# produção recebe os dados novos no próximo PR develop -> main, como qualquer outra mudança.
+on:
+  schedule:
+    - cron: "0 9 * * 1"  # segunda, 06h de Brasília
+  workflow_dispatch:      # botão "Run workflow" na aba Actions
+
+permissions:
+  contents: write  # commit na develop
+  actions: write   # disparar o CI depois do commit
+
+concurrency:
+  group: atualizar-trends
+  cancel-in-progress: false
+
+jobs:
+  coleta:
+    name: Coletar e recalcular métricas
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: develop
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # A coleta e o pré-processamento só precisam do pytrends (que traz o pandas); o resto da
+      # aplicação não é instalado aqui.
+      - name: Instalar o pytrends
+        run: pip install "pytrends>=4.9.2"
+
+      - name: Coletar no Google Trends
+        run: python -m pipeline.coleta_trends
+
+      - name: Recalcular métricas
+        run: python -m pipeline.preprocessamento
+
+      - name: Gravar na develop
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/raw data/market_trends.json
+          if git diff --cached --quiet; then
+            echo "Nada mudou desde a última coleta."
+            echo "mudou=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "chore(dados): atualiza coleta semanal do Google Trends ($(date +%F))"
+          git push origin HEAD:develop
+          echo "mudou=true" >> "$GITHUB_OUTPUT"
+
+      # Um push feito com o GITHUB_TOKEN não dispara outros workflows; o workflow_dispatch é a
+      # exceção prevista pelo GitHub, então o CI é chamado explicitamente.
+      - name: Rodar o CI (testes e deploy em homologação)
+        if: steps.commit.outputs.mudou == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run ci.yml --ref develop
