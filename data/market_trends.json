@@ -7,19 +7,19 @@
     "estilo": "Casual Chic",
     "sazonalidade": "Primavera/Verão",
     "nivel_risco": "Moderado",
-    "score_relevancia": 47.9,
+    "score_relevancia": 48.7,
     "fonte": "Google Trends Brasil",
     "conteudo": "Camisas de linho puro ou de algodão com linho, geralmente de manga curta e colarinho cubano (camp collar), em tons claros como areia, off-white e verde sálvia. Peça fresca, pensada para climas quentes.",
     "origem_descricao": "Texto sintético redigido pela autora",
     "metricas": {
-      "interesse_recente": 43.2,
-      "variacao_12m_pct": 2.7,
+      "interesse_recente": 45.2,
+      "variacao_12m_pct": 2.2,
       "volatilidade": 0.36,
       "mes_pico": 12,
       "amplitude_sazonal": 1.99,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -30,19 +30,19 @@
     "estilo": "Streetwear / Urbano",
     "sazonalidade": "Atemporal",
     "nivel_risco": "Baixo",
-    "score_relevancia": 54.3,
+    "score_relevancia": 54.5,
     "fonte": "Google Trends Brasil",
     "conteudo": "Calças de corte reto e wide leg, em jeans ou sarja, com modelagem mais solta que o slim. Representam a troca das silhuetas ajustadas por silhuetas amplas.",
     "origem_descricao": "Texto sintético redigido pela autora",
     "metricas": {
-      "interesse_recente": 47.5,
-      "variacao_12m_pct": 11.1,
+      "interesse_recente": 46.8,
+      "variacao_12m_pct": 12.3,
       "volatilidade": 0.21,
       "mes_pico": 7,
       "amplitude_sazonal": 1.25,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -53,19 +53,19 @@
     "estilo": "Casual Tradicional",
     "sazonalidade": "Atemporal",
     "nivel_risco": "Moderado",
-    "score_relevancia": 47.1,
+    "score_relevancia": 46.1,
     "fonte": "Google Trends Brasil",
     "conteudo": "Calças jeans skinny, de modelagem muito ajustada da cintura ao tornozelo. Concorrem com os cortes slim clássico e reto, que vêm ocupando o espaço da skinny nas vitrines.",
     "origem_descricao": "Texto sintético redigido pela autora",
     "metricas": {
-      "interesse_recente": 50.4,
-      "variacao_12m_pct": -6.1,
-      "volatilidade": 0.19,
+      "interesse_recente": 48.8,
+      "variacao_12m_pct": -6.5,
+      "volatilidade": 0.2,
       "mes_pico": 5,
       "amplitude_sazonal": 1.22,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -75,20 +75,20 @@
     "categoria": "Geral",
     "estilo": "Elegante / Casual",
     "sazonalidade": "Atemporal",
-    "nivel_risco": "Alto",
-    "score_relevancia": 42.2,
+    "nivel_risco": "Moderado",
+    "score_relevancia": 44.6,
     "fonte": "Google Trends Brasil",
     "conteudo": "Paleta de tons terrosos: marrom chocolate, camelo, bege, terracota e verde oliva. Aparece em jaquetas, suéteres e calças chino e combina com facilidade, o que ajuda na venda casada.",
     "origem_descricao": "Texto sintético redigido pela autora",
     "metricas": {
-      "interesse_recente": 53.4,
-      "variacao_12m_pct": -19.1,
+      "interesse_recente": 53.9,
+      "variacao_12m_pct": -14.8,
       "volatilidade": 0.16,
       "mes_pico": 5,
       "amplitude_sazonal": 1.14,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -99,19 +99,19 @@
     "estilo": "Streetwear / Minimalista",
     "sazonalidade": "Primavera/Verão",
     "nivel_risco": "Alto",
-    "score_relevancia": 35.9,
+    "score_relevancia": 36.5,
     "fonte": "Google Trends Brasil",
     "conteudo": "Camisetas oversized de algodão de gramatura pesada, com gola canelada e caimento solto e estruturado. Costumam ser posicionadas como básico premium.",
     "origem_descricao": "Texto sintético redigido pela autora",
     "metricas": {
-      "interesse_recente": 41.6,
-      "variacao_12m_pct": -19.7,
+      "interesse_recente": 42.6,
+      "variacao_12m_pct": -19.5,
       "volatilidade": 0.2,
       "mes_pico": 12,
       "amplitude_sazonal": 1.32,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -122,19 +122,19 @@
     "estilo": "Casual Chic / Alfaiataria Moderna",
     "sazonalidade": "Atemporal",
     "nivel_risco": "Moderado",
-    "score_relevancia": 51.9,
+    "score_relevancia": 51.6,
     "fonte": "Google Trends Brasil",
     "conteudo": "Tênis branco de couro liso, cano baixo, sem logos chamativos e com solado reto. Combina com bermudas de sarja e com calças de alfaiataria.",
     "origem_descricao": "Texto sintético redigido pela autora",
     "metricas": {
-      "interesse_recente": 58.3,
-      "variacao_12m_pct": -4.6,
+      "interesse_recente": 58.4,
+      "variacao_12m_pct": -5.1,
       "volatilidade": 0.13,
       "mes_pico": 12,
       "amplitude_sazonal": 1.15,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -145,19 +145,19 @@
     "estilo": "Smart Casual",
     "sazonalidade": "Primavera/Verão",
     "nivel_risco": "Moderado",
-    "score_relevancia": 47.7,
+    "score_relevancia": 48.3,
     "fonte": "Google Trends Brasil",
     "conteudo": "Mocassins masculinos estilo penny loafer, inclusive com solado tratorado, usados em composições casuais com ou sem meia aparente.",
     "origem_descricao": "Texto sintético redigido pela autora",
     "metricas": {
-      "interesse_recente": 50.9,
-      "variacao_12m_pct": -5.5,
-      "volatilidade": 0.17,
+      "interesse_recente": 52.1,
+      "variacao_12m_pct": -5.4,
+      "volatilidade": 0.16,
       "mes_pico": 12,
       "amplitude_sazonal": 1.38,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -168,19 +168,19 @@
     "estilo": "Urbano / Casual",
     "sazonalidade": "Outono/Inverno",
     "nivel_risco": "Moderado",
-    "score_relevancia": 44.2,
+    "score_relevancia": 42.9,
     "fonte": "Google Trends Brasil",
     "conteudo": "Jaquetas bomber em camurça, sarja ou nylon fosco, peça de meia-estação. A compra depende do calendário: pedidos tardios aumentam o risco de sobra no fim do inverno.",
     "origem_descricao": "Texto sintético redigido pela autora",
     "metricas": {
-      "interesse_recente": 24.5,
-      "variacao_12m_pct": 13.8,
+      "interesse_recente": 23.7,
+      "variacao_12m_pct": 12.2,
       "volatilidade": 0.61,
       "mes_pico": 6,
-      "amplitude_sazonal": 2.1,
+      "amplitude_sazonal": 2.09,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -191,19 +191,19 @@
     "estilo": "Resort / Verão Elegante",
     "sazonalidade": "Primavera/Verão",
     "nivel_risco": "Moderado",
-    "score_relevancia": 48.7,
+    "score_relevancia": 48.6,
     "fonte": "Google Trends Brasil",
     "conteudo": "Bermudas de alfaiataria e chino, com comprimento acima do joelho, em linho ou sarja, com cós tradicional ou elástico. Alternativa mais arrumada às bermudas jeans e cargo.",
     "origem_descricao": "Texto sintético redigido pela autora",
     "metricas": {
-      "interesse_recente": 36.1,
-      "variacao_12m_pct": 11.4,
-      "volatilidade": 0.55,
+      "interesse_recente": 35.7,
+      "variacao_12m_pct": 11.5,
+      "volatilidade": 0.54,
       "mes_pico": 12,
-      "amplitude_sazonal": 2.07,
-      "semanas_zeradas_pct": 19.2,
+      "amplitude_sazonal": 1.95,
+      "semanas_zeradas_pct": 15.4,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -214,19 +214,19 @@
     "estilo": "Business Casual",
     "sazonalidade": "Outono/Inverno",
     "nivel_risco": "Moderado",
-    "score_relevancia": 66.7,
+    "score_relevancia": 63.9,
     "fonte": "Google Trends Brasil",
     "conteudo": "Camisas de tecido que não amassa (easy care / non-iron), geralmente com poliamida e elastano. Voltadas a quem busca praticidade no dia a dia de trabalho.",
     "origem_descricao": "Texto sintético redigido pela autora",
     "metricas": {
-      "interesse_recente": 33.4,
-      "variacao_12m_pct": 65.0,
-      "volatilidade": 0.52,
+      "interesse_recente": 32.2,
+      "variacao_12m_pct": 45.5,
+      "volatilidade": 0.59,
       "mes_pico": 3,
-      "amplitude_sazonal": 1.41,
-      "semanas_zeradas_pct": 29.8,
+      "amplitude_sazonal": 1.33,
+      "semanas_zeradas_pct": 31.7,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -238,18 +238,18 @@
     "conteudo": "Camisa polo de malha piquet ou tricô, com gola e abertura de botões. Peça coringa entre o casual e o trabalho, com bom giro o ano todo.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 43.9,
+    "score_relevancia": 44.8,
     "nivel_risco": "Moderado",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 36.9,
-      "variacao_12m_pct": 1.0,
+      "interesse_recente": 38.7,
+      "variacao_12m_pct": 0.9,
       "volatilidade": 0.28,
       "mes_pico": 12,
-      "amplitude_sazonal": 1.65,
+      "amplitude_sazonal": 1.66,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -261,18 +261,18 @@
     "conteudo": "Camisa xadrez em flanela ou tricoline, usada aberta sobre camiseta ou abotoada. Associada a meia-estação e a festas juninas.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 14.2,
+    "score_relevancia": 15.1,
     "nivel_risco": "Alto",
     "sazonalidade": "Outono/Inverno",
     "metricas": {
-      "interesse_recente": 4.8,
-      "variacao_12m_pct": -26.3,
-      "volatilidade": 0.93,
+      "interesse_recente": 4.9,
+      "variacao_12m_pct": -24.7,
+      "volatilidade": 0.91,
       "mes_pico": 6,
       "amplitude_sazonal": 3.99,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -284,18 +284,18 @@
     "conteudo": "Camisa de manga curta com colarinho aberto e reto, caimento solto, em viscose ou algodão. Peça de verão com visual descontraído.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 25.4,
+    "score_relevancia": 25.6,
     "nivel_risco": "Alto",
     "sazonalidade": "Atemporal",
     "metricas": {
-      "interesse_recente": 0.8,
+      "interesse_recente": 1.2,
       "variacao_12m_pct": 0.0,
-      "volatilidade": 5.05,
+      "volatilidade": 5.01,
       "mes_pico": 10,
-      "amplitude_sazonal": 5.93,
-      "semanas_zeradas_pct": 97.1,
+      "amplitude_sazonal": 7.89,
+      "semanas_zeradas_pct": 98.1,
       "dados_esparsos": true,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -307,18 +307,18 @@
     "conteudo": "Camisa em tecido oxford, com colarinho de botão (button-down). Clássica do ambiente de trabalho informal, combina com chino e jeans.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 73.3,
+    "score_relevancia": 70.0,
     "nivel_risco": "Baixo",
-    "sazonalidade": "Atemporal",
+    "sazonalidade": "Outono/Inverno",
     "metricas": {
-      "interesse_recente": 64.0,
-      "variacao_12m_pct": 32.6,
-      "volatilidade": 0.21,
-      "mes_pico": 11,
-      "amplitude_sazonal": 1.19,
-      "semanas_zeradas_pct": 2.9,
+      "interesse_recente": 61.5,
+      "variacao_12m_pct": 28.5,
+      "volatilidade": 0.29,
+      "mes_pico": 8,
+      "amplitude_sazonal": 1.28,
+      "semanas_zeradas_pct": 4.8,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -330,18 +330,18 @@
     "conteudo": "Camisa em denim leve ou chambray, usada sozinha ou como sobreposição. Lavagens claras no verão e escuras no inverno.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 34.0,
+    "score_relevancia": 34.4,
     "nivel_risco": "Moderado",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 27.6,
-      "variacao_12m_pct": -9.6,
-      "volatilidade": 0.26,
+      "interesse_recente": 28.7,
+      "variacao_12m_pct": -9.9,
+      "volatilidade": 0.25,
       "mes_pico": 12,
       "amplitude_sazonal": 1.35,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -353,18 +353,18 @@
     "conteudo": "Camisa de manga curta com estampa floral, tropical ou geométrica. Muito procurada para viagens, festas e estações quentes.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 6.1,
+    "score_relevancia": 5.1,
     "nivel_risco": "Alto",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 6.6,
-      "variacao_12m_pct": -44.4,
-      "volatilidade": 1.1,
+      "interesse_recente": 10.2,
+      "variacao_12m_pct": -54.7,
+      "volatilidade": 1.17,
       "mes_pico": 12,
-      "amplitude_sazonal": 2.16,
-      "semanas_zeradas_pct": 41.3,
+      "amplitude_sazonal": 2.08,
+      "semanas_zeradas_pct": 36.5,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -376,18 +376,18 @@
     "conteudo": "Peça entre camisa e jaqueta, em sarja, lã leve ou veludo, com bolsos frontais. Usada aberta como terceira peça.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 69.3,
+    "score_relevancia": 63.5,
     "nivel_risco": "Moderado",
     "sazonalidade": "Outono/Inverno",
     "metricas": {
-      "interesse_recente": 38.7,
-      "variacao_12m_pct": 54.8,
-      "volatilidade": 0.47,
+      "interesse_recente": 31.2,
+      "variacao_12m_pct": 45.8,
+      "volatilidade": 0.45,
       "mes_pico": 6,
-      "amplitude_sazonal": 1.87,
-      "semanas_zeradas_pct": 19.2,
+      "amplitude_sazonal": 1.72,
+      "semanas_zeradas_pct": 13.5,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -399,18 +399,18 @@
     "conteudo": "Calça com bolsos laterais grandes, em sarja ou nylon, de modelagem reta ou ampla. Herança militar adotada pela moda urbana.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 27.0,
+    "score_relevancia": 26.8,
     "nivel_risco": "Alto",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 25.7,
-      "variacao_12m_pct": -21.7,
-      "volatilidade": 0.22,
+      "interesse_recente": 25.0,
+      "variacao_12m_pct": -21.4,
+      "volatilidade": 0.23,
       "mes_pico": 12,
-      "amplitude_sazonal": 1.36,
+      "amplitude_sazonal": 1.37,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -422,18 +422,18 @@
     "conteudo": "Calça com punho elástico no tornozelo e cós com cordão, em moletom ou sarja. Une conforto esportivo e uso diário.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 19.5,
+    "score_relevancia": 20.3,
     "nivel_risco": "Alto",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 12.3,
-      "variacao_12m_pct": -23.3,
-      "volatilidade": 0.27,
+      "interesse_recente": 12.4,
+      "variacao_12m_pct": -21.8,
+      "volatilidade": 0.28,
       "mes_pico": 12,
-      "amplitude_sazonal": 1.44,
+      "amplitude_sazonal": 1.45,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -445,18 +445,18 @@
     "conteudo": "Calça social de cintura mais alta, com pregas frontais e perna reta ou levemente ampla. Usada com camiseta ou camisa.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 44.4,
+    "score_relevancia": 45.9,
     "nivel_risco": "Alto",
     "sazonalidade": "Atemporal",
     "metricas": {
-      "interesse_recente": 54.5,
-      "variacao_12m_pct": -15.6,
+      "interesse_recente": 57.1,
+      "variacao_12m_pct": -15.3,
       "volatilidade": 0.17,
       "mes_pico": 11,
-      "amplitude_sazonal": 1.18,
+      "amplitude_sazonal": 1.21,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -468,18 +468,18 @@
     "conteudo": "Jeans bem largo do quadril à barra, inspirado nos anos 90 e no skate. Forte entre o público jovem.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 71.7,
+    "score_relevancia": 72.3,
     "nivel_risco": "Baixo",
     "sazonalidade": "Atemporal",
     "metricas": {
-      "interesse_recente": 69.2,
-      "variacao_12m_pct": 24.3,
+      "interesse_recente": 69.4,
+      "variacao_12m_pct": 25.2,
       "volatilidade": 0.18,
       "mes_pico": 5,
-      "amplitude_sazonal": 1.23,
+      "amplitude_sazonal": 1.21,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -491,18 +491,18 @@
     "conteudo": "Calça de sarja em cores como bege, verde-oliva, terracota e azul-marinho. Alternativa ao jeans em ambientes casuais.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 40.5,
+    "score_relevancia": 40.4,
     "nivel_risco": "Moderado",
     "sazonalidade": "Atemporal",
     "metricas": {
-      "interesse_recente": 42.3,
-      "variacao_12m_pct": -11.3,
+      "interesse_recente": 42.1,
+      "variacao_12m_pct": -11.4,
       "volatilidade": 0.2,
-      "mes_pico": 11,
-      "amplitude_sazonal": 1.15,
+      "mes_pico": 12,
+      "amplitude_sazonal": 1.16,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -514,18 +514,18 @@
     "conteudo": "Jeans de perna reta, nem justo nem largo, em lavagens médias e escuras. Modelagem de giro estável no varejo.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 48.9,
+    "score_relevancia": 51.8,
     "nivel_risco": "Moderado",
-    "sazonalidade": "Outono/Inverno",
+    "sazonalidade": "Atemporal",
     "metricas": {
-      "interesse_recente": 55.8,
-      "variacao_12m_pct": -7.9,
-      "volatilidade": 0.26,
+      "interesse_recente": 59.2,
+      "variacao_12m_pct": -5.7,
+      "volatilidade": 0.25,
       "mes_pico": 6,
-      "amplitude_sazonal": 1.26,
-      "semanas_zeradas_pct": 0.0,
+      "amplitude_sazonal": 1.21,
+      "semanas_zeradas_pct": 1.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -537,18 +537,18 @@
     "conteudo": "Calça leve de linho ou viscolinho com cós de cordão, em tons claros. Peça de verão e de viagem de praia.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 36.5,
+    "score_relevancia": 41.3,
     "nivel_risco": "Moderado",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 36.2,
-      "variacao_12m_pct": -13.2,
-      "volatilidade": 0.38,
+      "interesse_recente": 39.0,
+      "variacao_12m_pct": -6.4,
+      "volatilidade": 0.34,
       "mes_pico": 12,
-      "amplitude_sazonal": 1.69,
-      "semanas_zeradas_pct": 2.9,
+      "amplitude_sazonal": 1.63,
+      "semanas_zeradas_pct": 1.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -560,18 +560,18 @@
     "conteudo": "Camiseta lisa de gola careca em algodão, nas cores branca, preta, cinza e marinho. Produto de reposição constante.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 39.4,
+    "score_relevancia": 38.4,
     "nivel_risco": "Moderado",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 33.1,
-      "variacao_12m_pct": -4.3,
-      "volatilidade": 0.33,
+      "interesse_recente": 34.3,
+      "variacao_12m_pct": -7.6,
+      "volatilidade": 0.41,
       "mes_pico": 12,
-      "amplitude_sazonal": 1.37,
-      "semanas_zeradas_pct": 2.9,
+      "amplitude_sazonal": 1.36,
+      "semanas_zeradas_pct": 5.8,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -583,18 +583,18 @@
     "conteudo": "Camiseta de poliéster que seca rápido, para corrida, academia e uso diário em dias quentes.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 47.5,
+    "score_relevancia": 48.7,
     "nivel_risco": "Moderado",
     "sazonalidade": "Atemporal",
     "metricas": {
-      "interesse_recente": 55.2,
-      "variacao_12m_pct": -10.2,
+      "interesse_recente": 57.2,
+      "variacao_12m_pct": -9.8,
       "volatilidade": 0.18,
       "mes_pico": 11,
-      "amplitude_sazonal": 1.11,
+      "amplitude_sazonal": 1.14,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -606,18 +606,18 @@
     "conteudo": "Camisas de futebol com design de décadas passadas, usadas fora do estádio com jeans e tênis. Picos em anos de Copa.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 48.4,
+    "score_relevancia": 46.7,
     "nivel_risco": "Moderado",
     "sazonalidade": "Atemporal",
     "metricas": {
-      "interesse_recente": 28.8,
-      "variacao_12m_pct": 18.1,
+      "interesse_recente": 28.4,
+      "variacao_12m_pct": 15.1,
       "volatilidade": 0.42,
       "mes_pico": 11,
-      "amplitude_sazonal": 1.18,
+      "amplitude_sazonal": 1.19,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -629,18 +629,18 @@
     "conteudo": "Camiseta sem mangas em algodão ou malha leve, para praia, academia e calor intenso.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 42.9,
+    "score_relevancia": 43.4,
     "nivel_risco": "Moderado",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 34.5,
-      "variacao_12m_pct": 1.3,
+      "interesse_recente": 35.2,
+      "variacao_12m_pct": 1.7,
       "volatilidade": 0.3,
       "mes_pico": 12,
-      "amplitude_sazonal": 1.64,
+      "amplitude_sazonal": 1.63,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -652,18 +652,18 @@
     "conteudo": "Camiseta de malha com manga comprida, lisa ou listrada, usada sozinha ou por baixo de camisas abertas.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 30.8,
+    "score_relevancia": 31.5,
     "nivel_risco": "Moderado",
     "sazonalidade": "Outono/Inverno",
     "metricas": {
-      "interesse_recente": 22.8,
-      "variacao_12m_pct": -11.2,
-      "volatilidade": 0.41,
+      "interesse_recente": 23.2,
+      "variacao_12m_pct": -10.3,
+      "volatilidade": 0.39,
       "mes_pico": 5,
-      "amplitude_sazonal": 1.69,
+      "amplitude_sazonal": 1.7,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -675,18 +675,18 @@
     "conteudo": "Camiseta com estampa gráfica, frase ou banda de rock, geralmente em modelagem reta ou ampla.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 28.6,
+    "score_relevancia": 28.3,
     "nivel_risco": "Alto",
     "sazonalidade": "Atemporal",
     "metricas": {
-      "interesse_recente": 7.2,
+      "interesse_recente": 6.6,
       "variacao_12m_pct": 0.0,
-      "volatilidade": 1.84,
+      "volatilidade": 2.02,
       "mes_pico": 12,
-      "amplitude_sazonal": 1.9,
-      "semanas_zeradas_pct": 74.0,
+      "amplitude_sazonal": 2.27,
+      "semanas_zeradas_pct": 71.2,
       "dados_esparsos": true,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -698,18 +698,18 @@
     "conteudo": "Tênis de solado alto e volumoso, com várias camadas e cores. Ligado à estética dos anos 2000.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 71.1,
-    "nivel_risco": "Moderado",
+    "score_relevancia": 71.3,
+    "nivel_risco": "Baixo",
     "sazonalidade": "Outono/Inverno",
     "metricas": {
-      "interesse_recente": 42.2,
-      "variacao_12m_pct": 77.3,
-      "volatilidade": 0.44,
-      "mes_pico": 8,
-      "amplitude_sazonal": 1.28,
-      "semanas_zeradas_pct": 17.3,
+      "interesse_recente": 42.7,
+      "variacao_12m_pct": 86.3,
+      "volatilidade": 0.34,
+      "mes_pico": 5,
+      "amplitude_sazonal": 1.27,
+      "semanas_zeradas_pct": 15.4,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -721,18 +721,18 @@
     "conteudo": "Bota de cano curto com cadarço e solado tratorado, em couro ou sintético. Procura maior no inverno.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 28.4,
+    "score_relevancia": 29.1,
     "nivel_risco": "Moderado",
     "sazonalidade": "Outono/Inverno",
     "metricas": {
-      "interesse_recente": 21.8,
-      "variacao_12m_pct": -15.0,
+      "interesse_recente": 22.3,
+      "variacao_12m_pct": -14.1,
       "volatilidade": 0.22,
       "mes_pico": 6,
-      "amplitude_sazonal": 1.48,
+      "amplitude_sazonal": 1.47,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -744,18 +744,18 @@
     "conteudo": "Bota de cano curto com elástico lateral, sem cadarço, em couro liso ou camurça. Combina com alfaiataria e jeans.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 47.1,
+    "score_relevancia": 46.5,
     "nivel_risco": "Moderado",
     "sazonalidade": "Outono/Inverno",
     "metricas": {
-      "interesse_recente": 33.8,
-      "variacao_12m_pct": 10.4,
-      "volatilidade": 0.43,
+      "interesse_recente": 34.8,
+      "variacao_12m_pct": 8.3,
+      "volatilidade": 0.44,
       "mes_pico": 6,
-      "amplitude_sazonal": 1.91,
+      "amplitude_sazonal": 1.84,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -767,18 +767,18 @@
     "conteudo": "Tênis com amortecimento para corrida, usado também no dia a dia. Acompanha o crescimento das provas de rua.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 73.3,
+    "score_relevancia": 72.1,
     "nivel_risco": "Baixo",
     "sazonalidade": "Atemporal",
     "metricas": {
-      "interesse_recente": 75.7,
-      "variacao_12m_pct": 21.0,
+      "interesse_recente": 74.8,
+      "variacao_12m_pct": 19.5,
       "volatilidade": 0.11,
       "mes_pico": 8,
-      "amplitude_sazonal": 1.17,
+      "amplitude_sazonal": 1.16,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -790,18 +790,18 @@
     "conteudo": "Chinelo de tira única larga, em borracha ou EVA. Peça de conforto para casa, praia e pós-treino.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 31.9,
+    "score_relevancia": 33.0,
     "nivel_risco": "Moderado",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 25.8,
-      "variacao_12m_pct": -12.0,
+      "interesse_recente": 27.4,
+      "variacao_12m_pct": -11.3,
       "volatilidade": 0.38,
       "mes_pico": 12,
-      "amplitude_sazonal": 2.06,
+      "amplitude_sazonal": 2.05,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -813,18 +813,18 @@
     "conteudo": "Calçado que mistura sapato e tênis, em couro ou camurça, com solado de borracha. Público adulto e tradicional.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 49.3,
+    "score_relevancia": 48.7,
     "nivel_risco": "Moderado",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 47.7,
-      "variacao_12m_pct": 0.9,
+      "interesse_recente": 46.7,
+      "variacao_12m_pct": 0.7,
       "volatilidade": 0.19,
       "mes_pico": 12,
-      "amplitude_sazonal": 1.28,
+      "amplitude_sazonal": 1.29,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -836,18 +836,18 @@
     "conteudo": "Sandália com tiras de velcro e solado grosso, ligada a trilhas e à estética outdoor no uso urbano.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 35.5,
+    "score_relevancia": 36.0,
     "nivel_risco": "Moderado",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 20.3,
-      "variacao_12m_pct": 0.7,
-      "volatilidade": 0.58,
+      "interesse_recente": 20.8,
+      "variacao_12m_pct": 1.2,
+      "volatilidade": 0.56,
       "mes_pico": 12,
       "amplitude_sazonal": 2.39,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -859,18 +859,18 @@
     "conteudo": "Tênis de perfil baixo inspirados em modelos de corrida e skate dos anos 70 a 90, em camurça e nylon.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 78.1,
+    "score_relevancia": 69.2,
     "nivel_risco": "Moderado",
     "sazonalidade": "Outono/Inverno",
     "metricas": {
-      "interesse_recente": 56.2,
-      "variacao_12m_pct": 102.6,
-      "volatilidade": 0.66,
+      "interesse_recente": 38.3,
+      "variacao_12m_pct": 117.3,
+      "volatilidade": 0.67,
       "mes_pico": 7,
-      "amplitude_sazonal": 1.82,
+      "amplitude_sazonal": 1.6,
       "semanas_zeradas_pct": 42.3,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -882,18 +882,18 @@
     "conteudo": "Bermuda com bolsos laterais grandes, em sarja ou rip-stop. Versão de verão da calça cargo.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 26.8,
+    "score_relevancia": 28.0,
     "nivel_risco": "Moderado",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 18.6,
-      "variacao_12m_pct": -15.0,
-      "volatilidade": 0.55,
+      "interesse_recente": 19.3,
+      "variacao_12m_pct": -13.4,
+      "volatilidade": 0.54,
       "mes_pico": 12,
-      "amplitude_sazonal": 2.24,
+      "amplitude_sazonal": 2.18,
       "semanas_zeradas_pct": 1.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -905,18 +905,18 @@
     "conteudo": "Bermuda de denim em lavagens claras e médias, com barra feita ou desfiada. Produto de giro alto no verão.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 34.2,
+    "score_relevancia": 33.8,
     "nivel_risco": "Moderado",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 17.8,
-      "variacao_12m_pct": 0.6,
-      "volatilidade": 0.49,
+      "interesse_recente": 17.4,
+      "variacao_12m_pct": 0.1,
+      "volatilidade": 0.5,
       "mes_pico": 12,
-      "amplitude_sazonal": 2.39,
+      "amplitude_sazonal": 2.4,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -928,18 +928,18 @@
     "conteudo": "Short leve de linho com cós de elástico ou cordão, combinando com camisas do mesmo tecido.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 30.6,
+    "score_relevancia": 34.7,
     "nivel_risco": "Alto",
     "sazonalidade": "Atemporal",
     "metricas": {
-      "interesse_recente": 11.2,
+      "interesse_recente": 19.3,
       "variacao_12m_pct": 0.0,
       "volatilidade": 1.6,
       "mes_pico": 12,
-      "amplitude_sazonal": 4.02,
-      "semanas_zeradas_pct": 66.3,
+      "amplitude_sazonal": 4.07,
+      "semanas_zeradas_pct": 68.3,
       "dados_esparsos": true,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -951,18 +951,18 @@
     "conteudo": "Short de tecido sintético leve que seca rápido, para praia, piscina e atividades ao ar livre.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 35.7,
+    "score_relevancia": 35.5,
     "nivel_risco": "Moderado",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 27.5,
-      "variacao_12m_pct": -6.1,
-      "volatilidade": 0.45,
+      "interesse_recente": 28.3,
+      "variacao_12m_pct": -7.4,
+      "volatilidade": 0.46,
       "mes_pico": 12,
-      "amplitude_sazonal": 1.9,
+      "amplitude_sazonal": 1.91,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -974,18 +974,18 @@
     "conteudo": "Bermuda de moletom com cós de cordão, para uso em casa, academia e passeios informais.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 25.8,
-    "nivel_risco": "Alto",
+    "score_relevancia": 27.1,
+    "nivel_risco": "Moderado",
     "sazonalidade": "Primavera/Verão",
     "metricas": {
-      "interesse_recente": 18.0,
-      "variacao_12m_pct": -16.3,
-      "volatilidade": 0.41,
+      "interesse_recente": 18.5,
+      "variacao_12m_pct": -14.3,
+      "volatilidade": 0.43,
       "mes_pico": 12,
-      "amplitude_sazonal": 1.8,
-      "semanas_zeradas_pct": 1.0,
+      "amplitude_sazonal": 1.86,
+      "semanas_zeradas_pct": 1.9,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -997,18 +997,18 @@
     "conteudo": "Jaqueta de denim de modelagem tradicional ou ampla. Terceira peça versátil para meia-estação.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 17.6,
+    "score_relevancia": 17.5,
     "nivel_risco": "Alto",
     "sazonalidade": "Outono/Inverno",
     "metricas": {
-      "interesse_recente": 9.6,
-      "variacao_12m_pct": -24.4,
+      "interesse_recente": 9.8,
+      "variacao_12m_pct": -24.7,
       "volatilidade": 0.52,
       "mes_pico": 5,
-      "amplitude_sazonal": 1.96,
+      "amplitude_sazonal": 1.98,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -1020,18 +1020,18 @@
     "conteudo": "Jaqueta leve de nylon com capuz, que protege do vento e da garoa. Usada em esportes e na cidade.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 35.4,
+    "score_relevancia": 35.3,
     "nivel_risco": "Moderado",
     "sazonalidade": "Outono/Inverno",
     "metricas": {
       "interesse_recente": 20.8,
-      "variacao_12m_pct": 0.0,
+      "variacao_12m_pct": -0.2,
       "volatilidade": 0.43,
       "mes_pico": 5,
       "amplitude_sazonal": 1.9,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -1043,18 +1043,18 @@
     "conteudo": "Jaqueta com enchimento em gomos, de volume marcado. Peça de inverno com demanda concentrada nos meses frios.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 16.8,
+    "score_relevancia": 17.1,
     "nivel_risco": "Alto",
     "sazonalidade": "Outono/Inverno",
     "metricas": {
       "interesse_recente": 5.6,
-      "variacao_12m_pct": -22.1,
+      "variacao_12m_pct": -21.4,
       "volatilidade": 0.95,
       "mes_pico": 6,
       "amplitude_sazonal": 2.83,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -1066,18 +1066,18 @@
     "conteudo": "Jaqueta de couro natural ou sintético, nos modelos motociclista e café racer. Preço alto e procura sazonal.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 28.1,
+    "score_relevancia": 27.2,
     "nivel_risco": "Moderado",
     "sazonalidade": "Outono/Inverno",
     "metricas": {
-      "interesse_recente": 12.2,
-      "variacao_12m_pct": -6.0,
-      "volatilidade": 0.62,
+      "interesse_recente": 11.7,
+      "variacao_12m_pct": -7.3,
+      "volatilidade": 0.64,
       "mes_pico": 6,
-      "amplitude_sazonal": 2.18,
+      "amplitude_sazonal": 2.19,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -1089,18 +1089,18 @@
     "conteudo": "Blusa de moletom com ou sem capuz, peça básica do inverno brasileiro, lisa ou estampada.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 25.5,
+    "score_relevancia": 25.1,
     "nivel_risco": "Moderado",
     "sazonalidade": "Outono/Inverno",
     "metricas": {
-      "interesse_recente": 8.7,
-      "variacao_12m_pct": -7.7,
-      "volatilidade": 0.74,
+      "interesse_recente": 8.3,
+      "variacao_12m_pct": -8.2,
+      "volatilidade": 0.75,
       "mes_pico": 5,
-      "amplitude_sazonal": 2.36,
+      "amplitude_sazonal": 2.38,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -1112,18 +1112,18 @@
     "conteudo": "Colete acolchoado sem mangas, usado sobre moletom ou camisa. Opção mais leve para a meia-estação.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 24.3,
+    "score_relevancia": 19.0,
     "nivel_risco": "Alto",
     "sazonalidade": "Outono/Inverno",
     "metricas": {
-      "interesse_recente": 16.8,
-      "variacao_12m_pct": -18.2,
-      "volatilidade": 0.89,
+      "interesse_recente": 11.2,
+      "variacao_12m_pct": -23.3,
+      "volatilidade": 1.01,
       "mes_pico": 6,
-      "amplitude_sazonal": 2.55,
-      "semanas_zeradas_pct": 21.2,
+      "amplitude_sazonal": 2.63,
+      "semanas_zeradas_pct": 29.8,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -1135,18 +1135,18 @@
     "conteudo": "Casaco de tricô com botões, em modelagem reta ou ampla. Ligado à estética vintage e ao estilo universitário.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 19.4,
+    "score_relevancia": 19.2,
     "nivel_risco": "Alto",
     "sazonalidade": "Outono/Inverno",
     "metricas": {
-      "interesse_recente": 8.9,
-      "variacao_12m_pct": -20.1,
+      "interesse_recente": 10.0,
+      "variacao_12m_pct": -21.7,
       "volatilidade": 0.66,
       "mes_pico": 5,
-      "amplitude_sazonal": 2.08,
-      "semanas_zeradas_pct": 6.7,
+      "amplitude_sazonal": 2.09,
+      "semanas_zeradas_pct": 5.8,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -1162,14 +1162,14 @@
     "nivel_risco": "Baixo",
     "sazonalidade": "Atemporal",
     "metricas": {
-      "interesse_recente": 64.2,
-      "variacao_12m_pct": 26.5,
+      "interesse_recente": 64.6,
+      "variacao_12m_pct": 26.2,
       "volatilidade": 0.11,
       "mes_pico": 6,
-      "amplitude_sazonal": 1.11,
+      "amplitude_sazonal": 1.1,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -1181,18 +1181,18 @@
     "conteudo": "Moda de rua ligada ao skate, ao hip-hop e às marcas urbanas, com peças amplas, estampas e tênis em destaque.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 60.3,
-    "nivel_risco": "Baixo",
+    "score_relevancia": 59.8,
+    "nivel_risco": "Moderado",
     "sazonalidade": "Atemporal",
     "metricas": {
-      "interesse_recente": 60.2,
-      "variacao_12m_pct": 10.3,
+      "interesse_recente": 59.9,
+      "variacao_12m_pct": 9.8,
       "volatilidade": 0.16,
       "mes_pico": 12,
       "amplitude_sazonal": 1.18,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   },
   {
@@ -1204,18 +1204,18 @@
     "conteudo": "Compra e venda de roupas usadas, motivada por preço, sustentabilidade e busca por peças únicas.",
     "fonte": "Google Trends Brasil",
     "origem_descricao": "Texto sintético (redação assistida por IA)",
-    "score_relevancia": 54.9,
+    "score_relevancia": 54.7,
     "nivel_risco": "Moderado",
     "sazonalidade": "Atemporal",
     "metricas": {
-      "interesse_recente": 50.8,
-      "variacao_12m_pct": 9.1,
+      "interesse_recente": 49.8,
+      "variacao_12m_pct": 9.6,
       "volatilidade": 0.18,
       "mes_pico": 6,
       "amplitude_sazonal": 1.15,
       "semanas_zeradas_pct": 0.0,
       "dados_esparsos": false,
-      "data_coleta": "2026-11-11"
+      "data_coleta": "2026-11-16"
     }
   }
 ]
