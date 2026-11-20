@@ -45,8 +45,9 @@ Caddy na frente faz HTTPS com Let's Encrypt para os dois domínios.
 ## Consequências
 
 - Custo previsível (~US$ 30/mês para a VM).
-- Eu sou responsável por atualizar o sistema operacional e fazer backup dos volumes
-  (`docker run --rm -v moda-production_postgres_data:/d ... tar`).
+- Eu sou responsável por atualizar o sistema operacional e pelo backup dos bancos. O backup é
+  feito por `deploy/backup.sh` (`pg_dump` diário pelo cron e antes de cada deploy, 7 dias guardados
+  na VM e cópia opcional no Azure Blob); a restauração, por `deploy/restaurar.sh`. Ver o README.
 - Os dois ambientes dividem a mesma máquina: um pico em homologação afeta produção. Para o
   volume de uso esperado isso é aceitável.
 - `run-command` é mais lento que SSH (~30 a 60 s por deploy).
