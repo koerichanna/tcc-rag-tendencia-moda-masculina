@@ -17,6 +17,18 @@ git show "$TAG:docker-compose.prod.yml" > "$COMPOSE_FILE"
 
 sed -i "s/^IMAGE_TAG=.*/IMAGE_TAG=$TAG/" "$ENV_FILE"
 
+# Backup: scripts na versão deste deploy e cron diário às 06h UTC (03h de Brasília)
+for script in backup.sh restaurar.sh; do
+  git show "$TAG:deploy/$script" > "$DIR/$script"
+  chmod 700 "$DIR/$script"
+done
+mkdir -p "$DIR/backups"
+printf '%s\n' "# Backup diario dos bancos (instalado pelo deploy.sh do projeto-moda)" \
+  "0 6 * * * root $DIR/backup.sh >> $DIR/backups/backup.log 2>&1" > /etc/cron.d/projeto-moda-backup
+chmod 644 /etc/cron.d/projeto-moda-backup
+# Guarda o estado atual antes de atualizar (e de rodar migrations). Falha aqui não trava o deploy.
+"$DIR/backup.sh" "$AMBIENTE" || echo "AVISO: backup antes do deploy falhou"
+
 compose() {
   docker compose -p "moda-$AMBIENTE" --env-file "$ENV_FILE" -f "$COMPOSE_FILE" "$@"
 }
