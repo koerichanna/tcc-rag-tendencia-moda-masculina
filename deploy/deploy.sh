@@ -44,6 +44,8 @@ compose() {
 }
 
 compose pull --quiet
+# A API roda como o usuário app (uid 1000); volumes criados antes disso pertencem ao root
+compose run --rm -T --no-deps --user root backend chown -R 1000:1000 /app/data/chroma_db </dev/null
 compose up -d --wait --quiet-pull 2>&1 | tail -n 5
 # idempotente: atualiza a base de tendências sem duplicar nem apagar o que veio da API
 compose exec -T backend python ingestion.py </dev/null

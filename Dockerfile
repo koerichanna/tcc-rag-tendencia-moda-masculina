@@ -6,14 +6,13 @@ ENV CHROMA_PERSIST_DIRECTORY=/app/data/chroma_db
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    curl \
+# curl para o HEALTHCHECK; sem compilador, porque só entram pacotes já compilados (wheels)
+RUN apt-get update && apt-get install -y --no-install-recommends curl \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+# Versões e hashes travados (requirements.lock), sem rodar script de instalação de terceiros
+COPY requirements.lock .
+RUN pip install --no-cache-dir --require-hashes --only-binary :all: -r requirements.lock
 
 # Modelo de embedding multilíngue (ONNX quantizado, ~135 MB) já dentro da imagem: a API sobe sem
 # depender do Hugging Face e o download fica em cache entre builds enquanto requirements não muda.
@@ -28,7 +27,10 @@ COPY *.py alembic.ini ./
 COPY migrations/ migrations/
 COPY data/market_trends.json data/
 
-RUN mkdir -p /app/data/chroma_db
+# A API roda com um usuário sem privilégios, que só escreve na base vetorial. O deploy.sh ajusta o
+# dono do volume chroma_data, criado quando a imagem ainda rodava como root.
+RUN useradd --create-home --uid 1000 app && mkdir -p /app/data/chroma_db && chown -R app:app /app/data
+USER app
 
 EXPOSE 8000
 
