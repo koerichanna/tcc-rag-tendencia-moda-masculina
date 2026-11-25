@@ -17,12 +17,12 @@ export default function Dashboard({ kpis, recomendacoes }) {
       .finally(() => setCarregando(false));
 
   useEffect(() => {
-    buscarBriefing();
+    void buscarBriefing(); // buscarBriefing já trata o erro
   }, []);
 
   const recalcular = () => {
     setCarregando(true);
-    buscarBriefing();
+    void buscarBriefing();
   };
 
   return (
