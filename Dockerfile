@@ -23,7 +23,10 @@ RUN for arquivo in tokenizer.json onnx/model_quantized.onnx; do \
 hf_hub_download('Xenova/paraphrase-multilingual-MiniLM-L12-v2', sys.argv[1], local_dir='/app/modelos/multilingue')" "$arquivo"; \
     done
 
-COPY . .
+# Só o que a API usa (código, migrations e a base de tendências); nada de .env, testes ou dados brutos.
+COPY *.py alembic.ini ./
+COPY migrations/ migrations/
+COPY data/market_trends.json data/
 
 RUN mkdir -p /app/data/chroma_db
 

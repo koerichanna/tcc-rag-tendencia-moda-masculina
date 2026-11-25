@@ -12,6 +12,7 @@ from pipeline.preprocessamento import (
     interesse_recente,
     metricas_do_termo,
     perfil_sazonal,
+    validar_coleta,
     variacao_anual,
     volatilidade,
 )
@@ -113,3 +114,19 @@ def test_serie_com_volume_continua_classificada_normalmente():
     assert m["dados_esparsos"] is False
     assert m["variacao_12m_pct"] == 25.0
     assert m["nivel_risco"] == "Baixo"
+
+
+def test_validar_coleta_aceita_csv_dentro_da_pasta(tmp_path):
+    arquivo = tmp_path / "google_trends_2026-11-23.csv"
+    assert validar_coleta(str(arquivo), pasta=tmp_path) == tmp_path.resolve() / arquivo.name
+
+
+@pytest.mark.parametrize("nome", [
+    "../google_trends_2026-11-23.csv",  # sai da pasta
+    "sub/google_trends_2026-11-23.csv",  # subpasta
+    "outro_2026-11-23.csv",  # nome fora do padrão
+    "google_trends_2026-11-23.json",  # extensão errada
+])
+def test_validar_coleta_recusa_arquivo_fora_do_padrao(tmp_path, nome):
+    with pytest.raises(ValueError):
+        validar_coleta(str(tmp_path / nome), pasta=tmp_path)

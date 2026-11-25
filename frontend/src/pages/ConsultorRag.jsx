@@ -89,7 +89,7 @@ export default function ConsultorRag({ produtos, onAtualizar }) {
   const usarExemplo = (ex) => {
     setPergunta(ex.texto);
     setCategoria(ex.cat);
-    consultar(ex.texto, ex.cat);
+    void consultar(ex.texto, ex.cat); // consultar já trata o erro
   };
 
   return (
