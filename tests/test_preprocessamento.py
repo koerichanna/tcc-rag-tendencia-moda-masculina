@@ -1,7 +1,9 @@
 import datetime
+import json
 
 import pytest
 
+from pipeline import preprocessamento
 from pipeline.preprocessamento import (
     atualizar_base,
     calcular_score,
@@ -130,3 +132,29 @@ def test_validar_coleta_aceita_csv_dentro_da_pasta(tmp_path):
 def test_validar_coleta_recusa_arquivo_fora_do_padrao(tmp_path, nome):
     with pytest.raises(ValueError):
         validar_coleta(str(tmp_path / nome), pasta=tmp_path)
+
+
+def test_main_atualiza_a_base_com_a_coleta_mais_recente(tmp_path, monkeypatch):
+    pasta = tmp_path / "raw"
+    pasta.mkdir()
+    linhas = ["data,termo_busca,interesse,parcial"]
+    for data, interesse in semanas([40] * 52 + [60] * 52):
+        linhas.append(f"{data},calça,{interesse},False")
+    (pasta / "google_trends_2026-11-10.csv").write_text("\n".join(linhas) + "\n", encoding="utf-8")
+    (pasta / "google_trends_2026-11-03.csv").write_text(linhas[0] + "\n", encoding="utf-8")  # mais antiga
+    arquivo_base = tmp_path / "market_trends.json"
+    arquivo_base.write_text('[{"termo_busca": "calça"}]', encoding="utf-8")
+    monkeypatch.setattr(preprocessamento, "PASTA_RAW", pasta)
+    monkeypatch.setattr(preprocessamento, "ARQUIVO_BASE", arquivo_base)
+
+    preprocessamento.main()
+
+    base = json.loads(arquivo_base.read_text(encoding="utf-8"))
+    assert base[0]["metricas"]["data_coleta"] == "2026-11-10"
+    assert base[0]["nivel_risco"] == "Baixo"
+
+
+def test_main_recusa_csv_fora_da_pasta_de_coletas(tmp_path, monkeypatch):
+    monkeypatch.setattr(preprocessamento, "PASTA_RAW", tmp_path)
+    with pytest.raises(ValueError):
+        preprocessamento.main(str(tmp_path.parent / "google_trends_2026-11-10.csv"))
