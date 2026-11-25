@@ -19,7 +19,8 @@ jobs:
         image: postgres:16-alpine
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          # Banco descartável do CI, acessível só dentro do runner: dispensa senha.
+          POSTGRES_HOST_AUTH_METHOD: trust
           POSTGRES_DB: moda_db
         ports:
           - 5432:5432
@@ -29,7 +30,7 @@ jobs:
           --health-timeout 5s
           --health-retries 10
     env:
-      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/moda_db"
+      DATABASE_URL: "postgresql://postgres@localhost:5432/moda_db"
       CHROMA_PERSIST_DIRECTORY: "./data/test_chroma"
     steps:
       - uses: actions/checkout@v4
@@ -40,7 +41,8 @@ jobs:
           cache: pip
 
       - name: Instalar dependências
-        run: pip install -r requirements.txt
+        # Versões e hashes travados, só pacotes já compilados (sem script de instalação de terceiros)
+        run: "pip install --require-hashes --only-binary :all: -r requirements.lock"
 
       # Modelo de embedding (~135 MB) baixado do Hugging Face na primeira execução
       - uses: actions/cache@v4
@@ -74,7 +76,7 @@ jobs:
           cache: npm
           cache-dependency-path: frontend/package-lock.json
 
-      - run: npm ci
+      - run: npm ci --ignore-scripts
       - run: npm run lint
       - run: npm run build
 
@@ -90,7 +92,8 @@ jobs:
         image: postgres:16-alpine
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          # Banco descartável do CI, acessível só dentro do runner: dispensa senha.
+          POSTGRES_HOST_AUTH_METHOD: trust
           POSTGRES_DB: moda_db
         ports:
           - 5432:5432
@@ -100,7 +103,7 @@ jobs:
           --health-timeout 5s
           --health-retries 10
     env:
-      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/moda_db"
+      DATABASE_URL: "postgresql://postgres@localhost:5432/moda_db"
       CHROMA_PERSIST_DIRECTORY: "./data/e2e_chroma"
       JWT_SECRET: "segredo-usado-somente-no-ci-e2e"
       CORS_ORIGINS: "http://localhost:4173"
@@ -130,7 +133,7 @@ jobs:
 
       - name: Instalar dependências
         run: |
-          pip install -r requirements.txt -r e2e/requirements.txt
+          pip install --require-hashes --only-binary :all: -r e2e/requirements.lock
           python -m playwright install --with-deps chromium
 
       - name: Preparar banco, base vetorial e administrador
@@ -141,7 +144,7 @@ jobs:
       - name: Subir API e frontend
         run: |
           nohup uvicorn main:app --port 8000 > api.log 2>&1 &
-          cd frontend && npm ci && VITE_API_URL=http://localhost:8000 npm run build
+          cd frontend && npm ci --ignore-scripts && VITE_API_URL=http://localhost:8000 npm run build
           nohup npx vite preview --port 4173 --strictPort > ../vite.log 2>&1 &
           for i in $(seq 60); do
             curl -sf http://localhost:8000/health > /dev/null && curl -sf http://localhost:4173 > /dev/null && exit 0
@@ -174,7 +177,7 @@ jobs:
 
       - name: SonarCloud scan
         if: env.SONAR_TOKEN != ''
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@2f77a1ec69fb1d595b06f35ab27e97605bdef703  # v5.3.2
 
   imagens:
     name: Publicar imagens no GHCR
@@ -190,19 +193,19 @@ jobs:
       - name: Nome do dono em minúsculas
         run: echo "OWNER=${GITHUB_REPOSITORY_OWNER,,}" >> "$GITHUB_ENV"
 
-      - uses: docker/login-action@v3
+      - uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9  # v3.7.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: docker/build-push-action@v6
+      - uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8  # v6.19.2
         with:
           context: .
           push: true
           tags: ghcr.io/${{ env.OWNER }}/projeto-moda-backend:${{ github.sha }}
 
-      - uses: docker/build-push-action@v6
+      - uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8  # v6.19.2
         with:
           context: ./frontend
           push: true
@@ -222,7 +225,7 @@ jobs:
       group: deploy-vm
       cancel-in-progress: false
     steps:
-      - uses: azure/login@v2
+      - uses: azure/login@7184910d9eb2b1c5e48f7073824a90609bb9b6d6  # v2.3.1
         with:
           client-id: ${{ vars.AZURE_CLIENT_ID }}
           tenant-id: ${{ vars.AZURE_TENANT_ID }}
