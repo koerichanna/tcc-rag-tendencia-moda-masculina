@@ -48,13 +48,14 @@ def coletar(termos, geo="BR", periodo="today 5-y"):
                 break
             except Exception as erro:  # o Google responde 429 quando há muitas consultas seguidas
                 espera = 30 * (tentativa + 1)
-                logger.warning("Falha em '%s' (%s), nova tentativa em %ss", termo, erro, espera)
+                # %r escapa quebras de linha: o termo não consegue forjar linhas no log
+                logger.warning("Falha em %r (%s), nova tentativa em %ss", termo, type(erro).__name__, espera)
                 time.sleep(espera)
         else:
             raise RuntimeError(f"Não foi possível coletar '{termo}'")
 
         if df.empty:
-            logger.warning("Sem dados para '%s'", termo)
+            logger.warning("Sem dados para %r", termo)
             continue
         for data, linha in df.iterrows():
             linhas.append({

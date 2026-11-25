@@ -136,7 +136,8 @@ def atualizar_base(base, series, data_coleta):
     for item in base:
         pontos = series.get(item["termo_busca"])
         if not pontos:
-            logger.warning("Sem série para '%s', registro mantido sem métricas", item["termo_busca"])
+            # %r escapa quebras de linha: o termo não consegue forjar linhas no log
+            logger.warning("Sem série para %r, registro mantido sem métricas", item["termo_busca"])
             continue
         m = metricas_do_termo(pontos)
         item["score_relevancia"] = m.pop("score_relevancia")
