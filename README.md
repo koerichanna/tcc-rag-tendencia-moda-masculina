@@ -184,3 +184,47 @@ parecida da mesma categoria e copia o score dela. O vínculo é refeito a cada i
 Azure VM com Docker Compose, imagens publicadas no GitHub Container Registry e deploy pelo
 GitHub Actions via `az vm run-command` (sem SSH). `main` vai para produção e `develop` para
 homologação. Detalhes em [docs/adr-001-hospedagem-nuvem.md](docs/adr-001-hospedagem-nuvem.md).
+
+## Backup e restauração
+
+O PostgreSQL de cada ambiente roda dentro da VM, então o backup é responsabilidade do projeto:
+
+- **Quando:** todo dia às 03h de Brasília (cron em `/etc/cron.d/projeto-moda-backup`) e antes de
+  cada deploy, para dar para voltar se uma migration der errado.
+- **Como:** `deploy/backup.sh` roda `pg_dump` no formato custom (comprimido) dentro do contêiner do
+  banco, confere o arquivo com `pg_restore --list` e só então o guarda. As credenciais vêm do
+  próprio contêiner; o script não tem senha.
+- **Onde:** `/opt/projeto-moda/backups/<ambiente>-<data>-<hora>.dump`, só o root lê; ficam os
+  últimos 7 dias. Log em `/opt/projeto-moda/backups/backup.log`.
+- **Instalação:** automática. O `deploy/deploy.sh` copia `backup.sh` e `restaurar.sh` para
+  `/opt/projeto-moda/` e grava o cron a cada deploy.
+- **ChromaDB:** sem backup, porque é reconstruído pelo `ingestion.py` a cada deploy. As tendências
+  sugeridas pela IA também ficam no PostgreSQL.
+
+Comandos (pelo **Executar comando** da VM no portal da Azure, ou `az vm run-command invoke ...
+--scripts "..."`):
+
+```bash
+ls -lh /opt/projeto-moda/backups                     # backups existentes
+/opt/projeto-moda/backup.sh production               # backup na hora
+/opt/projeto-moda/restaurar.sh production production-20261121-060001.dump
+```
+
+O `restaurar.sh` faz antes um backup do estado atual, para a restauração poder ser desfeita.
+
+### Cópia fora da VM (Azure Blob, opcional)
+
+Os backups na VM protegem contra erro humano e migration ruim, mas não contra a perda da VM. Para
+mandar uma cópia para fora, crie um Storage Account e grave a URL do contêiner com um token SAS em
+`/opt/projeto-moda/.env.backup` (permissão 600):
+
+```bash
+az storage account create -g rg-projeto-moda -n <nomeunico> -l canadacentral --sku Standard_LRS
+az storage container create --account-name <nomeunico> -n backups
+az storage container generate-sas --account-name <nomeunico> -n backups --permissions cw \
+  --expiry 2027-12-31 -o tsv
+# na VM: BACKUP_SAS_URL=https://<nomeunico>.blob.core.windows.net/backups?<token>
+```
+
+O token só permite criar e gravar (`cw`), não ler nem apagar: quem tiver acesso à VM não consegue
+destruir as cópias. A partir do backup seguinte, cada arquivo também é enviado ao contêiner.

@@ -21,7 +21,7 @@ reais.**
 | 8 | Tendências geradas pela IA não são verificadas | Média | marcadas como "não verificada" na tela e no banco |
 | 9 | Dependência do Gemini | Média | regras locais e checagem de coerência |
 | 10 | Erros de recuperação viram erros de risco | Média | vínculo produto↔tendência, avaliação por tipo |
-| 11 | Infraestrutura em uma VM só | Baixa (para um TCC) | deploy automatizado, rollback, monitoramento |
+| 11 | Infraestrutura em uma VM só | Baixa (para um TCC) | deploy automatizado, rollback, monitoramento, backup diário |
 | 12 | Avaliação da geração com 24 perguntas | Baixa | só a diferença grande é tratada como conclusão |
 
 ---
@@ -176,7 +176,11 @@ gerenciados e alta disponibilidade ficaram de fora por custo (assinatura Azure f
 
 **Mitigação:** deploy automatizado pelo GitHub Actions, rollback por workflow, deploys
 serializados, healthchecks, Prometheus e Grafana. A decisão está em
-[adr-001-hospedagem-nuvem.md](adr-001-hospedagem-nuvem.md). O backup dos volumes é manual.
+[adr-001-hospedagem-nuvem.md](adr-001-hospedagem-nuvem.md). Os bancos têm backup diário
+(`deploy/backup.sh`, 7 dias) e um backup automático antes de cada deploy; a restauração é um
+comando (`deploy/restaurar.sh`). Enquanto a cópia no Azure Blob não for configurada, os backups
+ficam no disco da própria VM: protegem contra erro humano e migration ruim, mas não contra a perda
+da VM.
 
 **Como responder:** "Para um TCC, uma VM com Docker Compose foi o melhor equilíbrio entre custo e
 realismo. Para produção de verdade eu separaria os ambientes e usaria um banco gerenciado com
