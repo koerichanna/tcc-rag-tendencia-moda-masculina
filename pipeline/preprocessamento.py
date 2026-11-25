@@ -153,13 +153,25 @@ def coleta_mais_recente(pasta=PASTA_RAW):
     return arquivos[-1]
 
 
+def validar_coleta(caminho_csv, pasta=PASTA_RAW):
+    """Aceita só um CSV de coleta que esteja dentro de data/raw/ (evita ler arquivo fora da pasta)."""
+    caminho = pathlib.Path(caminho_csv).resolve()
+    pasta = pasta.resolve()
+    if caminho.parent != pasta or not caminho.name.startswith("google_trends_") or caminho.suffix != ".csv":
+        raise ValueError(f"Use um arquivo google_trends_*.csv de {pasta}")
+    return pasta / caminho.name
+
+
 def main(caminho_csv=None):
-    caminho = pathlib.Path(caminho_csv) if caminho_csv else coleta_mais_recente()
+    caminho = validar_coleta(caminho_csv) if caminho_csv else coleta_mais_recente()
     data_coleta = caminho.stem.removeprefix("google_trends_")
     with open(ARQUIVO_BASE, encoding="utf-8") as f:
         base = json.load(f)
     atualizar_base(base, carregar_series(caminho), data_coleta)
-    ARQUIVO_BASE.write_text(json.dumps(base, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # O destino é sempre o caminho fixo ARQUIVO_BASE; o que vem da coleta é só o conteúdo.
+    with open(ARQUIVO_BASE, "w", encoding="utf-8") as f:
+        json.dump(base, f, ensure_ascii=False, indent=2)
+        f.write("\n")
     logger.info("Base atualizada com a coleta %s", caminho.name)
 
 
