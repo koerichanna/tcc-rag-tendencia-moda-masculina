@@ -174,7 +174,7 @@ export default function Usuarios({ usuarioLogado }) {
 
   const excluir = (usuario) => {
     if (!window.confirm(`Excluir o usuário "${usuario.nome_usuario}"? Prefira desativar se quiser manter o registro.`)) return;
-    executar(() => api.excluirUsuario(usuario.id));
+    void executar(() => api.excluirUsuario(usuario.id)); // executar já trata o erro
   };
 
   return (

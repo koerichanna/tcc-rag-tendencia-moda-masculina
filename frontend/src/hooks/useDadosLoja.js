@@ -44,7 +44,9 @@ export default function useDadosLoja() {
 
   useEffect(() => {
     let ativo = true;
-    buscarDados().then((novos) => ativo && aplicar(novos));
+    buscarDados()
+      .then((novos) => ativo && aplicar(novos))
+      .catch((err) => console.warn('Erro ao carregar dados da loja:', err));
     return () => { ativo = false; };
   }, [aplicar]);
 
