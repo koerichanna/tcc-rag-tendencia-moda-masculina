@@ -31,9 +31,10 @@ jobs:
           python-version: "3.11"
 
       # A coleta e o pré-processamento só precisam do pytrends (que traz o pandas); o resto da
-      # aplicação não é instalado aqui.
+      # aplicação não é instalado aqui. Versões e hashes travados, e só pacotes já compilados
+      # (wheels), para não rodar script de instalação de terceiros.
       - name: Instalar o pytrends
-        run: pip install "pytrends>=4.9.2"
+        run: pip install --require-hashes --only-binary :all: -r requirements-trends.txt
 
       - name: Coletar no Google Trends
         run: python -m pipeline.coleta_trends
