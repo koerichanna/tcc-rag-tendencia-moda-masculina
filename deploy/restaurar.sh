@@ -8,8 +8,8 @@ set -euo pipefail
 AMBIENTE="${1:?informe o ambiente: production ou staging}"
 ARQUIVO="${2:?informe o arquivo .dump}"
 BASE_DIR="${BASE_DIR:-/opt/projeto-moda}"
-[ -f "$ARQUIVO" ] || ARQUIVO="$BASE_DIR/backups/$ARQUIVO"
-[ -f "$ARQUIVO" ] || { echo "arquivo não encontrado: $2"; exit 1; }
+[[ -f "$ARQUIVO" ]] || ARQUIVO="$BASE_DIR/backups/$ARQUIVO"
+[[ -f "$ARQUIVO" ]] || { echo "arquivo não encontrado: $2"; exit 1; }
 
 echo "1/4 backup do estado atual"
 "$(dirname "$0")/backup.sh" "$AMBIENTE"

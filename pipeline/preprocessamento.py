@@ -163,7 +163,7 @@ def validar_coleta(caminho_csv, pasta=PASTA_RAW):
 
 
 def main(caminho_csv=None):
-    caminho = validar_coleta(caminho_csv) if caminho_csv else coleta_mais_recente()
+    caminho = validar_coleta(caminho_csv, PASTA_RAW) if caminho_csv else coleta_mais_recente(PASTA_RAW)
     data_coleta = caminho.stem.removeprefix("google_trends_")
     with open(ARQUIVO_BASE, encoding="utf-8") as f:
         base = json.load(f)
