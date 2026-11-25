@@ -133,17 +133,20 @@ def metricas_do_termo(pontos):
 
 
 def atualizar_base(base, series, data_coleta):
+    sem_serie = 0
     for item in base:
         pontos = series.get(item["termo_busca"])
         if not pontos:
-            # %r escapa quebras de linha: o termo não consegue forjar linhas no log
-            logger.warning("Sem série para %r, registro mantido sem métricas", item["termo_busca"])
+            sem_serie += 1
             continue
         m = metricas_do_termo(pontos)
         item["score_relevancia"] = m.pop("score_relevancia")
         item["nivel_risco"] = m.pop("nivel_risco")
         item["sazonalidade"] = m.pop("sazonalidade")
         item["metricas"] = {**m, "data_coleta": data_coleta}
+    if sem_serie:
+        # Só a contagem: os termos vêm de arquivo e ficam fora do log (os registros sem "metricas" são esses)
+        logger.warning("%d termo(s) sem série na coleta, registros mantidos sem métricas", sem_serie)
     return base
 
 

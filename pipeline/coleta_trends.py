@@ -48,8 +48,9 @@ def coletar(termos, geo="BR", periodo="today 5-y"):
                 break
             except Exception as erro:  # o Google responde 429 quando há muitas consultas seguidas
                 espera = 30 * (tentativa + 1)
-                # %r escapa quebras de linha: o termo não consegue forjar linhas no log
-                logger.warning("Falha em %r (%s), nova tentativa em %ss", termo, type(erro).__name__, espera)
+                # O termo (vindo de arquivo) fica fora do log; se as 3 tentativas falharem, a exceção diz qual foi.
+                logger.warning("Falha na consulta (%s), tentativa %d de 3; nova tentativa em %ss",
+                               type(erro).__name__, tentativa + 1, espera)
                 time.sleep(espera)
         else:
             raise RuntimeError(f"Não foi possível coletar '{termo}'")
