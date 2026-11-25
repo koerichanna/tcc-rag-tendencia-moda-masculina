@@ -3,9 +3,17 @@
 #   docker compose -p moda-staging    --env-file .env.staging    -f docker-compose.prod.yml up -d
 # As imagens são publicadas no GHCR pelo pipeline (.github/workflows/ci.yml).
 
+# Logs do Docker com rotação: sem limite, um contêiner com erro em loop pode encher o disco da VM.
+x-logs: &logs
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
 services:
   db:
     image: postgres:16-alpine
+    logging: *logs
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
@@ -21,6 +29,7 @@ services:
 
   backend:
     image: ghcr.io/${GHCR_OWNER}/projeto-moda-backend:${IMAGE_TAG}
+    logging: *logs
     restart: unless-stopped
     depends_on:
       db:
@@ -46,6 +55,7 @@ services:
 
   frontend:
     image: ghcr.io/${GHCR_OWNER}/projeto-moda-frontend:${IMAGE_TAG}
+    logging: *logs
     restart: unless-stopped
     depends_on:
       - backend

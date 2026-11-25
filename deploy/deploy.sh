@@ -17,6 +17,16 @@ git show "$TAG:docker-compose.prod.yml" > "$COMPOSE_FILE"
 
 sed -i "s/^IMAGE_TAG=.*/IMAGE_TAG=$TAG/" "$ENV_FILE"
 
+# Apaga as imagens que nenhum contêiner usa (versões antigas dos dois ambientes) ANTES de baixar
+# a nova. O prune simples só removia imagens sem tag, e as antigas (tag = SHA) lotaram o disco de
+# 30 GB em 25/11/2026. A versão anterior deste ambiente continua no GHCR para o rollback.
+docker image prune -a -f > /dev/null
+livre_mb=$(df -Pm / | awk 'NR==2 {print $4}')
+if [ "$livre_mb" -lt 3000 ]; then
+  echo "ERRO: só ${livre_mb} MB livres no disco; o deploy precisa de pelo menos 3000 MB"
+  exit 1
+fi
+
 # Backup: scripts na versão deste deploy e cron diário às 06h UTC (03h de Brasília)
 for script in backup.sh restaurar.sh; do
   git show "$TAG:deploy/$script" > "$DIR/$script"
@@ -37,6 +47,5 @@ compose pull --quiet
 compose up -d --wait --quiet-pull 2>&1 | tail -n 5
 # idempotente: atualiza a base de tendências sem duplicar nem apagar o que veio da API
 compose exec -T backend python ingestion.py </dev/null
-docker image prune -f >/dev/null
 
 echo "Deploy de $TAG em $AMBIENTE concluido"
