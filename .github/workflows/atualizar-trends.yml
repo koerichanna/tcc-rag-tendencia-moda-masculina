@@ -34,7 +34,7 @@ jobs:
       # aplicação não é instalado aqui. Versões e hashes travados, e só pacotes já compilados
       # (wheels), para não rodar script de instalação de terceiros.
       - name: Instalar o pytrends
-        run: pip install --require-hashes --only-binary :all: -r requirements-trends.txt
+        run: "pip install --require-hashes --only-binary :all: -r requirements-trends.txt"
 
       - name: Coletar no Google Trends
         run: python -m pipeline.coleta_trends
