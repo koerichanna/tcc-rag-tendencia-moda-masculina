@@ -22,7 +22,7 @@ sed -i "s/^IMAGE_TAG=.*/IMAGE_TAG=$TAG/" "$ENV_FILE"
 # 30 GB em 25/11/2026. A versão anterior deste ambiente continua no GHCR para o rollback.
 docker image prune -a -f > /dev/null
 livre_mb=$(df -Pm / | awk 'NR==2 {print $4}')
-if [ "$livre_mb" -lt 3000 ]; then
+if [[ "$livre_mb" -lt 3000 ]]; then
   echo "ERRO: só ${livre_mb} MB livres no disco; o deploy precisa de pelo menos 3000 MB"
   exit 1
 fi

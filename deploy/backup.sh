@@ -18,9 +18,9 @@ mkdir -p "$DESTINO"
 
 enviar_para_azure() {
   local arquivo="$1" url
-  [ -f "$BASE_DIR/.env.backup" ] || return 0
+  [[ -f "$BASE_DIR/.env.backup" ]] || return 0
   url=$(grep -E '^BACKUP_SAS_URL=' "$BASE_DIR/.env.backup" | cut -d= -f2- || true)
-  [ -n "$url" ] || return 0
+  [[ -n "$url" ]] || return 0
   # https://conta.blob.core.windows.net/backups?sv=...  ->  .../backups/<arquivo>?sv=...
   curl -sSf -X PUT -H "x-ms-blob-type: BlockBlob" --data-binary "@$arquivo" \
     "${url%%\?*}/$(basename "$arquivo")?${url#*\?}" -o /dev/null
